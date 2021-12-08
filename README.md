@@ -1,7 +1,5 @@
 # Installation
-Download and `cd` into this repository.
-
-Run `pip install .`.
+Run `pip install mvtk`.
 
 **Windows users**: Until [Jaxlib is supported on windows
 natively](https://github.com/google/jax/issues/438) you will need to either use
@@ -10,9 +8,7 @@ Alternatively, you can [build jaxlib from
 source](https://jax.readthedocs.io/en/latest/developer.html#additional-notes-for-building-jaxlib-from-source-on-windows).
 
 ## Developers
-Download and `cd` into this repository.
-
-Run `pip install -e ".[doc]"`.
+Run `pip install -e "mvtk[doc]"`.
 
 The `[doc]` is used to install dependencies for building documentation.
 
