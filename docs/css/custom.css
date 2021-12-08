@@ -1,0 +1,51 @@
+/* unvisited link */
+.wy-side-nav-search a:link {
+  color: #000000;
+}
+
+/* unvisited link */
+.wy-nav-content a:link, .section a:link {
+  color: #0070B7;
+}
+
+.highlight .c1 {
+  color: #097B79;
+}
+
+.highlight .si {
+  color: #D90E39;
+}
+
+.section .nbinput.docutils.container .prompt.highlight-none.notranslate pre {
+  color: #0070B7;
+}
+
+.section .sig.sig-object.py {
+  color: #000000;
+  background-color: rgb(255, 255, 255);
+}
+
+.section .sig.sig-object.py .sig-paren {
+  color: #0070B7;
+}
+
+.section .nboutput.docutils.container .prompt.highlight-none.notranslate pre {
+  color: #D90E39;
+}
+
+.section .pre {
+  color: #D90E39;
+}
+
+.section .admonition .admonition-title {
+  background-color: #0070B7;
+}
+
+.section .brackets, .section .fn-backref {
+  color: #0070B7;
+}
+
+/* text */
+footer {
+  color: #6B6B6B;
+}
