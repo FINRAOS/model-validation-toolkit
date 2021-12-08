@@ -7,7 +7,7 @@ from mvtk import credibility
 
 def test_prob_greater_cmp():
     nprng = numpy.random.RandomState(0)
-    prior_sample_size = 10 ** 7
+    prior_sample_size = 10 ** 6
     for N in range(2, 8):
         for prior1, prior2 in itertools.product(
             itertools.product(range(1, 3), repeat=2), repeat=2

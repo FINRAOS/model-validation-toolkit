@@ -35,6 +35,7 @@ jobs:
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
+          no_output_timeout: 30m
           command: pip install pytest && pytest tests
       - run:
           name: Run pre-commit
