@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mvtk.credibility &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvtk.credibility</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvtk.credibility</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">public</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">beta</span>
+
+
+<div class="viewcode-block" id="credible_interval"><a class="viewcode-back" href="../../credibility.html#mvtk.credibility.credible_interval">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">credible_interval</span><span class="p">(</span><span class="n">positive</span><span class="p">,</span> <span class="n">negative</span><span class="p">,</span> <span class="n">credibility</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;What is the shortest interval that contains probability(positive) with</span>
+<span class="sd">    `credibility`% probability?</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        positive (int): number of times the first possible outcome has been seen</span>
+<span class="sd">        negative (int): number of times the second possible outcome has been seen</span>
+<span class="sd">        credibility (float): The probability that the true p(positive) is</span>
+<span class="sd">            contained within the reported interval</span>
+<span class="sd">        prior (tuple): psueodcount for positives and negatives</span>
+
+<span class="sd">    returns:</span>
+<span class="sd">        (lower bound, upper bound)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">distribution</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">positive</span> <span class="o">+</span> <span class="n">prior</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">negative</span> <span class="o">+</span> <span class="n">prior</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="n">positive</span> <span class="o">/</span> <span class="p">(</span><span class="n">positive</span> <span class="o">+</span> <span class="n">negative</span><span class="p">)</span>
+    <span class="n">cdf_mode</span> <span class="o">=</span> <span class="n">distribution</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+    <span class="n">cred_2</span> <span class="o">=</span> <span class="n">credibility</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">lower</span> <span class="o">=</span> <span class="n">cdf_mode</span> <span class="o">-</span> <span class="n">cred_2</span>
+    <span class="n">true_lower</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">excess</span> <span class="o">=</span> <span class="n">true_lower</span> <span class="o">-</span> <span class="n">lower</span>
+    <span class="n">upper</span> <span class="o">=</span> <span class="n">cdf_mode</span> <span class="o">+</span> <span class="n">cred_2</span> <span class="o">+</span> <span class="n">excess</span>
+    <span class="n">true_upper</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">excess</span> <span class="o">=</span> <span class="n">upper</span> <span class="o">-</span> <span class="n">true_upper</span>
+    <span class="n">true_lower</span> <span class="o">-=</span> <span class="n">excess</span>
+    <span class="k">assert</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">((</span><span class="n">true_upper</span> <span class="o">-</span> <span class="n">true_lower</span><span class="p">),</span> <span class="n">credibility</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">distribution</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">true_lower</span><span class="p">),</span> <span class="n">distribution</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">true_upper</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="prob_below"><a class="viewcode-back" href="../../credibility.html#mvtk.credibility.prob_below">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">prob_below</span><span class="p">(</span><span class="n">positive</span><span class="p">,</span> <span class="n">negative</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;What is the probability P(positive) is unacceptably low?</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        positive (int): number of times the positive outcome has been seen</span>
+<span class="sd">        negative (int): number of times the negative outcome has been seen</span>
+<span class="sd">        cutoff (float): lowest acceptable value of P(positive)</span>
+<span class="sd">        prior (tuple): psueodcount for positives and negatives</span>
+<span class="sd">    returns:</span>
+<span class="sd">        Probability that P(positive) &lt; cutoff</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">beta</span><span class="p">(</span><span class="n">prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">positive</span><span class="p">,</span> <span class="n">prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">negative</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">cutoff</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="roc_auc_preprocess"><a class="viewcode-back" href="../../credibility.html#mvtk.credibility.roc_auc_preprocess">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">roc_auc_preprocess</span><span class="p">(</span><span class="n">positives</span><span class="p">,</span> <span class="n">negatives</span><span class="p">,</span> <span class="n">roc_auc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;ROC AUC analysis must be preprocessed using the number of positive and</span>
+<span class="sd">    negative instances in the entire dataset and the AUC itself.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        positives (int): number of positive instances in the dataset</span>
+<span class="sd">        negatives (int): number of negative instances in the dataset</span>
+<span class="sd">        roc_auc (float): ROC AUC</span>
+<span class="sd">    returns:</span>
+<span class="sd">        (positive, negative) tuple that can be used for `prob_below` and</span>
+<span class="sd">            `credible_interval`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">unique_combinations</span> <span class="o">=</span> <span class="n">positives</span> <span class="o">*</span> <span class="n">negatives</span>
+    <span class="c1"># correctly ranked combinations are pairs of positives and negatives</span>
+    <span class="c1"># instances where the model scored the positive instance higher than the</span>
+    <span class="c1"># negative instance</span>
+    <span class="n">correctly_ranked_combinations</span> <span class="o">=</span> <span class="n">roc_auc</span> <span class="o">*</span> <span class="n">unique_combinations</span>
+    <span class="c1"># the number of incorrectly ranked combinations is the number of</span>
+    <span class="c1"># combinations that aren&#39;t correctly ranked</span>
+    <span class="n">incorrectly_ranked_combinations</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">unique_combinations</span> <span class="o">-</span> <span class="n">correctly_ranked_combinations</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">correctly_ranked_combinations</span><span class="p">,</span> <span class="n">incorrectly_ranked_combinations</span></div>
+
+
+<div class="viewcode-block" id="prob_greater_cmp"><a class="viewcode-back" href="../../credibility.html#mvtk.credibility.prob_greater_cmp">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">prob_greater_cmp</span><span class="p">(</span>
+    <span class="n">positive1</span><span class="p">,</span>
+    <span class="n">negative1</span><span class="p">,</span>
+    <span class="n">positive2</span><span class="p">,</span>
+    <span class="n">negative2</span><span class="p">,</span>
+    <span class="n">prior1</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">prior2</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">err</span><span class="o">=</span><span class="mi">10</span> <span class="o">**</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Probability the first set comes from a distribution with a greater</span>
+<span class="sd">    proportion of positive than the other.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        positive1 (int): number of positive instances in the first dataset</span>
+<span class="sd">        negative1 (int): number of negative instances in the first dataset</span>
+<span class="sd">        positive1 (int): number of positive instances in the second dataset</span>
+<span class="sd">        negative1 (int): number of negative instances in the second dataset</span>
+<span class="sd">        prior1 (tuple): psueodcount for positives and negatives</span>
+<span class="sd">        prior2 (tuple): psueodcount for positives and negatives</span>
+<span class="sd">        err (float): upper bound of frequentist sample std from monte carlo simulation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nprng</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">distribution1</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">positive1</span> <span class="o">+</span> <span class="n">prior1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">negative1</span> <span class="o">+</span> <span class="n">prior1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">distribution2</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">positive2</span> <span class="o">+</span> <span class="n">prior2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">negative2</span> <span class="o">+</span> <span class="n">prior2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="c1"># CLT implies ROC AUC error shrinks like 1/PN</span>
+    <span class="c1"># for P positives and N negatives</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">err</span><span class="p">))</span>
+    <span class="n">sample1</span> <span class="o">=</span> <span class="n">distribution1</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">nprng</span><span class="p">)</span>
+    <span class="n">sample2</span> <span class="o">=</span> <span class="n">distribution2</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">nprng</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">N</span><span class="p">)</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">N</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">sample1</span><span class="p">,</span> <span class="n">sample2</span><span class="p">)))</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

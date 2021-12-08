@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mvtk.supervisor.divergence.nn &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="../../../../_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvtk.supervisor.divergence.nn</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvtk.supervisor.divergence.nn</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">import</span> <span class="nn">public</span>
+
+<span class="kn">from</span> <span class="nn">jax.experimental</span> <span class="kn">import</span> <span class="n">stax</span>
+<span class="kn">from</span> <span class="nn">jax._src.nn.initializers</span> <span class="kn">import</span> <span class="n">glorot_normal</span><span class="p">,</span> <span class="n">normal</span>
+<span class="kn">from</span> <span class="nn">jax.experimental.stax</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">FanInSum</span><span class="p">,</span> <span class="n">FanOut</span><span class="p">,</span> <span class="n">Identity</span><span class="p">,</span> <span class="n">Relu</span><span class="p">,</span> <span class="n">elementwise</span>
+
+
+<span class="k">def</span> <span class="nf">ResBlock</span><span class="p">(</span><span class="o">*</span><span class="n">layers</span><span class="p">,</span> <span class="n">fan_in</span><span class="o">=</span><span class="n">FanInSum</span><span class="p">,</span> <span class="n">tail</span><span class="o">=</span><span class="n">Identity</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Split input, feed it through one or more layers in parallel, recombine</span>
+<span class="sd">    them with a fan-in, apply a trailing layer (i.e. an activation)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        *layers: a sequence of layers, each an (init_fun, apply_fun) pair.</span>
+<span class="sd">        fan_in, optional: a fan-in to recombine the outputs of each layer</span>
+<span class="sd">        tail, optional: a final layer to apply after recombination</span>
+
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A new layer, meaning an (init_fun, apply_fun) pair, representing the</span>
+<span class="sd">        parallel composition of the given sequence of layers fed into fan_in</span>
+<span class="sd">        and then tail. In particular, the returned layer takes a sequence of</span>
+<span class="sd">        inputs and returns a sequence of outputs with the same length as the</span>
+<span class="sd">        argument `layers`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">stax</span><span class="o">.</span><span class="n">serial</span><span class="p">(</span><span class="n">FanOut</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">layers</span><span class="p">)),</span> <span class="n">stax</span><span class="o">.</span><span class="n">parallel</span><span class="p">(</span><span class="o">*</span><span class="n">layers</span><span class="p">),</span> <span class="n">fan_in</span><span class="p">,</span> <span class="n">tail</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Approximator"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.Approximator">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">Approximator</span><span class="p">(</span>
+    <span class="n">input_size</span><span class="p">,</span>
+    <span class="n">depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">output_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">linear</span><span class="o">=</span><span class="n">Dense</span><span class="p">,</span>
+    <span class="n">residual</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">activation</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
+    <span class="n">rng</span><span class="o">=</span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+<span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Basic Neural network based function</span>
+<span class="sd">    :math:`\mathbb{R}^N\rightarrow\mathbb{R}^M` function approximator.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input_size (int): Size of input dimension.</span>
+<span class="sd">        depth (int, optional): Depth of network. Defaults to ``3``.</span>
+<span class="sd">        width (int, optional): Width of network. Defaults to ``input_size + 1``.</span>
+<span class="sd">        output_size (int, optional): Number of outputs. Defaults to ``1``.</span>
+<span class="sd">        linear (``torch.nn.Module``, optional): Linear layer drop in</span>
+<span class="sd">            replacement. Defaults to ``jax.experimental.stax.Dense``.</span>
+<span class="sd">        residual (bool, optional): Turn on ResNet blocks. Defaults to ``True``.</span>
+<span class="sd">        activation (optional): A map from :math:`(-\infty, \infty)` to an</span>
+<span class="sd">            appropriate domain (such as the domain of a convex conjugate).</span>
+<span class="sd">            Defaults to the identity.</span>
+<span class="sd">        rng (optional): Jax ``PRNGKey`` key. Defaults to `jax.random.PRNGKey(0)``.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        initial parameter values, neural network function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># input_size + output_size hidden hidden units is sufficient for universal</span>
+    <span class="c1"># approximation given unconstrained depth even without ResBlocks.</span>
+    <span class="c1"># https://arxiv.org/abs/1710.112780. With ResBlocks (as used below), only</span>
+    <span class="c1"># one hidden unit is needed for Relu activation</span>
+    <span class="c1"># https://arxiv.org/abs/1806.10909.</span>
+    <span class="k">if</span> <span class="n">width</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">hidden</span> <span class="o">=</span> <span class="n">input_size</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hidden</span> <span class="o">=</span> <span class="n">width</span>
+    <span class="k">if</span> <span class="n">depth</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">layers</span> <span class="o">=</span> <span class="p">[</span><span class="n">linear</span><span class="p">(</span><span class="n">hidden</span><span class="p">),</span> <span class="n">Relu</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">layers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">depth</span> <span class="o">-</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">residual</span><span class="p">:</span>
+            <span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">ResBlock</span><span class="p">(</span><span class="n">stax</span><span class="o">.</span><span class="n">serial</span><span class="p">(</span><span class="n">linear</span><span class="p">(</span><span class="n">hidden</span><span class="p">),</span> <span class="n">Relu</span><span class="p">),</span> <span class="n">linear</span><span class="p">(</span><span class="n">hidden</span><span class="p">),</span> <span class="n">tail</span><span class="o">=</span><span class="n">Relu</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">linear</span><span class="p">(</span><span class="n">hidden</span><span class="p">))</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">linear</span><span class="p">(</span><span class="n">output_size</span><span class="p">))</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elementwise</span><span class="p">(</span><span class="n">activation</span><span class="p">))</span>
+    <span class="n">init_approximator_params</span><span class="p">,</span> <span class="n">approximator</span> <span class="o">=</span> <span class="n">stax</span><span class="o">.</span><span class="n">serial</span><span class="p">(</span><span class="o">*</span><span class="n">layers</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">init_params</span> <span class="o">=</span> <span class="n">init_approximator_params</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_size</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">init_params</span><span class="p">,</span> <span class="n">approximator</span></div>
+
+
+<div class="viewcode-block" id="NormalizedLinear"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.NormalizedLinear">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">NormalizedLinear</span><span class="p">(</span><span class="n">out_dim</span><span class="p">,</span> <span class="n">W_init</span><span class="o">=</span><span class="n">glorot_normal</span><span class="p">(),</span> <span class="n">b_init</span><span class="o">=</span><span class="n">normal</span><span class="p">()):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Linear layer with positive weights with columns that sum to one.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">init_fun</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
+        <span class="n">output_shape</span> <span class="o">=</span> <span class="n">input_shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">out_dim</span><span class="p">,)</span>
+        <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+        <span class="n">W</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">W_init</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span> <span class="p">(</span><span class="n">input_shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">out_dim</span><span class="p">)),</span> <span class="n">b_init</span><span class="p">(</span><span class="n">k2</span><span class="p">,</span> <span class="p">(</span><span class="n">out_dim</span><span class="p">,))</span>
+        <span class="k">return</span> <span class="n">output_shape</span><span class="p">,</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">apply_fun</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">W</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="n">W_normalized</span> <span class="o">=</span> <span class="n">W</span> <span class="o">/</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">W_normalized</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+
+    <span class="k">return</span> <span class="n">init_fun</span><span class="p">,</span> <span class="n">apply_fun</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

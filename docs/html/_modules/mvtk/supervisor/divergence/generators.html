@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mvtk.supervisor.divergence.generators &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="../../../../_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvtk.supervisor.divergence.generators</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvtk.supervisor.divergence.generators</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">public</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+
+
+<div class="viewcode-block" id="js_data_stream"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.js_data_stream">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">js_data_stream</span><span class="p">(</span>
+    <span class="n">nprng</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">sample_distributions</span><span class="p">,</span> <span class="n">categorical_columns</span><span class="o">=</span><span class="nb">tuple</span><span class="p">()</span>
+<span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Data stream generator for Jensen-Shannon divergence of N distributions.</span>
+<span class="sd">    Jensen-Shannon divergence measures the information of knowing which of</span>
+<span class="sd">    those N distributions a sample will be drawn from before it is drawn. So if</span>
+<span class="sd">    we rolled a fair N sided die to determine which distribution we will draw a</span>
+<span class="sd">    sample from, JS divergence reports how many bits of information will be</span>
+<span class="sd">    revealed from the die. This scenario is ultimately simulated in this</span>
+<span class="sd">    function. However, in real life, we may only have examples of samples from</span>
+<span class="sd">    each distribution we wish to compare. In the most general case, each</span>
+<span class="sd">    distribution we wish to compare is represented by M samples of samples</span>
+<span class="sd">    (with potentially different sizes) from M similar distributions whose</span>
+<span class="sd">    average is most interesting. Just as we might simulate sampling from a</span>
+<span class="sd">    single distribution by randomly sampling a batch of examples with</span>
+<span class="sd">    replacement, we can effectively sample from an average of distributions by</span>
+<span class="sd">    randomly sampling each batch (which may be representative of a single</span>
+<span class="sd">    distribution), then randomly sampling elements of the chosen batch. This</span>
+<span class="sd">    can ultimately be thought of a more data efficient means to the same end as</span>
+<span class="sd">    downsampling large batch sizes.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        nprng: Numpy ``RandomState`` used to generate random samples</span>
+<span class="sd">            batch_size: size of batch</span>
+<span class="sd">        *sample_distributions: list of lists of samples to compare.</span>
+<span class="sd">            For example, ``[[batch1, batch2, batch3], [batch4, batch5],</span>
+<span class="sd">            [batch6, batch7]]`` Assuming ``batch1`` came from distribution</span>
+<span class="sd">            :math:`p_1`, ``batch2`` from :math:`p_2`, etc, this function will</span>
+<span class="sd">            simulate a system in which a latent `N=3` sided die role that</span>
+<span class="sd">            determines whether to draw a sample from :math:`\frac{p_1 + p_2 +</span>
+<span class="sd">            p_3}{3}`, :math:`\frac{p_4 + p_5}{2}`, or :math:`\frac{p_6 +</span>
+<span class="sd">            p_7}{2}`.</span>
+<span class="sd">        categorical_columns (tuple): list or tuple of column indices that are</span>
+<span class="sd">            considered categorical.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The output of this function will be two samples of size batch_size with</span>
+<span class="sd">        samples, :math:`x`, drawn from batch_size roles, :math:`z`, of our</span>
+<span class="sd">        :math:`N` sided die. Following the example above for which :math:`N=3`,</span>
+<span class="sd">        the first of these two output samples will be of the form :math:`(x,</span>
+<span class="sd">        z)`, where x is the sample drawn and z is the die roll. The second of</span>
+<span class="sd">        these two samples will be of the form :math:`(x, z^{\prime})` where x</span>
+<span class="sd">        is the same sample as before, but :math:`z^\prime` is a new set of</span>
+<span class="sd">        otherwise unrelated roles of the same :math:`N=3` sided die.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">process_sample_distributions</span><span class="p">(</span><span class="n">sample_distributions</span><span class="p">):</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+            <span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span>
+                <span class="n">nprng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_distributions</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">),</span>
+                <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">):</span>
+            <span class="n">sample_distribution</span> <span class="o">=</span> <span class="n">sample_distributions</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="n">sample_distribution</span><span class="p">[</span><span class="n">i</span><span class="p">][</span>
+                        <span class="n">nprng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_distribution</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                    <span class="p">]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nprng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_distribution</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">count</span><span class="p">)</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">z</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">idx</span><span class="p">]</span> <span class="o">*</span> <span class="n">count</span><span class="p">)</span>
+        <span class="n">sample_distribution</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">catted1</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">sample_distribution</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)[:,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">)</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">nprng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_distributions</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+        <span class="n">catted2</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">sample_distribution</span><span class="p">,</span> <span class="n">z</span><span class="p">[:,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">((</span><span class="n">catted2</span><span class="p">,</span> <span class="n">catted1</span><span class="p">))</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">groupby</span><span class="p">(</span>
+            <span class="n">categorical_columns</span><span class="p">,</span> <span class="o">*</span><span class="n">process_sample_distributions</span><span class="p">(</span><span class="n">sample_distributions</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="fdiv_data_stream"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.fdiv_data_stream">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">fdiv_data_stream</span><span class="p">(</span>
+    <span class="n">nprng</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">sample_distributions</span><span class="p">,</span> <span class="n">categorical_columns</span><span class="o">=</span><span class="nb">tuple</span><span class="p">()</span>
+<span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Data stream generator for f-divergence.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        nprng: Numpy ``RandomState`` used to generate random samples</span>
+<span class="sd">        batch_size: size of batch</span>
+<span class="sd">        sample_distributions: list of lists of samples to compare for each</span>
+<span class="sd">            partition of the data. For example, ``[[batch1, batch2, batch3],</span>
+<span class="sd">            [batch4, batch5], [batch6, batch7]]``</span>
+<span class="sd">        categorical_columns (tuple): list or tuple of column indices that are</span>
+<span class="sd">            considered categorical.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The output of this function will be ``N`` samples of size</span>
+<span class="sd">        ``batch_size``, where ``N = len(sample_distributions)`` Following the</span>
+<span class="sd">        example above, assuming ``batch1`` came from distribution p_1,</span>
+<span class="sd">        ``batch2`` from :math:`p_2`, etc, This function will output a tuple of</span>
+<span class="sd">        ``N = 3`` samples of size ``batch_size``, where ``batch1`` is sampled</span>
+<span class="sd">        from :math:`\frac{p_1 + p_2 + p_3}{3}`, ``batch2`` is sampled from</span>
+<span class="sd">        :math:`\frac{p_4 + p_5}{2}`, and ``batch3`` is sampled from</span>
+<span class="sd">        :math:`\frac{p_6 + p_7}{2}`.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">process_sample_distributions</span><span class="p">(</span><span class="n">sample_distributions</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">[</span>
+                    <span class="n">sample_distribution</span><span class="p">[</span><span class="n">i</span><span class="p">][</span>
+                        <span class="n">nprng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_distribution</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                    <span class="p">]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nprng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_distribution</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+                <span class="p">]</span>
+                <span class="k">for</span> <span class="n">sample_distribution</span> <span class="ow">in</span> <span class="n">sample_distributions</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_distribution</span><span class="p">)</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">groupby</span><span class="p">(</span>
+            <span class="n">categorical_columns</span><span class="p">,</span> <span class="o">*</span><span class="n">process_sample_distributions</span><span class="p">(</span><span class="n">sample_distributions</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">groupby</span><span class="p">(</span><span class="n">categorical_columns</span><span class="p">,</span> <span class="o">*</span><span class="n">samples</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Group samples by unique values found in a subset of columns</span>
+<span class="sd">    Args:</span>
+<span class="sd">        categorical_columns: List of indices of columns which should be</span>
+<span class="sd">            treated as categorical.</span>
+<span class="sd">        *samples: A set of samples drawn from distinct distributions.</span>
+<span class="sd">            Each distribution is assumed to be defined on the same probability</span>
+<span class="sd">            space, so it would make sense to compare a sample drawn from one</span>
+<span class="sd">            distribution to a sample drawn from another.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple of dicts that each map unique combinations of</span>
+<span class="sd">        ``categorical_columns`` to a subset of samples from the</span>
+<span class="sd">        ``sample_distributions`` that have these values in their</span>
+<span class="sd">        ``categorical_columns``. ``categorical_columns`` are omitted from</span>
+<span class="sd">        the values of these dicts.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">categorical_columns</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[{</span><span class="nb">tuple</span><span class="p">():</span> <span class="n">sample</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)}</span> <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">]</span>
+    <span class="c1"># the complement of categorical_columns is assumed to be numeric</span>
+    <span class="n">numerical_columns</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">categorical_columns</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">grouper</span><span class="p">(</span><span class="n">accum</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+        <span class="n">accum</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="n">categorical_columns</span><span class="p">])]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="n">numerical_columns</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">accum</span>
+
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">reduce</span><span class="p">(</span><span class="n">grouper</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">))</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">samples</span>
+    <span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

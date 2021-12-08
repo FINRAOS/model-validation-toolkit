@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>interprenet &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="sobol" href="sobol.html" />
+    <link rel="prev" title="thresholding" href="thresholding.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding.html">thresholding</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>interprenet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/interprenet.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-mvtk.interprenet">
+<span id="interprenet"></span><h1>interprenet<a class="headerlink" href="#module-mvtk.interprenet" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.ConstrainedDense">
+<span class="sig-name descname"><span class="pre">ConstrainedDense</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#ConstrainedDense"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.ConstrainedDense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer constructor function for a constrained dense (fully-connected)
+layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>constraint</strong> (<em>function</em>) – Transformation to be applied to weights</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.SortLayer">
+<span class="sig-name descname"><span class="pre">SortLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#SortLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.SortLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort layer used for lipschitz preserving nonlinear activation function.</p>
+<p><a class="reference external" href="https://arxiv.org/abs/1811.05381">https://arxiv.org/abs/1811.05381</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.batch_generator">
+<span class="sig-name descname"><span class="pre">batch_generator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">balance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#batch_generator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.batch_generator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.clip">
+<span class="sig-name descname"><span class="pre">clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.52587890625e-05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#clip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.clip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.constrained_model">
+<span class="sig-name descname"><span class="pre">constrained_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">constraints,</span> <span class="pre">get_layers=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;,</span> <span class="pre">output_shape=1,</span> <span class="pre">preprocess=&lt;function</span> <span class="pre">identity&gt;,</span> <span class="pre">postprocess=&lt;function</span> <span class="pre">sigmoid_clip&gt;,</span> <span class="pre">rng=DeviceArray([0,</span> <span class="pre">0],</span> <span class="pre">dtype=uint32)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#constrained_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.constrained_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a neural network with groups of constraints assigned to each
+feature. Separate constrained neural networks are generated for each group
+of contraints. Each feature is fed into exactly one of these neural
+networks (the one that matches its assigned group of constraints). The
+output of these constrained neural networks are concatenated and fed into
+one final neural network that obeys the union of all constraints applied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>constraints</strong> (<em>list</em>) – List sets of constraints (one frozenset of constraints
+for each feature)</p></li>
+<li><p><strong>get_layers</strong> (<em>function</em>) – Returns shape of constrained neural network
+given size of input (i.e. the number of features that will be fed into
+it).</p></li>
+<li><p><strong>preprocess</strong> – Preprocessing function to be applied to feature vector
+before being sent through any neural networks. This can be useful for
+adjusting signs for monotonic neural networks or scales for lipschitz
+ones.</p></li>
+<li><p><strong>postprocess</strong> – Final activation applied to output of neural network.</p></li>
+<li><p><strong>rng</strong> – jax PRNGKey</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>init_params, model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.cross_entropy">
+<span class="sig-name descname"><span class="pre">cross_entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#cross_entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.cross_entropy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.identity">
+<span class="sig-name descname"><span class="pre">identity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#identity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.identity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.lipschitz_constraint">
+<span class="sig-name descname"><span class="pre">lipschitz_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#lipschitz_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.lipschitz_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lipschitz constraint on weights.</p>
+<p><a class="reference external" href="https://arxiv.org/abs/1811.05381">https://arxiv.org/abs/1811.05381</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.monotonic_constraint">
+<span class="sig-name descname"><span class="pre">monotonic_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#monotonic_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.monotonic_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Monotonicity constraint on weights.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.net">
+<span class="sig-name descname"><span class="pre">net</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#net"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.net" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.parameterized_loss">
+<span class="sig-name descname"><span class="pre">parameterized_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">net</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#parameterized_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.parameterized_loss" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">DeviceArray([0,</span> <span class="pre">0],</span> <span class="pre">dtype=uint32)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://christophm.github.io/interpretable-ml-book/ice.html">Individual Conditional Expectation plot
+(blue)</a> and
+<a class="reference external" href="https://christophm.github.io/interpretable-ml-book/pdp.html">Partial Dependence Plot
+(red)</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>function</em>) – function from data (as dataframe) to scores</p></li>
+<li><p><strong>feature</strong> (<em>string</em>) – Feature to examine</p></li>
+<li><p><strong>N</strong> (<em>int</em>) – size of sample from <code class="docutils literal notranslate"><span class="pre">data</span></code> to consider for averages and
+conditional expectation plots. Determines number of blue lines and
+sample size for averaging to create red line.</p></li>
+<li><p><strong>n_interp</strong> (<em>int</em>) – Number of values of <code class="docutils literal notranslate"><span class="pre">feature</span></code> to evaluate along
+x-axis. Randomly chosen from unique values of this feature within
+<code class="docutils literal notranslate"><span class="pre">data</span></code>.</p></li>
+<li><p><strong>fig</strong> – Matplotlib figure. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>rng</strong> (<em>PRNGKey</em>) – Jax <code class="docutils literal notranslate"><span class="pre">PRNGKey</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>matplolib figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.sigmoid_clip">
+<span class="sig-name descname"><span class="pre">sigmoid_clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.52587890625e-05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#sigmoid_clip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.sigmoid_clip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.thread">
+<span class="sig-name descname"><span class="pre">thread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fns</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#thread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.thread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.interprenet.train">
+<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">train</span></em>, <em class="sig-param"><span class="pre">test</span></em>, <em class="sig-param"><span class="pre">net</span></em>, <em class="sig-param"><span class="pre">metric</span></em>, <em class="sig-param"><span class="pre">loss_fn=&lt;function</span> <span class="pre">cross_entropy&gt;</span></em>, <em class="sig-param"><span class="pre">mini_batch_size=32</span></em>, <em class="sig-param"><span class="pre">num_epochs=64</span></em>, <em class="sig-param"><span class="pre">step_size=0.01</span></em>, <em class="sig-param"><span class="pre">track=1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train interpretable neural network. This routine will check accuracy
+using <code class="docutils literal notranslate"><span class="pre">metric</span></code> every <code class="docutils literal notranslate"><span class="pre">track</span></code> epochs. The model parameters with the
+highest accuracy are returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<em>tuple</em>) – (X, y), each <code class="docutils literal notranslate"><span class="pre">jax.numpy.array</span></code> of type <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
+<li><p><strong>test</strong> (<em>tuple</em>) – (X, y), each <code class="docutils literal notranslate"><span class="pre">jax.numpy.array</span></code> of type <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
+<li><p><strong>net</strong> (<em>tuple</em>) – (init_params, model) a jax model returned by
+<code class="docutils literal notranslate"><span class="pre">constrained_model</span></code>.</p></li>
+<li><p><strong>metric</strong> (<em>function</em>) – function of two jax arrays: ground truth and
+predictions. Returns <code class="docutils literal notranslate"><span class="pre">float</span></code> representing performance metric.</p></li>
+<li><p><strong>loss_fn</strong> (<em>function</em>) – function of two jax arrays: ground truth and
+predictions. Returns <code class="docutils literal notranslate"><span class="pre">float</span></code> representing loss.</p></li>
+<li><p><strong>mini_batch_size</strong> (<em>int</em>) – Size of minibatches from train used for
+stochastic gradient descent</p></li>
+<li><p><strong>num_epochs</strong> (<em>int</em>) – Number of epochs to train</p></li>
+<li><p><strong>step_size</strong> (<em>float</em>) – Step size used for stochastic gradient descent</p></li>
+<li><p><strong>track</strong> (<em>int</em>) – Number of epochs between metric checks</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>best params</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="sobol.html" class="btn btn-neutral float-right" title="sobol" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="thresholding.html" class="btn btn-neutral float-left" title="thresholding" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mvtk.thresholding &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvtk.thresholding</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvtk.thresholding</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">public</span>
+<span class="kn">import</span> <span class="nn">bisect</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+
+
+<div class="viewcode-block" id="plot_err"><a class="viewcode-back" href="../../thresholding.html#mvtk.thresholding.plot_err">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">plot_err</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">utility_mean</span><span class="p">,</span> <span class="n">utility_err</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">utility_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="o">*</span><span class="n">utility_err</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="expected_utility"><a class="viewcode-back" href="../../thresholding.html#mvtk.thresholding.expected_utility">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">expected_utility</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span> <span class="n">credibility</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the utility distribution over possible thresholds.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        utility (function): utility function that ingests true/false</span>
+<span class="sd">            positive/negative rates.</span>
+<span class="sd">        data (list-like): iterable of list-likes of the form (ground truth,</span>
+<span class="sd">            score). Feedback is null when an alert is not triggered.</span>
+<span class="sd">        credibility (float): Credibility level for a credible interval. This</span>
+<span class="sd">            interval will be centered about the mean and have a `credibility`</span>
+<span class="sd">            chance of containing the true utility.</span>
+
+<span class="sd">    returns:</span>
+<span class="sd">        tuple of three elements:</span>
+<span class="sd">        - candidate thresholds</span>
+<span class="sd">        - mean expected utility</span>
+<span class="sd">        - upper and lower quantile of estimate of expected utility associated</span>
+<span class="sd">          with each threshold</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">credibility</span> <span class="o">/=</span> <span class="mi">2</span>
+    <span class="n">scores</span><span class="p">,</span> <span class="n">utilities</span> <span class="o">=</span> <span class="n">sample_utilities</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="n">credibility</span><span class="p">)</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">credibility</span><span class="p">))</span>
+    <span class="n">utilities</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">utilities</span><span class="p">)</span>
+    <span class="n">utilities</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">scores</span><span class="p">,</span> <span class="n">utilities</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">utilities</span><span class="p">[:,</span> <span class="p">[</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span></div>
+
+
+<div class="viewcode-block" id="optimal_threshold"><a class="viewcode-back" href="../../thresholding.html#mvtk.thresholding.optimal_threshold">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">optimal_threshold</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">4096</span><span class="p">):</span>
+    <span class="n">scores</span><span class="p">,</span> <span class="n">utilities</span> <span class="o">=</span> <span class="n">sample_utilities</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">means</span> <span class="o">=</span> <span class="n">utilities</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">means</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">scores</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">means</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="sample_utilities"><a class="viewcode-back" href="../../thresholding.html#mvtk.thresholding.sample_utilities">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">sample_utilities</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">4096</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get distribution of utilities.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        utility (float): utility function that ingests true/false</span>
+<span class="sd">            positive/negative rates.</span>
+<span class="sd">        data (list-like): iterable of of iterables of the form (ground truth, score).</span>
+<span class="sd">            Feedback is null when an alert is not triggered.</span>
+
+<span class="sd">    returns: thresholds, utilities</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">([])</span>
+    <span class="n">nprng</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">num_positives</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">rates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">num_positives</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="n">num_positives</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">utilities</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])]</span>
+    <span class="k">for</span> <span class="n">ground_truth</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">update_rates</span><span class="p">(</span><span class="n">rates</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">)</span>
+        <span class="n">utilities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">utility</span><span class="p">(</span><span class="o">*</span><span class="n">nprng</span><span class="o">.</span><span class="n">dirichlet</span><span class="p">(</span><span class="n">rates</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">utilities</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="thompson_sample"><a class="viewcode-back" href="../../thresholding.html#mvtk.thresholding.thompson_sample">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">thompson_sample</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">quantile</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">scores</span><span class="p">,</span> <span class="n">utilities</span> <span class="o">=</span> <span class="n">sample_utilities</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">quantile</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">utilities</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">utilities</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">scores</span><span class="p">[</span><span class="n">utilities</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="update_rates"><a class="viewcode-back" href="../../thresholding.html#mvtk.thresholding.update_rates">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">update_rates</span><span class="p">(</span><span class="n">rates</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">):</span>
+    <span class="n">rates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">ground_truth</span>
+    <span class="n">rates</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="ow">not</span> <span class="n">ground_truth</span>
+    <span class="n">rates</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="ow">not</span> <span class="n">ground_truth</span>
+    <span class="n">rates</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="n">ground_truth</span></div>
+
+
+<div class="viewcode-block" id="AdaptiveThreshold"><a class="viewcode-back" href="../../thresholding.html#mvtk.thresholding.AdaptiveThreshold">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">class</span> <span class="nc">AdaptiveThreshold</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Adaptive agent that balances exploration with exploitation with respect</span>
+<span class="sd">    to setting and adjusting thresholds.</span>
+
+<span class="sd">    When exploring, the threshold is 0, effectively letting anything</span>
+<span class="sd">    through. This produces unbiased data that can then be used to set a</span>
+<span class="sd">    more optimal threshold in subsequent rounds. The agent seeks to</span>
+<span class="sd">    balance the opportunity cost of running an experiment with the</span>
+<span class="sd">    utility gained over subsequent rounds using the information gained</span>
+<span class="sd">    from this experiment.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="AdaptiveThreshold.__init__"><a class="viewcode-back" href="../../thresholding.html#mvtk.thresholding.AdaptiveThreshold.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">utility</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            utility (function): Function that takes in true/false</span>
+<span class="sd">                positive/negative rates. Specifically (tp, fp, tn fn) -&gt; float</span>
+<span class="sd">                representing utility.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">utility</span> <span class="o">=</span> <span class="n">utility</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unbiased_positives</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unbiased_negatives</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous_threshold</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nprng</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AdaptiveThreshold.get_best_threshold"><a class="viewcode-back" href="../../thresholding.html#mvtk.thresholding.AdaptiveThreshold.get_best_threshold">[docs]</a>    <span class="k">def</span> <span class="nf">get_best_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># true positives, false positives, true negatives, false negatives</span>
+        <span class="n">rates</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">unbiased_positives</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unbiased_negatives</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">experiment_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">utility</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">nprng</span><span class="o">.</span><span class="n">dirichlet</span><span class="p">(</span><span class="n">rates</span><span class="p">))</span>
+        <span class="n">hypothetical_rates</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unbiased_positives</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_experiment_outcome</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unbiased_negatives</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_experiment_outcome</span><span class="p">),</span>
+            <span class="mi">1</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="n">best_hypothetical_utility</span> <span class="o">=</span> <span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">inf</span>
+        <span class="n">best_utility</span> <span class="o">=</span> <span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">inf</span>
+        <span class="k">for</span> <span class="n">score</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
+            <span class="n">update_rates</span><span class="p">(</span><span class="n">rates</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">)</span>
+            <span class="n">utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">utility</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">nprng</span><span class="o">.</span><span class="n">dirichlet</span><span class="p">(</span><span class="n">rates</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">utility</span> <span class="o">&gt;</span> <span class="n">best_utility</span><span class="p">:</span>
+                <span class="n">best_utility</span> <span class="o">=</span> <span class="n">utility</span>
+                <span class="n">best_threshold</span> <span class="o">=</span> <span class="n">score</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_experiment_idx</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">update_rates</span><span class="p">(</span><span class="n">hypothetical_rates</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">)</span>
+            <span class="n">hypothetical_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">utility</span><span class="p">(</span>
+                <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">nprng</span><span class="o">.</span><span class="n">dirichlet</span><span class="p">(</span><span class="n">hypothetical_rates</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">hypothetical_utility</span> <span class="o">&gt;</span> <span class="n">best_hypothetical_utility</span><span class="p">:</span>
+                <span class="n">best_hypothetical_utility</span> <span class="o">=</span> <span class="n">hypothetical_utility</span>
+                <span class="n">hindsight_utility</span> <span class="o">=</span> <span class="n">utility</span>
+        <span class="k">return</span> <span class="n">best_threshold</span><span class="p">,</span> <span class="n">experiment_utility</span><span class="p">,</span> <span class="n">best_utility</span><span class="p">,</span> <span class="n">hindsight_utility</span></div>
+
+<div class="viewcode-block" id="AdaptiveThreshold.__call__"><a class="viewcode-back" href="../../thresholding.html#mvtk.thresholding.AdaptiveThreshold.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">,</span> <span class="n">score</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Args are ignored if previous threshold was not 0. Otherwise, the</span>
+<span class="sd">        score is added as a potential threhold and ground_truth noted to help</span>
+<span class="sd">        identify the optimal threshold.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ground_truth (bool)</span>
+<span class="sd">            score (float)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_threshold</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">bisect</span><span class="o">.</span><span class="n">insort</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">,</span> <span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">,</span> <span class="n">idx</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unbiased_positives</span> <span class="o">+=</span> <span class="n">ground_truth</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unbiased_negatives</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">ground_truth</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_experiment_idx</span> <span class="o">=</span> <span class="n">idx</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_experiment_outcome</span> <span class="o">=</span> <span class="n">ground_truth</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_threshold</span>
+        <span class="p">(</span>
+            <span class="n">best_threshold</span><span class="p">,</span>
+            <span class="n">experiment_utility</span><span class="p">,</span>
+            <span class="n">best_utility</span><span class="p">,</span>
+            <span class="n">hindsight_utility</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_best_threshold</span><span class="p">()</span>
+        <span class="n">total_utility_gained</span> <span class="o">=</span> <span class="p">(</span><span class="n">best_utility</span> <span class="o">-</span> <span class="n">hindsight_utility</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="n">idx</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_experiment_idx</span>
+        <span class="p">)</span>
+        <span class="n">opportunity_cost</span> <span class="o">=</span> <span class="n">hindsight_utility</span> <span class="o">-</span> <span class="n">experiment_utility</span>
+        <span class="k">if</span> <span class="n">opportunity_cost</span> <span class="o">&lt;=</span> <span class="n">total_utility_gained</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">previous_threshold</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">previous_threshold</span> <span class="o">=</span> <span class="n">best_threshold</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_threshold</span></div></div>
+
+
+<div class="viewcode-block" id="exploration_proportion"><a class="viewcode-back" href="../../thresholding.html#mvtk.thresholding.exploration_proportion">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">exploration_proportion</span><span class="p">(</span><span class="n">thresholds</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">exploration</span> <span class="o">=</span> <span class="n">thresholds</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">N</span>
+    <span class="k">return</span> <span class="n">reduce</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">accum</span><span class="p">,</span> <span class="n">elem</span><span class="p">:</span> <span class="n">accum</span> <span class="o">+</span> <span class="p">[</span><span class="n">accum</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">alpha</span> <span class="o">+</span> <span class="n">elem</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)],</span>
+        <span class="n">exploration</span><span class="p">[</span><span class="n">N</span><span class="p">:],</span>
+        <span class="p">[</span><span class="n">exploration</span><span class="p">[:</span><span class="n">N</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()],</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

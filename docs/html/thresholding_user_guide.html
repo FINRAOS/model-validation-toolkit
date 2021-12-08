@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Thresholding User Guide &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Interprenet User Guide" href="interprenet_user_guide.html" />
+    <link rel="prev" title="Credibility User Guide" href="credibility_user_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Thresholding User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how">How?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#adaptive-thresholding">Adaptive Thresholding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Thresholding User Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/thresholding_user_guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="thresholding-user-guide">
+<h1>Thresholding User Guide<a class="headerlink" href="#thresholding-user-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Let’s say you’re monitoring some process for alerts. Maybe it’s model
+performance. Maybe it’s model drift. In any case, let’s say you have a score
+that increases with the likelihood that you have something wrong that needs to be
+investigated. You still need to decide whether to actually launch an
+investigation or not for each of these scores. This is known as thresholding.
+But where to put the threshold? Set it too high and you’ll miss important
+alerts. Set it too low and you’ll be flooded with noise. This module comes with
+tools and techniques to experimentally determine where to set your threshold
+given your tolerance for noise.</p>
+<div class="section" id="how">
+<h3>How?<a class="headerlink" href="#how" title="Permalink to this headline">¶</a></h3>
+<p>Let’s say the scores associated with good alerts looks like this.</p>
+<div class="align-center figure">
+<a class="reference internal image-reference" href="_images/thresholding_positive_scores.png"><img alt="alternate text" src="_images/thresholding_positive_scores.png" style="width: 500px; height: 500px;" /></a>
+</div>
+<p>Moreover, scores associated with negative alerts look like this.</p>
+<div class="align-center figure">
+<a class="reference internal image-reference" href="_images/thresholding_negative_scores.png"><img alt="alternate text" src="_images/thresholding_negative_scores.png" style="width: 500px; height: 500px;" /></a>
+</div>
+<p>Clearly the likelihood of finding a good alert increases with model score, but
+any choice will imply a trade off between true/false positive/negatives. In
+general, you need to decide on a utility function of true/false
+positive/negatives.</p>
+<p>The utility function would increase with true positives and/or true negatives,
+and decrease with false positives and/or false negatives. A risk averse utility
+function is shown above with a 20 fold preference of avoiding false negatives
+to false positives. In general, we will assume the utility function is a
+<em>proportion</em> of true/false positive/negatives in a data set. In this sense, the
+utility function is a function of a categorical distribution over true/false
+positives/negatives.</p>
+<p>Now that we have a utility function, and a sample of positive and negative alert
+scores, we can plot a utility function as a function of threshold.</p>
+<div class="align-center figure" id="id21">
+<a class="reference internal image-reference" href="_images/thresholding_expected_utility.png"><img alt="alternate text" src="_images/thresholding_expected_utility.png" style="width: 500px; height: 400px;" /></a>
+<p class="caption"><span class="caption-text">Expected utility as a function of threshold (solid) and 50%
+<a class="reference external" href="https://en.wikipedia.org/wiki/Credible_interval">credible interval</a> (shaded
+region).</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+</div>
+<p>Note that we don’t actually have the true distribution of positive
+and negative scores in practice. Rather, we have examples. If we
+only had 4 positive scores and 4 negative scores, we cannot be very
+certain of its results. More on this in the <a class="reference external" href="credibility_user_guide">credibility user guide</a>. We model the distribution of true/false
+positive/negatives as a <a class="reference external" href="https://en.wikipedia.org/wiki/Dirichlet-multinomial_distribution">Dirichlet-multinomial distribution</a> with
+a <a class="reference external" href="https://en.wikipedia.org/wiki/Principle_of_maximum_entropy">maximum entropy prior</a>.</p>
+<p>This shows a particularly apparent peak in utility, but only after (in this
+case) a few thousand example scores. In practice, we could well be starting
+with <em>no</em> examples and building up our knowledge as we go. To make things
+worse, we will only find out if an alert was good or not if we investigate it.
+Anything that falls below our threshold forever remains unlabeled. We developed
+a specific algorithm to tackle this problem that we call <em>adaptive
+thresholding</em>.</p>
+</div>
+</div>
+<div class="section" id="adaptive-thresholding">
+<h2>Adaptive Thresholding<a class="headerlink" href="#adaptive-thresholding" title="Permalink to this headline">¶</a></h2>
+<p>We face a classic <a class="reference external" href="https://en.wikipedia.org/wiki/Reinforcement_learning">exploitation/exploration dilemma</a>. We can either choose
+to <em>exploit</em> the information we have so far about positive and negative score
+distributions to set a threshold or <em>explore</em> what may lie below that threshold
+by labeling whatever comes in next. Unfortunately, the labels obtained from
+scores greater than a threshold chosen at the time pose a challenge in that
+they yield heavily biased estimates of positive and negative score
+distributions (since they don’t include anything below the threshold set at the
+time). We have not found a good way to compensate for that bias in practice.
+Rather, we must switch between an optimally set threshold and labeling
+whatever comes next. This produces a series of <em>unbiased labels</em>.</p>
+<p>Our adaptive thresholding algorithm seeks to balance the
+opportunity cost of labeling data with the utility gained over subsequent
+rounds with the change in threshold. Each score with an unbiased label is a
+potential threshold. For each of those options, we sample a possible
+distribution of true/false positives/negatives (with a Dirichlet-multinomial
+distribution with a maximum entropy prior) using the other unbiased labels.
+Utilities are calculated for each sampled distribution for true/false
+positives/negatives. The highest utility is noted as well as the utility of
+setting the threshold to 0 (exploration). Next this process is repeated using
+all but the most recent unbiased label. We locate the optimal threshold
+computed using all but the most recent unbiased label, and then compute the
+utility of that threshold using the utilities calculated using <em>all</em> unbiased
+labels. The difference between this utility and the utility of the true optimal
+threshold is the expected utility gained from the last round of exploration.
+This expected utility gained per round times the number of rounds since the
+last round of exploration is the net utility gained since the last round of
+experimentation. Meanwhile the difference between the utility of the true
+optimal threshold and the utility of exploration is the opportunity cost of
+exploration. When the net utility gained exceeds the opportunity cost of
+exploration, exploration is chosen over exploitation.</p>
+<p>Note that we stochastically sample utilities at the score associated with each
+unbiased label at each round. This is necessary to prevent deadlocks in which
+the optimal threshold is identical before and after experimentation, leaving
+the expected utility gained per round 0 forever (thus ending any possibility of
+subsequent rounds of exploration). Rather, exploration is chosen according to
+the <em>probability</em> that net utility gained has in fact caught up with the
+opportunity cost of the last round of exploration.</p>
+<p>However, as we gain a more accurate picture of the distribution of positive and
+negative scores, we make smaller changes to our best guess at the location of
+the optimal threshold after exploration. As a result, the expected utility
+gained per round of exploitation will gradually decrease over time, and we will
+need more and more rounds of exploitation to make up for the opportunity cost
+of exploration (shown below).</p>
+<div class="align-center figure" id="id22">
+<a class="reference internal image-reference" href="_images/thresholding_exploration_proportion.png"><img alt="alternate text" src="_images/thresholding_exploration_proportion.png" style="width: 500px; height: 500px;" /></a>
+<p class="caption"><span class="caption-text">Probability of chosing exploration decreases from about 45% at the
+beginning to about 5% after 3600 rounds.</span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
+</div>
+<div class="topic">
+<p class="topic-title">Tutorials:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="notebooks/thresholding/Thresholding.html"><span class="doc">Thresholding</span></a></p></li>
+</ul>
+</div>
+<p id="id1"><dl class="citation">
+<dt class="label" id="id15"><span class="brackets">ALG19</span></dt>
+<dd><p>Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In <em>International Conference on Machine Learning</em>, 291–301. PMLR, 2019.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">ACB17</span></dt>
+<dd><p>Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. <em>arXiv preprint arXiv:1701.07875</em>, 2017.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets">BDD+17</span></dt>
+<dd><p>Marc G Bellemare, Ivo Danihelka, Will Dabney, Shakir Mohamed, Balaji Lakshminarayanan, Stephan Hoyer, and Rémi Munos. The cramer distance as a solution to biased wasserstein gradients. <em>arXiv preprint arXiv:1705.10743</em>, 2017.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">CsiszarS+04</span></dt>
+<dd><p>Imre Csiszár, Paul C Shields, and others. Information theory and statistics: a tutorial. <em>Foundations and Trends® in Communications and Information Theory</em>, 1(4):417–528, 2004.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets">GBR+12</span></dt>
+<dd><p>Arthur Gretton, Karsten M Borgwardt, Malte J Rasch, Bernhard Schölkopf, and Alexander Smola. A kernel two-sample test. <em>Journal of Machine Learning Research</em>, 13(Mar):723–773, 2012.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets">GAA+17</span></dt>
+<dd><p>Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron C Courville. Improved training of wasserstein gans. In <em>Advances in neural information processing systems</em>, 5767–5777. 2017.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets">Her17</span></dt>
+<dd><p>Vincent Herrmann. Wasserstein gan and the kantorovich-rubinstein duality. February 2017. URL: <a class="reference external" href="https://vincentherrmann.github.io/blog/wasserstein/">https://vincentherrmann.github.io/blog/wasserstein/</a>.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets">IM93</span></dt>
+<dd><p>Sobol’ IM. Sensitivity estimates for nonlinear mathematical models. <em>Math. Model. Comput. Exp</em>, 1(4):407–414, 1993.</p>
+</dd>
+<dt class="label" id="id20"><span class="brackets">Lin91</span></dt>
+<dd><p>Jianhua Lin. Divergence measures based on the shannon entropy. <em>IEEE Transactions on Information theory</em>, 37(1):145–151, 1991.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets">NWJ10</span></dt>
+<dd><p>XuanLong Nguyen, Martin J Wainwright, and Michael I Jordan. Estimating divergence functionals and the likelihood ratio by convex risk minimization. <em>IEEE Transactions on Information Theory</em>, 56(11):5847–5861, 2010.</p>
+</dd>
+<dt class="label" id="id3"><span class="brackets">NCT16</span></dt>
+<dd><p>Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In <em>Advances in neural information processing systems</em>, 271–279. 2016.</p>
+</dd>
+<dt class="label" id="id17"><span class="brackets">SRA+08</span></dt>
+<dd><p>Andrea Saltelli, Marco Ratto, Terry Andres, Francesca Campolongo, Jessica Cariboni, Debora Gatelli, Michaela Saisana, and Stefano Tarantola. <em>Global sensitivity analysis: the primer</em>. John Wiley &amp; Sons, 2008.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets">Sob01</span></dt>
+<dd><p>Ilya M Sobol. Global sensitivity indices for nonlinear mathematical models and their monte carlo estimates. <em>Mathematics and computers in simulation</em>, 55(1-3):271–280, 2001.</p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">SFG+09</span></dt>
+<dd><p>Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. <em>arXiv preprint arXiv:0901.2698</em>, 2009.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets">Tro04</span></dt>
+<dd><p>Joel Aaron Tropp. <em>Topics in sparse approximation</em>. PhD thesis, University of Texas at Austin, 2004.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets">WHC+16</span></dt>
+<dd><p>Geoffrey I Webb, Roy Hyde, Hong Cao, Hai Long Nguyen, and Francois Petitjean. Characterizing concept drift. <em>Data Mining and Knowledge Discovery</em>, 30(4):964–994, 2016.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">Wu16</span></dt>
+<dd><p>Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: <a class="reference external" href="http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf">http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="interprenet_user_guide.html" class="btn btn-neutral float-right" title="Interprenet User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="credibility_user_guide.html" class="btn btn-neutral float-left" title="Credibility User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

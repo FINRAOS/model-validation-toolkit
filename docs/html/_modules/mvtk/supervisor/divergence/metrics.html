@@ -1,0 +1,946 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mvtk.supervisor.divergence.metrics &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="../../../../_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvtk.supervisor.divergence.metrics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvtk.supervisor.divergence.metrics</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">public</span>
+
+<span class="kn">from</span> <span class="nn">.nn</span> <span class="kn">import</span> <span class="n">Approximator</span><span class="p">,</span> <span class="n">NormalizedLinear</span>
+<span class="kn">from</span> <span class="nn">.generators</span> <span class="kn">import</span> <span class="n">fdiv_data_stream</span><span class="p">,</span> <span class="n">js_data_stream</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">from</span> <span class="nn">jax.experimental</span> <span class="kn">import</span> <span class="n">optimizers</span>
+<span class="kn">from</span> <span class="nn">mvtk.supervisor.utils</span> <span class="kn">import</span> <span class="n">parallel</span><span class="p">,</span> <span class="n">split</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">arrayify</span>
+
+
+<div class="viewcode-block" id="calc_div_variational"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_div_variational">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">calc_div_variational</span><span class="p">(</span><span class="n">data_stream</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">model_generator</span><span class="o">=</span><span class="n">Approximator</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate an :math:`f`-divergence or integral probability metric using</span>
+<span class="sd">    a variational of hybrid variational estimator.</span>
+
+<span class="sd">    Variational estimates will generally (but, not always, thanks to the</span>
+<span class="sd">    training proceedure!) be a lower bound on the true value</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data_stream (generator): The data stream generator.</span>
+<span class="sd">        loss (function): Loss function that takes as arguments the model</span>
+<span class="sd">            outputs. Returns a scalar.</span>
+<span class="sd">        model_generator: A function that takes a Jax ``PRNGKey`` the number</span>
+<span class="sd">            of dimensions of the support and returns a `Jax model</span>
+<span class="sd">            &lt;https://jax.readthedocs.io/en/latest/jax.experimental.stax.html&gt;`_ to</span>
+<span class="sd">            be used for variational approximations. The function this model is</span>
+<span class="sd">            trained to approximate is sometimes known as the *witness</span>
+<span class="sd">            function*--especially when dealing with `integral probability metrics</span>
+<span class="sd">            &lt;http://www.gatsby.ucl.ac.uk/~gretton/papers/montreal19.pdf&gt;`_.</span>
+<span class="sd">            Specifically, the function returns a tuple that contains the initial</span>
+<span class="sd">            parameters and a function that maps those parameters and the model</span>
+<span class="sd">            inputs to the model outputs. Defaults to</span>
+<span class="sd">            :meth:`supervisor.divergence.Approximator`.</span>
+<span class="sd">        summary (string): Summary of divergence to appear in docstring</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        function for computing divergence&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">calc_div</span><span class="p">(</span>
+        <span class="o">*</span><span class="n">sample_distributions</span><span class="p">,</span>
+        <span class="n">categorical_columns</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(),</span>
+        <span class="n">model_generator_kwargs</span><span class="o">=</span><span class="p">{},</span>
+        <span class="n">loss_kwargs</span><span class="o">=</span><span class="p">{},</span>
+        <span class="n">nprng</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+        <span class="n">num_batches</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+        <span class="n">num_epochs</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+        <span class="n">effective_sample_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">train_test_split</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+        <span class="n">step_size</span><span class="o">=</span><span class="mf">0.0125</span>
+    <span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *sample_distributions (list): Sample distributions. A numpy array,</span>
+<span class="sd">                pandas dataframe, or pandas series or a list of numpy arrays,</span>
+<span class="sd">                dataframes or series. If it is a list then will sample from each in the</span>
+<span class="sd">                list For example, ``[[batch1, batch2, batch3], [batch4, batch5],</span>
+<span class="sd">                [batch6, batch7]]`` Assuming ``batch1`` came from distribution</span>
+<span class="sd">                :math:`p_1`, ``batch2`` from :math:`p_2`, etc, this function will</span>
+<span class="sd">                simulate a system in which a latent `N=3` sided die role that</span>
+<span class="sd">                determines whether to draw a sample from :math:`\frac{p_1 + p_2 +</span>
+<span class="sd">                p_3}{3}`, :math:`\frac{p_4 + p_5}{2}`, or :math:`\frac{p_6 + p_7}{2}`.</span>
+<span class="sd">                The outer most list is typically a singleton.</span>
+<span class="sd">            model_generator_kwargs (optional): Dictionary of optional kwargs to pass to</span>
+<span class="sd">                model_generator. ``width`` and ``depth`` are useful. See</span>
+<span class="sd">                :meth:`supervisor.divergence.Approximator` for more details.</span>
+<span class="sd">            loss_kwargs (optional): Dictionary of optional kwargs to pass to</span>
+<span class="sd">                loss function. ``weights`` is commonly used for reweighting</span>
+<span class="sd">                expectations. See `hybrid estimation</span>
+<span class="sd">                &lt;user_guide.rst#hybrid-estimation&gt;`__ for details.</span>
+<span class="sd">            categorical_columns (optional): List of indices of columns which should</span>
+<span class="sd">                be treated as categorical.</span>
+<span class="sd">            nprng (optional): Numpy ``RandomState``</span>
+<span class="sd">            batch_size (int): mini batch size. Defaults to 16.</span>
+<span class="sd">            num_batches (int): number of batches per epoch. Defaults to 128.</span>
+<span class="sd">            num_epochs (int): number of epochs to train for. Defaults to 4.</span>
+<span class="sd">            effective_sample_size (optional): Size of subsample over which Epoch</span>
+<span class="sd">                losses are computed. This determines how large a sample a divergence is</span>
+<span class="sd">                computed over.</span>
+<span class="sd">            train_test_split (optional): If not None, specifies the</span>
+<span class="sd">                proportion of samples devoted to training as opposed to</span>
+<span class="sd">                validation. If None, no split is used. Defaults to 0.75.</span>
+<span class="sd">            step_size (float): step size for Adam optimizer</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Estimate of divergence.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">nprng</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">nprng</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sample_distributions</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">arrayify</span><span class="p">,</span> <span class="n">sample_distributions</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">train_test_split</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">training_samples</span> <span class="o">=</span> <span class="n">validation_samples</span> <span class="o">=</span> <span class="n">sample_distributions</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">training_samples</span><span class="p">,</span> <span class="n">validation_samples</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span>
+                <span class="o">*</span><span class="p">(</span>
+                    <span class="nb">zip</span><span class="p">(</span>
+                        <span class="o">*</span><span class="p">(</span>
+                            <span class="n">split</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">train_ratio</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">,</span> <span class="n">nprng</span><span class="o">=</span><span class="n">nprng</span><span class="p">)</span>
+                            <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">sample_distribution</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="k">for</span> <span class="n">sample_distribution</span> <span class="ow">in</span> <span class="n">sample_distributions</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="n">mini_batches</span> <span class="o">=</span> <span class="n">data_stream</span><span class="p">(</span>
+            <span class="n">nprng</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">training_samples</span><span class="p">,</span> <span class="n">categorical_columns</span><span class="o">=</span><span class="n">categorical_columns</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">effective_sample_size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">effective_sample_size</span> <span class="o">=</span> <span class="n">num_batches</span> <span class="o">*</span> <span class="n">batch_size</span>
+        <span class="n">large_batches</span> <span class="o">=</span> <span class="n">data_stream</span><span class="p">(</span>
+            <span class="n">nprng</span><span class="p">,</span>
+            <span class="n">effective_sample_size</span><span class="p">,</span>
+            <span class="n">validation_samples</span><span class="p">,</span>
+            <span class="n">categorical_columns</span><span class="o">=</span><span class="n">categorical_columns</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">input_size</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">mini_batches</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">())</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">init_params</span><span class="p">,</span> <span class="n">approximator</span> <span class="o">=</span> <span class="n">model_generator</span><span class="p">(</span>
+            <span class="n">input_size</span><span class="p">,</span> <span class="o">**</span><span class="n">model_generator_kwargs</span>
+        <span class="p">)</span>
+        <span class="n">key_to_index</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">{</span>
+                <span class="n">key</span><span class="p">:</span> <span class="n">index</span>
+                <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+                    <span class="n">get_density_estimators</span><span class="p">(</span><span class="n">categorical_columns</span><span class="p">,</span> <span class="o">*</span><span class="n">sample_distributions</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="n">categorical_columns</span>
+            <span class="k">else</span> <span class="p">{</span><span class="nb">tuple</span><span class="p">():</span> <span class="mi">0</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">opt_init</span><span class="p">,</span> <span class="n">opt_update</span><span class="p">,</span> <span class="n">get_params</span> <span class="o">=</span> <span class="n">optimizers</span><span class="o">.</span><span class="n">adam</span><span class="p">(</span><span class="n">step_size</span><span class="p">)</span>
+        <span class="n">opt_state</span> <span class="o">=</span> <span class="n">opt_init</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">init_params</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">key_to_index</span><span class="p">})</span>
+
+        <span class="k">def</span> <span class="nf">_loss</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">loss</span><span class="p">(</span>
+                <span class="p">(</span>
+                    <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+                        <span class="n">approximator</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">sample</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">samples</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                    <span class="p">)</span>
+                    <span class="k">for</span> <span class="n">samples</span> <span class="ow">in</span> <span class="n">batch</span>
+                <span class="p">),</span>
+                <span class="o">**</span><span class="n">loss_kwargs</span>
+            <span class="p">)</span>
+
+        <span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+        <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">opt_state</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="n">opt_state</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">opt_update</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">jax</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">_loss</span><span class="p">)(</span><span class="n">params</span><span class="p">,</span> <span class="n">batch</span><span class="p">),</span> <span class="n">opt_state</span><span class="p">)</span>
+
+        <span class="n">itercount</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+        <span class="n">best_loss</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">inf</span>
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_batches</span><span class="p">):</span>
+                <span class="n">opt_state</span> <span class="o">=</span> <span class="n">update</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">itercount</span><span class="p">),</span> <span class="n">opt_state</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">mini_batches</span><span class="p">))</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="n">opt_state</span><span class="p">)</span>
+            <span class="n">epoch_loss</span> <span class="o">=</span> <span class="n">_loss</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">large_batches</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">epoch_loss</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sd">&quot;&quot;&quot;The loss is NaN.</span>
+<span class="sd">                Make sure floating point arithmetic makes sense for your data.&quot;&quot;&quot;</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="n">epoch_loss</span> <span class="o">&lt;</span> <span class="n">best_loss</span><span class="p">:</span>
+                <span class="c1"># track the best expected loss over all epochs this is where a</span>
+                <span class="c1"># biased sample could push estimate of the expected loss higher</span>
+                <span class="c1"># than the true :math:`f`-divergence I think the trade off for</span>
+                <span class="c1"># fast convergence given a low epoch number is well worth it.</span>
+                <span class="n">best_loss</span> <span class="o">=</span> <span class="n">epoch_loss</span>
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="o">-</span><span class="n">best_loss</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>  <span class="c1"># clip just above zero</span>
+
+    <span class="n">calc_div</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">summary</span> <span class="o">+</span> <span class="n">calc_div</span><span class="o">.</span><span class="vm">__doc__</span>
+    <span class="k">return</span> <span class="n">calc_div</span></div>
+
+
+<div class="viewcode-block" id="fdiv_loss"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.fdiv_loss">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">fdiv_loss</span><span class="p">(</span><span class="n">convex_conjugate</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;General template for :math:`f`-divergence losses given convex conjugate.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        convex_conjugate: The convex conjugate of the function, :math:`f`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Args:</span>
+<span class="sd">        batch: pair of minibatches drawn from each sample</span>
+<span class="sd">        weights: Provides an alternative means of reweighting minibatches.</span>
+<span class="sd">            See `hybrid estimation</span>
+<span class="sd">        &lt;user_guide.rst#hybrid-estimation&gt;`__ for details.&quot;&quot;&quot;</span>
+        <span class="n">input1</span><span class="p">,</span> <span class="n">input2</span> <span class="o">=</span> <span class="n">batch</span>
+        <span class="n">batch_loss</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convex_conjugate</span><span class="p">(</span><span class="n">input2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="n">weights</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">input1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="c1"># print(batch_loss)</span>
+        <span class="k">return</span> <span class="n">batch_loss</span>
+
+    <span class="k">return</span> <span class="n">loss</span></div>
+
+
+<div class="viewcode-block" id="ipm_loss"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.ipm_loss">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">ipm_loss</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Integral probability metric loss.&quot;&quot;&quot;</span>
+    <span class="n">input1</span><span class="p">,</span> <span class="n">input2</span> <span class="o">=</span> <span class="n">batch</span>
+    <span class="n">batch_loss</span> <span class="o">=</span> <span class="n">input2</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">input1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">batch_loss</span><span class="p">)</span></div>
+
+
+<span class="n">calc_tv</span> <span class="o">=</span> <span class="n">calc_div_variational</span><span class="p">(</span>
+    <span class="n">fdiv_data_stream</span><span class="p">,</span>
+    <span class="n">fdiv_loss</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">),</span>
+    <span class="n">model_generator</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span><span class="n">Approximator</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="n">summary</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;Total variation - :math:`f`-divergence form</span>
+
+<span class="s2">    :math:`\frac</span><span class="si">{1}{2}</span><span class="s2">\int dx \vert p\left(x\right) - q\left(x\right) \vert =</span>
+<span class="s2">    \sup\limits_{f : \|f\|_\infty \le \frac</span><span class="si">{1}{2}</span><span class="s2">} \mathbb</span><span class="si">{E}</span><span class="s2">_{x \sim</span>
+<span class="s2">    p}\left[f(x)\right] - \mathbb</span><span class="si">{E}</span><span class="s2">_{x^\prime \sim q}\left[f(x^\prime)\right]`</span>
+
+<span class="s2">    https://arxiv.org/abs/1606.00709&quot;&quot;&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">__all__</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;calc_tv&quot;</span><span class="p">)</span>
+
+<span class="n">calc_em</span> <span class="o">=</span> <span class="n">calc_div_variational</span><span class="p">(</span>
+    <span class="n">fdiv_data_stream</span><span class="p">,</span>
+    <span class="n">ipm_loss</span><span class="p">,</span>
+    <span class="n">model_generator</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span><span class="n">Approximator</span><span class="p">,</span> <span class="n">linear</span><span class="o">=</span><span class="n">NormalizedLinear</span><span class="p">,</span> <span class="n">residual</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="n">summary</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;Wasserstein-1 (Earth Mover&#39;s) metric</span>
+
+<span class="s2">    :math:`\int dxdx^\prime d(x, x^\prime)\gamma(x, x^\prime)`</span>
+
+<span class="s2">    , with</span>
+
+<span class="s2">    :math:`d(x, x^\prime)=\|x - x^\prime\|_1`</span>
+
+<span class="s2">    subject to constraints</span>
+
+<span class="s2">    :math:`\int dx^\prime\gamma(x, x^\prime) = p(x)`</span>
+
+<span class="s2">    :math:`\int dx\gamma(x, x^\prime) = q(x^\prime)`</span>
+
+<span class="s2">    Via Kantorovich-Rubinstein duality, this is equivalent to</span>
+
+<span class="s2">    :math:`\sup\limits_{f \in \mathcal</span><span class="si">{F}</span><span class="s2">} \vert \mathbb</span><span class="si">{E}</span><span class="s2">_{x \sim</span>
+<span class="s2">    p}\left[f(x)\right] - \mathbb</span><span class="si">{E}</span><span class="s2">_{x^\prime \sim q}\left[f(x^\prime)\right]</span>
+<span class="s2">    \vert`</span>
+
+<span class="s2">    , with</span>
+<span class="s2">    :math:`\mathcal</span><span class="si">{F}</span><span class="s2"> = \{f: \|f(x) - f(x^\prime)\|_1 \le \|x - x^\prime\|_1 \}`</span>
+
+<span class="s2">    According to `Joel Tropp&#39;s thesis section 4.3.1</span>
+<span class="s2">    &lt;http://users.cms.caltech.edu/~jtropp/papers/Tro04-Topics-Sparse.pdf&gt;`_,</span>
+<span class="s2">    the operator norm of a linear transformation from an :math:`L^1` metric</span>
+<span class="s2">    space to an :math:`L^1` metric space is bounded above by the :math:`L^1`</span>
+<span class="s2">    norms of its columns. This is realized by normalzing the weight columns</span>
+<span class="s2">    with an :math:`L^1` norm and excluding residual connections before applying</span>
+<span class="s2">    them.&quot;&quot;&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">__all__</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;calc_em&quot;</span><span class="p">)</span>
+
+<span class="n">calc_js</span> <span class="o">=</span> <span class="n">calc_div_variational</span><span class="p">(</span>
+    <span class="n">js_data_stream</span><span class="p">,</span>
+    <span class="n">fdiv_loss</span><span class="p">(</span><span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span>
+    <span class="n">model_generator</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span><span class="n">Approximator</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="o">-</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span>
+    <span class="n">summary</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;Jensen-Shannon divergence calculator</span>
+
+<span class="s2">    :math:`f(x) = -\log_2(x)`</span>
+
+<span class="s2">    :math:`f^{*}(y) = \sup\limits_x \left[xy - f(x)\right]`</span>
+
+<span class="s2">    :math:`\frac</span><span class="si">{d}{dx}</span><span class="s2">\left[xy - f(x)\right] = 0`</span>
+
+<span class="s2">    :math:`x = \frac{-1}{y\log(2)}`</span>
+
+<span class="s2">    :math:`f^{*}(y) = -\frac{\log\left(-y\log(2)\right) + 1}{\log(2)}`</span>
+
+<span class="s2">    Note that the domain of this function (when assumed to be real valued) is</span>
+<span class="s2">    naturally :math:`y &lt; 0`.&quot;&quot;&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">__all__</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;calc_js&quot;</span><span class="p">)</span>
+
+<span class="n">calc_hl</span> <span class="o">=</span> <span class="n">calc_div_variational</span><span class="p">(</span>
+    <span class="n">fdiv_data_stream</span><span class="p">,</span>
+    <span class="n">fdiv_loss</span><span class="p">(</span><span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">model_generator</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span><span class="n">Approximator</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="o">-</span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span>
+    <span class="n">summary</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;Hellinger distance calculator</span>
+
+<span class="s2">    :math:`f(x) = 1 - \sqrt</span><span class="si">{x}</span><span class="s2">`</span>
+
+<span class="s2">    :math:`f^{*}(y) = \sup\limits_x\left[xy - f(x)\right]`</span>
+
+<span class="s2">    :math:`\frac</span><span class="si">{d}{dx}</span><span class="s2">\left[xy - f(x)\right] = 0`</span>
+
+<span class="s2">    :math:`x = \frac</span><span class="si">{1}</span><span class="s2">{4y ^ 2}`</span>
+
+<span class="s2">    :math:`f^{*}(y) = \frac</span><span class="si">{1}</span><span class="s2">{2\vert y \vert} + \frac</span><span class="si">{1}{4y}</span><span class="s2"> - 1`</span>
+
+<span class="s2">    Since the `Fenchel–Moreau theorem</span>
+<span class="s2">    &lt;https://en.wikipedia.org/wiki/Fenchel</span><span class="si">%E</span><span class="s2">2</span><span class="si">%80%</span><span class="s2">93Moreau_theorem&gt;`_ requires</span>
+<span class="s2">    the convex conjugate to be lower semicontinuous for bicongugacy to hold, we</span>
+<span class="s2">    take :math:`y &lt; 0`.</span>
+
+<span class="s2">    This in turn simplifies the expression of :math:`f^{*}` to</span>
+
+<span class="s2">    :math:`f^{*}(y) = -\frac</span><span class="si">{1}{4y}</span><span class="s2"> - 1`&quot;&quot;&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">__all__</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;calc_hl&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="histogram"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.histogram">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">histogram</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">histogram</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">Counter</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">histogram</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span> <span class="o">/</span> <span class="n">N</span>
+    <span class="k">return</span> <span class="n">histogram</span></div>
+
+
+<span class="k">def</span> <span class="nf">join_keys</span><span class="p">(</span><span class="n">dictionaries</span><span class="p">):</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">dictionary</span> <span class="ow">in</span> <span class="n">dictionaries</span><span class="p">:</span>
+        <span class="n">keys</span> <span class="o">|=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">keys</span>
+
+
+<div class="viewcode-block" id="average_histograms"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.average_histograms">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">average_histograms</span><span class="p">(</span><span class="n">histograms</span><span class="p">):</span>
+    <span class="n">avg</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">histograms</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">join_keys</span><span class="p">(</span><span class="n">histograms</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">histogram</span> <span class="ow">in</span> <span class="n">histograms</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">histogram</span><span class="p">:</span>
+                <span class="n">p</span> <span class="o">+=</span> <span class="n">histogram</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="n">avg</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span> <span class="o">/</span> <span class="n">N</span>
+    <span class="k">return</span> <span class="n">avg</span></div>
+
+
+<div class="viewcode-block" id="cat_histograms"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.cat_histograms">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">cat_histograms</span><span class="p">(</span><span class="n">histograms</span><span class="p">):</span>
+    <span class="n">histogram</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">join_keys</span><span class="p">(</span><span class="n">histograms</span><span class="p">):</span>
+        <span class="n">histogram</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+            <span class="n">histogram</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">histogram</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">histogram</span> <span class="ow">in</span> <span class="n">histograms</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">histogram</span></div>
+
+
+<div class="viewcode-block" id="get_density_estimators"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.get_density_estimators">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">get_density_estimators</span><span class="p">(</span><span class="n">categorical_columns</span><span class="p">,</span> <span class="o">*</span><span class="n">sample_distributions</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">cat_histograms</span><span class="p">(</span>
+        <span class="nb">tuple</span><span class="p">(</span>
+            <span class="n">average_histograms</span><span class="p">(</span>
+                <span class="nb">tuple</span><span class="p">(</span>
+                    <span class="n">histogram</span><span class="p">(</span><span class="n">samples</span><span class="p">[:,</span> <span class="n">categorical_columns</span><span class="p">])</span>
+                    <span class="k">for</span> <span class="n">samples</span> <span class="ow">in</span> <span class="n">sample_distribution</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">sample_distribution</span> <span class="ow">in</span> <span class="n">sample_distributions</span>
+        <span class="p">)</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="metric_from_density"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.metric_from_density">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">metric_from_density</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="o">*</span><span class="n">densities</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">metric</span><span class="p">(</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">densities</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="calc_mle"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_mle">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">calc_mle</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="o">*</span><span class="n">sample_distributions</span><span class="p">):</span>
+    <span class="n">sample_distributions</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">arrayify</span><span class="p">,</span> <span class="n">sample_distributions</span><span class="p">))</span>
+    <span class="n">categorical_columns</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">sample_distributions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+    <span class="n">densities</span> <span class="o">=</span> <span class="n">get_density_estimators</span><span class="p">(</span>
+        <span class="n">categorical_columns</span><span class="p">,</span> <span class="o">*</span><span class="n">sample_distributions</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">metric_from_density</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="o">*</span><span class="n">densities</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="calc_hl_density"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_hl_density">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">calc_hl_density</span><span class="p">(</span><span class="n">density_p</span><span class="p">,</span> <span class="n">density_q</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Hellinger distance calculated from histograms.</span>
+
+<span class="sd">    Hellinger distance is defined as</span>
+
+<span class="sd">    :math:`\sqrt{\frac{1}{2}\sum\limits_{x\in\mathcal{X}}\left(\sqrt{p(x)} -</span>
+<span class="sd">    \sqrt{q(x)}\right)^2}`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        density_p (list): probability mass function of p</span>
+<span class="sd">        density_q (list): probability mass function of q&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">density_p</span><span class="p">)</span> <span class="o">-</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">density_q</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="calc_hl_mle"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_hl_mle">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">calc_hl_mle</span><span class="p">(</span><span class="n">sample_distribution_p</span><span class="p">,</span> <span class="n">sample_distribution_q</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Hellinger distance calculated via histogram based density estimators.</span>
+
+<span class="sd">    Hellinger distance is defined as</span>
+
+<span class="sd">    :math:`\sqrt{\frac{1}{2}\sum\limits_{x\in\mathcal{X}}\left(\sqrt{p(x)} -</span>
+<span class="sd">    \sqrt{q(x)}\right)^2}`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sample_distribution_p (list): A numpy array,</span>
+<span class="sd">            pandas dataframe, or pandas series or a list of numpy arrays,</span>
+<span class="sd">            dataframes or series. If it is a list then will sample from each in the</span>
+<span class="sd">            list For example, ``[[batch1, batch2, batch3], [batch4, batch5],</span>
+<span class="sd">            [batch6, batch7]]`` Assuming ``batch1`` came from distribution</span>
+<span class="sd">            :math:`p_1`, ``batch2`` from :math:`p_2`, etc, this function will</span>
+<span class="sd">            simulate a system in which a latent `N=3` sided die role that</span>
+<span class="sd">            determines whether to draw a sample from :math:`\frac{p_1 + p_2 +</span>
+<span class="sd">            p_3}{3}`, :math:`\frac{p_4 + p_5}{2}`, or :math:`\frac{p_6 + p_7}{2}`.</span>
+<span class="sd">            The outer most list is typically a singleton.</span>
+<span class="sd">        sample_distribution_q (list):&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">calc_mle</span><span class="p">(</span><span class="n">calc_hl_density</span><span class="p">,</span> <span class="n">sample_distribution_p</span><span class="p">,</span> <span class="n">sample_distribution_q</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="calc_tv_density"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_density">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">calc_tv_density</span><span class="p">(</span><span class="n">density_p</span><span class="p">,</span> <span class="n">density_q</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Total variation calculated from histograms.</span>
+
+<span class="sd">    For two distributions, :math:`p` and :math:`q` defined over the same</span>
+<span class="sd">    probability space, :math:`\mathcal{X}`, the total variation is defined as</span>
+
+<span class="sd">    :math:`\frac{1}{2}\sum\limits_{x\in\mathcal{X}}\vert p(x) - q(x)\vert`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        density_p (list): probability mass function of p</span>
+<span class="sd">        density_q (list): probability mass function of q&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">density_p</span> <span class="o">-</span> <span class="n">density_q</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="calc_tv_mle"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_mle">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">calc_tv_mle</span><span class="p">(</span><span class="n">sample_distribution_p</span><span class="p">,</span> <span class="n">sample_distribution_q</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Total variation calculated via histogram based density estimators. All</span>
+<span class="sd">    columns are assumed to be categorical.</span>
+
+<span class="sd">    For two distributions, :math:`p` and :math:`q` defined over the same</span>
+<span class="sd">    probability space, `\mathcal{X}`, the total variation is defined as</span>
+
+<span class="sd">    :math:`\frac{1}{2}\sum\limits_{x\in\mathcal{X}}\vert p(x) - q(x)\vert`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sample_distribution_p (list): A numpy array,</span>
+<span class="sd">            pandas dataframe, or pandas series or a list of numpy arrays,</span>
+<span class="sd">            dataframes or series. If it is a list then will sample from each in the</span>
+<span class="sd">            list For example, ``[[batch1, batch2, batch3], [batch4, batch5],</span>
+<span class="sd">            [batch6, batch7]]`` Assuming ``batch1`` came from distribution</span>
+<span class="sd">            :math:`p_1`, ``batch2`` from :math:`p_2`, etc, this function will</span>
+<span class="sd">            simulate a system in which a latent `N=3` sided die role that</span>
+<span class="sd">            determines whether to draw a sample from :math:`\frac{p_1 + p_2 +</span>
+<span class="sd">            p_3}{3}`, :math:`\frac{p_4 + p_5}{2}`, or :math:`\frac{p_6 + p_7}{2}`.</span>
+<span class="sd">            The outer most list is typically a singleton.</span>
+<span class="sd">        sample_distribution_q (list):&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">calc_mle</span><span class="p">(</span><span class="n">calc_tv_density</span><span class="p">,</span> <span class="n">sample_distribution_p</span><span class="p">,</span> <span class="n">sample_distribution_q</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="calc_kl_density"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_kl_density">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">calc_kl_density</span><span class="p">(</span><span class="n">density_p</span><span class="p">,</span> <span class="n">density_q</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Kullback–Leibler (KL) divergence calculated from histograms.</span>
+
+<span class="sd">    For two distributions, :math:`p` and :math:`q` defined over the same</span>
+<span class="sd">        probability space, `\mathcal{X}`, the total variation is defined as</span>
+
+<span class="sd">    :math:`\sum\limits_{x\in\mathcal{X}}p(x)\log\left(\frac{p(x)}{q(x)}\right)`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        density_p (list): probability mass function of :math:`p`</span>
+<span class="sd">        density_q (list): probability mass function of :math:`q`&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">density_p</span> <span class="o">/</span> <span class="n">density_q</span><span class="p">)</span> <span class="o">**</span> <span class="n">density_p</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="calc_kl_mle"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_kl_mle">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">calc_kl_mle</span><span class="p">(</span><span class="n">sample_distribution_p</span><span class="p">,</span> <span class="n">sample_distribution_q</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Kullback–Leibler (KL) divergence calculated via histogram based density estimators.</span>
+
+<span class="sd">    For two distributions, :math:`p` and :math:`q` defined over the same</span>
+<span class="sd">    probability space, `\mathcal{X}`, the KL divergence is defined as</span>
+
+<span class="sd">    :math:`\sum\limits_{x\in\mathcal{X}}p(x)\log\left(\frac{p(x)}{q(x)}\right)`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sample_distribution_p (list): A numpy array,</span>
+<span class="sd">            pandas dataframe, or pandas series or a list of numpy arrays,</span>
+<span class="sd">            dataframes or series. If it is a list then will sample from each in the</span>
+<span class="sd">            list For example, ``[[batch1, batch2, batch3], [batch4, batch5],</span>
+<span class="sd">            [batch6, batch7]]`` Assuming ``batch1`` came from distribution</span>
+<span class="sd">            :math:`p_1`, ``batch2`` from :math:`p_2`, etc, this function will</span>
+<span class="sd">            simulate a system in which a latent `N=3` sided die role that</span>
+<span class="sd">            determines whether to draw a sample from :math:`\frac{p_1 + p_2 +</span>
+<span class="sd">            p_3}{3}`, :math:`\frac{p_4 + p_5}{2}`, or :math:`\frac{p_6 + p_7}{2}`.</span>
+<span class="sd">            The outer most list is typically a singleton.</span>
+<span class="sd">        sample_distribution_q (list):&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">calc_mle</span><span class="p">(</span><span class="n">calc_kl_density</span><span class="p">,</span> <span class="n">sample_distribution_p</span><span class="p">,</span> <span class="n">sample_distribution_q</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="calc_js_density"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_js_density">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">calc_js_density</span><span class="p">(</span><span class="o">*</span><span class="n">densities</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Jensen-Shannon divergence calculated from histograms.</span>
+
+<span class="sd">    For two distributions, :math:`p` and :math:`q` defined over the same</span>
+<span class="sd">    probability space, `\mathcal{X}`, the Jensen-Shannon divergence is defined</span>
+<span class="sd">    as the average of the KL divergences between each probability mass function</span>
+<span class="sd">    and the average of all probability mass functions being compared. This is</span>
+<span class="sd">    well defined for more than two probability masses, and will be zero when</span>
+<span class="sd">    all probability masses have disjoint support and 1 when they are all</span>
+<span class="sd">    identical and the KL divergences are taken using a logarithmic base equal</span>
+<span class="sd">    to the number of probability masses being compared. Typically, there will</span>
+<span class="sd">    be only two probability mass functions, and the logarithmic base is</span>
+<span class="sd">    therefore taken to be 2.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        *densities (list): probability mass functions&quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">densities</span><span class="p">)</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">densities</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">calc_kl_density</span><span class="p">(</span><span class="n">density</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span> <span class="k">for</span> <span class="n">density</span> <span class="ow">in</span> <span class="n">densities</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span>
+        <span class="n">n</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="calc_js_mle"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_js_mle">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">calc_js_mle</span><span class="p">(</span><span class="o">*</span><span class="n">sample_distributions</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Jensen-Shannon divergences calculated via histogram based density estimators.</span>
+
+<span class="sd">    For two distributions, :math:`p` and :math:`q` defined over the same</span>
+<span class="sd">    probability space, `\mathcal{X}`, the Jensen-Shannon divergence is defined</span>
+<span class="sd">    as the average of the KL divergences between each probability mass function</span>
+<span class="sd">    and the average of all probability mass functions being compared. This is</span>
+<span class="sd">    well defined for more than two probability masses, and will be zero when</span>
+<span class="sd">    all probability masses have disjoint support and 1 when they are all</span>
+<span class="sd">    identical and the KL divergences are taken using a logarithmic base equal</span>
+<span class="sd">    to the number of probability masses being compared. Typically, there will</span>
+<span class="sd">    be only two probability mass functions, and the logarithmic base is</span>
+<span class="sd">    therefore taken to be 2.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        *sample_distributions (list): A numpy array,</span>
+<span class="sd">            pandas dataframe, or pandas series or a list of numpy arrays,</span>
+<span class="sd">            dataframes or series. If it is a list then will sample from each in the</span>
+<span class="sd">            list For example, ``[[batch1, batch2, batch3], [batch4, batch5],</span>
+<span class="sd">            [batch6, batch7]]`` Assuming ``batch1`` came from distribution</span>
+<span class="sd">            :math:`p_1`, ``batch2`` from :math:`p_2`, etc, this function will</span>
+<span class="sd">            simulate a system in which a latent `N=3` sided die role that</span>
+<span class="sd">            determines whether to draw a sample from :math:`\frac{p_1 + p_2 +</span>
+<span class="sd">            p_3}{3}`, :math:`\frac{p_4 + p_5}{2}`, or :math:`\frac{p_6 + p_7}{2}`.</span>
+<span class="sd">            The outer most list is typically a singleton.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">calc_mle</span><span class="p">(</span><span class="n">calc_js_density</span><span class="p">,</span> <span class="o">*</span><span class="n">sample_distributions</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="cal_div_knn"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.cal_div_knn">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">cal_div_knn</span><span class="p">(</span>
+    <span class="n">divergence</span><span class="p">,</span>
+    <span class="n">sample_distribution_p</span><span class="p">,</span>
+    <span class="n">sample_distribution_q</span><span class="p">,</span>
+    <span class="n">bias</span><span class="o">=</span><span class="k">lambda</span> <span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">num_samples</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
+    <span class="n">categorical_columns</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(),</span>
+    <span class="n">nprng</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">k</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;:math:`f`-divergence from knn density estimators</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        divergence: :math:`f` that defines the :math:`f`-divergence.</span>
+<span class="sd">        sample_distribution_p (list): A numpy array,</span>
+<span class="sd">            pandas dataframe, or pandas series or a list of numpy arrays,</span>
+<span class="sd">            dataframes or series. If it is a list then will sample from each in the</span>
+<span class="sd">            list For example, ``[[batch1, batch2, batch3], [batch4, batch5],</span>
+<span class="sd">            [batch6, batch7]]`` Assuming ``batch1`` came from distribution</span>
+<span class="sd">            :math:`p_1`, ``batch2`` from :math:`p_2`, etc, this function will</span>
+<span class="sd">            simulate a system in which a latent `N=3` sided die role that</span>
+<span class="sd">            determines whether to draw a sample from :math:`\frac{p_1 + p_2 +</span>
+<span class="sd">            p_3}{3}`, :math:`\frac{p_4 + p_5}{2}`, or :math:`\frac{p_6 + p_7}{2}`.</span>
+<span class="sd">            The outer most list is typically a singleton.</span>
+<span class="sd">        sample_distribution_q (list):</span>
+<span class="sd">        bias (function): function of the number of samples and number of</span>
+<span class="sd">            nearest neighbors that compensates for expected bias of plugin</span>
+<span class="sd">            estimator.</span>
+<span class="sd">        num_samples (int, optional): Number of subsamples to take</span>
+<span class="sd">            from each distribution on which to construct kdtrees and</span>
+<span class="sd">            otherwise make computations. Defaults to 2046.</span>
+<span class="sd">        k (int, optional): Number of nearest neighbors. As a rule of</span>
+<span class="sd">            thumb, you should multiply this by two with every dimension</span>
+<span class="sd">            past one. Defaults to 128.&quot;&quot;&quot;</span>
+    <span class="n">sample_distribution_p</span> <span class="o">=</span> <span class="n">arrayify</span><span class="p">(</span><span class="n">sample_distribution_p</span><span class="p">)</span>
+    <span class="n">sample_distribution_q</span> <span class="o">=</span> <span class="n">arrayify</span><span class="p">(</span><span class="n">sample_distribution_q</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+        <span class="n">fdiv_data_stream</span><span class="p">(</span>
+            <span class="n">nprng</span><span class="p">,</span>
+            <span class="n">num_samples</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">sample_distribution_p</span><span class="p">,</span> <span class="n">sample_distribution_q</span><span class="p">),</span>
+            <span class="n">categorical_columns</span><span class="o">=</span><span class="n">categorical_columns</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">knn_ratio</span><span class="p">(</span><span class="n">ptree</span><span class="p">,</span> <span class="n">qtree</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">qtree</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ptree</span><span class="o">.</span><span class="n">query_ball_point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">divergence</span><span class="p">(</span><span class="n">n</span> <span class="o">/</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="n">numerator</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">conditional</span> <span class="ow">in</span> <span class="n">q</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">denominator</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">conditional</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">qtree</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">cKDTree</span><span class="p">(</span><span class="n">conditional</span><span class="p">)</span>
+        <span class="n">ptree</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">cKDTree</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="n">numerator</span> <span class="o">+=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">parallel</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">knn_ratio</span><span class="p">,</span> <span class="n">ptree</span><span class="p">,</span> <span class="n">qtree</span><span class="p">),</span> <span class="n">qtree</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span> <span class="o">-</span> <span class="n">bias</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="calc_tv_knn"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_knn">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">calc_tv_knn</span><span class="p">(</span><span class="n">sample_distribution_p</span><span class="p">,</span> <span class="n">sample_distribution_q</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Total variation from knn density estimators</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        divergence: :math:`f` that defines the :math:`f`-divergence.</span>
+<span class="sd">        sample_distribution_p (list): A numpy array,</span>
+<span class="sd">            pandas dataframe, or pandas series or a list of numpy arrays,</span>
+<span class="sd">            dataframes or series. If it is a list then will sample from each in the</span>
+<span class="sd">            list For example, ``[[batch1, batch2, batch3], [batch4, batch5],</span>
+<span class="sd">            [batch6, batch7]]`` Assuming ``batch1`` came from distribution</span>
+<span class="sd">            :math:`p_1`, ``batch2`` from :math:`p_2`, etc, this function will</span>
+<span class="sd">            simulate a system in which a latent `N=3` sided die role that</span>
+<span class="sd">            determines whether to draw a sample from :math:`\frac{p_1 + p_2 +</span>
+<span class="sd">            p_3}{3}`, :math:`\frac{p_4 + p_5}{2}`, or :math:`\frac{p_6 + p_7}{2}`.</span>
+<span class="sd">            The outer most list is typically a singleton.</span>
+<span class="sd">        sample_distribution_q (list):</span>
+<span class="sd">        bias (function): function of the number of samples and number of</span>
+<span class="sd">            nearest neighbors that compensates for expected bias of plugin</span>
+<span class="sd">            estimator.</span>
+<span class="sd">        num_samples (int, optional): Number of subsamples to take</span>
+<span class="sd">            from each distribution on which to construct kdtrees and</span>
+<span class="sd">            otherwise make computations. Defaults to 2046.</span>
+<span class="sd">        k (int, optional): Number of nearest neighbors. As a rule of</span>
+<span class="sd">            thumb, you should multiply this by two with every dimension</span>
+<span class="sd">            past one. Defaults to 128.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">bias</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">integral_no_p</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">k</span> <span class="o">+</span> <span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span> <span class="o">**</span> <span class="n">k</span>
+                <span class="o">-</span> <span class="n">N</span> <span class="o">*</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">betainc</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="n">N</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+            <span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">N</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">integral_with_p</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">betainc</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+        <span class="n">r0</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
+        <span class="n">p_less</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">integral_no_p</span><span class="p">(</span><span class="n">r0</span><span class="p">)</span>
+            <span class="o">-</span> <span class="n">integral_with_p</span><span class="p">(</span><span class="n">r0</span><span class="p">)</span>
+            <span class="o">-</span> <span class="p">(</span><span class="n">integral_no_p</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">integral_with_p</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">p_greater</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">integral_with_p</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="o">-</span> <span class="n">integral_no_p</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="o">-</span> <span class="p">(</span><span class="n">integral_with_p</span><span class="p">(</span><span class="n">r0</span><span class="p">)</span> <span class="o">-</span> <span class="n">integral_no_p</span><span class="p">(</span><span class="n">r0</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">p_less</span> <span class="o">+</span> <span class="n">p_greater</span>
+
+    <span class="k">return</span> <span class="n">cal_div_knn</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="nb">abs</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r</span><span class="p">),</span>
+        <span class="n">sample_distribution_p</span><span class="p">,</span>
+        <span class="n">sample_distribution_q</span><span class="p">,</span>
+        <span class="n">bias</span><span class="o">=</span><span class="n">bias</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="balanced_binary_cross_entropy"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.balanced_binary_cross_entropy">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">balanced_binary_cross_entropy</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute cross entropy loss while compensating for class imbalance</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        y_true (array): Ground truth, binary or soft labels.</span>
+<span class="sd">        y_pred (array): Array of model scores.&quot;&quot;&quot;</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">y_true</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span> <span class="o">-</span> <span class="n">P</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">rel_entr</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">P</span>
+        <span class="o">+</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">rel_entr</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y_true</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">N</span>
+    <span class="p">)</span> <span class="o">/</span> <span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="calc_tv_lower_bound"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_lower_bound">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">calc_tv_lower_bound</span><span class="p">(</span><span class="n">log_loss</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Lower bound of total variation. A model (not provided) must be trained</span>
+<span class="sd">    to classify data as belonging to one of two datasets using log loss,</span>
+<span class="sd">    ideally compensating for class imbalance during training. This function</span>
+<span class="sd">    will compute an lower bound on the total variation of the two datasets the</span>
+<span class="sd">    model was trained to distinguish using the loss from the validation set.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        log_loss (float): Binary cross entropy loss with class imbalance</span>
+<span class="sd">            compensated.&quot;&quot;&quot;</span>
+
+    <span class="n">js0</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">log_loss</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">js0</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

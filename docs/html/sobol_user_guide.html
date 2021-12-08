@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Sobol User Guide &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Airlines Dataset: Divergence Applications" href="notebooks/divergence/Airlines.html" />
+    <link rel="prev" title="Interprenet User Guide" href="interprenet_user_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sobol User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Sobol User Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/sobol_user_guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="sobol-user-guide">
+<h1>Sobol User Guide<a class="headerlink" href="#sobol-user-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Sensitivity_analysis">Sensitivity analysis</a> is
+concerned with the degree to which uncertainty in the output of a model can be
+attributed to uncertainty in its inputs <span id="id1">[<a class="reference internal" href="thresholding_user_guide.html#id17" title="Andrea Saltelli, Marco Ratto, Terry Andres, Francesca Campolongo, Jessica Cariboni, Debora Gatelli, Michaela Saisana, and Stefano Tarantola. Global sensitivity analysis: the primer. John Wiley &amp; Sons, 2008.">SRA+08</a>]</span>. Variance
+based sensitivity analysis, commonly known as <a class="reference external" href="https://en.wikipedia.org/wiki/Variance-based_sensitivity_analysis">sobol sensitivity analysis</a> seeks to
+answer this question by attributing the variance of the output to variances in
+one or more inputs. This breakdown is known as a sobol indices and are typically measured
+in one of two ways: <em>first-order</em> indices and <em>total-effect</em> indices.
+<span id="id2">[<a class="reference internal" href="thresholding_user_guide.html#id16" title="Ilya M Sobol. Global sensitivity indices for nonlinear mathematical models and their monte carlo estimates. Mathematics and computers in simulation, 55(1-3):271–280, 2001.">Sob01</a>]</span>.</p>
+<p>The first-order sobol index with respect to some feature is given by averaging
+the output of the model over all other values of all other features and
+computing the variance of the result while varying the feature in question.
+This is normalized by dividing by the total variance of the output measured by
+varying all feature values <span id="id3">[<a class="reference internal" href="thresholding_user_guide.html#id18" title="Sobol’ IM. Sensitivity estimates for nonlinear mathematical models. Math. Model. Comput. Exp, 1(4):407–414, 1993.">IM93</a>]</span>. Their sum is between 0 and 1. The total-effect index is computed by first computing the variance of the
+model output with respect to the feature in question, and then computing the
+expectation of the result over values of all other
+features. This is again normalized by the variance
+of the output of the model across all features.
+These will sum to a number greater than
+or equal to 1. Both are discussed in more detail
+here
+<a class="reference external" href="https://en.wikipedia.org/wiki/Variance-based_sensitivity_analysis">https://en.wikipedia.org/wiki/Variance-based_sensitivity_analysis</a>.</p>
+<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">sobol()</span></code> takes a model and dataset, and runs a
+monte carlo simulation as described in the above
+link to compute the first and total order sobol
+indices. Each index is expressed as a one
+dimensional array of length equal to the number of
+features in the supplied data matrix. The model is
+assumed to be a function that outputs one scalar
+for each row of the data matrix.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">mvtk</span> <span class="kn">import</span> <span class="n">sobol</span>
+
+<span class="n">nprng</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">nprng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span> <span class="c1"># 4 features</span>
+<span class="n">model</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">total</span><span class="p">,</span> <span class="n">first_order</span> <span class="o">=</span> <span class="n">sobol</span><span class="o">.</span><span class="n">sobol</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+<p id="id4"><dl class="citation">
+<dt class="label" id="id18"><span class="brackets">ALG19</span></dt>
+<dd><p>Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In <em>International Conference on Machine Learning</em>, 291–301. PMLR, 2019.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets">ACB17</span></dt>
+<dd><p>Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. <em>arXiv preprint arXiv:1701.07875</em>, 2017.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets">BDD+17</span></dt>
+<dd><p>Marc G Bellemare, Ivo Danihelka, Will Dabney, Shakir Mohamed, Balaji Lakshminarayanan, Stephan Hoyer, and Rémi Munos. The cramer distance as a solution to biased wasserstein gradients. <em>arXiv preprint arXiv:1705.10743</em>, 2017.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets">CsiszarS+04</span></dt>
+<dd><p>Imre Csiszár, Paul C Shields, and others. Information theory and statistics: a tutorial. <em>Foundations and Trends® in Communications and Information Theory</em>, 1(4):417–528, 2004.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets">GBR+12</span></dt>
+<dd><p>Arthur Gretton, Karsten M Borgwardt, Malte J Rasch, Bernhard Schölkopf, and Alexander Smola. A kernel two-sample test. <em>Journal of Machine Learning Research</em>, 13(Mar):723–773, 2012.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets">GAA+17</span></dt>
+<dd><p>Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron C Courville. Improved training of wasserstein gans. In <em>Advances in neural information processing systems</em>, 5767–5777. 2017.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">Her17</span></dt>
+<dd><p>Vincent Herrmann. Wasserstein gan and the kantorovich-rubinstein duality. February 2017. URL: <a class="reference external" href="https://vincentherrmann.github.io/blog/wasserstein/">https://vincentherrmann.github.io/blog/wasserstein/</a>.</p>
+</dd>
+<dt class="label" id="id21"><span class="brackets"><a class="fn-backref" href="#id3">IM93</a></span></dt>
+<dd><p>Sobol’ IM. Sensitivity estimates for nonlinear mathematical models. <em>Math. Model. Comput. Exp</em>, 1(4):407–414, 1993.</p>
+</dd>
+<dt class="label" id="id23"><span class="brackets">Lin91</span></dt>
+<dd><p>Jianhua Lin. Divergence measures based on the shannon entropy. <em>IEEE Transactions on Information theory</em>, 37(1):145–151, 1991.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets">NWJ10</span></dt>
+<dd><p>XuanLong Nguyen, Martin J Wainwright, and Michael I Jordan. Estimating divergence functionals and the likelihood ratio by convex risk minimization. <em>IEEE Transactions on Information Theory</em>, 56(11):5847–5861, 2010.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets">NCT16</span></dt>
+<dd><p>Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In <em>Advances in neural information processing systems</em>, 271–279. 2016.</p>
+</dd>
+<dt class="label" id="id20"><span class="brackets"><a class="fn-backref" href="#id1">SRA+08</a></span></dt>
+<dd><p>Andrea Saltelli, Marco Ratto, Terry Andres, Francesca Campolongo, Jessica Cariboni, Debora Gatelli, Michaela Saisana, and Stefano Tarantola. <em>Global sensitivity analysis: the primer</em>. John Wiley &amp; Sons, 2008.</p>
+</dd>
+<dt class="label" id="id19"><span class="brackets"><a class="fn-backref" href="#id2">Sob01</a></span></dt>
+<dd><p>Ilya M Sobol. Global sensitivity indices for nonlinear mathematical models and their monte carlo estimates. <em>Mathematics and computers in simulation</em>, 55(1-3):271–280, 2001.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">SFG+09</span></dt>
+<dd><p>Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. <em>arXiv preprint arXiv:0901.2698</em>, 2009.</p>
+</dd>
+<dt class="label" id="id17"><span class="brackets">Tro04</span></dt>
+<dd><p>Joel Aaron Tropp. <em>Topics in sparse approximation</em>. PhD thesis, University of Texas at Austin, 2004.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets">WHC+16</span></dt>
+<dd><p>Geoffrey I Webb, Roy Hyde, Hong Cao, Hai Long Nguyen, and Francois Petitjean. Characterizing concept drift. <em>Data Mining and Knowledge Discovery</em>, 30(4):964–994, 2016.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets">Wu16</span></dt>
+<dd><p>Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: <a class="reference external" href="http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf">http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="notebooks/divergence/Airlines.html" class="btn btn-neutral float-right" title="Airlines Dataset: Divergence Applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="interprenet_user_guide.html" class="btn btn-neutral float-left" title="Interprenet User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

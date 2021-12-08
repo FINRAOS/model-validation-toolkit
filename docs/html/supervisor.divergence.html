@@ -1,0 +1,1021 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>divergence &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="processing" href="supervisor.processing.html" />
+    <link rel="prev" title="supervisor" href="supervisor.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="supervisor.html">supervisor</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="supervisor.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">divergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supervisor.processing.html">processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supervisor.utils.html">utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="supervisor.html">supervisor</a> &raquo;</li>
+        
+      <li>divergence</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/supervisor.divergence.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-mvtk.supervisor.divergence">
+<span id="divergence"></span><h1>divergence<a class="headerlink" href="#module-mvtk.supervisor.divergence" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.Approximator">
+<span class="sig-name descname"><span class="pre">Approximator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">input_size,</span> <span class="pre">depth=3,</span> <span class="pre">width=None,</span> <span class="pre">output_size=1,</span> <span class="pre">linear=&lt;function</span> <span class="pre">Dense&gt;,</span> <span class="pre">residual=True,</span> <span class="pre">activation=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;,</span> <span class="pre">rng=DeviceArray([0,</span> <span class="pre">0],</span> <span class="pre">dtype=uint32)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/nn.html#Approximator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.Approximator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic Neural network based function
+<span class="math notranslate nohighlight">\(\mathbb{R}^N\rightarrow\mathbb{R}^M\)</span> function approximator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_size</strong> (<em>int</em>) – Size of input dimension.</p></li>
+<li><p><strong>depth</strong> (<em>int</em><em>, </em><em>optional</em>) – Depth of network. Defaults to <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Width of network. Defaults to <code class="docutils literal notranslate"><span class="pre">input_size</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p></li>
+<li><p><strong>output_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of outputs. Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><strong>linear</strong> (<code class="docutils literal notranslate"><span class="pre">torch.nn.Module</span></code>, optional) – Linear layer drop in
+replacement. Defaults to <code class="docutils literal notranslate"><span class="pre">jax.experimental.stax.Dense</span></code>.</p></li>
+<li><p><strong>residual</strong> (<em>bool</em><em>, </em><em>optional</em>) – Turn on ResNet blocks. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>activation</strong> (<em>optional</em>) – A map from <span class="math notranslate nohighlight">\((-\infty, \infty)\)</span> to an
+appropriate domain (such as the domain of a convex conjugate).
+Defaults to the identity.</p></li>
+<li><p><strong>rng</strong> (<em>optional</em>) – Jax <code class="docutils literal notranslate"><span class="pre">PRNGKey</span></code> key. Defaults to <cite>jax.random.PRNGKey(0)`</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>initial parameter values, neural network function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.NormalizedLinear">
+<span class="sig-name descname"><span class="pre">NormalizedLinear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">out_dim</span></em>, <em class="sig-param"><span class="pre">W_init=&lt;function</span> <span class="pre">variance_scaling.&lt;locals&gt;.init&gt;</span></em>, <em class="sig-param"><span class="pre">b_init=&lt;function</span> <span class="pre">normal.&lt;locals&gt;.init&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/nn.html#NormalizedLinear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.NormalizedLinear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear layer with positive weights with columns that sum to one.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.arrayify">
+<span class="sig-name descname"><span class="pre">arrayify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/utils.html#arrayify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.arrayify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the value to at least dim 3. If is dataframe it converts it to a
+list of values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>item</strong> – ndarray or a list of ndarray, or a dataframe, a series or a
+list of dataframes or series</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of dataframes/series or array of dim 3</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.average_histograms">
+<span class="sig-name descname"><span class="pre">average_histograms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">histograms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#average_histograms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.average_histograms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.balanced_binary_cross_entropy">
+<span class="sig-name descname"><span class="pre">balanced_binary_cross_entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#balanced_binary_cross_entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.balanced_binary_cross_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute cross entropy loss while compensating for class imbalance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array</em>) – Ground truth, binary or soft labels.</p></li>
+<li><p><strong>y_pred</strong> (<em>array</em>) – Array of model scores.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.cal_div_knn">
+<span class="sig-name descname"><span class="pre">cal_div_knn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">divergence</span></em>, <em class="sig-param"><span class="pre">sample_distribution_p</span></em>, <em class="sig-param"><span class="pre">sample_distribution_q</span></em>, <em class="sig-param"><span class="pre">bias=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></em>, <em class="sig-param"><span class="pre">num_samples=2048</span></em>, <em class="sig-param"><span class="pre">categorical_columns=()</span></em>, <em class="sig-param"><span class="pre">nprng=RandomState(MT19937)</span> <span class="pre">at</span> <span class="pre">0x7F906999D340</span></em>, <em class="sig-param"><span class="pre">k=128</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#cal_div_knn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.cal_div_knn" title="Permalink to this definition">¶</a></dt>
+<dd><p><span class="math notranslate nohighlight">\(f\)</span>-divergence from knn density estimators</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>divergence</strong> – <span class="math notranslate nohighlight">\(f\)</span> that defines the <span class="math notranslate nohighlight">\(f\)</span>-divergence.</p></li>
+<li><p><strong>sample_distribution_p</strong> (<em>list</em>) – A numpy array,
+pandas dataframe, or pandas series or a list of numpy arrays,
+dataframes or series. If it is a list then will sample from each in the
+list For example, <code class="docutils literal notranslate"><span class="pre">[[batch1,</span> <span class="pre">batch2,</span> <span class="pre">batch3],</span> <span class="pre">[batch4,</span> <span class="pre">batch5],</span>
+<span class="pre">[batch6,</span> <span class="pre">batch7]]</span></code> Assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution
+<span class="math notranslate nohighlight">\(p_1\)</span>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code> from <span class="math notranslate nohighlight">\(p_2\)</span>, etc, this function will
+simulate a system in which a latent <cite>N=3</cite> sided die role that
+determines whether to draw a sample from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 +
+p_3}{3}\)</span>, <span class="math notranslate nohighlight">\(\frac{p_4 + p_5}{2}\)</span>, or <span class="math notranslate nohighlight">\(\frac{p_6 + p_7}{2}\)</span>.
+The outer most list is typically a singleton.</p></li>
+<li><p><strong>sample_distribution_q</strong> (<em>list</em>) – </p></li>
+<li><p><strong>bias</strong> (<em>function</em>) – function of the number of samples and number of
+nearest neighbors that compensates for expected bias of plugin
+estimator.</p></li>
+<li><p><strong>num_samples</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of subsamples to take
+from each distribution on which to construct kdtrees and
+otherwise make computations. Defaults to 2046.</p></li>
+<li><p><strong>k</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of nearest neighbors. As a rule of
+thumb, you should multiply this by two with every dimension
+past one. Defaults to 128.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_div_variational">
+<span class="sig-name descname"><span class="pre">calc_div_variational</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data_stream</span></em>, <em class="sig-param"><span class="pre">loss</span></em>, <em class="sig-param"><span class="pre">model_generator=&lt;function</span> <span class="pre">Approximator&gt;</span></em>, <em class="sig-param"><span class="pre">summary=''</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_div_variational"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_div_variational" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate an <span class="math notranslate nohighlight">\(f\)</span>-divergence or integral probability metric using
+a variational of hybrid variational estimator.</p>
+<p>Variational estimates will generally (but, not always, thanks to the
+training proceedure!) be a lower bound on the true value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_stream</strong> (<em>generator</em>) – The data stream generator.</p></li>
+<li><p><strong>loss</strong> (<em>function</em>) – Loss function that takes as arguments the model
+outputs. Returns a scalar.</p></li>
+<li><p><strong>model_generator</strong> – A function that takes a Jax <code class="docutils literal notranslate"><span class="pre">PRNGKey</span></code> the number
+of dimensions of the support and returns a <a class="reference external" href="https://jax.readthedocs.io/en/latest/jax.experimental.stax.html">Jax model</a> to
+be used for variational approximations. The function this model is
+trained to approximate is sometimes known as the <em>witness
+function</em>–especially when dealing with <a class="reference external" href="http://www.gatsby.ucl.ac.uk/~gretton/papers/montreal19.pdf">integral probability metrics</a>.
+Specifically, the function returns a tuple that contains the initial
+parameters and a function that maps those parameters and the model
+inputs to the model outputs. Defaults to
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">supervisor.divergence.Approximator()</span></code>.</p></li>
+<li><p><strong>summary</strong> (<em>string</em>) – Summary of divergence to appear in docstring</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>function for computing divergence</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_em">
+<span class="sig-name descname"><span class="pre">calc_em</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_generator_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_batches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_test_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0125</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mvtk.supervisor.divergence.calc_em" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wasserstein-1 (Earth Mover’s) metric</p>
+<p><span class="math notranslate nohighlight">\(\int dxdx^\prime d(x, x^\prime)\gamma(x, x^\prime)\)</span></p>
+<p>, with</p>
+<p><span class="math notranslate nohighlight">\(d(x, x^\prime)=\|x - x^\prime\|_1\)</span></p>
+<p>subject to constraints</p>
+<p><span class="math notranslate nohighlight">\(\int dx^\prime\gamma(x, x^\prime) = p(x)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\int dx\gamma(x, x^\prime) = q(x^\prime)\)</span></p>
+<p>Via Kantorovich-Rubinstein duality, this is equivalent to</p>
+<p><span class="math notranslate nohighlight">\(\sup\limits_{f \in \mathcal{F}} \vert \mathbb{E}_{x \sim
+p}\left[f(x)\right] - \mathbb{E}_{x^\prime \sim q}\left[f(x^\prime)\right]
+\vert\)</span></p>
+<p>, with
+<span class="math notranslate nohighlight">\(\mathcal{F} = \{f: \|f(x) - f(x^\prime)\|_1 \le \|x - x^\prime\|_1 \}\)</span></p>
+<p>According to <a class="reference external" href="http://users.cms.caltech.edu/~jtropp/papers/Tro04-Topics-Sparse.pdf">Joel Tropp’s thesis section 4.3.1</a>,
+the operator norm of a linear transformation from an <span class="math notranslate nohighlight">\(L^1\)</span> metric
+space to an <span class="math notranslate nohighlight">\(L^1\)</span> metric space is bounded above by the <span class="math notranslate nohighlight">\(L^1\)</span>
+norms of its columns. This is realized by normalzing the weight columns
+with an <span class="math notranslate nohighlight">\(L^1\)</span> norm and excluding residual connections before applying
+them.</p>
+<blockquote>
+<div><dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt><a href="#id1"><span class="problematic" id="id2">*</span></a>sample_distributions (list): Sample distributions. A numpy array,</dt><dd><p>pandas dataframe, or pandas series or a list of numpy arrays,
+dataframes or series. If it is a list then will sample from each in the
+list For example, <code class="docutils literal notranslate"><span class="pre">[[batch1,</span> <span class="pre">batch2,</span> <span class="pre">batch3],</span> <span class="pre">[batch4,</span> <span class="pre">batch5],</span>
+<span class="pre">[batch6,</span> <span class="pre">batch7]]</span></code> Assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution
+<span class="math notranslate nohighlight">\(p_1\)</span>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code> from <span class="math notranslate nohighlight">\(p_2\)</span>, etc, this function will
+simulate a system in which a latent <cite>N=3</cite> sided die role that
+determines whether to draw a sample from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 +
+p_3}{3}\)</span>, <span class="math notranslate nohighlight">\(\frac{p_4 + p_5}{2}\)</span>, or <span class="math notranslate nohighlight">\(\frac{p_6 + p_7}{2}\)</span>.
+The outer most list is typically a singleton.</p>
+</dd>
+<dt>model_generator_kwargs (optional): Dictionary of optional kwargs to pass to</dt><dd><p>model_generator. <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">depth</span></code> are useful. See
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">supervisor.divergence.Approximator()</span></code> for more details.</p>
+</dd>
+<dt>loss_kwargs (optional): Dictionary of optional kwargs to pass to</dt><dd><p>loss function. <code class="docutils literal notranslate"><span class="pre">weights</span></code> is commonly used for reweighting
+expectations. See <a class="reference external" href="user_guide.rst#hybrid-estimation">hybrid estimation</a> for details.</p>
+</dd>
+<dt>categorical_columns (optional): List of indices of columns which should</dt><dd><p>be treated as categorical.</p>
+</dd>
+</dl>
+<p>nprng (optional): Numpy <code class="docutils literal notranslate"><span class="pre">RandomState</span></code>
+batch_size (int): mini batch size. Defaults to 16.
+num_batches (int): number of batches per epoch. Defaults to 128.
+num_epochs (int): number of epochs to train for. Defaults to 4.
+effective_sample_size (optional): Size of subsample over which Epoch</p>
+<blockquote>
+<div><p>losses are computed. This determines how large a sample a divergence is
+computed over.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>train_test_split (optional): If not None, specifies the</dt><dd><p>proportion of samples devoted to training as opposed to
+validation. If None, no split is used. Defaults to 0.75.</p>
+</dd>
+</dl>
+<p>step_size (float): step size for Adam optimizer</p>
+</dd>
+<dt>Returns:</dt><dd><p>Estimate of divergence.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_hl">
+<span class="sig-name descname"><span class="pre">calc_hl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_generator_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_batches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_test_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0125</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mvtk.supervisor.divergence.calc_hl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hellinger distance calculator</p>
+<p><span class="math notranslate nohighlight">\(f(x) = 1 - \sqrt{x}\)</span></p>
+<p><span class="math notranslate nohighlight">\(f^{*}(y) = \sup\limits_x\left[xy - f(x)\right]\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{d}{dx}\left[xy - f(x)\right] = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(x = \frac{1}{4y ^ 2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(f^{*}(y) = \frac{1}{2\vert y \vert} + \frac{1}{4y} - 1\)</span></p>
+<p>Since the <a class="reference external" href="https://en.wikipedia.org/wiki/Fenchel%E2%80%93Moreau_theorem">Fenchel–Moreau theorem</a> requires
+the convex conjugate to be lower semicontinuous for bicongugacy to hold, we
+take <span class="math notranslate nohighlight">\(y &lt; 0\)</span>.</p>
+<p>This in turn simplifies the expression of <span class="math notranslate nohighlight">\(f^{*}\)</span> to</p>
+<p><span class="math notranslate nohighlight">\(f^{*}(y) = -\frac{1}{4y} - 1\)</span></p>
+<blockquote>
+<div><dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt><a href="#id3"><span class="problematic" id="id4">*</span></a>sample_distributions (list): Sample distributions. A numpy array,</dt><dd><p>pandas dataframe, or pandas series or a list of numpy arrays,
+dataframes or series. If it is a list then will sample from each in the
+list For example, <code class="docutils literal notranslate"><span class="pre">[[batch1,</span> <span class="pre">batch2,</span> <span class="pre">batch3],</span> <span class="pre">[batch4,</span> <span class="pre">batch5],</span>
+<span class="pre">[batch6,</span> <span class="pre">batch7]]</span></code> Assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution
+<span class="math notranslate nohighlight">\(p_1\)</span>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code> from <span class="math notranslate nohighlight">\(p_2\)</span>, etc, this function will
+simulate a system in which a latent <cite>N=3</cite> sided die role that
+determines whether to draw a sample from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 +
+p_3}{3}\)</span>, <span class="math notranslate nohighlight">\(\frac{p_4 + p_5}{2}\)</span>, or <span class="math notranslate nohighlight">\(\frac{p_6 + p_7}{2}\)</span>.
+The outer most list is typically a singleton.</p>
+</dd>
+<dt>model_generator_kwargs (optional): Dictionary of optional kwargs to pass to</dt><dd><p>model_generator. <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">depth</span></code> are useful. See
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">supervisor.divergence.Approximator()</span></code> for more details.</p>
+</dd>
+<dt>loss_kwargs (optional): Dictionary of optional kwargs to pass to</dt><dd><p>loss function. <code class="docutils literal notranslate"><span class="pre">weights</span></code> is commonly used for reweighting
+expectations. See <a class="reference external" href="user_guide.rst#hybrid-estimation">hybrid estimation</a> for details.</p>
+</dd>
+<dt>categorical_columns (optional): List of indices of columns which should</dt><dd><p>be treated as categorical.</p>
+</dd>
+</dl>
+<p>nprng (optional): Numpy <code class="docutils literal notranslate"><span class="pre">RandomState</span></code>
+batch_size (int): mini batch size. Defaults to 16.
+num_batches (int): number of batches per epoch. Defaults to 128.
+num_epochs (int): number of epochs to train for. Defaults to 4.
+effective_sample_size (optional): Size of subsample over which Epoch</p>
+<blockquote>
+<div><p>losses are computed. This determines how large a sample a divergence is
+computed over.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>train_test_split (optional): If not None, specifies the</dt><dd><p>proportion of samples devoted to training as opposed to
+validation. If None, no split is used. Defaults to 0.75.</p>
+</dd>
+</dl>
+<p>step_size (float): step size for Adam optimizer</p>
+</dd>
+<dt>Returns:</dt><dd><p>Estimate of divergence.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_hl_density">
+<span class="sig-name descname"><span class="pre">calc_hl_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_hl_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_hl_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hellinger distance calculated from histograms.</p>
+<p>Hellinger distance is defined as</p>
+<p><span class="math notranslate nohighlight">\(\sqrt{\frac{1}{2}\sum\limits_{x\in\mathcal{X}}\left(\sqrt{p(x)} -
+\sqrt{q(x)}\right)^2}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>density_p</strong> (<em>list</em>) – probability mass function of p</p></li>
+<li><p><strong>density_q</strong> (<em>list</em>) – probability mass function of q</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_hl_mle">
+<span class="sig-name descname"><span class="pre">calc_hl_mle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_hl_mle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_hl_mle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hellinger distance calculated via histogram based density estimators.</p>
+<p>Hellinger distance is defined as</p>
+<p><span class="math notranslate nohighlight">\(\sqrt{\frac{1}{2}\sum\limits_{x\in\mathcal{X}}\left(\sqrt{p(x)} -
+\sqrt{q(x)}\right)^2}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample_distribution_p</strong> (<em>list</em>) – A numpy array,
+pandas dataframe, or pandas series or a list of numpy arrays,
+dataframes or series. If it is a list then will sample from each in the
+list For example, <code class="docutils literal notranslate"><span class="pre">[[batch1,</span> <span class="pre">batch2,</span> <span class="pre">batch3],</span> <span class="pre">[batch4,</span> <span class="pre">batch5],</span>
+<span class="pre">[batch6,</span> <span class="pre">batch7]]</span></code> Assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution
+<span class="math notranslate nohighlight">\(p_1\)</span>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code> from <span class="math notranslate nohighlight">\(p_2\)</span>, etc, this function will
+simulate a system in which a latent <cite>N=3</cite> sided die role that
+determines whether to draw a sample from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 +
+p_3}{3}\)</span>, <span class="math notranslate nohighlight">\(\frac{p_4 + p_5}{2}\)</span>, or <span class="math notranslate nohighlight">\(\frac{p_6 + p_7}{2}\)</span>.
+The outer most list is typically a singleton.</p></li>
+<li><p><strong>sample_distribution_q</strong> (<em>list</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_js">
+<span class="sig-name descname"><span class="pre">calc_js</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_generator_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_batches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_test_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0125</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mvtk.supervisor.divergence.calc_js" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jensen-Shannon divergence calculator</p>
+<p><span class="math notranslate nohighlight">\(f(x) = -\log_2(x)\)</span></p>
+<p><span class="math notranslate nohighlight">\(f^{*}(y) = \sup\limits_x \left[xy - f(x)\right]\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{d}{dx}\left[xy - f(x)\right] = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(x = \frac{-1}{y\log(2)}\)</span></p>
+<p><span class="math notranslate nohighlight">\(f^{*}(y) = -\frac{\log\left(-y\log(2)\right) + 1}{\log(2)}\)</span></p>
+<p>Note that the domain of this function (when assumed to be real valued) is
+naturally <span class="math notranslate nohighlight">\(y &lt; 0\)</span>.</p>
+<blockquote>
+<div><dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt><a href="#id5"><span class="problematic" id="id6">*</span></a>sample_distributions (list): Sample distributions. A numpy array,</dt><dd><p>pandas dataframe, or pandas series or a list of numpy arrays,
+dataframes or series. If it is a list then will sample from each in the
+list For example, <code class="docutils literal notranslate"><span class="pre">[[batch1,</span> <span class="pre">batch2,</span> <span class="pre">batch3],</span> <span class="pre">[batch4,</span> <span class="pre">batch5],</span>
+<span class="pre">[batch6,</span> <span class="pre">batch7]]</span></code> Assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution
+<span class="math notranslate nohighlight">\(p_1\)</span>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code> from <span class="math notranslate nohighlight">\(p_2\)</span>, etc, this function will
+simulate a system in which a latent <cite>N=3</cite> sided die role that
+determines whether to draw a sample from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 +
+p_3}{3}\)</span>, <span class="math notranslate nohighlight">\(\frac{p_4 + p_5}{2}\)</span>, or <span class="math notranslate nohighlight">\(\frac{p_6 + p_7}{2}\)</span>.
+The outer most list is typically a singleton.</p>
+</dd>
+<dt>model_generator_kwargs (optional): Dictionary of optional kwargs to pass to</dt><dd><p>model_generator. <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">depth</span></code> are useful. See
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">supervisor.divergence.Approximator()</span></code> for more details.</p>
+</dd>
+<dt>loss_kwargs (optional): Dictionary of optional kwargs to pass to</dt><dd><p>loss function. <code class="docutils literal notranslate"><span class="pre">weights</span></code> is commonly used for reweighting
+expectations. See <a class="reference external" href="user_guide.rst#hybrid-estimation">hybrid estimation</a> for details.</p>
+</dd>
+<dt>categorical_columns (optional): List of indices of columns which should</dt><dd><p>be treated as categorical.</p>
+</dd>
+</dl>
+<p>nprng (optional): Numpy <code class="docutils literal notranslate"><span class="pre">RandomState</span></code>
+batch_size (int): mini batch size. Defaults to 16.
+num_batches (int): number of batches per epoch. Defaults to 128.
+num_epochs (int): number of epochs to train for. Defaults to 4.
+effective_sample_size (optional): Size of subsample over which Epoch</p>
+<blockquote>
+<div><p>losses are computed. This determines how large a sample a divergence is
+computed over.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>train_test_split (optional): If not None, specifies the</dt><dd><p>proportion of samples devoted to training as opposed to
+validation. If None, no split is used. Defaults to 0.75.</p>
+</dd>
+</dl>
+<p>step_size (float): step size for Adam optimizer</p>
+</dd>
+<dt>Returns:</dt><dd><p>Estimate of divergence.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_js_density">
+<span class="sig-name descname"><span class="pre">calc_js_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">densities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_js_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_js_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jensen-Shannon divergence calculated from histograms.</p>
+<p>For two distributions, <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> defined over the same
+probability space, <cite>mathcal{X}</cite>, the Jensen-Shannon divergence is defined
+as the average of the KL divergences between each probability mass function
+and the average of all probability mass functions being compared. This is
+well defined for more than two probability masses, and will be zero when
+all probability masses have disjoint support and 1 when they are all
+identical and the KL divergences are taken using a logarithmic base equal
+to the number of probability masses being compared. Typically, there will
+be only two probability mass functions, and the logarithmic base is
+therefore taken to be 2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*densities</strong> (<em>list</em>) – probability mass functions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_js_mle">
+<span class="sig-name descname"><span class="pre">calc_js_mle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_js_mle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_js_mle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jensen-Shannon divergences calculated via histogram based density estimators.</p>
+<p>For two distributions, <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> defined over the same
+probability space, <cite>mathcal{X}</cite>, the Jensen-Shannon divergence is defined
+as the average of the KL divergences between each probability mass function
+and the average of all probability mass functions being compared. This is
+well defined for more than two probability masses, and will be zero when
+all probability masses have disjoint support and 1 when they are all
+identical and the KL divergences are taken using a logarithmic base equal
+to the number of probability masses being compared. Typically, there will
+be only two probability mass functions, and the logarithmic base is
+therefore taken to be 2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*sample_distributions</strong> (<em>list</em>) – A numpy array,
+pandas dataframe, or pandas series or a list of numpy arrays,
+dataframes or series. If it is a list then will sample from each in the
+list For example, <code class="docutils literal notranslate"><span class="pre">[[batch1,</span> <span class="pre">batch2,</span> <span class="pre">batch3],</span> <span class="pre">[batch4,</span> <span class="pre">batch5],</span>
+<span class="pre">[batch6,</span> <span class="pre">batch7]]</span></code> Assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution
+<span class="math notranslate nohighlight">\(p_1\)</span>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code> from <span class="math notranslate nohighlight">\(p_2\)</span>, etc, this function will
+simulate a system in which a latent <cite>N=3</cite> sided die role that
+determines whether to draw a sample from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 +
+p_3}{3}\)</span>, <span class="math notranslate nohighlight">\(\frac{p_4 + p_5}{2}\)</span>, or <span class="math notranslate nohighlight">\(\frac{p_6 + p_7}{2}\)</span>.
+The outer most list is typically a singleton.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_kl_density">
+<span class="sig-name descname"><span class="pre">calc_kl_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_kl_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_kl_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kullback–Leibler (KL) divergence calculated from histograms.</p>
+<dl class="simple">
+<dt>For two distributions, <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> defined over the same</dt><dd><p>probability space, <cite>mathcal{X}</cite>, the total variation is defined as</p>
+</dd>
+</dl>
+<p><span class="math notranslate nohighlight">\(\sum\limits_{x\in\mathcal{X}}p(x)\log\left(\frac{p(x)}{q(x)}\right)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>density_p</strong> (<em>list</em>) – probability mass function of <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p><strong>density_q</strong> (<em>list</em>) – probability mass function of <span class="math notranslate nohighlight">\(q\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_kl_mle">
+<span class="sig-name descname"><span class="pre">calc_kl_mle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_kl_mle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_kl_mle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kullback–Leibler (KL) divergence calculated via histogram based density estimators.</p>
+<p>For two distributions, <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> defined over the same
+probability space, <cite>mathcal{X}</cite>, the KL divergence is defined as</p>
+<p><span class="math notranslate nohighlight">\(\sum\limits_{x\in\mathcal{X}}p(x)\log\left(\frac{p(x)}{q(x)}\right)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample_distribution_p</strong> (<em>list</em>) – A numpy array,
+pandas dataframe, or pandas series or a list of numpy arrays,
+dataframes or series. If it is a list then will sample from each in the
+list For example, <code class="docutils literal notranslate"><span class="pre">[[batch1,</span> <span class="pre">batch2,</span> <span class="pre">batch3],</span> <span class="pre">[batch4,</span> <span class="pre">batch5],</span>
+<span class="pre">[batch6,</span> <span class="pre">batch7]]</span></code> Assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution
+<span class="math notranslate nohighlight">\(p_1\)</span>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code> from <span class="math notranslate nohighlight">\(p_2\)</span>, etc, this function will
+simulate a system in which a latent <cite>N=3</cite> sided die role that
+determines whether to draw a sample from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 +
+p_3}{3}\)</span>, <span class="math notranslate nohighlight">\(\frac{p_4 + p_5}{2}\)</span>, or <span class="math notranslate nohighlight">\(\frac{p_6 + p_7}{2}\)</span>.
+The outer most list is typically a singleton.</p></li>
+<li><p><strong>sample_distribution_q</strong> (<em>list</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_mle">
+<span class="sig-name descname"><span class="pre">calc_mle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_mle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_mle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_tv">
+<span class="sig-name descname"><span class="pre">calc_tv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_generator_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_batches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_test_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0125</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mvtk.supervisor.divergence.calc_tv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total variation - <span class="math notranslate nohighlight">\(f\)</span>-divergence form</p>
+<p><span class="math notranslate nohighlight">\(\frac{1}{2}\int dx \vert p\left(x\right) - q\left(x\right) \vert =
+\sup\limits_{f : \|f\|_\infty \le \frac{1}{2}} \mathbb{E}_{x \sim
+p}\left[f(x)\right] - \mathbb{E}_{x^\prime \sim q}\left[f(x^\prime)\right]\)</span></p>
+<p><a class="reference external" href="https://arxiv.org/abs/1606.00709">https://arxiv.org/abs/1606.00709</a></p>
+<blockquote>
+<div><dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt><a href="#id7"><span class="problematic" id="id8">*</span></a>sample_distributions (list): Sample distributions. A numpy array,</dt><dd><p>pandas dataframe, or pandas series or a list of numpy arrays,
+dataframes or series. If it is a list then will sample from each in the
+list For example, <code class="docutils literal notranslate"><span class="pre">[[batch1,</span> <span class="pre">batch2,</span> <span class="pre">batch3],</span> <span class="pre">[batch4,</span> <span class="pre">batch5],</span>
+<span class="pre">[batch6,</span> <span class="pre">batch7]]</span></code> Assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution
+<span class="math notranslate nohighlight">\(p_1\)</span>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code> from <span class="math notranslate nohighlight">\(p_2\)</span>, etc, this function will
+simulate a system in which a latent <cite>N=3</cite> sided die role that
+determines whether to draw a sample from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 +
+p_3}{3}\)</span>, <span class="math notranslate nohighlight">\(\frac{p_4 + p_5}{2}\)</span>, or <span class="math notranslate nohighlight">\(\frac{p_6 + p_7}{2}\)</span>.
+The outer most list is typically a singleton.</p>
+</dd>
+<dt>model_generator_kwargs (optional): Dictionary of optional kwargs to pass to</dt><dd><p>model_generator. <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">depth</span></code> are useful. See
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">supervisor.divergence.Approximator()</span></code> for more details.</p>
+</dd>
+<dt>loss_kwargs (optional): Dictionary of optional kwargs to pass to</dt><dd><p>loss function. <code class="docutils literal notranslate"><span class="pre">weights</span></code> is commonly used for reweighting
+expectations. See <a class="reference external" href="user_guide.rst#hybrid-estimation">hybrid estimation</a> for details.</p>
+</dd>
+<dt>categorical_columns (optional): List of indices of columns which should</dt><dd><p>be treated as categorical.</p>
+</dd>
+</dl>
+<p>nprng (optional): Numpy <code class="docutils literal notranslate"><span class="pre">RandomState</span></code>
+batch_size (int): mini batch size. Defaults to 16.
+num_batches (int): number of batches per epoch. Defaults to 128.
+num_epochs (int): number of epochs to train for. Defaults to 4.
+effective_sample_size (optional): Size of subsample over which Epoch</p>
+<blockquote>
+<div><p>losses are computed. This determines how large a sample a divergence is
+computed over.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>train_test_split (optional): If not None, specifies the</dt><dd><p>proportion of samples devoted to training as opposed to
+validation. If None, no split is used. Defaults to 0.75.</p>
+</dd>
+</dl>
+<p>step_size (float): step size for Adam optimizer</p>
+</dd>
+<dt>Returns:</dt><dd><p>Estimate of divergence.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_tv_density">
+<span class="sig-name descname"><span class="pre">calc_tv_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_tv_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_tv_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total variation calculated from histograms.</p>
+<p>For two distributions, <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> defined over the same
+probability space, <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, the total variation is defined as</p>
+<p><span class="math notranslate nohighlight">\(\frac{1}{2}\sum\limits_{x\in\mathcal{X}}\vert p(x) - q(x)\vert\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>density_p</strong> (<em>list</em>) – probability mass function of p</p></li>
+<li><p><strong>density_q</strong> (<em>list</em>) – probability mass function of q</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_tv_knn">
+<span class="sig-name descname"><span class="pre">calc_tv_knn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_tv_knn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_tv_knn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total variation from knn density estimators</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>divergence</strong> – <span class="math notranslate nohighlight">\(f\)</span> that defines the <span class="math notranslate nohighlight">\(f\)</span>-divergence.</p></li>
+<li><p><strong>sample_distribution_p</strong> (<em>list</em>) – A numpy array,
+pandas dataframe, or pandas series or a list of numpy arrays,
+dataframes or series. If it is a list then will sample from each in the
+list For example, <code class="docutils literal notranslate"><span class="pre">[[batch1,</span> <span class="pre">batch2,</span> <span class="pre">batch3],</span> <span class="pre">[batch4,</span> <span class="pre">batch5],</span>
+<span class="pre">[batch6,</span> <span class="pre">batch7]]</span></code> Assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution
+<span class="math notranslate nohighlight">\(p_1\)</span>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code> from <span class="math notranslate nohighlight">\(p_2\)</span>, etc, this function will
+simulate a system in which a latent <cite>N=3</cite> sided die role that
+determines whether to draw a sample from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 +
+p_3}{3}\)</span>, <span class="math notranslate nohighlight">\(\frac{p_4 + p_5}{2}\)</span>, or <span class="math notranslate nohighlight">\(\frac{p_6 + p_7}{2}\)</span>.
+The outer most list is typically a singleton.</p></li>
+<li><p><strong>sample_distribution_q</strong> (<em>list</em>) – </p></li>
+<li><p><strong>bias</strong> (<em>function</em>) – function of the number of samples and number of
+nearest neighbors that compensates for expected bias of plugin
+estimator.</p></li>
+<li><p><strong>num_samples</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of subsamples to take
+from each distribution on which to construct kdtrees and
+otherwise make computations. Defaults to 2046.</p></li>
+<li><p><strong>k</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of nearest neighbors. As a rule of
+thumb, you should multiply this by two with every dimension
+past one. Defaults to 128.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_tv_lower_bound">
+<span class="sig-name descname"><span class="pre">calc_tv_lower_bound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_tv_lower_bound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_tv_lower_bound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower bound of total variation. A model (not provided) must be trained
+to classify data as belonging to one of two datasets using log loss,
+ideally compensating for class imbalance during training. This function
+will compute an lower bound on the total variation of the two datasets the
+model was trained to distinguish using the loss from the validation set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>log_loss</strong> (<em>float</em>) – Binary cross entropy loss with class imbalance
+compensated.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_tv_mle">
+<span class="sig-name descname"><span class="pre">calc_tv_mle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_tv_mle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_tv_mle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total variation calculated via histogram based density estimators. All
+columns are assumed to be categorical.</p>
+<p>For two distributions, <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> defined over the same
+probability space, <cite>mathcal{X}</cite>, the total variation is defined as</p>
+<p><span class="math notranslate nohighlight">\(\frac{1}{2}\sum\limits_{x\in\mathcal{X}}\vert p(x) - q(x)\vert\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample_distribution_p</strong> (<em>list</em>) – A numpy array,
+pandas dataframe, or pandas series or a list of numpy arrays,
+dataframes or series. If it is a list then will sample from each in the
+list For example, <code class="docutils literal notranslate"><span class="pre">[[batch1,</span> <span class="pre">batch2,</span> <span class="pre">batch3],</span> <span class="pre">[batch4,</span> <span class="pre">batch5],</span>
+<span class="pre">[batch6,</span> <span class="pre">batch7]]</span></code> Assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution
+<span class="math notranslate nohighlight">\(p_1\)</span>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code> from <span class="math notranslate nohighlight">\(p_2\)</span>, etc, this function will
+simulate a system in which a latent <cite>N=3</cite> sided die role that
+determines whether to draw a sample from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 +
+p_3}{3}\)</span>, <span class="math notranslate nohighlight">\(\frac{p_4 + p_5}{2}\)</span>, or <span class="math notranslate nohighlight">\(\frac{p_6 + p_7}{2}\)</span>.
+The outer most list is typically a singleton.</p></li>
+<li><p><strong>sample_distribution_q</strong> (<em>list</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.cat_histograms">
+<span class="sig-name descname"><span class="pre">cat_histograms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">histograms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#cat_histograms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.cat_histograms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.fdiv_data_stream">
+<span class="sig-name descname"><span class="pre">fdiv_data_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nprng</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/generators.html#fdiv_data_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.fdiv_data_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data stream generator for f-divergence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nprng</strong> – Numpy <code class="docutils literal notranslate"><span class="pre">RandomState</span></code> used to generate random samples</p></li>
+<li><p><strong>batch_size</strong> – size of batch</p></li>
+<li><p><strong>sample_distributions</strong> – list of lists of samples to compare for each
+partition of the data. For example, <code class="docutils literal notranslate"><span class="pre">[[batch1,</span> <span class="pre">batch2,</span> <span class="pre">batch3],</span>
+<span class="pre">[batch4,</span> <span class="pre">batch5],</span> <span class="pre">[batch6,</span> <span class="pre">batch7]]</span></code></p></li>
+<li><p><strong>categorical_columns</strong> (<em>tuple</em>) – list or tuple of column indices that are
+considered categorical.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The output of this function will be <code class="docutils literal notranslate"><span class="pre">N</span></code> samples of size
+<code class="docutils literal notranslate"><span class="pre">batch_size</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">len(sample_distributions)</span></code> Following the
+example above, assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution p_1,
+<code class="docutils literal notranslate"><span class="pre">batch2</span></code> from <span class="math notranslate nohighlight">\(p_2\)</span>, etc, This function will output a tuple of
+<code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">3</span></code> samples of size <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>, where <code class="docutils literal notranslate"><span class="pre">batch1</span></code> is sampled
+from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 + p_3}{3}\)</span>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code> is sampled from
+<span class="math notranslate nohighlight">\(\frac{p_4 + p_5}{2}\)</span>, and <code class="docutils literal notranslate"><span class="pre">batch3</span></code> is sampled from
+<span class="math notranslate nohighlight">\(\frac{p_6 + p_7}{2}\)</span>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.fdiv_loss">
+<span class="sig-name descname"><span class="pre">fdiv_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">convex_conjugate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#fdiv_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.fdiv_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>General template for <span class="math notranslate nohighlight">\(f\)</span>-divergence losses given convex conjugate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>convex_conjugate</strong> – The convex conjugate of the function, <span class="math notranslate nohighlight">\(f\)</span>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.get_density_estimators">
+<span class="sig-name descname"><span class="pre">get_density_estimators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#get_density_estimators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.get_density_estimators" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.get_distance_matrix">
+<span class="sig-name descname"><span class="pre">get_distance_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distributions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/utils.html#get_distance_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.get_distance_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.get_drift_series">
+<span class="sig-name descname"><span class="pre">get_drift_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/utils.html#get_drift_series"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.get_drift_series" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.histogram">
+<span class="sig-name descname"><span class="pre">histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.histogram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.ipm_loss">
+<span class="sig-name descname"><span class="pre">ipm_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#ipm_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.ipm_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integral probability metric loss.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.js_data_stream">
+<span class="sig-name descname"><span class="pre">js_data_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nprng</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/generators.html#js_data_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.js_data_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data stream generator for Jensen-Shannon divergence of N distributions.
+Jensen-Shannon divergence measures the information of knowing which of
+those N distributions a sample will be drawn from before it is drawn. So if
+we rolled a fair N sided die to determine which distribution we will draw a
+sample from, JS divergence reports how many bits of information will be
+revealed from the die. This scenario is ultimately simulated in this
+function. However, in real life, we may only have examples of samples from
+each distribution we wish to compare. In the most general case, each
+distribution we wish to compare is represented by M samples of samples
+(with potentially different sizes) from M similar distributions whose
+average is most interesting. Just as we might simulate sampling from a
+single distribution by randomly sampling a batch of examples with
+replacement, we can effectively sample from an average of distributions by
+randomly sampling each batch (which may be representative of a single
+distribution), then randomly sampling elements of the chosen batch. This
+can ultimately be thought of a more data efficient means to the same end as
+downsampling large batch sizes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nprng</strong> – Numpy <code class="docutils literal notranslate"><span class="pre">RandomState</span></code> used to generate random samples
+batch_size: size of batch</p></li>
+<li><p><strong>*sample_distributions</strong> – list of lists of samples to compare.
+For example, <code class="docutils literal notranslate"><span class="pre">[[batch1,</span> <span class="pre">batch2,</span> <span class="pre">batch3],</span> <span class="pre">[batch4,</span> <span class="pre">batch5],</span>
+<span class="pre">[batch6,</span> <span class="pre">batch7]]</span></code> Assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution
+<span class="math notranslate nohighlight">\(p_1\)</span>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code> from <span class="math notranslate nohighlight">\(p_2\)</span>, etc, this function will
+simulate a system in which a latent <cite>N=3</cite> sided die role that
+determines whether to draw a sample from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 +
+p_3}{3}\)</span>, <span class="math notranslate nohighlight">\(\frac{p_4 + p_5}{2}\)</span>, or <span class="math notranslate nohighlight">\(\frac{p_6 +
+p_7}{2}\)</span>.</p></li>
+<li><p><strong>categorical_columns</strong> (<em>tuple</em>) – list or tuple of column indices that are
+considered categorical.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The output of this function will be two samples of size batch_size with
+samples, <span class="math notranslate nohighlight">\(x\)</span>, drawn from batch_size roles, <span class="math notranslate nohighlight">\(z\)</span>, of our
+<span class="math notranslate nohighlight">\(N\)</span> sided die. Following the example above for which <span class="math notranslate nohighlight">\(N=3\)</span>,
+the first of these two output samples will be of the form <span class="math notranslate nohighlight">\((x,
+z)\)</span>, where x is the sample drawn and z is the die roll. The second of
+these two samples will be of the form <span class="math notranslate nohighlight">\((x, z^{\prime})\)</span> where x
+is the same sample as before, but <span class="math notranslate nohighlight">\(z^\prime\)</span> is a new set of
+otherwise unrelated roles of the same <span class="math notranslate nohighlight">\(N=3\)</span> sided die.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.metric_from_density">
+<span class="sig-name descname"><span class="pre">metric_from_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">densities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#metric_from_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.metric_from_density" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mvtk.supervisor.divergence.sparse_wrapper">
+<span class="sig-name descname"><span class="pre">sparse_wrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/utils.html#sparse_wrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.sparse_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="supervisor.processing.html" class="btn btn-neutral float-right" title="processing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="supervisor.html" class="btn btn-neutral float-left" title="supervisor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

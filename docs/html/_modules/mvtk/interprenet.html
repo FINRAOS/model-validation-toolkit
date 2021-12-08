@@ -1,0 +1,622 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mvtk.interprenet &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>mvtk.interprenet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mvtk.interprenet</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">public</span>
+
+<span class="kn">from</span> <span class="nn">jax.experimental</span> <span class="kn">import</span> <span class="n">optimizers</span><span class="p">,</span> <span class="n">stax</span>
+<span class="kn">from</span> <span class="nn">jax._src.nn.initializers</span> <span class="kn">import</span> <span class="n">glorot_normal</span><span class="p">,</span> <span class="n">normal</span>
+
+
+<div class="viewcode-block" id="monotonic_constraint"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.monotonic_constraint">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">monotonic_constraint</span><span class="p">(</span><span class="n">weights</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Monotonicity constraint on weights.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="lipschitz_constraint"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.lipschitz_constraint">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">lipschitz_constraint</span><span class="p">(</span><span class="n">weights</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Lipschitz constraint on weights.</span>
+
+<span class="sd">    https://arxiv.org/abs/1811.05381</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">weights</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="identity"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.identity">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">weights</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">weights</span></div>
+
+
+<div class="viewcode-block" id="clip"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.clip">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">clip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">2</span> <span class="o">**</span> <span class="o">-</span><span class="mi">16</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">eps</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ConstrainedDense"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.ConstrainedDense">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">ConstrainedDense</span><span class="p">(</span><span class="n">constraint</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Layer constructor function for a constrained dense (fully-connected)</span>
+<span class="sd">    layer.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        constraint (function): Transformation to be applied to weights</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">Dense</span><span class="p">(</span><span class="n">out_dim</span><span class="p">,</span> <span class="n">W_init</span><span class="o">=</span><span class="n">glorot_normal</span><span class="p">(),</span> <span class="n">b_init</span><span class="o">=</span><span class="n">normal</span><span class="p">()):</span>
+        <span class="k">def</span> <span class="nf">init_fun</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
+            <span class="n">output_shape</span> <span class="o">=</span> <span class="n">input_shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">out_dim</span><span class="p">,)</span>
+            <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+            <span class="n">W</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">W_init</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span> <span class="p">(</span><span class="n">input_shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">out_dim</span><span class="p">)),</span> <span class="n">b_init</span><span class="p">(</span><span class="n">k2</span><span class="p">,</span> <span class="p">(</span><span class="n">out_dim</span><span class="p">,))</span>
+            <span class="k">return</span> <span class="n">output_shape</span><span class="p">,</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">apply_fun</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">W</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">params</span>
+            <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">constraint</span><span class="p">(</span><span class="n">W</span><span class="p">))</span> <span class="o">+</span> <span class="n">b</span>
+
+        <span class="k">return</span> <span class="n">init_fun</span><span class="p">,</span> <span class="n">apply_fun</span>
+
+    <span class="k">return</span> <span class="n">Dense</span></div>
+
+
+<div class="viewcode-block" id="SortLayer"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.SortLayer">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">SortLayer</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sort layer used for lipschitz preserving nonlinear activation function.</span>
+
+<span class="sd">    https://arxiv.org/abs/1811.05381</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">init_fun</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
+        <span class="n">output_shape</span> <span class="o">=</span> <span class="n">input_shape</span>
+        <span class="k">return</span> <span class="n">output_shape</span><span class="p">,</span> <span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">apply_fun</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">init_fun</span><span class="p">,</span> <span class="n">apply_fun</span></div>
+
+
+<div class="viewcode-block" id="net"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.net">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">net</span><span class="p">(</span><span class="n">layers</span><span class="p">,</span> <span class="n">linear</span><span class="p">,</span> <span class="n">activation</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">stax</span><span class="o">.</span><span class="n">serial</span><span class="p">(</span>
+        <span class="o">*</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="p">((</span><span class="n">linear</span><span class="p">(</span><span class="n">layer</span><span class="p">),</span> <span class="n">activation</span><span class="p">())</span> <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">layers</span><span class="p">))</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="thread"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.thread">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">thread</span><span class="p">(</span><span class="n">fns</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">composition</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">fns</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+    <span class="k">return</span> <span class="n">composition</span></div>
+
+
+<span class="k">def</span> <span class="nf">partialnet</span><span class="p">(</span><span class="n">linear</span><span class="p">,</span> <span class="n">activation</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">init_fun</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">,</span> <span class="n">n_hyper</span><span class="p">,</span> <span class="n">layers</span><span class="p">):</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">apply_funs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">layers</span><span class="p">:</span>
+            <span class="n">rng</span><span class="p">,</span> <span class="n">layer_rng</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+            <span class="n">layer_init</span><span class="p">,</span> <span class="n">apply_layer</span> <span class="o">=</span> <span class="n">linear</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
+            <span class="n">input_shape</span><span class="p">,</span> <span class="n">layer_params</span> <span class="o">=</span> <span class="n">layer_init</span><span class="p">(</span><span class="n">layer_rng</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">)</span>
+            <span class="n">d1</span><span class="p">,</span> <span class="n">d2</span> <span class="o">=</span> <span class="n">input_shape</span>
+            <span class="n">d2</span> <span class="o">*=</span> <span class="n">n_hyper</span>
+            <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
+            <span class="n">params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">layer_params</span><span class="p">)</span>
+            <span class="n">apply_funs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">apply_layer</span><span class="p">)</span>
+            <span class="n">layer_init</span><span class="p">,</span> <span class="n">apply_layer</span> <span class="o">=</span> <span class="n">activation</span><span class="p">()</span>
+            <span class="n">input_shape</span><span class="p">,</span> <span class="n">layer_params</span> <span class="o">=</span> <span class="n">layer_init</span><span class="p">(</span><span class="n">layer_rng</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">)</span>
+            <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
+            <span class="n">params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">layer_params</span><span class="p">)</span>
+            <span class="n">apply_funs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">apply_layer</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">apply_net</span><span class="p">(</span><span class="n">multiparams</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+            <span class="c1"># (network 1 output), (network 2 output), ...</span>
+            <span class="k">for</span> <span class="n">params</span><span class="p">,</span> <span class="n">fn</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">multiparams</span><span class="p">),</span> <span class="n">apply_funs</span><span class="p">):</span>
+                <span class="n">inputs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+                    <span class="nb">tuple</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span> <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">params</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+                <span class="p">)</span>
+            <span class="k">return</span> <span class="n">inputs</span>
+
+        <span class="k">return</span> <span class="n">params</span><span class="p">,</span> <span class="n">apply_net</span>
+
+    <span class="k">return</span> <span class="n">init_fun</span>
+
+
+<div class="viewcode-block" id="sigmoid_clip"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.sigmoid_clip">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">sigmoid_clip</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mi">2</span> <span class="o">**</span> <span class="o">-</span><span class="mi">16</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">expit</span><span class="p">(</span><span class="n">clip</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">eps</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="constrained_model"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.constrained_model">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">constrained_model</span><span class="p">(</span>
+    <span class="n">constraints</span><span class="p">,</span>
+    <span class="n">get_layers</span><span class="o">=</span><span class="k">lambda</span> <span class="n">input_shape</span><span class="p">:</span> <span class="p">[</span><span class="n">input_shape</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">output_shape</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">preprocess</span><span class="o">=</span><span class="n">identity</span><span class="p">,</span>
+    <span class="n">postprocess</span><span class="o">=</span><span class="n">sigmoid_clip</span><span class="p">,</span>
+    <span class="n">rng</span><span class="o">=</span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a neural network with groups of constraints assigned to each</span>
+<span class="sd">    feature. Separate constrained neural networks are generated for each group</span>
+<span class="sd">    of contraints. Each feature is fed into exactly one of these neural</span>
+<span class="sd">    networks (the one that matches its assigned group of constraints). The</span>
+<span class="sd">    output of these constrained neural networks are concatenated and fed into</span>
+<span class="sd">    one final neural network that obeys the union of all constraints applied.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        constraints (list): List sets of constraints (one frozenset of constraints</span>
+<span class="sd">            for each feature)</span>
+<span class="sd">        get_layers (function): Returns shape of constrained neural network</span>
+<span class="sd">            given size of input (i.e. the number of features that will be fed into</span>
+<span class="sd">            it).</span>
+<span class="sd">        preprocess: Preprocessing function to be applied to feature vector</span>
+<span class="sd">            before being sent through any neural networks. This can be useful for</span>
+<span class="sd">            adjusting signs for monotonic neural networks or scales for lipschitz</span>
+<span class="sd">            ones.</span>
+<span class="sd">        postprocess: Final activation applied to output of neural network.</span>
+<span class="sd">        rng: jax PRNGKey</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        init_params, model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">union</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">constraints</span><span class="p">):</span>
+        <span class="n">union</span> <span class="o">|=</span> <span class="n">constraint</span>
+        <span class="k">if</span> <span class="n">constraint</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+            <span class="n">groups</span><span class="p">[</span><span class="n">constraint</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">groups</span><span class="p">[</span><span class="n">constraint</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">nets</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">catted_size</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">constraint</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">init_net</span><span class="p">,</span> <span class="n">apply_net</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span>
+            <span class="n">get_layers</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">)),</span> <span class="n">ConstrainedDense</span><span class="p">(</span><span class="n">thread</span><span class="p">(</span><span class="n">constraint</span><span class="p">)),</span> <span class="n">SortLayer</span>
+        <span class="p">)</span>
+        <span class="n">rng</span><span class="p">,</span> <span class="n">new_rng</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+        <span class="n">suboutput_shape</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">init_net</span><span class="p">(</span><span class="n">new_rng</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">)))</span>
+        <span class="n">catted_size</span> <span class="o">+=</span> <span class="n">suboutput_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">nets</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">params</span><span class="p">,</span> <span class="n">apply_net</span><span class="p">))</span>
+    <span class="n">params1</span><span class="p">,</span> <span class="n">apply_nets</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">nets</span><span class="p">)</span>
+    <span class="n">init_net</span><span class="p">,</span> <span class="n">apply_net2</span> <span class="o">=</span> <span class="n">stax</span><span class="o">.</span><span class="n">serial</span><span class="p">(</span>
+        <span class="n">net</span><span class="p">(</span><span class="n">get_layers</span><span class="p">(</span><span class="n">catted_size</span><span class="p">),</span> <span class="n">ConstrainedDense</span><span class="p">(</span><span class="n">thread</span><span class="p">(</span><span class="n">union</span><span class="p">)),</span> <span class="n">SortLayer</span><span class="p">),</span>
+        <span class="n">ConstrainedDense</span><span class="p">(</span><span class="n">thread</span><span class="p">(</span><span class="n">union</span><span class="p">))(</span><span class="n">output_shape</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">rng</span><span class="p">,</span> <span class="n">new_rng</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+    <span class="n">output_shape</span><span class="p">,</span> <span class="n">params2</span> <span class="o">=</span> <span class="n">init_net</span><span class="p">(</span><span class="n">new_rng</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">catted_size</span><span class="p">))</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="n">params1</span><span class="p">,</span> <span class="n">params2</span><span class="p">)</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+    <span class="k">def</span> <span class="nf">apply_net_pipeline</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">params1</span><span class="p">,</span> <span class="n">params2</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="k">return</span> <span class="n">postprocess</span><span class="p">(</span>
+            <span class="n">apply_net2</span><span class="p">(</span>
+                <span class="n">params2</span><span class="p">,</span>
+                <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+                    <span class="nb">tuple</span><span class="p">(</span>
+                        <span class="n">apply_net</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">inputs</span><span class="p">[:,</span> <span class="n">idx</span><span class="p">])</span>
+                        <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">apply_net</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                            <span class="n">params1</span><span class="p">,</span> <span class="n">apply_nets</span><span class="p">,</span> <span class="n">groups</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+                        <span class="p">)</span>
+                    <span class="p">),</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">params</span><span class="p">,</span> <span class="n">apply_net_pipeline</span></div>
+
+
+<div class="viewcode-block" id="cross_entropy"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.cross_entropy">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">cross_entropy</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="parameterized_loss"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.parameterized_loss">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">parameterized_loss</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">net</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">batch</span>
+        <span class="k">return</span> <span class="n">loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">net</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">X</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">_</span></div>
+
+
+<div class="viewcode-block" id="batch_generator"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.batch_generator">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">batch_generator</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">balance</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">balance</span><span class="p">:</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">index_update</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">p</span><span class="p">)</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">index_update</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">))</span>
+        <span class="n">weights</span> <span class="o">/=</span> <span class="n">weights</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">rng</span><span class="p">,</span> <span class="n">new_rng</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
+                <span class="n">new_rng</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,),</span> <span class="n">p</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">replace</span>
+            <span class="p">)</span>
+            <span class="k">yield</span> <span class="n">X</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">_</span></div>
+
+
+<div class="viewcode-block" id="train"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.train">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">train</span><span class="p">(</span>
+    <span class="n">train</span><span class="p">,</span>
+    <span class="n">test</span><span class="p">,</span>
+    <span class="n">net</span><span class="p">,</span>
+    <span class="n">metric</span><span class="p">,</span>
+    <span class="n">loss_fn</span><span class="o">=</span><span class="n">cross_entropy</span><span class="p">,</span>
+    <span class="n">mini_batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+    <span class="n">step_size</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">track</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Train interpretable neural network. This routine will check accuracy</span>
+<span class="sd">    using ``metric`` every ``track`` epochs. The model parameters with the</span>
+<span class="sd">    highest accuracy are returned.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        train (tuple): (X, y), each ``jax.numpy.array`` of type ``float``.</span>
+<span class="sd">        test (tuple): (X, y), each ``jax.numpy.array`` of type ``float``.</span>
+<span class="sd">        net (tuple): (init_params, model) a jax model returned by</span>
+<span class="sd">            ``constrained_model``.</span>
+<span class="sd">        metric (function): function of two jax arrays: ground truth and</span>
+<span class="sd">            predictions. Returns ``float`` representing performance metric.</span>
+<span class="sd">        loss_fn (function): function of two jax arrays: ground truth and</span>
+<span class="sd">            predictions. Returns ``float`` representing loss.</span>
+<span class="sd">        mini_batch_size (int): Size of minibatches from train used for</span>
+<span class="sd">            stochastic gradient descent</span>
+<span class="sd">        num_epochs (int): Number of epochs to train</span>
+<span class="sd">        step_size (float): Step size used for stochastic gradient descent</span>
+<span class="sd">        track (int): Number of epochs between metric checks</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        best params</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">mini_batches</span> <span class="o">=</span> <span class="n">batch_generator</span><span class="p">(</span><span class="o">*</span><span class="n">train</span><span class="p">)(</span><span class="n">mini_batch_size</span><span class="p">)</span>
+    <span class="n">params</span><span class="p">,</span> <span class="n">apply_net</span> <span class="o">=</span> <span class="n">net</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">parameterized_loss</span><span class="p">(</span><span class="n">loss_fn</span><span class="p">,</span> <span class="n">apply_net</span><span class="p">)</span>
+
+    <span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">opt_state</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">opt_update</span><span class="p">(</span>
+            <span class="n">i</span><span class="p">,</span> <span class="n">jax</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">loss</span><span class="p">)(</span><span class="n">get_params</span><span class="p">(</span><span class="n">opt_state</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">mini_batches</span><span class="p">)),</span> <span class="n">opt_state</span>
+        <span class="p">)</span>
+
+    <span class="n">opt_init</span><span class="p">,</span> <span class="n">opt_update</span><span class="p">,</span> <span class="n">get_params</span> <span class="o">=</span> <span class="n">optimizers</span><span class="o">.</span><span class="n">adam</span><span class="p">(</span><span class="n">step_size</span><span class="p">)</span>
+    <span class="n">opt_state</span> <span class="o">=</span> <span class="n">opt_init</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+    <span class="n">best_performance</span> <span class="o">=</span> <span class="o">-</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">inf</span>
+    <span class="n">best_params</span> <span class="o">=</span> <span class="n">params</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+        <span class="n">opt_state</span> <span class="o">=</span> <span class="n">update</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">opt_state</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">epoch</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">epoch</span> <span class="o">%</span> <span class="n">track</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">test</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="n">opt_state</span><span class="p">)</span>
+            <span class="n">performance</span> <span class="o">=</span> <span class="n">metric</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">apply_net</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">X</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">performance</span> <span class="o">&gt;</span> <span class="n">best_performance</span><span class="p">:</span>
+                <span class="n">best_performance</span> <span class="o">=</span> <span class="n">performance</span>
+                <span class="n">best_params</span> <span class="o">=</span> <span class="n">params</span>
+            <span class="c1"># print(epoch, best_performance)</span>
+    <span class="k">return</span> <span class="n">best_params</span></div>
+
+
+<div class="viewcode-block" id="plot"><a class="viewcode-back" href="../../interprenet.html#mvtk.interprenet.plot">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">plot</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">feature</span><span class="p">,</span>
+    <span class="n">N</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+    <span class="n">n_interp</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+    <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">rng</span><span class="o">=</span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+<span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;`Individual Conditional Expectation plot</span>
+<span class="sd">    (blue) &lt;https://christophm.github.io/interpretable-ml-book/ice.html&gt;`_ and</span>
+<span class="sd">    `Partial Dependence Plot</span>
+<span class="sd">    (red) &lt;https://christophm.github.io/interpretable-ml-book/pdp.html&gt;`_.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        model (function): function from data (as dataframe) to scores</span>
+<span class="sd">        feature (string): Feature to examine</span>
+<span class="sd">        N (int): size of sample from ``data`` to consider for averages and</span>
+<span class="sd">            conditional expectation plots. Determines number of blue lines and</span>
+<span class="sd">            sample size for averaging to create red line.</span>
+<span class="sd">        n_interp (int): Number of values of ``feature`` to evaluate along</span>
+<span class="sd">            x-axis. Randomly chosen from unique values of this feature within</span>
+<span class="sd">            ``data``.</span>
+<span class="sd">        fig: Matplotlib figure. Defaults to ``None``.</span>
+<span class="sd">        rng (PRNGKey): Jax ``PRNGKey``</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        matplolib figure&quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span>
+
+    <span class="k">if</span> <span class="n">fig</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Model Score&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="n">feature</span><span class="p">])</span>
+    <span class="n">rng</span><span class="p">,</span> <span class="n">new_rng</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+    <span class="n">all_values_idx</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+        <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">new_rng</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">all_values</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">all_values_idx</span><span class="p">]</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">unique_feature_idx</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">nunique</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_feature_idx</span><span class="p">)</span>
+    <span class="n">n_interp</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">nunique</span><span class="p">,</span> <span class="n">n_interp</span><span class="p">)</span>
+    <span class="n">feature_idx</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+        <span class="n">unique_feature_idx</span><span class="p">[</span>
+            <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">nunique</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_interp</span><span class="p">,),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">feature_values</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">feature_idx</span><span class="p">]</span>
+    <span class="n">rest</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="k">if</span> <span class="n">column</span> <span class="o">!=</span> <span class="n">feature</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int32&quot;</span>
+    <span class="p">)</span>
+    <span class="n">all_scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">replacement</span> <span class="ow">in</span> <span class="n">all_values</span><span class="p">[:,</span> <span class="n">rest</span><span class="p">]:</span>
+        <span class="n">fixed_values</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">index_update</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">feature_idx</span><span class="p">],</span> <span class="n">jax</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">index</span><span class="p">[:,</span> <span class="n">rest</span><span class="p">],</span> <span class="n">replacement</span>
+        <span class="p">)</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">fixed_values</span><span class="p">)</span>
+        <span class="n">all_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">feature_values</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.125</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">feature_values</span><span class="p">,</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">all_scores</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

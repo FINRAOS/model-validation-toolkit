@@ -1,0 +1,820 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Supervisor User Guide &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Credibility User Guide" href="credibility_user_guide.html" />
+    <link rel="prev" title="About" href="about.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Supervisor User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#my-model-is-done">My Model is Done!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how">How?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#divergence-what">Divergence What?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#divergences">Divergences</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#estimation-with-density-estimators">Estimation with Density Estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variational-estimation-of-f-divergences">Variational Estimation of <span class="math notranslate nohighlight">\(f\)</span>-divergences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hybrid-estimation">Hybrid Estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#featureless-datasets">Featureless Datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integral-probability-metrics">Integral Probability Metrics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#earth-mover-s-distance">Earth Mover’s distance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#f-divergences-vs-integral-probability-metrics"><span class="math notranslate nohighlight">\(f\)</span>-divergences vs Integral Probability Metrics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Supervisor User Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/supervisor_user_guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="supervisor-user-guide">
+<h1>Supervisor User Guide<a class="headerlink" href="#supervisor-user-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="my-model-is-done">
+<h3>My Model is Done!<a class="headerlink" href="#my-model-is-done" title="Permalink to this headline">¶</a></h3>
+<p>OK, so your model is trained and ready to be put into a production pipeline.
+Models are, however, not like hard coded rules in the sense that they are not
+expected to work perfectly all the time. They are expected to work well most of
+the time. And just because a model was tested on a sample of data does not mean
+it will continue to be accurate forever.</p>
+<p>Think of it this way, you want to predict human weight from height. You build a
+linear model from some demographics from a small US city that multiplies height
+by some number and adds another number, and is on average pretty accurate for
+predicting weight. Great! Now you put it into production, and it works fine. A
+few years later, a series of fast food chains opens up, and everyone in the
+town starts gaining weight. Your model becomes less accurate because the data
+you built it on is no longer a valid representation of the current population.
+This is why you need a monitoring system. It costs almost nothing to put one in
+place, and it’s the only way you’ll know if your model is still accurate over
+time.</p>
+</div>
+<div class="section" id="how">
+<h3>How?<a class="headerlink" href="#how" title="Permalink to this headline">¶</a></h3>
+<p>There are <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html">tons</a> of ways to
+evaluate model performance, but they all require you to know what you wanted
+the model to say in hindsight. These metrics are typically used to assess
+accuracy during training and validation. Going back to our example, we could
+tell exactly the degree to which our linear weight from height model was
+degrading each year by measuring everyone’s weight and height each year. That’s
+fine if you don’t mind waiting to take measurements. In real life, there are
+lots of situations for which we get pretty fast feedback, and for those
+situations, it’s fine just to validate the model on new incoming data in the
+same manner that it was validated during training. However, there are also
+plenty of situations where this is not the case…</p>
+</div>
+<div class="section" id="divergence-what">
+<h3>Divergence What?<a class="headerlink" href="#divergence-what" title="Permalink to this headline">¶</a></h3>
+<p>Just as we can compare the data coming out of a model to ground truth, we can
+compare the data coming into the model to the training data. In the former
+case, we match up each prediction to the answer we wished in hindsight we had
+gotten, and summarize the results with any number of accuracy metrics. We can
+generally compare the inputs to the input data used to train the model. In this
+sense, we can ask questions like “Does this batch of inputs seem distributed
+like the training data?” and “Does this particular input look strange relative
+to what was used in the training data?” In the former case, your inputs
+generally arrive in batches. Maybe once a month you collect height data and run
+your model to compute weights. You can then ask does this month’s height
+distribution look similar to the height distribution of the training data? It may
+seem hard to quantify, and that’s because it is! Though it’s not impossible.
+There are a number of so called <a class="reference external" href="https://en.wikipedia.org/wiki/Divergence_(statistics)">statistical divergences</a>. They give a number
+that represents how similar two distributions are. For example, two identical
+Gaussians might get a score of 0, and a Gaussian paired with a uniform
+distribution might get a score of 0.4. Generally, a divergence will give its
+lowest possible score when the two distributions are the one and the same, and
+its highest possible value when they predict mutually exclusive outcomes (e.g.
+distribution one says a coin will always come up tails and distribution two
+says a coin will always come up heads). We can recommend and have implemented a
+few metrics in the <a class="reference internal" href="supervisor.divergence.html"><span class="doc">Supervisor</span></a> that have some
+other useful properties like symmetry (the number compare distribution one to
+distribution two is the same number computed from comparing distribution two to
+distribution one) and the triangle inequality  (divergence of distribution one
+and two plus divergence of distribution two and three is less than or equal to
+divergence of distribution one and three). In math jargon, these extra
+properties make these divergences metrics which in turn means they have the same
+consistencies you would intuitively associate with a measure of distance. This
+makes plots much more meaningful because your intuition about distances holds
+when you look at a plot involving divergence metrics.</p>
+</div>
+</div>
+<div class="section" id="divergences">
+<h2>Divergences<a class="headerlink" href="#divergences" title="Permalink to this headline">¶</a></h2>
+<p>Divergences are all about quantifying differences between two probability
+distributions. This is not just about a literal subtraction of one value from
+another, so much as coming up with a process that assigns a number that
+quantifies how different two (or more) probability distributions are. For
+example, the number might decrease as the two distributions approach being one
+and the same. Generally, the number will approach its maximum (which can be
+infinity!) when there exist no events that can be sampled from both
+distributions. For example, a coin that would always come up heads in the first
+distribution would always come up tails in the second distribution. In other
+words, they are <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_measure">singular</a>.</p>
+<p>A common and useful metric is called <a class="reference external" href="https://en.wikipedia.org/wiki/Total_variation_distance_of_probability_measures">total variation</a>.
+Total variation is defined as one half the average absolute difference between
+the two probability distributions being compared, <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>
+<span id="id1">[<a class="reference internal" href="thresholding_user_guide.html#id4" title="Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf.">Wu16</a>]</span>.</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{2}\int dx \vert p(x) - q(x)\vert\]</div>
+<div class="align-center figure" id="id56">
+<a class="reference internal image-reference" href="_images/pdf_total_variation.png"><img alt="alternate text" src="_images/pdf_total_variation.png" style="width: 800px; height: 400px;" /></a>
+<p class="caption"><span class="caption-text">Total variation is one half the average absolute difference between two
+probability distributions (shown in grey).</span><a class="headerlink" href="#id56" title="Permalink to this image">¶</a></p>
+</div>
+<p>By factoring out <span class="math notranslate nohighlight">\(q(x)\)</span> and applying the <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_large_numbers">law of large numbers</a>, this can be rewritten
+as</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}_{x \sim q}\frac{1}{2}\left\vert 1 - \frac{p(x)}{q(x)}\right\vert\]</div>
+<p>This is one example of what are generally known as an <span class="math notranslate nohighlight">\(f\)</span> (sometimes
+<span class="math notranslate nohighlight">\(\phi\)</span>) divergence. In the case of total divergence,
+<span class="math notranslate nohighlight">\(f\left(\frac{q}{p}\right) = \frac{1}{2}\left\vert 1 - \frac{q}{p}\right\vert\)</span>. In
+general, <span class="math notranslate nohighlight">\(f\)</span> can be any <a class="reference external" href="https://en.wikipedia.org/wiki/Convex_function">convex function</a> of <span class="math notranslate nohighlight">\(\frac{p}{q}\)</span> with
+its minimum at <span class="math notranslate nohighlight">\(p=q\)</span> (typically such that <span class="math notranslate nohighlight">\(f(1)=0\)</span>). This class of
+measures will produce a statistic that decreases as <span class="math notranslate nohighlight">\(p\)</span> approaches
+<span class="math notranslate nohighlight">\(q\)</span> <span id="id2">[<a class="reference internal" href="thresholding_user_guide.html#id5" title="Imre Csiszár, Paul C Shields, and others. Information theory and statistics: a tutorial. Foundations and Trends® in Communications and Information Theory, 1(4):417–528, 2004.">CsiszarS+04</a>]</span> <span id="id3">[<a class="reference internal" href="thresholding_user_guide.html#id4" title="Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf.">Wu16</a>]</span>. It is easy to see by
+the <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_density_function#Function_of_random_variables_and_change_of_variables_in_the_probability_density_function">change of variables formula for probability density functions</a>
+that this class of divergences encompasses every divergence that is invariant
+to coordinate transformations. There are many other commonly cited
+<span class="math notranslate nohighlight">\(f\)</span>-divergences, including <a class="reference external" href="https://en.wikipedia.org/wiki/Hellinger_distance">Hellinger distance</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback–Leibler (KL)
+divergence</a>, and
+<a class="reference external" href="https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence">Jensen-Shannon divergence</a>
+<span id="id4">[<a class="reference internal" href="thresholding_user_guide.html#id3" title="Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In Advances in neural information processing systems, 271–279. 2016.">NCT16</a>]</span>. Jensen-Shannon divergence admits a natural generalization
+that measures the mutual distance of multiple probability distributions, and
+all of the divergences measured thus far are bounded between <span class="math notranslate nohighlight">\(0\)</span> and
+<span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>In general, not all <span class="math notranslate nohighlight">\(f\)</span> divergences are proper <a class="reference external" href="https://en.wikipedia.org/wiki/Metric_(mathematics)">metrics</a>. As a motivating
+example, consider KL-divergence:</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}_{x\sim q}-\log\left(\frac{p(x)}{q(x)}\right)\]</div>
+<p>Clearly, this divergence is not even symmetric with respect to <span class="math notranslate nohighlight">\(p\)</span>
+and <span class="math notranslate nohighlight">\(q\)</span>. As it turns out, it does not obey the triangle inequality
+either. This is not always bad. The KL-divergence is a useful measure, and will
+increase as <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> become less similar. However, it lacks any
+intuitive sense of distance as plotted over time. For this reason, most
+analyses of concept drift prefer divergences that are proper metrics
+<span id="id5">[<a class="reference internal" href="thresholding_user_guide.html#id9" title="Geoffrey I Webb, Roy Hyde, Hong Cao, Hai Long Nguyen, and Francois Petitjean. Characterizing concept drift. Data Mining and Knowledge Discovery, 30(4):964–994, 2016.">WHC+16</a>]</span>.</p>
+<p>As we shall see, there are two ways to estimate <span class="math notranslate nohighlight">\(f\)</span>-divergences: with
+density estimators, and with variational methods.</p>
+<div class="section" id="estimation-with-density-estimators">
+<h3>Estimation with Density Estimators<a class="headerlink" href="#estimation-with-density-estimators" title="Permalink to this headline">¶</a></h3>
+<p>The most intuitive approach to estimating <cite>f</cite>-divergences is with density
+estimation. This involves estimating <span class="math notranslate nohighlight">\(p(x)\)</span> and <span class="math notranslate nohighlight">\(q(x)\)</span> given a
+finite number of samples, and then plugging those estimates into the explicit
+formula for your <cite>f</cite>-divergence.</p>
+<div class="math notranslate nohighlight">
+\[\sum\limits_{x\in\mathcal{X}}f\left(\frac{p(x)}{q(x)}\right)q(x)\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is the shared <a class="reference external" href="https://en.wikipedia.org/wiki/Sample_space">sample space</a> of <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>. The
+simplest form of density estimator is a <a class="reference external" href="https://en.wikipedia.org/wiki/Histogram">histogram</a>, and the Supervisor not only
+provides common utilities for density estimator based estimates of
+<span class="math notranslate nohighlight">\(f\)</span>-divergences, but also can also construct histograms from raw data.</p>
+<p>The following functions come with the Supervisor’s <a class="reference internal" href="supervisor.divergence.html"><span class="doc">divergence</span></a> module for estimating <span class="math notranslate nohighlight">\(f\)</span>-divergences by
+explicitly constructing histograms from raw samples.</p>
+<div class="topic">
+<p class="topic-title">Estimates via maximum likelihood density estimators</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_hl_mle" title="mvtk.supervisor.divergence.calc_hl_mle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_hl_mle()</span></code></a> for Hellinger distance</p></li>
+<li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_js_mle" title="mvtk.supervisor.divergence.calc_js_mle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_js_mle()</span></code></a> for Jensen Shannon divergence</p></li>
+<li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_kl_mle" title="mvtk.supervisor.divergence.calc_kl_mle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_kl_mle()</span></code></a> for KL-divergence</p></li>
+<li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_mle" title="mvtk.supervisor.divergence.calc_tv_mle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_tv_mle()</span></code></a> for Total variation</p></li>
+</ul>
+</div>
+<p>Alternatively, if you chose to construct your own density estimates, you can
+use the following functions to calculate <span class="math notranslate nohighlight">\(f\)</span>-divergences from those.</p>
+<div class="topic">
+<p class="topic-title">Estimates via externally computed density estimates</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_hl_density" title="mvtk.supervisor.divergence.calc_hl_density"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_hl_density()</span></code></a> for Hellinger distance</p></li>
+<li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_js_density" title="mvtk.supervisor.divergence.calc_js_density"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_js_density()</span></code></a> for Jensen Shannon divergence</p></li>
+<li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_kl_density" title="mvtk.supervisor.divergence.calc_kl_density"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_kl_density()</span></code></a> for KL-divergence</p></li>
+<li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_density" title="mvtk.supervisor.divergence.calc_tv_density"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_tv_density()</span></code></a> for Total variation</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="variational-estimation-of-f-divergences">
+<h3>Variational Estimation of <span class="math notranslate nohighlight">\(f\)</span>-divergences<a class="headerlink" href="#variational-estimation-of-f-divergences" title="Permalink to this headline">¶</a></h3>
+<p>Density estimation via histograms is straightforward, and indeed a gold
+standard of sorts, for categorical data. However, constructing histograms for
+real valued data requires binning, which tends to become increasingly
+inaccurate for high dimensional samples. Variational estimation, while only
+directly applicable to real valued data, is generally believed to scale better
+with the number of features <span id="id6">[<a class="reference internal" href="thresholding_user_guide.html#id2" title="Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. arXiv preprint arXiv:0901.2698, 2009.">SFG+09</a>]</span> <span id="id7">[<a class="reference internal" href="thresholding_user_guide.html#id6" title="XuanLong Nguyen, Martin J Wainwright, and Michael I Jordan. Estimating divergence functionals and the likelihood ratio by convex risk minimization. IEEE Transactions on Information Theory, 56(11):5847–5861, 2010.">NWJ10</a>]</span>.</p>
+<p>What are variational estimates? In general, <a class="reference external" href="https://en.wikipedia.org/wiki/Calculus_of_variations">variational methods</a> refer to a problem
+involving finding a <em>function</em> that satisfies some optimization problem. In
+other words, if an ordinary <a class="reference external" href="https://en.wikipedia.org/wiki/Optimization_problem">optimization problem</a> involves finding an
+optimal location in a finite dimensional coordinate system, variational
+problems involve finding optimal location in <em>function space</em>, which involves
+an <a class="reference external" href="https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument">uncountably infinite</a> <a class="reference external" href="https://en.wikipedia.org/wiki/Hilbert_space">number of
+coordinates</a>.</p>
+<p>There are some clever tricks from convex analysis <span id="id8">[<a class="reference internal" href="thresholding_user_guide.html#id4" title="Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf.">Wu16</a>]</span> that can
+apply to <span class="math notranslate nohighlight">\(f\)</span>-divergences. We first define the <a class="reference external" href="https://en.wikipedia.org/wiki/Convex_conjugate">convex conjugate</a> as</p>
+<div class="math notranslate nohighlight">
+\[f^{*}(y) = \sup\limits_g\left[gy - f(g)\right]\]</div>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Fenchel%E2%80%93Moreau_theorem">Fenchel–Moreau theorem</a> states that if
+<span class="math notranslate nohighlight">\(f\)</span> is a <a class="reference external" href="https://en.wikipedia.org/wiki/Proper_convex_function">proper convex function</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Semi-continuity">lower
+semicontinuous</a>, then
+<span class="math notranslate nohighlight">\(f^{**}(g) = f(g)\)</span>.</p>
+<p>This is true for a wide variety of useful functions <span class="math notranslate nohighlight">\(f\)</span>
+<span id="id9">[<a class="reference internal" href="thresholding_user_guide.html#id3" title="Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In Advances in neural information processing systems, 271–279. 2016.">NCT16</a>]</span>. Under these conditions, we have</p>
+<div class="math notranslate nohighlight">
+\[f(y) = \sup\limits_g\left[gy - f^{*}(g)\right]\]</div>
+<p>If we let <span class="math notranslate nohighlight">\(y=\frac{p(x)}{q(x)}\)</span> for some point, <span class="math notranslate nohighlight">\(x\)</span>, within the
+sample space of <span class="math notranslate nohighlight">\(p\)</span> (which is assumed to be the same as that of
+<span class="math notranslate nohighlight">\(q\)</span>),</p>
+<div class="math notranslate nohighlight">
+\[f\left(\frac{p(x)}{q(x)}\right) = \sup\limits_g\left[g\frac{p(x)}{q(x)} -
+f^{*}(g)\right] \ge g\frac{p(x)}{q(x)} - f^{*}(g)\]</div>
+<p>, where the inequality follows from the definition of the <a class="reference external" href="https://en.wikipedia.org/wiki/Infimum_and_supremum">supremum</a>. Furthermore, if we
+tether <span class="math notranslate nohighlight">\(g\)</span> to that same sample, <span class="math notranslate nohighlight">\(x\)</span>, in the form of <span class="math notranslate nohighlight">\(g(x)\)</span>, we
+get</p>
+<div class="math notranslate nohighlight">
+\[f\left(\frac{p(x)}{q(x)}\right) \ge g(x)\frac{p(x)}{q(x)} - f^{*}(g(x))\]</div>
+<p>Multiplying both sides by <span class="math notranslate nohighlight">\(q(x)\)</span></p>
+<div class="math notranslate nohighlight">
+\[f\left(\frac{p(x)}{q(x)}\right)q(x) \ge g(x)p(x) - f^{*}(g(x))q(x)\]</div>
+<p>Integrating both sides over <span class="math notranslate nohighlight">\(x\)</span> drawn from the sample space, <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\int\limits_{x\in\mathcal{X}} dx f\left(\frac{p(x)}{q(x)}\right)q(x) \ge
+\int\limits_{x\in\mathcal{X}} dx g(x)p(x) - f^{*}(g(x))q(x)\]</div>
+<p>Finally, we can apply the <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_large_numbers">law of large numbers</a> to turn integrals over
+probability density functions into expectations.</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}_{x \sim q} f\left(\frac{p(x)}{q(x)}\right) \ge \mathbb{E}_{x
+\sim p} g(x) - \mathbb{E}_{x \sim q} f^{*}(g(x))\]</div>
+<p>This final result shows that an <span class="math notranslate nohighlight">\(f\)</span>-divergence can be expressed as a
+function optimization problem. In this case, the right hand side of the
+inequality prescribes a <a class="reference external" href="https://en.wikipedia.org/wiki/Loss_function">loss function</a> with which we use to find a
+function <span class="math notranslate nohighlight">\(g(x)\)</span>. Specifically, the loss function used would be the
+negative of the right hand side. When the loss is minimized, the right hand
+side is maximized and the inequality approaches equality to the left hand side
+(i.e. the true <span class="math notranslate nohighlight">\(f\)</span>-divergence).</p>
+<p>In practice, we can use a function approximator, such as a neural network to
+find <span class="math notranslate nohighlight">\(g(x)\)</span>. This in fact yields an unbiased estimator of the gradient when
+trained via <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">stochastic gradient descent</a>
+<span id="id11">[<a class="reference internal" href="thresholding_user_guide.html#id3" title="Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In Advances in neural information processing systems, 271–279. 2016.">NCT16</a>]</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It’s also worth noting the significance of <span class="math notranslate nohighlight">\(g(x)\)</span>. Rather than
+approximating <span class="math notranslate nohighlight">\(p(x)\)</span> and <span class="math notranslate nohighlight">\(q(x)\)</span> individually, the model trained to
+approximate <span class="math notranslate nohighlight">\(g(x)\)</span> has learned the likelihood ratio,
+<span class="math notranslate nohighlight">\(\frac{p(x)}{q(x)}\)</span> <span id="id12">[<a class="reference internal" href="thresholding_user_guide.html#id6" title="XuanLong Nguyen, Martin J Wainwright, and Michael I Jordan. Estimating divergence functionals and the likelihood ratio by convex risk minimization. IEEE Transactions on Information Theory, 56(11):5847–5861, 2010.">NWJ10</a>]</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}&amp;f\left(\frac{p(x)}{q(x)}\right) =
+\sup\limits_{g(x)}\left[g(x)\frac{p(x)}{q(x)} - f^{*}(g(x))\right] \\
+&amp;\partial_{g(x)}\left[g(x)\frac{p(x)}{q(x)} - f^{*}(g(x))\right] = 0 \\
+&amp;f^{*\prime}(g(x)) = \frac{p(x)}{q(x)} \\
+&amp;g(x) = f^{*\prime-1}\left(\frac{p(x)}{q(x)}\right)\end{split}\]</div>
+<p>Where we are able to invert <span class="math notranslate nohighlight">\(f^{*\prime}\)</span> when <span class="math notranslate nohighlight">\(f^{*}\)</span> is
+strictly convex, and therefore has a strictly monotonic derivative when
+differentiable.</p>
+</div>
+<p>The following functions come with the Supervisor’s <a class="reference internal" href="supervisor.divergence.html"><span class="doc">divergence</span></a> module for estimating <span class="math notranslate nohighlight">\(f\)</span>-divergences using
+variational methods.</p>
+<div class="topic">
+<p class="topic-title">Estimates via maximum likelihood density estimators</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_hl" title="mvtk.supervisor.divergence.calc_hl"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_hl()</span></code></a> for Hellinger distance</p></li>
+<li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_js" title="mvtk.supervisor.divergence.calc_js"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_js()</span></code></a> for Jensen Shannon divergence</p></li>
+<li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv" title="mvtk.supervisor.divergence.calc_tv"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_tv()</span></code></a> for Total variation</p></li>
+</ul>
+</div>
+<p>Variational estimation is only applicable for numerically encoded data, and was
+found to work poorly for <a class="reference external" href="notebooks/Airlines">one hot encoded categorical data with large numbers
+of categories</a>.</p>
+</div>
+<div class="section" id="hybrid-estimation">
+<h3>Hybrid Estimation<a class="headerlink" href="#hybrid-estimation" title="Permalink to this headline">¶</a></h3>
+<p>What if we have data that is partially categorical, and partially real valued?
+Are we just limited to binning the real valued data to effectively make the
+entire dataset categorical? As of the time of this writing, this seems to
+have generally been the case. The Supervisor team has, however, implemented an
+experimental hybrid approach just for you! Let’s return to the variational formalism.</p>
+<p>Let’s say <span class="math notranslate nohighlight">\(x\)</span> had some categorical components, <span class="math notranslate nohighlight">\(x_c\)</span> and some real
+valued components, <span class="math notranslate nohighlight">\(x_r\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}_{x_c, x_r \sim q} f\left(\frac{p(x_c, x_r)}{q(x_c, x_r)}\right)
+\ge \mathbb{E}_{x_c, x_r \sim p} g(x_c, x_r) - \mathbb{E}_{x_c, x_r \sim q}
+f^{*}(g(x_c, x_r))\]</div>
+<p>To effectively use <span class="math notranslate nohighlight">\(x_c\)</span> within our model for <span class="math notranslate nohighlight">\(g(x_c, x_r)\)</span>, we may
+store a table of functions <span class="math notranslate nohighlight">\(g_{x_c}(x_r)\)</span> and simultaneously train them
+as minibatches are sampled. In this way, every unique combination of
+categorical variables, <span class="math notranslate nohighlight">\(x_c\)</span>, specifies a model <span class="math notranslate nohighlight">\(g_{x_c}\)</span> that is
+trained using a respective <span class="math notranslate nohighlight">\(x_r\)</span>. This requires storing and training as
+many models as there are unique combinations of categorical inputs within the
+given datasets. The performance of our hybrid approach will generally degrade
+linearly with the number of unique combinations of categorical inputs.</p>
+<p>In general, any variational method for computing divergences supports hybrid
+estimation using two techniques. The <code class="docutils literal notranslate"><span class="pre">categorical_columns</span></code> argument can be
+used to specify the indices of categorical features within the input data. This
+will cause minibatches to be grouped by categorical features such that the
+remaining numerical features of each group are fed to designated neural
+network as described above. Alternatively, you can group each dataset by
+categorical input before passing them to a variational estimator, and use the
+<code class="docutils literal notranslate"><span class="pre">loss_kwargs={'weights':</span> <span class="pre">(p_c,</span> <span class="pre">q_c)}</span></code> to reweigh the loss.</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}_{x \sim q} f\left(\frac{p(x)}{q(x)}\right) \ge \sum\limits_{x_c}
+p(x_c)\mathbb{E}_{x_r \sim p\left(x_r\vert x_c\right)} g_{x_c}(x_r) -
+q(x_c)\mathbb{E}_{x_r \sim q(x_r\vert x_c)} f^{*}(g_{x_c}(x_r))\]</div>
+<p>In this version, you must externally iterate over unique combinations of
+categorical features (that have been sampled) and supply a tuple of weights
+<span class="math notranslate nohighlight">\(p(x_c)\)</span>, <span class="math notranslate nohighlight">\(q(x_c)\)</span> to <code class="docutils literal notranslate"><span class="pre">loss_kwarg['weights']</span></code>. These respectively
+represent an externally computed estimate of the probability of drawing a
+specific combination of categorical variables from <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>.
+These might be computed via histograms. See <a class="reference external" href="user_guide.rst#estimation-with-density-estimators">estimation with density estimators</a> for resources within
+this library for accomplishing this. This approch may be useful when computing
+<span class="math notranslate nohighlight">\(f\)</span>-divergences from within a distributed dataframe on a large cluster
+with many unique combinations of categorical columns. You could compute a
+histogram over the categorial portion of the data, parallelize separate
+divergence-like computations over each unique combination of categorical values
+in your dataset (as shown in the above equation), and sum the results. Note you
+never have to consider unique combinations of categorical values that were not
+in the original sample set, so you will never end up with more unique
+combinations of categories than you have records accross both datasets.</p>
+</div>
+<div class="section" id="featureless-datasets">
+<h3>Featureless Datasets<a class="headerlink" href="#featureless-datasets" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes you’re dealing with datasets that have varying lengths and are not
+converted to a fixed number of features. For example, some NLP and time series
+models do not provide obvious features. In this case, we can develop an lower
+bound on total variation by training a model to distinguish the two datasets
+with log loss. First start with the <a class="reference external" href="https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence">Jensen-Shannon divergence</a> between the
+two datasets.</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{JS}(P, Q) = \mathrm{KL}\left(p(y, X), p(y)p(X)\right)\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(p\)</span> is the distribution of the combined labeled dataset (all
+elements of <span class="math notranslate nohighlight">\(P\)</span> with <span class="math notranslate nohighlight">\(y=1\)</span> and all elements of <span class="math notranslate nohighlight">\(Q\)</span> with
+<span class="math notranslate nohighlight">\(y=0\)</span>). Factoring <span class="math notranslate nohighlight">\(P(X)\)</span> from <span class="math notranslate nohighlight">\(P(y, X)\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{JS}(P, Q) = \mathbb{E}_{y, X\sim p}
+\ln\left(\frac{p(y|X)p(X)}{p(y)p(X)}\right) = \mathbb{E}_{y, X\sim p}
+\ln(p(y|X)) - \ln(p(y))\]</div>
+<p>Hence the Jensen-Shannon divergence of the two datasets is just the entropy of
+the target variable minus the binary cross entropy loss (log loss) of a model
+trained to distinguish them. Assuming we balance the dataset or compensate
+appropriately for class imbalance, the entropy term is just one bit. Since the
+model’s validation loss is an lower bound on the loss achievable by any model,
+the resulting estimation of Jensen-Shannon divergence is a lower bound on the
+true Jensen-Shannon divergence of the two datasets. Applying the following
+inequality <span id="id14">[<a class="reference internal" href="thresholding_user_guide.html#id20" title="Jianhua Lin. Divergence measures based on the shannon entropy. IEEE Transactions on Information theory, 37(1):145–151, 1991.">Lin91</a>]</span></p>
+<div class="math notranslate nohighlight">
+\[\mathrm{JS}(P, Q) \le \mathrm{TV}(P, Q) \ln(2)\]</div>
+<p>results in a lower bound of total variation using this lower bound of
+Jensen-Shannon divergence. <a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_lower_bound" title="mvtk.supervisor.divergence.calc_tv_lower_bound"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_tv_lower_bound()</span></code></a> implements this lower
+bound using binary cross entropy loss. However, it assumes a balanced dataset.
+We have also implemented <a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.balanced_binary_cross_entropy" title="mvtk.supervisor.divergence.balanced_binary_cross_entropy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">balanced_binary_cross_entropy()</span></code></a> to compute
+binary cross entropy loss from predictions and labels while compensating for
+class imbalance. The output can be fed directly to <a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_lower_bound" title="mvtk.supervisor.divergence.calc_tv_lower_bound"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_tv_lower_bound()</span></code></a>.
+Note a sufficiently poor model can produce log loss, and therefore lower bounds
+of Jensen-Shannon divergence, lower than 0. This model can be replaced with a
+trivial model that predicts <span class="math notranslate nohighlight">\(p(y|X)=p(y)\)</span> for all <span class="math notranslate nohighlight">\(X\)</span>, resulting in
+a lower bound of <span class="math notranslate nohighlight">\(0\)</span>.</p>
+</div>
+<div class="section" id="integral-probability-metrics">
+<h3>Integral Probability Metrics<a class="headerlink" href="#integral-probability-metrics" title="Permalink to this headline">¶</a></h3>
+<p>There are another class of divergences known as integral probability metrics.
+They too generally admit density estimator based and variational methods of
+estimation. The basic idea is we determine whether two samples come from the
+same distribution by comparing expectations of different statistics. For example, we could compare means. That is,</p>
+<div class="math notranslate nohighlight">
+\[\|\mathbb{E}_{x \sim p}\left[x\right] - \mathbb{E}_{x \sim q}\left[x\right]\|\]</div>
+<p>This is clearly insufficient to properly identify different distributions. For
+example, what if <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> have the same mean, but different
+variances? We could just modify the test to include variance…</p>
+<div class="math notranslate nohighlight">
+\[\left\vert\mathbb{E}_{x \sim p}\left[\operatorname{Var}(x)\right] - \mathbb{E}_{x \sim q}\left[\operatorname{Var}(x)\right]\right\vert\]</div>
+<p>We can keep repeating this process of coming up with new operators, and taking
+the absolute value of differences of its expectations over our two
+distributions.</p>
+<div class="math notranslate nohighlight">
+\[\left\vert\mathbb{E}_{x \sim p}\left[f(x)\right] - \mathbb{E}_{x \sim q}\left[f(x)\right]\right\vert\]</div>
+<p>In some circles, <span class="math notranslate nohighlight">\(f\)</span> is known as a <em>witness function</em>. Clearly, no one
+choice of <span class="math notranslate nohighlight">\(f\)</span> is sufficient, but if we try to find a function <span class="math notranslate nohighlight">\(f\)</span>
+that maximizes the absolute difference in expectations over <span class="math notranslate nohighlight">\(p\)</span> and
+<span class="math notranslate nohighlight">\(q\)</span>, we can in fact build a statistic that is <span class="math notranslate nohighlight">\(0\)</span> if and only if
+<span class="math notranslate nohighlight">\(p=q\)</span>. The space of <a class="reference external" href="https://en.wikipedia.org/wiki/Bounded_function">bounded</a> <a class="reference external" href="https://en.wikipedia.org/wiki/Continuous_function">continuous</a> functions are often cited
+as sufficiently large, but several common integral probability metrics make use
+of smaller subsets of this space <span id="id15">[<a class="reference internal" href="thresholding_user_guide.html#id2" title="Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. arXiv preprint arXiv:0901.2698, 2009.">SFG+09</a>]</span>
+<span id="id16">[<a class="reference internal" href="thresholding_user_guide.html#id8" title="Arthur Gretton, Karsten M Borgwardt, Malte J Rasch, Bernhard Schölkopf, and Alexander Smola. A kernel two-sample test. Journal of Machine Learning Research, 13(Mar):723–773, 2012.">GBR+12</a>]</span>.</p>
+<p>We define an integral probability metric as the maximum absolute difference in
+expectations over a sufficiently large class of functions <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>
+<span id="id17">[<a class="reference internal" href="thresholding_user_guide.html#id2" title="Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. arXiv preprint arXiv:0901.2698, 2009.">SFG+09</a>]</span>.</p>
+<div class="math notranslate nohighlight">
+\[\sup\limits_{f \in \mathcal{F}}\vert\mathbb{E}_{x \sim p}\left[f(x)\right] - \mathbb{E}_{x \sim q}\left[f(x)\right]\vert\]</div>
+<p>Much like variational estimates of <span class="math notranslate nohighlight">\(f\)</span>-divergences, we can approximate
+integral probability metrics with neural network trained on the above
+expression as a loss function. Depending on the nature of <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>,
+this network may need to be regularized such that it is capable of producing
+functions within <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> and nothing more. For example, when
+<span class="math notranslate nohighlight">\(\mathcal{F}=\{f : \|f\|_\infty \le 1\}\)</span>, the resulting metric is total
+variation. However, <span class="math notranslate nohighlight">\(f\)</span>-divergences and integral probability metrics are
+generally considered distinct <span id="id18">[<a class="reference internal" href="thresholding_user_guide.html#id2" title="Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. arXiv preprint arXiv:0901.2698, 2009.">SFG+09</a>]</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike for <span class="math notranslate nohighlight">\(f\)</span>-divergence losses, <a class="reference external" href="https://en.wikipedia.org/wiki/Jensen%27s_inequality">Jensen’s inequality</a> dictates finite
+sample estimates of integral probability metric losses and their gradients
+will have an upwards bias. This means large batch sizes should be helpful
+when training neural networks to estimate integral probability metrics.
+Several sources remedy this problem by constructing an unbiased estimate of
+the square of the integral probability metric. This generally sacrifices
+the <a class="reference external" href="https://en.wikipedia.org/wiki/Triangle_inequality">triangle inequality</a> for an unbiased
+estimate of the metric and its gradient <span id="id19">[<a class="reference internal" href="thresholding_user_guide.html#id11" title="Marc G Bellemare, Ivo Danihelka, Will Dabney, Shakir Mohamed, Balaji Lakshminarayanan, Stephan Hoyer, and Rémi Munos. The cramer distance as a solution to biased wasserstein gradients. arXiv preprint arXiv:1705.10743, 2017.">BDD+17</a>]</span>
+<span id="id20">[<a class="reference internal" href="thresholding_user_guide.html#id8" title="Arthur Gretton, Karsten M Borgwardt, Malte J Rasch, Bernhard Schölkopf, and Alexander Smola. A kernel two-sample test. Journal of Machine Learning Research, 13(Mar):723–773, 2012.">GBR+12</a>]</span>.
+<span id="id21">[<a class="reference internal" href="thresholding_user_guide.html#id11" title="Marc G Bellemare, Ivo Danihelka, Will Dabney, Shakir Mohamed, Balaji Lakshminarayanan, Stephan Hoyer, and Rémi Munos. The cramer distance as a solution to biased wasserstein gradients. arXiv preprint arXiv:1705.10743, 2017.">BDD+17</a>]</span> furthur argues that this could cause
+convergence to an incorrect (over) estimate of true value of the metric.</p>
+</div>
+<div class="section" id="earth-mover-s-distance">
+<h4>Earth Mover’s distance<a class="headerlink" href="#earth-mover-s-distance" title="Permalink to this headline">¶</a></h4>
+<p>When we let <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> be the set of functions such that <span class="math notranslate nohighlight">\(\|
+f(x)-f(x^\prime)\|_p \le \| x - x^\prime\|_p\)</span>, where
+<span class="math notranslate nohighlight">\(\|\|_p\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Taxicab_geometry">Lp distance</a>, we get the so called <a class="reference external" href="https://en.wikipedia.org/wiki/Earth_mover%27s_distance">earth
+mover’s distance</a> or
+<a class="reference external" href="https://en.wikipedia.org/wiki/Wasserstein_metric">Wasserstein metric</a>. See
+<span id="id23">[<a class="reference internal" href="thresholding_user_guide.html#id10" title="Vincent Herrmann. Wasserstein gan and the kantorovich-rubinstein duality. February 2017. URL: https://vincentherrmann.github.io/blog/wasserstein/.">Her17</a>]</span> for an introduction to the mathematics behind this.</p>
+<p>The earth mover’s distance is implemented as <a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_em" title="mvtk.supervisor.divergence.calc_em"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_em()</span></code></a> within the
+Supervisor’s <a class="reference internal" href="supervisor.divergence.html"><span class="doc">divergence</span></a> module. While at least
+two techniques currently exist to approximate earth mover’s distance via
+regularizing loss functions <span id="id24">[<a class="reference internal" href="thresholding_user_guide.html#id13" title="Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. arXiv preprint arXiv:1701.07875, 2017.">ACB17</a>]</span>
+<span id="id25">[<a class="reference internal" href="thresholding_user_guide.html#id12" title="Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron C Courville. Improved training of wasserstein gans. In Advances in neural information processing systems, 5767–5777. 2017.">GAA+17</a>]</span>, we used a different implementation.</p>
+<p>Since neural networks of finite depth will always output a function
+differentiable almost everywhere, the <a class="reference external" href="https://en.wikipedia.org/wiki/Mean_value_theorem">mean value theorem</a> dictates bounding the
+derivative of a neural network where it exists is sufficient to bound its
+<a class="reference external" href="https://en.wikipedia.org/wiki/Modulus_of_continuity">modulus of continuity</a>.
+In the case of the earth mover’s distance,  the modulus of continuity is
+bounded at <span class="math notranslate nohighlight">\(1\)</span> given an <span class="math notranslate nohighlight">\(L^p\)</span> metric space. By the chain rule, the
+jacobian of the output of a neural network with <a class="reference external" href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">Relu</a> activations is
+bounded above by the product of the jacobians of each layer. Therefore, if we
+can bound the <span class="math notranslate nohighlight">\(L^p \rightarrow L^p\)</span> <a class="reference external" href="https://en.wikipedia.org/wiki/Operator_norm">operator norm</a> of each layer at <span class="math notranslate nohighlight">\(1\)</span>, we
+can bound the jacobian, and therefore the modulus of continuity of the entire
+network, at <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>This library implements the version for <span class="math notranslate nohighlight">\(p=1\)</span>. <span id="id26">[<a class="reference internal" href="thresholding_user_guide.html#id14" title="Joel Aaron Tropp. Topics in sparse approximation. PhD thesis, University of Texas at Austin, 2004.">Tro04</a>]</span>
+states the operator norm of an operator from an <span class="math notranslate nohighlight">\(L^1\)</span> metric space to
+another <span class="math notranslate nohighlight">\(L^1\)</span> metric space is bounded above by the <span class="math notranslate nohighlight">\(L^1\)</span> norm of
+its columns.  Therefore, simply normalizing the columns of each layer’s weight
+matrix by its <span class="math notranslate nohighlight">\(L^1\)</span> norm before applying it is sufficient to restrict the
+class of functions the neural network will be able to produce to those with a
+modulus of continuity of <span class="math notranslate nohighlight">\(1\)</span>. The Supervisor has a
+<a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.NormalizedLinear" title="mvtk.supervisor.divergence.NormalizedLinear"><code class="xref py py-meth docutils literal notranslate"><span class="pre">NormalizedLinear()</span></code></a> layer for exactly this, and this is how the earth
+mover’s distance is implemented.</p>
+</div>
+</div>
+<div class="section" id="f-divergences-vs-integral-probability-metrics">
+<h3><span class="math notranslate nohighlight">\(f\)</span>-divergences vs Integral Probability Metrics<a class="headerlink" href="#f-divergences-vs-integral-probability-metrics" title="Permalink to this headline">¶</a></h3>
+<p>There have been several sources using earth mover’s distance
+<span id="id27">[<a class="reference internal" href="thresholding_user_guide.html#id13" title="Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. arXiv preprint arXiv:1701.07875, 2017.">ACB17</a>]</span> <span id="id28">[<a class="reference internal" href="thresholding_user_guide.html#id12" title="Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron C Courville. Improved training of wasserstein gans. In Advances in neural information processing systems, 5767–5777. 2017.">GAA+17</a>]</span> as a
+differentiable hypothesis test to train <a class="reference external" href="https://en.wikipedia.org/wiki/Generative_adversarial_network">GANs</a> as well as
+other integral probability metrics <span id="id29">[<a class="reference internal" href="thresholding_user_guide.html#id8" title="Arthur Gretton, Karsten M Borgwardt, Malte J Rasch, Bernhard Schölkopf, and Alexander Smola. A kernel two-sample test. Journal of Machine Learning Research, 13(Mar):723–773, 2012.">GBR+12</a>]</span>
+<span id="id30">[<a class="reference internal" href="thresholding_user_guide.html#id11" title="Marc G Bellemare, Ivo Danihelka, Will Dabney, Shakir Mohamed, Balaji Lakshminarayanan, Stephan Hoyer, and Rémi Munos. The cramer distance as a solution to biased wasserstein gradients. arXiv preprint arXiv:1705.10743, 2017.">BDD+17</a>]</span> (and <span class="math notranslate nohighlight">\(f\)</span>-divergences too for that matter
+<span id="id31">[<a class="reference internal" href="thresholding_user_guide.html#id3" title="Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In Advances in neural information processing systems, 271–279. 2016.">NCT16</a>]</span>) with promising results. This is because
+<span class="math notranslate nohighlight">\(f\)</span>-divergences attain their maximum value when <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>
+are <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_measure">singular</a>, while
+integral probability metrics can assign a meaningful range of values. For
+example, <span id="id33">[<a class="reference internal" href="thresholding_user_guide.html#id13" title="Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. arXiv preprint arXiv:1701.07875, 2017.">ACB17</a>]</span> shows that when
+<span class="math notranslate nohighlight">\(p(x)=\delta(x)\)</span>, (where <span class="math notranslate nohighlight">\(\delta\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Dirac_delta_function">Dirac delta function</a>) and
+<span class="math notranslate nohighlight">\(q_a(x)=\delta(x-a)\)</span>, <span class="math notranslate nohighlight">\(f\)</span>-divergences will attain their maximum
+value when <span class="math notranslate nohighlight">\(a \ne 0\)</span> and their minimum value when <span class="math notranslate nohighlight">\(a = 0\)</span>.
+Meanwhile the earth mover’s distance will assign a value of <span class="math notranslate nohighlight">\(a\)</span>, which
+decreases smoothly to <span class="math notranslate nohighlight">\(0\)</span> as <span class="math notranslate nohighlight">\(p \rightarrow q\)</span>.</p>
+<p>This can be useful in some circumstances because <span class="math notranslate nohighlight">\(f\)</span>-divergences fail to
+specify how different <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> are when <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>
+are <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_measure">singular</a>. This can be
+misleading when <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> have at least  one categorical
+component that is generally different when sampled from each distribution, and
+the resulting <span class="math notranslate nohighlight">\(f\)</span>-divergence is forced to or near its maximum despite the
+other features having otherwise similar distributions.</p>
+<p>However, anything that is not an <span class="math notranslate nohighlight">\(f\)</span>-divergence is necessarily a
+coordinate dependent measure by the <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_density_function#Function_of_random_variables_and_change_of_variables_in_the_probability_density_function">change of variables formula for
+probability density functions</a>.
+This too can give misleading results when different features have very
+different senses of scale. We recommend at least normalizing features to the
+same scale before using integral probability metrics.</p>
+<div class="topic">
+<p class="topic-title">Tutorials:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="notebooks/divergence/Airlines.html"><span class="doc">Airlines</span></a></p></li>
+<li><p><a class="reference internal" href="notebooks/divergence/DivergenceFunctions.html"><span class="doc">Divergence Functions</span></a></p></li>
+<li><p><a class="reference internal" href="notebooks/divergence/CategoricalColumns.html"><span class="doc">Categorical Columns</span></a></p></li>
+</ul>
+</div>
+<p id="id36"><dl class="citation">
+<dt class="label" id="id50"><span class="brackets">ALG19</span></dt>
+<dd><p>Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In <em>International Conference on Machine Learning</em>, 291–301. PMLR, 2019.</p>
+</dd>
+<dt class="label" id="id48"><span class="brackets">ACB17</span><span class="fn-backref">(<a href="#id24">1</a>,<a href="#id27">2</a>,<a href="#id33">3</a>)</span></dt>
+<dd><p>Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. <em>arXiv preprint arXiv:1701.07875</em>, 2017.</p>
+</dd>
+<dt class="label" id="id46"><span class="brackets">BDD+17</span><span class="fn-backref">(<a href="#id19">1</a>,<a href="#id21">2</a>,<a href="#id30">3</a>)</span></dt>
+<dd><p>Marc G Bellemare, Ivo Danihelka, Will Dabney, Shakir Mohamed, Balaji Lakshminarayanan, Stephan Hoyer, and Rémi Munos. The cramer distance as a solution to biased wasserstein gradients. <em>arXiv preprint arXiv:1705.10743</em>, 2017.</p>
+</dd>
+<dt class="label" id="id40"><span class="brackets"><a class="fn-backref" href="#id2">CsiszarS+04</a></span></dt>
+<dd><p>Imre Csiszár, Paul C Shields, and others. Information theory and statistics: a tutorial. <em>Foundations and Trends® in Communications and Information Theory</em>, 1(4):417–528, 2004.</p>
+</dd>
+<dt class="label" id="id43"><span class="brackets">GBR+12</span><span class="fn-backref">(<a href="#id16">1</a>,<a href="#id20">2</a>,<a href="#id29">3</a>)</span></dt>
+<dd><p>Arthur Gretton, Karsten M Borgwardt, Malte J Rasch, Bernhard Schölkopf, and Alexander Smola. A kernel two-sample test. <em>Journal of Machine Learning Research</em>, 13(Mar):723–773, 2012.</p>
+</dd>
+<dt class="label" id="id47"><span class="brackets">GAA+17</span><span class="fn-backref">(<a href="#id25">1</a>,<a href="#id28">2</a>)</span></dt>
+<dd><p>Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron C Courville. Improved training of wasserstein gans. In <em>Advances in neural information processing systems</em>, 5767–5777. 2017.</p>
+</dd>
+<dt class="label" id="id45"><span class="brackets"><a class="fn-backref" href="#id23">Her17</a></span></dt>
+<dd><p>Vincent Herrmann. Wasserstein gan and the kantorovich-rubinstein duality. February 2017. URL: <a class="reference external" href="https://vincentherrmann.github.io/blog/wasserstein/">https://vincentherrmann.github.io/blog/wasserstein/</a>.</p>
+</dd>
+<dt class="label" id="id53"><span class="brackets">IM93</span></dt>
+<dd><p>Sobol’ IM. Sensitivity estimates for nonlinear mathematical models. <em>Math. Model. Comput. Exp</em>, 1(4):407–414, 1993.</p>
+</dd>
+<dt class="label" id="id55"><span class="brackets"><a class="fn-backref" href="#id14">Lin91</a></span></dt>
+<dd><p>Jianhua Lin. Divergence measures based on the shannon entropy. <em>IEEE Transactions on Information theory</em>, 37(1):145–151, 1991.</p>
+</dd>
+<dt class="label" id="id41"><span class="brackets">NWJ10</span><span class="fn-backref">(<a href="#id7">1</a>,<a href="#id12">2</a>)</span></dt>
+<dd><p>XuanLong Nguyen, Martin J Wainwright, and Michael I Jordan. Estimating divergence functionals and the likelihood ratio by convex risk minimization. <em>IEEE Transactions on Information Theory</em>, 56(11):5847–5861, 2010.</p>
+</dd>
+<dt class="label" id="id38"><span class="brackets">NCT16</span><span class="fn-backref">(<a href="#id4">1</a>,<a href="#id9">2</a>,<a href="#id11">3</a>,<a href="#id31">4</a>)</span></dt>
+<dd><p>Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In <em>Advances in neural information processing systems</em>, 271–279. 2016.</p>
+</dd>
+<dt class="label" id="id52"><span class="brackets">SRA+08</span></dt>
+<dd><p>Andrea Saltelli, Marco Ratto, Terry Andres, Francesca Campolongo, Jessica Cariboni, Debora Gatelli, Michaela Saisana, and Stefano Tarantola. <em>Global sensitivity analysis: the primer</em>. John Wiley &amp; Sons, 2008.</p>
+</dd>
+<dt class="label" id="id51"><span class="brackets">Sob01</span></dt>
+<dd><p>Ilya M Sobol. Global sensitivity indices for nonlinear mathematical models and their monte carlo estimates. <em>Mathematics and computers in simulation</em>, 55(1-3):271–280, 2001.</p>
+</dd>
+<dt class="label" id="id37"><span class="brackets">SFG+09</span><span class="fn-backref">(<a href="#id6">1</a>,<a href="#id15">2</a>,<a href="#id17">3</a>,<a href="#id18">4</a>)</span></dt>
+<dd><p>Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. <em>arXiv preprint arXiv:0901.2698</em>, 2009.</p>
+</dd>
+<dt class="label" id="id49"><span class="brackets"><a class="fn-backref" href="#id26">Tro04</a></span></dt>
+<dd><p>Joel Aaron Tropp. <em>Topics in sparse approximation</em>. PhD thesis, University of Texas at Austin, 2004.</p>
+</dd>
+<dt class="label" id="id44"><span class="brackets"><a class="fn-backref" href="#id5">WHC+16</a></span></dt>
+<dd><p>Geoffrey I Webb, Roy Hyde, Hong Cao, Hai Long Nguyen, and Francois Petitjean. Characterizing concept drift. <em>Data Mining and Knowledge Discovery</em>, 30(4):964–994, 2016.</p>
+</dd>
+<dt class="label" id="id39"><span class="brackets">Wu16</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>,<a href="#id8">3</a>)</span></dt>
+<dd><p>Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: <a class="reference external" href="http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf">http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="credibility_user_guide.html" class="btn btn-neutral float-right" title="Credibility User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="about.html" class="btn btn-neutral float-left" title="About" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

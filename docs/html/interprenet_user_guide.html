@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Interprenet User Guide &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sobol User Guide" href="sobol_user_guide.html" />
+    <link rel="prev" title="Thresholding User Guide" href="thresholding_user_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Interprenet User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how">How?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#different-constraints-on-different-features">Different Constraints on Different Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preprocessing">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Interprenet User Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/interprenet_user_guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="interprenet-user-guide">
+<h1>Interprenet User Guide<a class="headerlink" href="#interprenet-user-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Neural networks are generally difficult to interpret. While there
+are tools that can help to interpret certain types of neural
+networks such as image classifiers and language models,
+interpretation of neural networks that simply ingest tabular data
+and return a scalar value is generally limited to various measures of feature
+importance. This can be problematic as what makes a feature “important” can
+vary between use cases.</p>
+<p>Rather than interpret a neural network as a black box, we seek to constrain
+neural network in ways we consider useful and interpretable. In particular, The
+<a class="reference external" href="interprenet.html">interprenet</a> module currently have two such constraints
+implemented:</p>
+<ul class="simple">
+<li><p>Monotonicity</p></li>
+<li><p>Lipschitz constraint</p></li>
+</ul>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Monotonic_function">Monotonic functions</a>
+either always increase or decrease with their arguments but never both. This is
+often an expected relationship between features and the model output. For
+example, we may believe that increasing blood pressure increases risk of
+cardiovascular disease. The exact relationship is not known, but we may believe
+that it is monotonic.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Lipschitz_continuity">Lipschitz constraints</a> constrain the
+maximum rate of change of the model. This can make the model arbitrarily robust
+<a class="reference external" href="http://karpathy.github.io/2015/03/30/breaking-convnets">against adversarial perturbations</a>
+<span id="id1">[<a class="reference internal" href="thresholding_user_guide.html#id15" title="Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In International Conference on Machine Learning, 291–301. PMLR, 2019.">ALG19</a>]</span>.</p>
+<div class="section" id="how">
+<h3>How?<a class="headerlink" href="#how" title="Permalink to this headline">¶</a></h3>
+<p>All constraints are currently implemented as weight constraints. While
+arbitrary weights are stored within each linear layer, the weights are
+transformed before application so the network can satisfy is prescribed
+constraints. Changes are backpropagated through this transformation.
+Monotonic increasing neural networks are implemented by taking the absolute
+value of weight matrices before applying them. When paired with a monotonically
+increasing activation (such as ReLU, Sigmoid, or Tanh), this ensures the
+gradient of the output with respect to any features is positive. This is
+sufficient to ensure monotonicity with respect to the features.</p>
+<p>Lipschitz constraints are enforced by dividing each weight vector by
+its <span class="math notranslate nohighlight">\(L^\infty\)</span> norm as described in <span id="id2">[<a class="reference internal" href="thresholding_user_guide.html#id15" title="Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In International Conference on Machine Learning, 291–301. PMLR, 2019.">ALG19</a>]</span>. This
+constrains the <span class="math notranslate nohighlight">\(L^\infty\)</span>-<span class="math notranslate nohighlight">\(L^\infty\)</span> <a class="reference external" href="https://en.wikipedia.org/wiki/Operator_norm">operator norm</a>
+of the weight matrix <span id="id3">[<a class="reference internal" href="thresholding_user_guide.html#id14" title="Joel Aaron Tropp. Topics in sparse approximation. PhD thesis, University of Texas at Austin, 2004.">Tro04</a>]</span>. Constraining the
+<span class="math notranslate nohighlight">\(L^\infty\)</span>-<span class="math notranslate nohighlight">\(L^\infty\)</span> operator norm of the weight
+matrix ensures every element of the jacobian of the linear layers is less than
+or equal to <span class="math notranslate nohighlight">\(1\)</span>. Meanwhile, using activation functions with Lipschitz
+constants of <span class="math notranslate nohighlight">\(1\)</span> ensure the entire network is constrained to never have a
+slope greater than <span class="math notranslate nohighlight">\(1\)</span> for any of its features.</p>
+</div>
+</div>
+<div class="section" id="different-constraints-on-different-features">
+<h2>Different Constraints on Different Features<a class="headerlink" href="#different-constraints-on-different-features" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="interprenet.html#mvtk.interprenet.constrained_model" title="mvtk.interprenet.constrained_model"><code class="xref py py-meth docutils literal notranslate"><span class="pre">constrained_model()</span></code></a> generates a neural network with one set of
+constraints per feature. Constraints currently available are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="interprenet.html#mvtk.interprenet.identity" title="mvtk.interprenet.identity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">identity()</span></code></a> (for no constraint)</p></li>
+<li><p><a class="reference internal" href="interprenet.html#mvtk.interprenet.monotonic_constraint" title="mvtk.interprenet.monotonic_constraint"><code class="xref py py-meth docutils literal notranslate"><span class="pre">monotonic_constraint()</span></code></a></p></li>
+<li><p><a class="reference internal" href="interprenet.html#mvtk.interprenet.lipschitz_constraint" title="mvtk.interprenet.lipschitz_constraint"><code class="xref py py-meth docutils literal notranslate"><span class="pre">lipschitz_constraint()</span></code></a></p></li>
+</ul>
+<p>Features are grouped by the set of constraints applied to them, and
+different constrained neural networks are generated for each group
+of features. The outputs of those neural networks are concatenated
+and fed into a final neural network constrained using all
+constraints applied to all features. Since constraints on weight
+matrices compose, they can be applied as a series of transformations
+on the weights before application.</p>
+<div class="align-center figure" id="id25">
+<a class="reference internal image-reference" href="_images/interprenet.png"><img alt="alternate text" src="_images/interprenet.png" style="width: 500px; height: 400px;" /></a>
+<p class="caption"><span class="caption-text">4 features with Lipschitz constraints and 4 features wtih
+monotonic constraints are fed to their respectively constrained
+neural networks. Intermediate outputs are concatenated and fed into a neural
+network with monotonic and lipschitz constraints.</span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
+</div>
+<p>We use the Sort function as a nonlinear activation as described in
+<span id="id4">[<a class="reference internal" href="thresholding_user_guide.html#id15" title="Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In International Conference on Machine Learning, 291–301. PMLR, 2019.">ALG19</a>]</span>. The jacobian of this matrix is always a
+permutation matrix, which retains any Lipschitz and monotonicity
+constraints.</p>
+</div>
+<div class="section" id="preprocessing">
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>Thus far, we have left out two important detail: How to constrain
+the Lipschitz constant to be something other than <span class="math notranslate nohighlight">\(1\)</span>, and how
+to create monotonically decreasing networks. Both are a simple
+matter of preprocessing. The <code class="docutils literal notranslate"><span class="pre">preprocess</span></code> argument (defaulting to
+<code class="docutils literal notranslate"><span class="pre">identity</span></code>), specifies a function to be applied to the feature
+vector before passing it to the neural network. For decreasing
+monotonic constraints, multiply the respective features by
+<span class="math notranslate nohighlight">\(-1\)</span>. For a Lipschitz constant of <span class="math notranslate nohighlight">\(L\)</span>, multiply the
+respective features by <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<div class="topic">
+<p class="topic-title">Tutorials:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="notebooks/interprenet/Interprenet.html"><span class="doc">Interprenet</span></a></p></li>
+</ul>
+</div>
+<p id="id5"><dl class="citation">
+<dt class="label" id="id19"><span class="brackets">ALG19</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id4">3</a>)</span></dt>
+<dd><p>Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In <em>International Conference on Machine Learning</em>, 291–301. PMLR, 2019.</p>
+</dd>
+<dt class="label" id="id17"><span class="brackets">ACB17</span></dt>
+<dd><p>Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. <em>arXiv preprint arXiv:1701.07875</em>, 2017.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets">BDD+17</span></dt>
+<dd><p>Marc G Bellemare, Ivo Danihelka, Will Dabney, Shakir Mohamed, Balaji Lakshminarayanan, Stephan Hoyer, and Rémi Munos. The cramer distance as a solution to biased wasserstein gradients. <em>arXiv preprint arXiv:1705.10743</em>, 2017.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets">CsiszarS+04</span></dt>
+<dd><p>Imre Csiszár, Paul C Shields, and others. Information theory and statistics: a tutorial. <em>Foundations and Trends® in Communications and Information Theory</em>, 1(4):417–528, 2004.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets">GBR+12</span></dt>
+<dd><p>Arthur Gretton, Karsten M Borgwardt, Malte J Rasch, Bernhard Schölkopf, and Alexander Smola. A kernel two-sample test. <em>Journal of Machine Learning Research</em>, 13(Mar):723–773, 2012.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets">GAA+17</span></dt>
+<dd><p>Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron C Courville. Improved training of wasserstein gans. In <em>Advances in neural information processing systems</em>, 5767–5777. 2017.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets">Her17</span></dt>
+<dd><p>Vincent Herrmann. Wasserstein gan and the kantorovich-rubinstein duality. February 2017. URL: <a class="reference external" href="https://vincentherrmann.github.io/blog/wasserstein/">https://vincentherrmann.github.io/blog/wasserstein/</a>.</p>
+</dd>
+<dt class="label" id="id22"><span class="brackets">IM93</span></dt>
+<dd><p>Sobol’ IM. Sensitivity estimates for nonlinear mathematical models. <em>Math. Model. Comput. Exp</em>, 1(4):407–414, 1993.</p>
+</dd>
+<dt class="label" id="id24"><span class="brackets">Lin91</span></dt>
+<dd><p>Jianhua Lin. Divergence measures based on the shannon entropy. <em>IEEE Transactions on Information theory</em>, 37(1):145–151, 1991.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets">NWJ10</span></dt>
+<dd><p>XuanLong Nguyen, Martin J Wainwright, and Michael I Jordan. Estimating divergence functionals and the likelihood ratio by convex risk minimization. <em>IEEE Transactions on Information Theory</em>, 56(11):5847–5861, 2010.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets">NCT16</span></dt>
+<dd><p>Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In <em>Advances in neural information processing systems</em>, 271–279. 2016.</p>
+</dd>
+<dt class="label" id="id21"><span class="brackets">SRA+08</span></dt>
+<dd><p>Andrea Saltelli, Marco Ratto, Terry Andres, Francesca Campolongo, Jessica Cariboni, Debora Gatelli, Michaela Saisana, and Stefano Tarantola. <em>Global sensitivity analysis: the primer</em>. John Wiley &amp; Sons, 2008.</p>
+</dd>
+<dt class="label" id="id20"><span class="brackets">Sob01</span></dt>
+<dd><p>Ilya M Sobol. Global sensitivity indices for nonlinear mathematical models and their monte carlo estimates. <em>Mathematics and computers in simulation</em>, 55(1-3):271–280, 2001.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets">SFG+09</span></dt>
+<dd><p>Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. <em>arXiv preprint arXiv:0901.2698</em>, 2009.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id3">Tro04</a></span></dt>
+<dd><p>Joel Aaron Tropp. <em>Topics in sparse approximation</em>. PhD thesis, University of Texas at Austin, 2004.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">WHC+16</span></dt>
+<dd><p>Geoffrey I Webb, Roy Hyde, Hong Cao, Hai Long Nguyen, and Francois Petitjean. Characterizing concept drift. <em>Data Mining and Knowledge Discovery</em>, 30(4):964–994, 2016.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets">Wu16</span></dt>
+<dd><p>Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: <a class="reference external" href="http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf">http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="sobol_user_guide.html" class="btn btn-neutral float-right" title="Sobol User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="thresholding_user_guide.html" class="btn btn-neutral float-left" title="Thresholding User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

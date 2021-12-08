@@ -1,0 +1,39 @@
+.box {
+  // If javascript if off, don't show
+  .no-js & {
+    display: none;
+  }
+}
+
+#social-links-container {
+  position: absolute;
+
+  @include for-tablet-portrait-down {
+    width: 100%;
+  }
+}
+
+a.ssk {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  opacity: 0;
+  transition: all 1s ease-out;
+
+  .js-is-visible & {
+    @extend .slideDown;
+
+    opacity: 1;
+  }
+  .js-is-hidden & {
+    @extend .slideUp;
+
+    opacity: 0;
+  }
+
+  @include for-tablet-portrait-down {
+    height: $mobile-min-height;
+    padding: 12px;
+  }
+}

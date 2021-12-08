@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Contributing &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.svg"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="About" href="about.html" />
+    <link rel="prev" title="Getting Started" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Model Validation Toolkit
+          
+
+          
+            
+            <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ways-to-contribute">Ways to contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing-code-using-pull-requests">Contributing code using pull requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-validation-toolkit-pull-request-checklist">Model Validation Toolkit pull request checklist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dco">DCO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#single-change-commits-and-pull-requests">Single-change commits and pull requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linting-and-type-checking">Linting and Type-checking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#full-github-test-suite">Full GitHub test suite</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Model Validation Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Contributing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/contributing.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="tex2jax_ignore mathjax_ignore section" id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<p>Everyone can contribute to Model Validation Toolkit, and we value everyone’s contributions. There are several
+ways to contribute, including:</p>
+<ul class="simple">
+<li><p>Answering questions on Model Validation Toolkit’s <a class="reference external" href="https://github.com/FINRAOS/model-validation-toolkit/discussions">discussions page</a></p></li>
+<li><p>Improving or expanding Model Validation Toolkit’s <a class="reference external" href="http://model-validation-toolkit.readthedocs.io/">documentation</a></p></li>
+<li><p>Contributing to Model Validation Toolkit’s <a class="reference external" href="http://github.com/FINRAOS/model-validation-toolkit/">code-base</a></p></li>
+</ul>
+<div class="section" id="ways-to-contribute">
+<h2>Ways to contribute<a class="headerlink" href="#ways-to-contribute" title="Permalink to this headline">¶</a></h2>
+<p>We welcome pull requests, in particular for those issues marked with
+<a class="reference external" href="https://github.com/FINRAOS/model-validation-toolkit/issues?q=is%3Aopen+is%3Aissue+label%3A%22contributions+welcome%22">contributions welcome</a> or
+<a class="reference external" href="https://github.com/FINRAOS/model-validation-toolkit/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22">good first issue</a>.</p>
+<p>For other proposals, we ask that you first open a GitHub
+<a class="reference external" href="https://github.com/FINRAOS/model-validation-toolkit/issues/new/choose">Issue</a> or
+<a class="reference external" href="https://github.com/FINRAOS/model-validation-toolkit/discussions">Discussion</a>
+to seek feedback on your planned contribution.</p>
+</div>
+<div class="section" id="contributing-code-using-pull-requests">
+<h2>Contributing code using pull requests<a class="headerlink" href="#contributing-code-using-pull-requests" title="Permalink to this headline">¶</a></h2>
+<p>We do all of our development using git, so basic knowledge is assumed.</p>
+<p>Follow these steps to contribute code:</p>
+<ol>
+<li><p>Fork the Model Validation Toolkit repository by clicking the <strong>Fork</strong> button on the
+<a class="reference external" href="http://www.github.com/FINRAOS/model-validation-toolkit">repository page</a>. This creates
+a copy of the Model Validation Toolkit repository in your own account.</p></li>
+<li><p>Install Python &gt;=3.6 locally in order to run tests.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span></code> installing your fork from source. This allows you to modify the code
+and immediately test it out:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/YOUR_USERNAME/model-validation-toolkit
+<span class="nb">cd</span> model-validation-toolkit
+pip install -e .  <span class="c1"># Installs Model Validation Toolkit from the current directory in editable mode.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add the Model Validation Toolkit repo as an upstream remote, so you can use it to sync your
+changes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote add upstream http://www.github.com/FINRAOS/model-validation-toolkit
+</pre></div>
+</div>
+</li>
+<li><p>Create a branch where you will develop from:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout -b name-of-change
+</pre></div>
+</div>
+<p>And implement your changes using your favorite editor.</p>
+</li>
+<li><p>Make sure the tests pass by running the following command from the top of
+the repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest tests/
+</pre></div>
+</div>
+<p>If you know the specific test file that covers your changes, you can limit the tests to that; for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest tests/supervisor
+</pre></div>
+</div>
+<p>Model Validation Toolkit also offers more fine-grained control over which particular tests are run;
+see <span class="xref std std-ref">running-tests</span> for more information.</p>
+</li>
+<li><p>Once you are satisfied with your change, create a commit as follows (<a class="reference external" href="https://chris.beams.io/posts/git-commit/">how to write a commit message</a>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add file1.py file2.py ...
+git commit -s -m <span class="s2">&quot;Your commit message&quot;</span>
+</pre></div>
+</div>
+<p>Please be sure to sign off your work when you commit it with the <code class="docutils literal notranslate"><span class="pre">-s</span></code> or, equivalently <code class="docutils literal notranslate"><span class="pre">--sign-off</span></code> flag to agree to our <a class="reference external" href="https://raw.githubusercontent.com/FINRAOS/model-validation-toolkit/main/DCO.txt">DCO</a>.</p>
+<p>Then sync your code with the main repo:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git fetch upstream
+git rebase upstream/main
+</pre></div>
+</div>
+<p>Finally, push your commit on your development branch and create a remote
+branch in your fork that you can use to create a pull request from:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push --set-upstream origin name-of-change
+</pre></div>
+</div>
+</li>
+<li><p>Create a pull request from the Model Validation Toolkit repository and send it for review.
+Check the <span class="xref std std-ref">pr-checklist</span> for considerations when preparing your PR, and
+consult <a class="reference external" href="https://help.github.com/articles/about-pull-requests/">GitHub Help</a>
+if you need more information on using pull requests.</p></li>
+</ol>
+</div>
+<div class="section" id="model-validation-toolkit-pull-request-checklist">
+<h2>Model Validation Toolkit pull request checklist<a class="headerlink" href="#model-validation-toolkit-pull-request-checklist" title="Permalink to this headline">¶</a></h2>
+<p>As you prepare a Model Validation Toolkit pull request, here are a few things to keep in mind:</p>
+<div class="section" id="dco">
+<h3>DCO<a class="headerlink" href="#dco" title="Permalink to this headline">¶</a></h3>
+<p>By contributing to this project, you agree to our <a class="reference external" href="https://raw.githubusercontent.com/FINRAOS/model-validation-toolkit/main/DCO.txt">DCO</a>.</p>
+</div>
+<div class="section" id="single-change-commits-and-pull-requests">
+<h3>Single-change commits and pull requests<a class="headerlink" href="#single-change-commits-and-pull-requests" title="Permalink to this headline">¶</a></h3>
+<p>A git commit ought to be a self-contained, single change with a descriptive
+message. This helps with review and with identifying or reverting changes if
+issues are uncovered later on.</p>
+<p>Pull requests typically comprise a single git commit. In preparing a pull
+request for review, you may need to squash together multiple commits. We ask
+that you do this prior to sending the PR for review if possible. The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">-i</span></code> command might be useful to this end.</p>
+</div>
+<div class="section" id="linting-and-type-checking">
+<h3>Linting and Type-checking<a class="headerlink" href="#linting-and-type-checking" title="Permalink to this headline">¶</a></h3>
+<p>Model Validation Toolkit uses <a class="reference external" href="https://mypy.readthedocs.io/">mypy</a> and <a class="reference external" href="https://flake8.pycqa.org/">flake8</a>
+to statically test code quality; the easiest way to run these checks locally is via
+the <a class="reference external" href="https://pre-commit.com/">pre-commit</a> framework:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pre-commit
+pre-commit run --all
+</pre></div>
+</div>
+</div>
+<div class="section" id="full-github-test-suite">
+<h3>Full GitHub test suite<a class="headerlink" href="#full-github-test-suite" title="Permalink to this headline">¶</a></h3>
+<p>Your PR will automatically be run through a full test suite on GitHub CI, which
+covers a range of Python versions, dependency versions, and configuration options.
+It’s normal for these tests to turn up failures that you didn’t catch locally; to
+fix the issues you can push new commits to your branch.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="about.html" class="btn btn-neutral float-right" title="About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Model Validation Toolkit Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
