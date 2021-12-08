@@ -7,8 +7,8 @@ ways to contribute, including:
 
 
 - Answering questions on Model Validation Toolkit's [discussions page](https://github.com/FINRAOS/model-validation-toolkit/discussions)
-- Improving or expanding Model Validation Toolkit's [documentation](http://model-validation-toolkit.readthedocs.io/)
-- Contributing to Model Validation Toolkit's [code-base](http://github.com/FINRAOS/model-validation-toolkit/)
+- Improving or expanding Model Validation Toolkit's [documentation](https://finraos.github.io/model-validation-toolkit/docs/html/index.html)
+- Contributing to Model Validation Toolkit's [code-base](https://github.com/FINRAOS/model-validation-toolkit/)
 
 ## Ways to contribute
 
@@ -28,7 +28,7 @@ We do all of our development using git, so basic knowledge is assumed.
 Follow these steps to contribute code:
 
 1. Fork the Model Validation Toolkit repository by clicking the **Fork** button on the
-   [repository page](http://www.github.com/FINRAOS/model-validation-toolkit). This creates
+   [repository page](https://www.github.com/FINRAOS/model-validation-toolkit). This creates
    a copy of the Model Validation Toolkit repository in your own account.
 
 2. Install Python >=3.6 locally in order to run tests.
@@ -46,7 +46,7 @@ Follow these steps to contribute code:
    changes.
 
    ```bash
-   git remote add upstream http://www.github.com/FINRAOS/model-validation-toolkit
+   git remote add upstream https://www.github.com/FINRAOS/model-validation-toolkit
    ```
 
 5. Create a branch where you will develop from:
