@@ -46,7 +46,7 @@ Follow these steps to contribute code:
    changes.
 
    ```bash
-   git remote add upstream https://www.github.com/FINRAOS/model-validation-toolkit
+   git remote add upstream http://www.github.com/FINRAOS/model-validation-toolkit
    ```
 
 5. Create a branch where you will develop from:

@@ -54,6 +54,12 @@ The Model Validation Toolkit is a library for model validation, metaanalysis, an
 
 .. toctree::
     :maxdepth: 1
+    :caption: Bias and Metrics Tutorials
+
+    notebooks/metrics/CounteringSampleBias
+
+.. toctree::
+    :maxdepth: 1
     :caption: Python API
  
     supervisor
