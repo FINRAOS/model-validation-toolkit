@@ -1,10 +1,7 @@
-import os
-
 from setuptools import find_packages, setup
 
 VERSION = "0.0.1"
 
-here = os.path.dirname(os.path.realpath(__file__))
 extras_require = {
     "doc": [
         "nbsphinx",
@@ -15,14 +12,25 @@ extras_require = {
         "myst-parser",
     ]
 }
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
 setup(
     name="mvtk",
     version=VERSION,
-    url="Apache License 2.0",
+    license='Apache-2.0',
     author="Alex Eftimiades",
     author_email="alexeftimiades@gmail.com",
     description="Model validation toolkit",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     packages=find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: Apache Software License",
+        "Operating System :: MacOS",
+        "Operating System :: POSIX :: Linux",
+    ],
     install_requires=[
         "jax>=0.2.8",
         "public>=2020.12.3",
@@ -37,4 +45,8 @@ setup(
         "tqdm",
     ],
     extras_require=extras_require,
+    url="https://finraos.github.io/model-validation-toolkit/",
+    project_urls={
+        "Bug Tracker": "https://github.com/FINRAOS/model-validation-toolkit/issues",
+    },
 )
