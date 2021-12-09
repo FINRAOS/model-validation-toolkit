@@ -18,7 +18,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setup(
     name="mvtk",
     version=VERSION,
-    license='Apache-2.0',
+    license="Apache-2.0",
     author="Alex Eftimiades",
     author_email="alexeftimiades@gmail.com",
     description="Model validation toolkit",
