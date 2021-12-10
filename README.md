@@ -1,3 +1,7 @@
+<img src="docs/images/logo.svg" alt="drawing" width="500px"/>
+
+[![CircleCI](https://circleci.com/gh/FINRAOS/model-validation-toolkit/tree/main.svg?style=svg)](https://circleci.com/gh/FINRAOS/Gatekeeper/tree/main)
+
 # Installation
 Run `pip install mvtk`.
 
