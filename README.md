@@ -20,6 +20,7 @@ You can import:
 - `mvtk.thresholding` for adaptive thresholding.
 - `mvtk.sobol` for Sobol sensitivity analysis
 - `mvtk.supervisor` for divergence anlysis
+- `mvtk.metrics` for specialised metrics
 
 # Documentation
 You can run `make -C docs html` on a Mac or `make.bat -C docs html` on a PC to just rebuild the docs. In this case, point your browser to ```docs/_build/html/index.html``` to view the homepage. If your browser was already pointing to documentation that you changed, you can refresh the page to see the changes.
