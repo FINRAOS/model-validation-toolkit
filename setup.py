@@ -1,6 +1,5 @@
 from setuptools import find_packages, setup
-
-VERSION = "0.0.2"
+from mvtk import __version__
 
 extras_require = {
     "doc": [
@@ -17,7 +16,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="mvtk",
-    version=VERSION,
+    version=__version__,
     license="Apache-2.0",
     author="Alex Eftimiades",
     author_email="alexeftimiades@gmail.com",
