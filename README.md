@@ -1,6 +1,6 @@
 <img src="docs/images/logo.svg" alt="drawing" width="250px"/>
 
-[![CircleCI](https://circleci.com/gh/FINRAOS/model-validation-toolkit/tree/main.svg?style=svg)](https://circleci.com/gh/FINRAOS/Gatekeeper/tree/main)[![Join the chat at https://gitter.im/FINRAOS/model-validation-toolkit](https://badges.gitter.im/FINRAOS/model-validation-toolkit.svg)](https://gitter.im/FINRAOS/model-validation-toolkit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![CircleCI](https://circleci.com/gh/FINRAOS/model-validation-toolkit/tree/main.svg?style=svg)](https://circleci.com/gh/FINRAOS/Gatekeeper/tree/main)[![Join the chat at https://gitter.im/FINRAOS/model-validation-toolkit](https://badges.gitter.im/FINRAOS/model-validation-toolkit.svg)](https://gitter.im/FINRAOS/model-validation-toolkit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)![PyPI version](https://img.shields.io/pypi/v/mvtk)
 
 # Model Validation Tookit
 
