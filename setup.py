@@ -1,9 +1,9 @@
 from setuptools import find_packages, setup
 
 _dct = {}
-with open('mvtk/version.py') as f:
+with open("mvtk/version.py") as f:
     exec(f.read(), _dct)
-__version__ = _dct['__version__']
+__version__ = _dct["__version__"]
 
 extras_require = {
     "doc": [
