@@ -1,4 +1,7 @@
 # Installation
+
+[![Join the chat at https://gitter.im/FINRAOS/model-validation-toolkit](https://badges.gitter.im/FINRAOS/model-validation-toolkit.svg)](https://gitter.im/FINRAOS/model-validation-toolkit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Run `pip install mvtk`.
 
 **Windows users**: Until [Jaxlib is supported on windows
