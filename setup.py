@@ -1,5 +1,5 @@
 from setuptools import find_packages, setup
-from mvtk import __version__
+from mvtk.version import __version__
 
 extras_require = {
     "doc": [
