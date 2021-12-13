@@ -33,13 +33,13 @@ jobs:
           pkg-manager: pip-dist
           pip-dependency-file: 
       - run:
+          name: Run pre-commit
+          command: pip install pre-commit && pre-commit run --all
+      - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
           no_output_timeout: 30m
           command: pip install pytest && pytest tests
-      - run:
-          name: Run pre-commit
-          command: pip install pre-commit && pre-commit run --all
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows

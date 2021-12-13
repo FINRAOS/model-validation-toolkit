@@ -1,6 +1,6 @@
 <img src="docs/images/logo.svg" alt="drawing" width="250px"/>
 
-[![CircleCI](https://circleci.com/gh/FINRAOS/model-validation-toolkit/tree/main.svg?style=svg)](https://circleci.com/gh/FINRAOS/Gatekeeper/tree/main)[![Join the chat at https://gitter.im/FINRAOS/model-validation-toolkit](https://badges.gitter.im/FINRAOS/model-validation-toolkit.svg)](https://gitter.im/FINRAOS/model-validation-toolkit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)![PyPI version](https://img.shields.io/pypi/v/mvtk)
+[![CircleCI](https://circleci.com/gh/FINRAOS/model-validation-toolkit/tree/main.svg?style=svg)](https://circleci.com/gh/FINRAOS/Gatekeeper/tree/main)[![Join the chat at https://gitter.im/FINRAOS/model-validation-toolkit](https://badges.gitter.im/FINRAOS/model-validation-toolkit.svg)](https://gitter.im/FINRAOS/model-validation-toolkit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)[![PyPI version](https://img.shields.io/pypi/v/mvtk)](https://pypi.org/project/mvtk/)
 
 # Model Validation Tookit
 
@@ -15,7 +15,10 @@ Alternatively, you can [build jaxlib from
 source](https://jax.readthedocs.io/en/latest/developer.html#additional-notes-for-building-jaxlib-from-source-on-windows).
 
 ## Developers
-Run `pip install -e "mvtk[doc]"`.
+
+Check out this repository and `cd` into the directory.
+
+Run `pip install -e ".[doc]"`.
 
 The `[doc]` is used to install dependencies for building documentation.
 
