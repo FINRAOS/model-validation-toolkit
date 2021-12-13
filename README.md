@@ -10,7 +10,7 @@ Run `pip install mvtk`.
 
 **Windows users**: Until [Jaxlib is supported on windows
 natively](https://github.com/google/jax/issues/438) you will need to either use
-this library from you Linux subsystem or within a Docker container.
+this library from a Linux subsystem or within a Docker container.
 Alternatively, you can [build jaxlib from
 source](https://jax.readthedocs.io/en/latest/developer.html#additional-notes-for-building-jaxlib-from-source-on-windows).
 
