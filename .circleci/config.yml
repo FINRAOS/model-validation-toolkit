@@ -34,7 +34,7 @@ jobs:
             git config user.name "$(git log --format=%an -n 1)"
       - add_ssh_keys:
           fingerprints:
-            - "80:30:82:3d:5f:0b:19:f0:2c:27:f7:3b:d8:a2:a0:c0"
+            - "	1e:36:82:dc:44:d8:71:93:6d:15:89:3d:37:e1:3d:af"
       - run:
           name: Deploy docs to gh-pages branch
           command: gh-pages -b website --dotfiles --message "$(git log --format=%B -n 1)" --dist website
