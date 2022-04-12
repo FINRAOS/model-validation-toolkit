@@ -34,7 +34,7 @@ jobs:
           pip-dependency-file: 
       - run:
           name: Run pre-commit
-          command: pip install pre-commit==2.18.0 && pre-commit run --all
+          command: pip install pre-commit click==8.0.4 && pre-commit run --all
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
