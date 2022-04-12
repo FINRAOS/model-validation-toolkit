@@ -6,6 +6,7 @@ jobs:
       - image: circleci/python:3.8
     steps:
       - checkout
+      - run: sudo apt-get install pandoc  
       - run: sudo pip install tox
       - run: tox
       - run: ls -la docs

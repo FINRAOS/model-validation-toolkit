@@ -13,7 +13,6 @@ extras_require = {
         "sphinxcontrib-bibtex",
         "imageio",
         "myst-parser",
-        "pandoc",
     ]
 }
 with open("README.md", "r", encoding="utf-8") as fh:

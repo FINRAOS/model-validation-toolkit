@@ -14,10 +14,11 @@ and return a scalar value is generally limited to various measures of feature
 importance. This can be problematic as what makes a feature "important" can
 vary between use cases.
 
-Rather than interpret a neural network as a black box, we seek to constrain
-neural network in ways we consider useful and interpretable. In particular, The
-`interprenet <interprenet.html>`_ module currently have two such constraints
-implemented:
+Rather than interpret a neural network as a black
+box, we seek to constrain neural network in ways we
+consider useful and interpretable. In particular,
+The interprenet module currently has two such
+constraints implemented:
 
 * Monotonicity
 * Lipschitz constraint

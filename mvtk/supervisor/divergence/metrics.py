@@ -74,7 +74,7 @@ def calc_div_variational(data_stream, loss, model_generator=Approximator, summar
             loss_kwargs (optional): Dictionary of optional kwargs to pass to
                 loss function. ``weights`` is commonly used for reweighting
                 expectations. See `hybrid estimation
-                <user_guide.rst#hybrid-estimation>`__ for details.
+                <supervisor_user_guide.rst#hybrid-estimation>`__ for details.
             categorical_columns (optional): List of indices of columns which should
                 be treated as categorical.
             nprng (optional): Numpy ``RandomState``
@@ -190,7 +190,7 @@ def fdiv_loss(convex_conjugate):
         batch: pair of minibatches drawn from each sample
         weights: Provides an alternative means of reweighting minibatches.
             See `hybrid estimation
-        <user_guide.rst#hybrid-estimation>`__ for details."""
+        <supervisor_user_guide.rst#hybrid-estimation>`__ for details."""
         input1, input2 = batch
         batch_loss = (
             convex_conjugate(input2).mean() * weights[1] - input1.mean() * weights[0]

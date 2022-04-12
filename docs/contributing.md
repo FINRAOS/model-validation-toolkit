@@ -6,7 +6,7 @@ Everyone can contribute to Model Validation Toolkit, and we value everyone's con
 ways to contribute, including:
 
 
-- Answering questions on Model Validation Toolkit's [discussions page](https://github.com/FINRAOS/model-validation-toolkit/discussions)
+- Answering questions on Model Validation Toolkit's [gitter channel](https://gitter.im/FINRAOS/model-validation-toolkit)
 - Improving or expanding Model Validation Toolkit's [documentation](https://finraos.github.io/model-validation-toolkit/docs/html/index.html)
 - Contributing to Model Validation Toolkit's [code-base](https://github.com/FINRAOS/model-validation-toolkit/)
 
@@ -80,7 +80,7 @@ Follow these steps to contribute code:
    git commit -s -m "Your commit message"
    ```
 
-   Please be sure to sign off your work when you commit it with the `-s` or, equivalently `--sign-off` flag to agree to our [DCO](https://raw.githubusercontent.com/FINRAOS/model-validation-toolkit/main/DCO.txt).
+   Please be sure to sign off your work when you commit it with the `-s` or, equivalently `--sign-off` flag to agree to our [DCO](https://raw.githubusercontent.com/FINRAOS/model-validation-toolkit/main/DCO).
 
    Then sync your code with the main repo:
 
@@ -98,7 +98,7 @@ Follow these steps to contribute code:
 
 8. Create a pull request from the Model Validation Toolkit repository and send it for review.
    Check the {ref}`pr-checklist` for considerations when preparing your PR, and
-   consult [GitHub Help](https://help.github.com/articles/about-pull-requests/)
+   consult [GitHub Help](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
    if you need more information on using pull requests.
 
 ## Model Validation Toolkit pull request checklist
@@ -107,7 +107,7 @@ As you prepare a Model Validation Toolkit pull request, here are a few things to
 
 ### DCO
 
-By contributing to this project, you agree to our [DCO](https://raw.githubusercontent.com/FINRAOS/model-validation-toolkit/main/DCO.txt).
+By contributing to this project, you agree to our [DCO](https://raw.githubusercontent.com/FINRAOS/model-validation-toolkit/main/DCO).
 
 ### Single-change commits and pull requests
 

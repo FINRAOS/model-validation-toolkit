@@ -161,6 +161,7 @@ analyses of concept drift prefer divergences that are proper metrics
 As we shall see, there are two ways to estimate :math:`f`-divergences: with
 density estimators, and with variational methods.
 
+.. _density-estimators:
 Estimation with Density Estimators
 ==================================
 
@@ -324,7 +325,7 @@ variational methods.
 
 Variational estimation is only applicable for numerically encoded data, and was
 found to work poorly for `one hot encoded categorical data with large numbers
-of categories <notebooks/Airlines>`_.
+of categories <notebooks/divergence/Airlines>`_.
 
 Hybrid Estimation
 ==================================
@@ -372,16 +373,16 @@ categorical features (that have been sampled) and supply a tuple of weights
 represent an externally computed estimate of the probability of drawing a
 specific combination of categorical variables from :math:`p` and :math:`q`.
 These might be computed via histograms. See `estimation with density estimators
-<user_guide.rst#estimation-with-density-estimators>`__ for resources within
-this library for accomplishing this. This approch may be useful when computing
-:math:`f`-divergences from within a distributed dataframe on a large cluster
-with many unique combinations of categorical columns. You could compute a
-histogram over the categorial portion of the data, parallelize separate
-divergence-like computations over each unique combination of categorical values
-in your dataset (as shown in the above equation), and sum the results. Note you
-never have to consider unique combinations of categorical values that were not
-in the original sample set, so you will never end up with more unique
-combinations of categories than you have records accross both datasets.
+:ref:`density-estimators` for resources within this library for accomplishing
+this. This approch may be useful when computing :math:`f`-divergences from
+within a distributed dataframe on a large cluster with many unique combinations
+of categorical columns. You could compute a histogram over the categorial
+portion of the data, parallelize separate divergence-like computations over
+each unique combination of categorical values in your dataset (as shown in the
+above equation), and sum the results. Note you never have to consider unique
+combinations of categorical values that were not in the original sample set, so
+you will never end up with more unique combinations of categories than you have
+records accross both datasets.
 
 Featureless Datasets
 ===============================================
