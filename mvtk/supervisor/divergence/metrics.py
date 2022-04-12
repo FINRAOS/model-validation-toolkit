@@ -10,7 +10,7 @@ from .nn import Approximator, NormalizedLinear
 from .generators import fdiv_data_stream, js_data_stream
 from collections import Counter
 from functools import partial
-from jax.experimental import optimizers
+from jax.example_libraries import optimizers
 from mvtk.supervisor.utils import parallel, split
 from .utils import arrayify
 
@@ -29,7 +29,7 @@ def calc_div_variational(data_stream, loss, model_generator=Approximator, summar
             outputs. Returns a scalar.
         model_generator: A function that takes a Jax ``PRNGKey`` the number
             of dimensions of the support and returns a `Jax model
-            <https://jax.readthedocs.io/en/latest/jax.experimental.stax.html>`_ to
+            <https://jax.readthedocs.io/en/latest/jax.example_libraries.stax.html>`_ to
             be used for variational approximations. The function this model is
             trained to approximate is sometimes known as the *witness
             function*--especially when dealing with `integral probability metrics

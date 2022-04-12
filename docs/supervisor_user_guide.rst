@@ -316,7 +316,7 @@ The following functions come with the Supervisor's :doc:`divergence
 <supervisor.divergence>` module for estimating :math:`f`-divergences using
 variational methods.
 
-.. topic:: Estimates via maximum likelihood density estimators
+.. topic:: Estimates via variational estimators
 
     * :meth:`calc_hl` for Hellinger distance
     * :meth:`calc_js` for Jensen Shannon divergence
