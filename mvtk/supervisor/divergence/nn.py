@@ -1,9 +1,9 @@
 import jax
 import public
 
-from jax.experimental import stax
+from jax.example_libraries import stax
 from jax._src.nn.initializers import glorot_normal, normal
-from jax.experimental.stax import Dense, FanInSum, FanOut, Identity, Relu, elementwise
+from jax.example_libraries.stax import Dense, FanInSum, FanOut, Identity, Relu, elementwise
 
 
 def ResBlock(*layers, fan_in=FanInSum, tail=Identity):
@@ -46,7 +46,7 @@ def Approximator(
         width (int, optional): Width of network. Defaults to ``input_size + 1``.
         output_size (int, optional): Number of outputs. Defaults to ``1``.
         linear (``torch.nn.Module``, optional): Linear layer drop in
-            replacement. Defaults to ``jax.experimental.stax.Dense``.
+            replacement. Defaults to ``jax.example_libraries.stax.Dense``.
         residual (bool, optional): Turn on ResNet blocks. Defaults to ``True``.
         activation (optional): A map from :math:`(-\infty, \infty)` to an
             appropriate domain (such as the domain of a convex conjugate).

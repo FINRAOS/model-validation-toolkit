@@ -2,7 +2,7 @@ import jax
 import itertools
 import public
 
-from jax.experimental import optimizers, stax
+from jax.example_libraries import optimizers, stax
 from jax._src.nn.initializers import glorot_normal, normal
 
 
