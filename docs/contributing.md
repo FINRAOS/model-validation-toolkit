@@ -6,7 +6,7 @@ Everyone can contribute to Model Validation Toolkit, and we value everyone's con
 ways to contribute, including:
 
 
-- Answering questions on Model Validation Toolkit's [gitter channel](https://gitter.im/FINRAOS/model-validation-toolkit)
+- Answering questions on Model Validation Toolkit's [Gitter channel](https://gitter.im/FINRAOS/model-validation-toolkit)
 - Improving or expanding Model Validation Toolkit's [documentation](https://finraos.github.io/model-validation-toolkit/docs/html/index.html)
 - Contributing to Model Validation Toolkit's [code-base](https://github.com/FINRAOS/model-validation-toolkit/)
 
@@ -18,7 +18,8 @@ We welcome pull requests, in particular for those issues marked with
 
 For other proposals, we ask that you first open a GitHub
 [Issue](https://github.com/FINRAOS/model-validation-toolkit/issues/new/choose) or
-[Discussion](https://github.com/FINRAOS/model-validation-toolkit/discussions)
+[Gitter channel](https://gitter.im/FINRAOS/model-validation-toolkit)
+
 to seek feedback on your planned contribution.
 
 ## Contributing code using pull requests

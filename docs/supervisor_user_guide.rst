@@ -324,8 +324,8 @@ variational methods.
     * :meth:`calc_tv` for Total variation
 
 Variational estimation is only applicable for numerically encoded data, and was
-found to work poorly for `one hot encoded categorical data with large numbers
-of categories <notebooks/divergence/Airlines>`_.
+found to work poorly for :doc:`one hot encoded categorical data with large numbers
+of categories <notebooks/divergence/Airlines>`.
 
 Hybrid Estimation
 ==================================
