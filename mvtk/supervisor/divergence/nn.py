@@ -3,7 +3,8 @@ import public
 
 from jax.example_libraries import stax
 from jax._src.nn.initializers import glorot_normal, normal
-from jax.example_libraries.stax import Dense, FanInSum, FanOut, Identity, Relu, elementwise
+from jax.example_libraries.stax import Dense, FanInSum, FanOut, Identity, Relu, \
+    elementwise
 
 
 def ResBlock(*layers, fan_in=FanInSum, tail=Identity):
