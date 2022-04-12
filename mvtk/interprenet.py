@@ -27,7 +27,7 @@ def identity(weights):
 
 
 @public.add
-def clip(x, eps=2 ** -16):
+def clip(x, eps=2**-16):
     return jax.numpy.clip(x, eps, 1 - eps)
 
 
@@ -123,7 +123,7 @@ def partialnet(linear, activation):
 
 
 @public.add
-def sigmoid_clip(inputs, eps=2 ** -16):
+def sigmoid_clip(inputs, eps=2**-16):
     return jax.scipy.special.expit(clip(inputs, eps))
 
 

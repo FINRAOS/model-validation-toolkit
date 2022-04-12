@@ -642,7 +642,7 @@ def calc_tv_knn(sample_distribution_p, sample_distribution_q, **kwargs):
     def bias(N, k):
         def integral_no_p(p):
             return (
-                (1 - p) ** (-k + N) * p ** k
+                (1 - p) ** (-k + N) * p**k
                 - N * scipy.special.betainc(k, 1 - k + N, p)
             ) / (k - N)
 

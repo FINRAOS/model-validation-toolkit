@@ -1,50 +1,53 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-# Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
-# See: https://circleci.com/docs/2.0/orb-intro/
-orbs:
-  # The python orb contains a set of prepackaged CircleCI configuration you can use repeatedly in your configuration files
-  # Orb commands and jobs help you with common scripting around a language/tool
-  # so you dont have to copy and paste it everywhere.
-  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
-  python: circleci/python@1.5
-
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  build-and-test: # This is the name of the job, feel free to change it to better match what you're trying to do!
-    # These next lines defines a Docker executors: https://circleci.com/docs/2.0/executor-types/
-    # You can specify an image from Dockerhub or use one of the convenience images from CircleCI's Developer Hub
-    # A list of available CircleCI Docker convenience images are available here: https://circleci.com/developer/images/image/cimg/python
-    # The executor is the environment in which the steps below will be executed - below will use a python 3.8 container
-    # Change the version below to your required version of python
+  test:
     docker:
-      - image: cimg/python:3.8
-    # Checkout the code as the first step. This is a dedicated CircleCI step.
-    # The python orb's install-packages step will install the dependencies from a Pipfile via Pipenv by default.
-    # Here we're making sure we use just use the system-wide pip. By default it uses the project root's requirements.txt.
-    # Then run your tests!
-    # CircleCI will report the results back to your VCS provider.
+      - image: circleci/python:3.8
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: pip-dist
-          pip-dependency-file: 
+      - run: sudo pip install tox
+      - run: tox
+      - run: ls -la docs
+      - persist_to_workspace:
+          root: docs
+          paths: html
+  docs-deploy:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: docs
+      - run: mkdir -p website/docs && mv docs/html website/docs/
       - run:
-          name: Run pre-commit
-          command: pip install pre-commit && pre-commit run --all
+          name: Disable jekyll builds
+          command: touch docs/html/.nojekyll
+      - run: mkdir -p docs/html/.circleci
+      - run: cp .circleci/config.yml docs/html/.circleci/config.yml
       - run:
-          name: Run tests
-          # This assumes pytest is installed via the install-package step above
-          no_output_timeout: 30m
-          command: pip install pytest && pytest tests
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "$(git log --format=%ae -n 1)"
+            git config user.name "$(git log --format=%an -n 1)"
+      - add_ssh_keys:
+          fingerprints:
+            - "80:30:82:3d:5f:0b:19:f0:2c:27:f7:3b:d8:a2:a0:c0"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: gh-pages -b website --dotfiles --message "$(git log --format=%B -n 1)" --dist website
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  version: 2
+  build:
     jobs:
-      - build-and-test
+      - test:
+          filters:
+            branches:
+              ignore: docs
+      - docs-deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: main

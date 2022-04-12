@@ -61,9 +61,9 @@ def test_tv_gaussian():
     for dim in range(1, 4):
         gaussian_test(partial(divergence.calc_tv, train_test_split=0.5), dim)
         gaussian_test(
-            partial(divergence.calc_tv_knn, k=64 * 2 ** dim),
+            partial(divergence.calc_tv_knn, k=64 * 2**dim),
             dim,
-            N=1024 * 2 ** dim,
+            N=1024 * 2**dim,
             thresh=0.1,
         )
 

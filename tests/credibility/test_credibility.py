@@ -7,7 +7,7 @@ from mvtk import credibility
 
 def test_prob_greater_cmp():
     nprng = numpy.random.RandomState(0)
-    prior_sample_size = 10 ** 6
+    prior_sample_size = 10**6
     for N in range(2, 8):
         for prior1, prior2 in itertools.product(
             itertools.product(range(1, 3), repeat=2), repeat=2
@@ -21,6 +21,6 @@ def test_prob_greater_cmp():
             for (p1, p2), subset in df.groupby(["positives1", "positives2"]):
                 p = subset["target"].mean()
                 q = credibility.prob_greater_cmp(
-                    p1, N - p1, p2, N - p2, prior1=prior1, prior2=prior2, err=10 ** -5
+                    p1, N - p1, p2, N - p2, prior1=prior1, prior2=prior2, err=10**-5
                 )
                 assert abs(q - p) < 0.05

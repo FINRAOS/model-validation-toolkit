@@ -84,7 +84,7 @@ def prob_greater_cmp(
     negative2,
     prior1=(1, 1),
     prior2=(1, 1),
-    err=10 ** -5,
+    err=10**-5,
 ):
     """Probability the first set comes from a distribution with a greater
     proportion of positive than the other.

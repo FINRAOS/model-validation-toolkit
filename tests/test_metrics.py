@@ -76,5 +76,5 @@ def test_weighted_roc_auc():
             weighted_roc_auc(y_true, y_pred, weights)
             - metrics.rank_auc(y_true, y_pred, weights)
         )
-        < 2 ** -32
+        < 2**-32
     )
