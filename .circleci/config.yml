@@ -3,41 +3,63 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.8
     steps:
       - checkout
-      - run: sudo apt-get install pandoc  
-      - run: sudo pip install tox
-      - run: tox
+      - run: sudo apt-get update
+      - run: sudo apt-get install pandoc
+      - run: python -m pip install tox
+      - run: python -m tox
       - run: ls -la docs
       - persist_to_workspace:
           root: docs
           paths: html
   docs-deploy:
     docker:
-      - image: node:16.14.2
+      - image: cimg/python:3.8
     steps:
-      - checkout
-      - attach_workspace:
-          at: docs
-      - run: mkdir -p website/docs && mv docs/html website/docs/
       - run:
-          name: Disable jekyll builds
-          command: touch website/.nojekyll
-      - run: mkdir -p website/.circleci
-      - run: cp .circleci/config.yml website/.circleci/config.yml
-      - run:
-          name: Install and configure dependencies
+          name: add known_hosts
           command: |
-            npm install -g --silent gh-pages@2.0.1
-            git config user.email "$(git log --format=%ae -n 1)"
-            git config user.name "$(git log --format=%an -n 1)"
+              mkdir ~/.ssh
+              printf "%s" 'github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+              github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+              github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+              bitbucket.org ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAubiN81eDcafrgMeLzaFPsw2kNvEcqTKl/VqLat/MaB33pZy0y3rJZtnqwR2qOOvbwKZYKiEO1O6VqNEBxKvJJelCq0dTXWT5pbO2gDXC6h6QDXCaHo6pOHGPUy+YBaGQRGuSusMEASYiWunYN0vCAI8QaXnWMXNMdFP3jHAJH0eDsoiGnLPBlBp4TNm6rYI74nMzgz3B9IikW4WVK+dc8KZJZWYjAuORU3jc1c/NPskD2ASinf8v3xnfXeukU0sJ5N6m5E8VLjObPEO+mN2t/FZTMZLiFqPWc/ALSqnMnnhwrNi2rbfg/rd/IpL8Le3pSBne8+seeFVBoGqzHM9yXw==
+              gitlab.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoohFzgbEY=
+              ' > ~/.ssh/known_hosts
+              chmod 0600 ~/.ssh/known_hosts
+      - run:
+          name: Checkout main
+          command: |
+              git clone $CIRCLE_REPOSITORY_URL --depth 1 -b main main
+              cd main
+              git config --global user.email "$(git log --format=%ae -n 1)"
+              git config --global user.name "$(git log --format=%an -n 1)"
+              echo "export msg="\"$(git log --format=%B -n 1)\" >> $BASH_ENV
+      - run:
+          name: Checkout website
+          command: |
+              git clone $CIRCLE_REPOSITORY_URL --depth 1 -b website website
+              rm -rf website/docs/html
+      - attach_workspace:
+          at: website/docs
+      - run:
+          name: Copy CircleCI config
+          command: |
+              mkdir -p website/.circleci
+              cp main/.circleci/config.yml website/.circleci/config.yml
       - add_ssh_keys:
           fingerprints:
             - "4e:e4:68:5b:4b:62:62:47:73:47:d5:b4:99:23:98:b1"
       - run:
-          name: Deploy docs to gh-pages branch
-          command: gh-pages -b website --dotfiles --message "$(git log --format=%B -n 1)" --dist website
+          name: Deploy docs to website branch
+          command: |
+              cd website
+              git add .circleci/config.yml
+              git add -A -- docs/html
+              git commit -am "$msg"
+              git push origin website
 workflows:
   version: 2
   build:
