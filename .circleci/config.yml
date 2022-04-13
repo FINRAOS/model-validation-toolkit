@@ -1,0 +1,54 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - checkout
+      - run: sudo apt-get install pandoc  
+      - run: sudo pip install tox
+      - run: tox
+      - run: ls -la docs
+      - persist_to_workspace:
+          root: docs
+          paths: html
+  docs-deploy:
+    docker:
+      - image: node:16.14.2
+    steps:
+      - checkout
+      - attach_workspace:
+          at: docs
+      - run: mkdir -p website/docs && mv docs/html website/docs/
+      - run:
+          name: Disable jekyll builds
+          command: touch website/.nojekyll
+      - run: mkdir -p website/.circleci
+      - run: cp .circleci/config.yml website/.circleci/config.yml
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "$(git log --format=%ae -n 1)"
+            git config user.name "$(git log --format=%an -n 1)"
+      - add_ssh_keys:
+          fingerprints:
+            - "4e:e4:68:5b:4b:62:62:47:73:47:d5:b4:99:23:98:b1"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: gh-pages -b website --dotfiles --message "$(git log --format=%B -n 1)" --dist website
+workflows:
+  version: 2
+  build:
+    jobs:
+      - test:
+          filters:
+            branches:
+              ignore: website
+      - docs-deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: main

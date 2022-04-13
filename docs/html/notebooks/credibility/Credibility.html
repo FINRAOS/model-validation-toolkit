@@ -1,55 +1,31 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Assessing Credibility From Sample Size &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/logo.svg"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Introduction to Adaptive Thresholding" href="../thresholding/Thresholding.html" />
-    <link rel="prev" title="Handling Categorical Data" href="../divergence/CategoricalColumns.html" />
+    <link rel="prev" title="Training Dataset Drift Detection" href="../divergence/TrainingDatasetDrift.html" />
  
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BGSHYDJP8"></script>
 <script>
@@ -62,29 +38,14 @@
 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> Model Validation Toolkit
-          
-
-          
-            
             <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -92,25 +53,14 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Overview</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../supervisor_user_guide.html">Supervisor User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../credibility_user_guide.html">Credibility User Guide</a></li>
@@ -118,13 +68,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../interprenet_user_guide.html">Interprenet User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sobol_user_guide.html">Sobol User Guide</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../divergence/BugDetection.html">Dataset Bug Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../divergence/TrainingDatasetDrift.html">Training Dataset Drift Detection</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Credibility Tutorials</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Assessing Credibility From Sample Size</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Quantifying-Credibility-of-Recall">Quantifying Credibility of Recall</a></li>
@@ -145,19 +97,19 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Thresholding Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Interprenet Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../interprenet/Interprenet.html">Introduction to Interprenet</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Bias and Metrics Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Bias and Metrics Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Python API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../supervisor.html">supervisor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../credibility.html">credibility</a></li>
@@ -167,71 +119,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../../metrics.html">metrics</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Model Validation Toolkit</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Assessing Credibility From Sample Size</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../_sources/notebooks/credibility/Credibility.ipynb.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS for nbsphinx extension */
@@ -442,7 +353,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -502,43 +413,42 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Assessing-Credibility-From-Sample-Size">
-<h1>Assessing Credibility From Sample Size<a class="headerlink" href="#Assessing-Credibility-From-Sample-Size" title="Permalink to this headline">¶</a></h1>
+<section id="Assessing-Credibility-From-Sample-Size">
+<h1>Assessing Credibility From Sample Size<a class="headerlink" href="#Assessing-Credibility-From-Sample-Size" title="Permalink to this headline"></a></h1>
 <p>The goal of this notebook is to be able to answer two types of questions:</p>
 <ol class="arabic simple">
 <li><p>For my KPI (precision, recall, true positive rate, false negative rate, ROC AUC, etc), what is the probability that after many more measurements, it could in fact be very different from what I am currently reporting?</p></li>
 <li><p>How can I assign and interpret error bars that quantify the expected variation of my KPIs (precision, recall, true positive rate, false negative rate, ROC AUC, etc) given the size of the dataset I am using?</p></li>
 </ol>
 <p>Throughout this tutorial, you should keep in mind the differences between “experimental probability” and “theoretical probability” and how experimental probability will approach some theoretical value (though not necessarily <em>your</em> theoretical value!) as you gather more and more measurements.</p>
-<div class="section" id="Quantifying-Credibility-of-Recall">
-<h2>Quantifying Credibility of Recall<a class="headerlink" href="#Quantifying-Credibility-of-Recall" title="Permalink to this headline">¶</a></h2>
+<section id="Quantifying-Credibility-of-Recall">
+<h2>Quantifying Credibility of Recall<a class="headerlink" href="#Quantifying-Credibility-of-Recall" title="Permalink to this headline"></a></h2>
 <p><em>Recall</em> is defined as the proportion of positive instances that your binary classifier labeled as being positive. This could be an important metric for something like medical diagnosis for a rare condition since there would likely be great concern that the model is catching the vast majority of the positive cases. Suppose a data scientist that you are working with says the model has a recall of 97%, meaning it catches 97% of cases that would be labeled as potential positive diagnoses at this
 phase of a pipeline. Since recall is concerned with positive instances, you should be wary that they had enough positive examples to make that claim with any degree of certainly. You might ask your data scientist “So what was your sample size?”. And your data scientist might confidently tout that they used over a <em>100,000</em> instances! Wow that’s a lot! But since you are a smart engineer, you follow up, “So how many of those were positive?” because again, recall is only concerned with positive
 instances. They will probably report a <em>much</em> smaller number. “Well, since positive cases are so rare, we only had 100 examples in our dataset”. This would be typical.</p>
 <p>We have two possibilities for every positive instance: the model gives it a number that lies above the data scientist’s threshold, and therefore is reported as positive, or not. 97% recall means that 97% of the 100 positive examples were reported as positive. You can ask your data scientist to confirm that the model reported 97 true positives, and 3 false negatives. The question is now <em>if we’ve seen 97 true positives, and 3 false negatives what is the probability that after an infinite number
 of samples the proportions would look very different?</em>. You might intuitively understand that we cannot be sure a coin is fair (would have an equal number of heads and tails after an infinite number of flips) after 3 flips. This tutorial is about going a step further and assigning a probability that after an infinite number of flips the coin would have any given amount of bias (e.g. one fourth of the flips would be heads after an infinite number of flips).</p>
 <p>So going back to recall, let’s say you asked what proportion of missed positive instances would be unacceptably high, and you were informed that more than 5% would not be acceptable. This means that a recall lower than 95% would be unacceptable. The question is, given 97 correctly identified positive instances, and 3 false negative, what is the probability that after an infinite number of samples, the recall would be 95% instead of the current estimate of 97%?</p>
-</div>
-<div class="section" id="The-Beta-Distribution">
-<h2>The Beta Distribution<a class="headerlink" href="#The-Beta-Distribution" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="The-Beta-Distribution">
+<h2>The Beta Distribution<a class="headerlink" href="#The-Beta-Distribution" title="Permalink to this headline"></a></h2>
 <p>A very popular and successful approach to answering this question is by querying the <em>beta distribution</em>. Much like a Gaussian distribution (bell curve) reporting frequency from mean and standard deviation, the beta distribution describes the probability that a coin will have a given degree of bias, and is characterized by the number of heads and tails (rather than mean and standard deviation) we have seen so far. In this case, recall is like our “coin” and each “flip” is either a true positive
 or a false negative. The beta distribution is implemented in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, and in the code below, we will ask it what the probability is that the recall is <em>less than</em> 95% given 97 true positives and 3 false negatives.</p>
-</div>
-<div class="section" id="Recall">
-<h2>Recall<a class="headerlink" href="#Recall" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="What-is-the-probability-that-recall-is-unaceptably-low?">
-<h3>What is the probability that recall is unaceptably low?<a class="headerlink" href="#What-is-the-probability-that-recall-is-unaceptably-low?" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Recall">
+<h2>Recall<a class="headerlink" href="#Recall" title="Permalink to this headline"></a></h2>
+<section id="What-is-the-probability-that-recall-is-unaceptably-low?">
+<h3>What is the probability that recall is unaceptably low?<a class="headerlink" href="#What-is-the-probability-that-recall-is-unaceptably-low?" title="Permalink to this headline"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mvtk</span> <span class="kn">import</span> <span class="n">credibility</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from mvtk import credibility
 
-<span class="n">true_positives</span> <span class="o">=</span> <span class="mi">97</span>
-<span class="n">false_negatives</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">cutoff</span> <span class="o">=</span> <span class="mi">95</span><span class="o">/</span><span class="mi">100</span>
-<span class="n">credibility</span><span class="o">.</span><span class="n">prob_below</span><span class="p">(</span><span class="n">true_positives</span><span class="p">,</span> <span class="n">false_negatives</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+true_positives = 97
+false_negatives = 3
+cutoff = 95/100
+credibility.prob_below(true_positives, false_negatives, cutoff) * 100
 </pre></div>
 </div>
 </div>
@@ -551,16 +461,16 @@ or a false negative. The beta distribution is implemented in <code class="docuti
 25.085987521946958
 </pre></div></div>
 </div>
-<div class="section" id="Interpreting-the-Result">
-<h4>Interpreting the Result<a class="headerlink" href="#Interpreting-the-Result" title="Permalink to this headline">¶</a></h4>
+<section id="Interpreting-the-Result">
+<h4>Interpreting the Result<a class="headerlink" href="#Interpreting-the-Result" title="Permalink to this headline"></a></h4>
 <p>Inside of the <code class="docutils literal notranslate"><span class="pre">credibility.prob_below</span></code> function, there is a call to <code class="docutils literal notranslate"><span class="pre">beta</span></code> that takes the following as arguments: 1. The number of instances of <em>heads</em> (<em>true positives</em>) 2. The number of instances of <em>tails</em> (<em>false negatives</em>) We add <code class="docutils literal notranslate"><span class="pre">1</span></code> to each count to encode a belief that both outcomes are at least <em>possible</em>, and is a <a class="reference external" href="https://en.wikipedia.org/wiki/Rule_of_succession">common rule of thumb</a> in practice. This creates an instance of a beta distribution specified by the number of
 <em>true positives</em> (<em>heads</em> if this were a coin) and <em>false negatives</em> (<em>tails</em> if this were a coin). <code class="docutils literal notranslate"><span class="pre">.cdf</span></code> calculates the probability that after an infinite number of samples, the proportion of true positives (heads) would be less than our desired cutoff of <code class="docutils literal notranslate"><span class="pre">95/100</span> <span class="pre">=</span> <span class="pre">0.95</span></code>.</p>
 <p>We multiply the resulting probability by <code class="docutils literal notranslate"><span class="pre">100%</span></code> to report the answer as a percentage. Based on the above readout, there is <code class="docutils literal notranslate"><span class="pre">~25%</span></code> chance that after collecting more and more data, the <em>proportion</em> of <code class="docutils literal notranslate"><span class="pre">true_positives</span></code> would ultimataly fall below the <code class="docutils literal notranslate"><span class="pre">cutoff</span></code> of <code class="docutils literal notranslate"><span class="pre">95%</span></code>.</p>
 <p>Contrary to common belief, there is nothing special about 95% in any of this analysis. The cutoff and how the resulting probability should be handled is entirely up to the experts in the field that you are predicting classifications for. All you can do is ask “What would be unacceptable?” and report a probability that after gathering more data a given KPI <em>would in fact be</em> unacceptable. It is up to those experts to request more data be gathered or the model be retrained.</p>
-</div>
-</div>
-<div class="section" id="Credible-Intervals-of-Recall">
-<h3>Credible Intervals of Recall<a class="headerlink" href="#Credible-Intervals-of-Recall" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="Credible-Intervals-of-Recall">
+<h3>Credible Intervals of Recall<a class="headerlink" href="#Credible-Intervals-of-Recall" title="Permalink to this headline"></a></h3>
 <p>Your manager is suprised at how likely it is that recall is unacceptably low. It raises a new question: If there is a 25% chance that recall is below 95%, could we prescribe an interpretable notion of margin of error to the original recall estimate? That is, could we say something like, “While the best estimate of recall is 97%, there is a high probabliity that the true value is between this lower bound and this upper bound”. In general, there are lots of such intervals. We could for example say
 there is a 50% chance the true recall will be between “0 to the median of <code class="docutils literal notranslate"><span class="pre">beta(1</span> <span class="pre">+</span> <span class="pre">true_positives,</span> <span class="pre">1</span> <span class="pre">+</span> <span class="pre">false_negatives)</span></code>”. We could just as accurately say there is a 50% chance the true recall will be between the median and 100%. However, it should be somewhat intuitive that the shortest interval that correctly answers the question “For what interval is there a 50% chance that true value lies within it?” is probably most convenient to work with.</p>
 <p>The following snippet can be used to find the shortest interval for a given “credibility level” (such as 50% for the examples mentioned so far) for a beta distribution.</p>
@@ -568,10 +478,9 @@ there is a 50% chance the true recall will be between “0 to the median of <cod
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># this is where we say &quot;we want the shortest interval with a 50% chance of containing the true recall&quot;</span>
-<span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">credibility</span><span class="o">.</span><span class="n">credible_interval</span><span class="p">(</span><span class="n">true_positives</span><span class="p">,</span> <span class="n">false_negatives</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lower_bound</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="n">upper_bound</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># this is where we say &quot;we want the shortest interval with a 50% chance of containing the true recall&quot;
+lower_bound, upper_bound = credibility.credible_interval(true_positives, false_negatives, 0.5)
+print(lower_bound * 100, upper_bound * 100)
 </pre></div>
 </div>
 </div>
@@ -584,12 +493,12 @@ there is a 50% chance the true recall will be between “0 to the median of <cod
 </pre></div></div>
 </div>
 <p>In this instance, there is a 50% probability the true recall lies between 95.8% and 98.2%.</p>
-</div>
-</div>
-<div class="section" id="ROC-AUC">
-<h2>ROC AUC<a class="headerlink" href="#ROC-AUC" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="What-is-the-probability-that-ROC-AUC-is-unaceptably-low?">
-<h3>What is the probability that ROC AUC is unaceptably low?<a class="headerlink" href="#What-is-the-probability-that-ROC-AUC-is-unaceptably-low?" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="ROC-AUC">
+<h2>ROC AUC<a class="headerlink" href="#ROC-AUC" title="Permalink to this headline"></a></h2>
+<section id="What-is-the-probability-that-ROC-AUC-is-unaceptably-low?">
+<h3>What is the probability that ROC AUC is unaceptably low?<a class="headerlink" href="#What-is-the-probability-that-ROC-AUC-is-unaceptably-low?" title="Permalink to this headline"></a></h3>
 <p>As you may recall, ROC AUC is a very important KPI for binary classifiers. It is calculated by computing the area under a curve (AUC) that reports true positive rate (proportion of positive instances reported by the model as being positive) against the false positive rate (proportion of negative instances reported as being positive). This curve is plotted over different thresholds (as you may remember, we can adjust our thresholds to balance false positives and false negatives). However, for
 mathematical reasons we will not delve into further, ROC AUC turns out to be equal to <em>the probability that a randomly selected positive instance would be scored higher than a randomly selected negative instance</em>. Therefore, our “how fair is this coin?” analysis still holds, but with a twist.</p>
 <p>In this example, your data scientist reports a 92% ROC AUC with a validation set that consists of 10 positive instances and 90 negative instances. They say they would have disqualified the model with an AUC of less than 90%. You can again apply beta distributions to determine the probability that given an infinite validation set, the AUC would be less than 90%.</p>
@@ -598,13 +507,12 @@ mathematical reasons we will not delve into further, ROC AUC turns out to be equ
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">positives</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">negatives</span> <span class="o">=</span> <span class="mi">90</span>
-<span class="n">roc_auc</span> <span class="o">=</span> <span class="mf">0.92</span>
-<span class="n">auc_positives</span><span class="p">,</span> <span class="n">auc_negatives</span> <span class="o">=</span> <span class="n">credibility</span><span class="o">.</span><span class="n">roc_auc_preprocess</span><span class="p">(</span><span class="n">positives</span><span class="p">,</span> <span class="n">negatives</span><span class="p">,</span> <span class="n">roc_auc</span><span class="p">)</span>
-<span class="n">cutoff</span> <span class="o">=</span> <span class="mi">90</span><span class="o">/</span><span class="mi">100</span>
-<span class="n">credibility</span><span class="o">.</span><span class="n">prob_below</span><span class="p">(</span><span class="n">auc_positives</span><span class="p">,</span> <span class="n">auc_negatives</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>positives = 10
+negatives = 90
+roc_auc = 0.92
+auc_positives, auc_negatives = credibility.roc_auc_preprocess(positives, negatives, roc_auc)
+cutoff = 90/100
+credibility.prob_below(auc_positives, auc_negatives, cutoff) * 100
 </pre></div>
 </div>
 </div>
@@ -620,18 +528,17 @@ mathematical reasons we will not delve into further, ROC AUC turns out to be equ
 <p>Remember, ROC AUC is effectively a ranking metric. It may be calculated by taking an area under a curve, but it reports the percentage of combinations of positive and negative instances that the model has correctly ranked (with the positive instance ranked higher than the negative one). With 10 positive instances and 90 negative ones, that means we are computing this proportion from <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">x</span> <span class="pre">90</span> <span class="pre">=</span> <span class="pre">900</span></code> unique combinations. If the <code class="docutils literal notranslate"><span class="pre">roc_auc</span> <span class="pre">=</span> <span class="pre">0.92</span></code>, then 92% of those combinations will be correctly
 ranked when scored by the model (that is, with the positive instance scored higher than the negative one). We can then compute the probability that after an infinite number of samples (and therefore an infinite number of unique combinations of positive and negative instances) the proportion of correctly ranked pairs would be less than 90%.</p>
 <p>In this case, there is a <code class="docutils literal notranslate"><span class="pre">~2.3%</span></code> chance of the AUC ending up below 90% after an infinite number of samples.</p>
-</div>
-<div class="section" id="Credible-Intervals-of-ROC-AUC">
-<h3>Credible Intervals of ROC AUC<a class="headerlink" href="#Credible-Intervals-of-ROC-AUC" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Credible-Intervals-of-ROC-AUC">
+<h3>Credible Intervals of ROC AUC<a class="headerlink" href="#Credible-Intervals-of-ROC-AUC" title="Permalink to this headline"></a></h3>
 <p>We will now demonstrate how to compute credible intervals of ROC AUC in a similar fashion to the credible interval constructed for recall.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># this is where we say &quot;we want the shortest interval with a 90% chance of containing the true ROC AUC&quot;</span>
-<span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">credibility</span><span class="o">.</span><span class="n">credible_interval</span><span class="p">(</span><span class="n">auc_positives</span><span class="p">,</span> <span class="n">auc_negatives</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lower_bound</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="n">upper_bound</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># this is where we say &quot;we want the shortest interval with a 90% chance of containing the true ROC AUC&quot;
+lower_bound, upper_bound = credibility.credible_interval(auc_positives, auc_negatives, 0.9)
+print(lower_bound * 100, upper_bound * 100)
 </pre></div>
 </div>
 </div>
@@ -648,61 +555,43 @@ ranked when scored by the model (that is, with the positive instance scored high
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../divergence/TrainingDatasetDrift.html" class="btn btn-neutral float-left" title="Training Dataset Drift Detection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../thresholding/Thresholding.html" class="btn btn-neutral float-right" title="Introduction to Adaptive Thresholding" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../divergence/CategoricalColumns.html" class="btn btn-neutral float-left" title="Handling Categorical Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Model Validation Toolkit Team.
-
-    </p>
+    <p>&#169; Copyright 2021, Model Validation Toolkit Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

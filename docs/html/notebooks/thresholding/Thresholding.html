@@ -1,50 +1,26 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Introduction to Adaptive Thresholding &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/logo.svg"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -62,29 +38,14 @@
 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> Model Validation Toolkit
-          
-
-          
-            
             <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -92,25 +53,14 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Overview</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../supervisor_user_guide.html">Supervisor User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../credibility_user_guide.html">Credibility User Guide</a></li>
@@ -118,17 +68,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../../interprenet_user_guide.html">Interprenet User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sobol_user_guide.html">Sobol User Guide</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../divergence/BugDetection.html">Dataset Bug Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../divergence/TrainingDatasetDrift.html">Training Dataset Drift Detection</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Credibility Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Thresholding Tutorials</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to Adaptive Thresholding</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Make-Some-Data">Make Some Data</a></li>
@@ -143,15 +95,15 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Interprenet Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../interprenet/Interprenet.html">Introduction to Interprenet</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Bias and Metrics Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Bias and Metrics Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Python API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../supervisor.html">supervisor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../credibility.html">credibility</a></li>
@@ -161,71 +113,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../../metrics.html">metrics</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Model Validation Toolkit</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Introduction to Adaptive Thresholding</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../_sources/notebooks/thresholding/Thresholding.ipynb.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS for nbsphinx extension */
@@ -436,7 +347,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -496,35 +407,34 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Introduction-to-Adaptive-Thresholding">
-<h1>Introduction to Adaptive Thresholding<a class="headerlink" href="#Introduction-to-Adaptive-Thresholding" title="Permalink to this headline">¶</a></h1>
+<section id="Introduction-to-Adaptive-Thresholding">
+<h1>Introduction to Adaptive Thresholding<a class="headerlink" href="#Introduction-to-Adaptive-Thresholding" title="Permalink to this headline"></a></h1>
 <p>This tutorial will go over some basic concepts you may wish to consider when setting thresholds for production models or otherwise.</p>
-<div class="section" id="Make-Some-Data">
-<h2>Make Some Data<a class="headerlink" href="#Make-Some-Data" title="Permalink to this headline">¶</a></h2>
+<section id="Make-Some-Data">
+<h2>Make Some Data<a class="headerlink" href="#Make-Some-Data" title="Permalink to this headline"></a></h2>
 <p>This tutorial doesn’t actually require real data–nor even a model! We’ll make some fake data to get the idea. Don’t worry too much about this step. Let’s just assume we have a series of scores. These could represent model performance, divergences, or model scores themselves. Throughout this tutorial, we’ll assume that increasing values of this score will be increasingly likely to represent a good alert. Then we are left to determine an appropriate threshold to balance true/false
 positive/negatives. This is balancing time wasted on bad alerts with the utility gained from finding a good alert that resulted from a lower score.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">pandas</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy
+import pandas
 
-<span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">pandas</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span><span class="o">=</span><span class="mi">5</span> <span class="c1"># restrict to 5 rows on display</span>
+numpy.random.seed(0)
+pandas.options.display.max_rows=5 # restrict to 5 rows on display
 
-<span class="n">n_positive</span> <span class="o">=</span> <span class="mi">600</span>
-<span class="n">positives</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_positive</span><span class="p">)</span>
-<span class="n">n_negative</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">n_positive</span>
-<span class="n">negatives</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_negative</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">((</span><span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_positive</span><span class="p">),</span>
-                                                          <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_negative</span><span class="p">))),</span>
-                                       <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">positives</span><span class="p">,</span>
-                                                          <span class="n">negatives</span><span class="p">))))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-                        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ground Truth&#39;</span><span class="p">,</span> <span class="s1">&#39;Model Score&#39;</span><span class="p">])</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">data</span>
+n_positive = 600
+positives = numpy.random.beta(5, 1, size=n_positive)
+n_negative = 5 * n_positive
+negatives = numpy.random.beta(2, 3, size=n_negative)
+data = pandas.DataFrame(numpy.asarray((numpy.concatenate((numpy.ones(n_positive),
+                                                          numpy.zeros(n_negative))),
+                                       numpy.concatenate((positives,
+                                                          negatives)))).T,
+                        columns=[&#39;Ground Truth&#39;, &#39;Model Score&#39;])
+data = data.sample(frac=1, random_state=0).reset_index(drop=True)
+data
 </pre></div>
 </div>
 </div>
@@ -586,31 +496,30 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <p>3600 rows × 2 columns</p>
 </div></div>
 </div>
-</div>
-<div class="section" id="Positive-and-Negative-Distributions">
-<h2>Positive and Negative Distributions<a class="headerlink" href="#Positive-and-Negative-Distributions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Positive-and-Negative-Distributions">
+<h2>Positive and Negative Distributions<a class="headerlink" href="#Positive-and-Negative-Distributions" title="Permalink to this headline"></a></h2>
 <p>We want to determine the trade off between catching more true positives and getting more false negatives. Let’s see what the distribution of scores associated with good (positive) and bad (negative) alerts looks like.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns; sns.set()
+import matplotlib
+import matplotlib.pylab as plt
+import numpy
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+plt.figure(figsize=(10, 2))
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Positive Scores&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Model Score&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
-<span class="n">positives</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Ground Truth&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="s1">&#39;Model Score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">positives</span><span class="p">,</span>
-            <span class="n">height</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Positive Samples&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.title(&#39;Positive Scores&#39;)
+plt.xlabel(&#39;Model Score&#39;)
+plt.yticks([])
+positives = data[data[&#39;Ground Truth&#39;] == 1][&#39;Model Score&#39;].sample(100, random_state=0).values
+sns.rugplot(positives,
+            height=1.0,
+            color=&#39;green&#39;,
+            label=&#39;Positive Samples&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -625,23 +534,22 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns; sns.set()
+import matplotlib
+import matplotlib.pylab as plt
+import numpy
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+plt.figure(figsize=(10, 2))
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Negative Scores&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Model Score&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
-<span class="n">negatives</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Ground Truth&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Model Score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">negatives</span><span class="p">,</span>
-            <span class="n">height</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Negative Samples&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.title(&#39;Negative Scores&#39;)
+plt.xlabel(&#39;Model Score&#39;)
+plt.yticks([])
+negatives = data[data[&#39;Ground Truth&#39;] == 0][&#39;Model Score&#39;].sample(100, random_state=0).values
+sns.rugplot(negatives,
+            height=1.0,
+            color=&#39;red&#39;,
+            label=&#39;Negative Samples&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -657,18 +565,17 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(10, 10))
 
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Positive Score Distribution&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Model Score&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density&#39;</span><span class="p">)</span>
-<span class="n">positives</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Ground Truth&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="s1">&#39;Model Score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">positives</span><span class="p">,</span>
-            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Positive Score Distribution&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+sns.set()
+plt.title(&#39;Positive Score Distribution&#39;)
+plt.xlabel(&#39;Model Score&#39;)
+plt.ylabel(&#39;Probability Density&#39;)
+positives = data[data[&#39;Ground Truth&#39;] == 1][&#39;Model Score&#39;].values
+sns.kdeplot(positives,
+            color=&#39;green&#39;,
+            label=&#39;Positive Score Distribution&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -683,18 +590,17 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(10, 10))
 
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Negative Score Distribution&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Model Score&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density&#39;</span><span class="p">)</span>
-<span class="n">negatives</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Ground Truth&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Model Score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">negatives</span><span class="p">,</span>
-            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Negative Score Distribution&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+sns.set()
+plt.title(&#39;Negative Score Distribution&#39;)
+plt.xlabel(&#39;Model Score&#39;)
+plt.ylabel(&#39;Probability Density&#39;)
+negatives = data[data[&#39;Ground Truth&#39;] == 0][&#39;Model Score&#39;].values
+sns.kdeplot(negatives,
+            color=&#39;red&#39;,
+            label=&#39;Negative Score Distribution&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -710,18 +616,17 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(10, 10))
 
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Score Distribution&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Model Score&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density&#39;</span><span class="p">)</span>
-<span class="n">scores</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Model Score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span>
-            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Score Distribution&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+sns.set()
+plt.title(&#39;Score Distribution&#39;)
+plt.xlabel(&#39;Model Score&#39;)
+plt.ylabel(&#39;Probability Density&#39;)
+scores = data[&#39;Model Score&#39;].values
+sns.kdeplot(scores,
+            color=&#39;blue&#39;,
+            label=&#39;Score Distribution&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -732,9 +637,9 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <img alt="../../_images/notebooks_thresholding_Thresholding_10_0.png" src="../../_images/notebooks_thresholding_Thresholding_10_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Computing-Optimal-Thresholds">
-<h2>Computing Optimal Thresholds<a class="headerlink" href="#Computing-Optimal-Thresholds" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Computing-Optimal-Thresholds">
+<h2>Computing Optimal Thresholds<a class="headerlink" href="#Computing-Optimal-Thresholds" title="Permalink to this headline"></a></h2>
 <p>When scoring a model after choosing a threshold, each model score can be associated with one of four possible outcomes:</p>
 <ol class="arabic simple">
 <li><p>Positive instance is scored above the threshold.</p></li>
@@ -756,42 +661,40 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">utility</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mi">10</span> <span class="o">*</span> <span class="n">fn</span> <span class="o">-</span> <span class="n">fp</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def utility(tp, fp, tn, fn):
+    return -10 * fn - fp
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Visualizing-Utility-of-Each-Threshold">
-<h2>Visualizing Utility of Each Threshold<a class="headerlink" href="#Visualizing-Utility-of-Each-Threshold" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Visualizing-Utility-of-Each-Threshold">
+<h2>Visualizing Utility of Each Threshold<a class="headerlink" href="#Visualizing-Utility-of-Each-Threshold" title="Permalink to this headline"></a></h2>
 <p>Let’s plot expected utility against some candidate thresholds. The algorithm below will generate a plot with error bars over the expected value. If you need to interpret them, you can say <em>there’s a 50% chance the true utility of each threshold falls within the shaded region</em>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="o">,</span> <span class="nn">numpy</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy
+import matplotlib.pylab as plt
+import seaborn as sns, numpy
 
-<span class="kn">from</span> <span class="nn">mvtk</span> <span class="kn">import</span> <span class="n">thresholding</span>
+from mvtk import thresholding
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Expected Utility vs Threshold&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Threshold&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Expected Utility&#39;</span><span class="p">)</span>
+plt.figure(figsize=(10, 10))
+plt.title(&#39;Expected Utility vs Threshold&#39;)
+plt.xlabel(&#39;Threshold&#39;)
+plt.ylabel(&#39;Expected Utility&#39;)
 
-<span class="n">scores</span><span class="p">,</span> <span class="n">utility_mean</span><span class="p">,</span> <span class="n">utility_quantiles</span> <span class="o">=</span> <span class="n">thresholding</span><span class="o">.</span><span class="n">expected_utility</span><span class="p">(</span>
-    <span class="n">utility</span><span class="p">,</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Ground Truth&#39;</span><span class="p">,</span> <span class="s1">&#39;Model Score&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="n">thresholding</span><span class="o">.</span><span class="n">plot_err</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span>
-         <span class="n">utility_mean</span><span class="p">,</span>
-         <span class="n">utility_quantiles</span><span class="p">,</span>
-         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Expected Utility&#39;</span><span class="p">)</span>
-<span class="n">leg</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">lh</span> <span class="ow">in</span> <span class="n">leg</span><span class="o">.</span><span class="n">legendHandles</span><span class="p">:</span>
-    <span class="n">lh</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+scores, utility_mean, utility_quantiles = thresholding.expected_utility(
+    utility, data[[&#39;Ground Truth&#39;, &#39;Model Score&#39;]].values)
+thresholding.plot_err(scores,
+         utility_mean,
+         utility_quantiles,
+         label=&#39;Expected Utility&#39;)
+leg = plt.legend()
+for lh in leg.legendHandles:
+    lh.set_alpha(1)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -802,17 +705,16 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <img alt="../../_images/notebooks_thresholding_Thresholding_14_0.png" src="../../_images/notebooks_thresholding_Thresholding_14_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Finding-the-Optimal-Threshold">
-<h2>Finding the Optimal Threshold<a class="headerlink" href="#Finding-the-Optimal-Threshold" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Finding-the-Optimal-Threshold">
+<h2>Finding the Optimal Threshold<a class="headerlink" href="#Finding-the-Optimal-Threshold" title="Permalink to this headline"></a></h2>
 <p>This is the threshold that corresponds to the peak of the utility function plotted above.</p>
 <p>You don’t need to worry about the mechanics of this function, you can just copy and paste it.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">thresholding</span><span class="o">.</span><span class="n">optimal_threshold</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>thresholding.optimal_threshold(utility, data)
 </pre></div>
 </div>
 </div>
@@ -825,26 +727,25 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 (0.6114780190088583, -0.2845361056272087)
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Optimal-Threshold-Distribution">
-<h2>Optimal Threshold Distribution<a class="headerlink" href="#Optimal-Threshold-Distribution" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Optimal-Threshold-Distribution">
+<h2>Optimal Threshold Distribution<a class="headerlink" href="#Optimal-Threshold-Distribution" title="Permalink to this headline"></a></h2>
 <p>If we know our sample of positives and negatives is unbiased (e.g. the analysts were equally likely to label any instance of their data), we can generally express our uncertainty in the location of the optimal threshold (which stems from our uncertainty in the utility function) to compute a distribution over what our optimum threshold might be given the data we have so far.</p>
 <p>You don’t need to worry about the mechanics of this function, you can just copy and paste it.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">();</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Threshold Distribution&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Threshold&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">thresholding</span><span class="o">.</span><span class="n">thompson_sample</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">data</span><span class="p">),</span>
-             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
-             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Likelihood Threshold is Optimal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.set(); numpy.random.seed(0)
+plt.figure(figsize=(10, 10))
+plt.xlim([0, 1])
+plt.title(&#39;Threshold Distribution&#39;)
+plt.xlabel(&#39;Threshold&#39;)
+plt.ylabel(&#39;Probability Density&#39;)
+sns.kdeplot(thresholding.thompson_sample(utility, data),
+             color=&#39;blue&#39;,
+             label=&#39;Likelihood Threshold is Optimal&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -855,25 +756,24 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <img alt="../../_images/notebooks_thresholding_Thresholding_18_0.png" src="../../_images/notebooks_thresholding_Thresholding_18_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Adaptive-Thresholding">
-<h2>Adaptive Thresholding<a class="headerlink" href="#Adaptive-Thresholding" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Adaptive-Thresholding">
+<h2>Adaptive Thresholding<a class="headerlink" href="#Adaptive-Thresholding" title="Permalink to this headline"></a></h2>
 <p>Without getting into the mechanics, we can dynamically choose between <em>exploration mode</em>, during which it will set the threshold to <code class="docutils literal notranslate"><span class="pre">0</span></code>, and <em>exploitation mode</em>, during which it will attempt to pick the optimal choice (or, in practice, something likely to be optimal).</p>
-</div>
-<div class="section" id="Online-Learning">
-<h2>Online Learning<a class="headerlink" href="#Online-Learning" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Online-Learning">
+<h2>Online Learning<a class="headerlink" href="#Online-Learning" title="Permalink to this headline"></a></h2>
 <p>Here we will give an example of how to apply adaptive thresholding to an online learning problem.</p>
 <p>In this example, we will iterate over the data we have in chronological order (since it’s fake data, let’s just assume it was already ordered chronologically) and simulate a system that applies the above adaptive thresholding algorithm to the problem of identifying a new optimal threshold each time a new label arrives (e.g. from someone checking in on an alert and determining if it’s a good one).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">thresholder</span> <span class="o">=</span> <span class="n">thresholding</span><span class="o">.</span><span class="n">AdaptiveThreshold</span><span class="p">(</span><span class="n">utility</span><span class="p">)</span>
-<span class="n">thresholds</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">ground_truth</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Ground Truth&#39;</span><span class="p">,</span> <span class="s1">&#39;Model Score&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
-    <span class="n">thresholds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thresholder</span><span class="p">(</span><span class="n">ground_truth</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>
-<span class="n">thresholds</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">thresholds</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>thresholder = thresholding.AdaptiveThreshold(utility)
+thresholds = []
+for ground_truth, score in data[[&#39;Ground Truth&#39;, &#39;Model Score&#39;]].values:
+    thresholds.append(thresholder(ground_truth, score))
+thresholds = numpy.asarray(thresholds)
 </pre></div>
 </div>
 </div>
@@ -882,14 +782,13 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pylab as plt
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Exploration Percent (Moving Average)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">thresholding</span><span class="o">.</span><span class="n">exploration_proportion</span><span class="p">(</span><span class="n">thresholds</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.figure(figsize=(9, 9))
+plt.ylabel(&#39;Exploration Percent (Moving Average)&#39;)
+plt.xlabel(&#39;Epoch&#39;)
+plt.plot(thresholding.exploration_proportion(thresholds, 100))
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -905,8 +804,7 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="p">(</span><span class="n">thresholds</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(thresholds == 0).sum()
 </pre></div>
 </div>
 </div>
@@ -923,8 +821,7 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="p">(</span><span class="n">thresholds</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(thresholds == 0).mean()
 </pre></div>
 </div>
 </div>
@@ -937,38 +834,37 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 0.10527777777777778
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Examining-Results">
-<h2>Examining Results<a class="headerlink" href="#Examining-Results" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Examining-Results">
+<h2>Examining Results<a class="headerlink" href="#Examining-Results" title="Permalink to this headline"></a></h2>
 <p>To get a feel for what the algorithm is doing, let’s reconstruct the utility function plot as before, but with the 64 most recent thresholds. As you can see, the thresholds are landing pretty close to the optimal value, while we were typically only taking unbiased data 2 to 3% of the time.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="o">,</span> <span class="nn">numpy</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pylab as plt
+import seaborn as sns, numpy
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Expected Utility vs Threshold&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Threshold&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Expected Utility&#39;</span><span class="p">)</span>
+plt.figure(figsize=(10, 10))
+plt.title(&#39;Expected Utility vs Threshold&#39;)
+plt.xlabel(&#39;Threshold&#39;)
+plt.ylabel(&#39;Expected Utility&#39;)
 
-<span class="n">scores</span><span class="p">,</span> <span class="n">utility_mean</span><span class="p">,</span> <span class="n">utility_quantiles</span> <span class="o">=</span> <span class="n">thresholding</span><span class="o">.</span><span class="n">expected_utility</span><span class="p">(</span>
-    <span class="n">utility</span><span class="p">,</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Ground Truth&#39;</span><span class="p">,</span> <span class="s1">&#39;Model Score&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+scores, utility_mean, utility_quantiles = thresholding.expected_utility(
+    utility, data[[&#39;Ground Truth&#39;, &#39;Model Score&#39;]].values)
 
-<span class="c1"># candidate thresholds are existing model scores</span>
-<span class="n">thresholding</span><span class="o">.</span><span class="n">plot_err</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span>
-         <span class="n">utility_mean</span><span class="p">,</span>
-         <span class="n">utility_quantiles</span><span class="p">,</span>
-         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Expected Utility&#39;</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">thresholds</span><span class="p">[</span><span class="o">-</span><span class="mi">64</span><span class="p">:],</span> <span class="c1"># most recent</span>
-                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span>
-                  <span class="n">label</span><span class="o">=</span><span class="s1">&#39;64 Most Recent Thresholds&#39;</span><span class="p">)</span>
-<span class="n">leg</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">lh</span> <span class="ow">in</span> <span class="n">leg</span><span class="o">.</span><span class="n">legendHandles</span><span class="p">:</span>
-    <span class="n">lh</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+# candidate thresholds are existing model scores
+thresholding.plot_err(scores,
+         utility_mean,
+         utility_quantiles,
+         label=&#39;Expected Utility&#39;)
+ax = sns.rugplot(thresholds[-64:], # most recent
+                  color=&#39;green&#39;,
+                  label=&#39;64 Most Recent Thresholds&#39;)
+leg = plt.legend()
+for lh in leg.legendHandles:
+    lh.set_alpha(1)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -984,54 +880,53 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%%capture</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
 
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="o">,</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
+import matplotlib.pylab as plt
+import seaborn as sns, numpy
+import os
+import shutil
 
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+from pathlib import Path
 
-<span class="n">frame_dir</span> <span class="o">=</span> <span class="s1">&#39;frames&#39;</span>
-<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">frame_dir</span><span class="p">):</span>
-    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">frame_dir</span><span class="p">)</span>
-<span class="n">Path</span><span class="p">(</span><span class="n">frame_dir</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+frame_dir = &#39;frames&#39;
+if os.path.exists(frame_dir):
+    shutil.rmtree(frame_dir)
+Path(frame_dir).mkdir(parents=True, exist_ok=True)
 
 
-<span class="k">def</span> <span class="nf">mkplot</span><span class="p">(</span><span class="n">thresholds</span><span class="p">,</span> <span class="n">large_sample_ideal_thresholds</span><span class="p">):</span>
-    <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">();</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Threshold Distribution (epoch </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Threshold&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density&#39;</span><span class="p">)</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">thresholds</span><span class="p">[</span><span class="n">thresholds</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">],</span>
-                      <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                      <span class="n">hist</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                      <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                      <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span>
-                      <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Thresholds Chosen Using Unbiased Samples&#39;</span><span class="p">)</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">large_sample_ideal_thresholds</span><span class="p">,</span> <span class="c1"># most recent</span>
-                      <span class="n">rug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                      <span class="n">hist</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                      <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                      <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
-                      <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ideal Threshold Distribution&#39;</span><span class="p">)</span>
-    <span class="n">leg</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">lh</span> <span class="ow">in</span> <span class="n">leg</span><span class="o">.</span><span class="n">legendHandles</span><span class="p">:</span>
-        <span class="n">lh</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">frame_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;im_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.png&#39;</span><span class="p">))</span>
+def mkplot(thresholds, large_sample_ideal_thresholds):
+    sns.set(); numpy.random.seed(0)
+    plt.figure(figsize=(10, 10))
+    plt.xlim([0, 1])
+    plt.title(f&#39;Threshold Distribution (epoch {i})&#39;)
+    plt.xlabel(&#39;Threshold&#39;)
+    plt.ylabel(&#39;Probability Density&#39;)
+    ax = sns.distplot(thresholds[thresholds &gt; 0],
+                      rug=True,
+                      hist=False,
+                      kde=True,
+                      color=&#39;green&#39;,
+                      label=&#39;Thresholds Chosen Using Unbiased Samples&#39;)
+    ax = sns.distplot(large_sample_ideal_thresholds, # most recent
+                      rug=False,
+                      hist=False,
+                      kde=True,
+                      color=&#39;blue&#39;,
+                      label=&#39;Ideal Threshold Distribution&#39;)
+    leg = plt.legend(loc=&#39;upper right&#39;)
+    for lh in leg.legendHandles:
+        lh.set_alpha(1)
+    plt.savefig(os.path.join(frame_dir, f&#39;im_{i}.png&#39;))
 
-<span class="n">large_sample_ideal_thresholds</span> <span class="o">=</span> <span class="n">thresholding</span><span class="o">.</span><span class="n">thompson_sample</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">64</span>
-<span class="n">dn</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">thresholds</span><span class="p">)</span> <span class="o">//</span> <span class="n">N</span>
-<span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">num_frames</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">dn</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">thresholds</span><span class="p">)</span> <span class="o">+</span> <span class="n">dn</span><span class="p">,</span> <span class="n">dn</span><span class="p">)):</span>
-    <span class="n">mkplot</span><span class="p">(</span><span class="n">thresholds</span><span class="p">[</span><span class="n">j</span><span class="p">:</span><span class="n">i</span><span class="p">],</span> <span class="n">large_sample_ideal_thresholds</span><span class="p">)</span>
-    <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
-<span class="n">mkplot</span><span class="p">(</span><span class="n">thresholds</span><span class="p">[</span><span class="n">j</span><span class="p">:],</span> <span class="n">large_sample_ideal_thresholds</span><span class="p">)</span>
+large_sample_ideal_thresholds = thresholding.thompson_sample(utility, data)
+N = 64
+dn = len(thresholds) // N
+j = 0
+for num_frames, i in enumerate(range(dn, len(thresholds) + dn, dn)):
+    mkplot(thresholds[j:i], large_sample_ideal_thresholds)
+    j = i
+mkplot(thresholds[j:], large_sample_ideal_thresholds)
 </pre></div>
 </div>
 </div>
@@ -1039,67 +934,49 @@ positive/negatives. This is balancing time wasted on bad alerts with the utility
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">imageio</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
+import imageio
 
-<span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">frame_dir</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">])):</span>
-    <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">frame_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)))</span>
-<span class="n">imageio</span><span class="o">.</span><span class="n">mimsave</span><span class="p">(</span><span class="s1">&#39;threshold_distribution_evolution.gif&#39;</span><span class="p">,</span> <span class="n">images</span><span class="p">,</span>  <span class="n">duration</span><span class="o">=</span><span class="mi">30</span> <span class="o">/</span> <span class="p">(</span><span class="n">num_frames</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+images = []
+for filename in sorted(os.listdir(frame_dir), key=lambda x: int(x[3:-4])):
+    images.append(imageio.imread(os.path.join(frame_dir, filename)))
+imageio.mimsave(&#39;threshold_distribution_evolution.gif&#39;, images,  duration=30 / (num_frames + 1))
 </pre></div>
 </div>
 </div>
-<img alt="threshold_distribution_evolution" src="../../_images/threshold_distribution_evolution.gif" />
-</div>
-</div>
+<p><img alt="threshold_distribution_evolution" src="../../_images/threshold_distribution_evolution.gif" /></p>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../interprenet/Interprenet.html" class="btn btn-neutral float-right" title="Introduction to Interprenet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../credibility/Credibility.html" class="btn btn-neutral float-left" title="Assessing Credibility From Sample Size" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../interprenet/Interprenet.html" class="btn btn-neutral float-right" title="Introduction to Interprenet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Model Validation Toolkit Team.
-
-    </p>
+    <p>&#169; Copyright 2021, Model Validation Toolkit Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

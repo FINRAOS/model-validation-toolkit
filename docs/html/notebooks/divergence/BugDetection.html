@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dataset Bug Detection &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Training Dataset Drift Detection" href="TrainingDatasetDrift.html" />
+    <link rel="prev" title="Handling Categorical Data" href="CategoricalColumns.html" />
+ 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BGSHYDJP8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BGSHYDJP8');
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Model Validation Toolkit
+            <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CategoricalColumns.html">Handling Categorical Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dataset Bug Detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Prepare-daily-data">Prepare daily data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Bug-Detection">Bug Detection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="TrainingDatasetDrift.html">Training Dataset Drift Detection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bias and Metrics Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metrics.html">metrics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Model Validation Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Dataset Bug Detection</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/notebooks/divergence/BugDetection.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Dataset-Bug-Detection">
+<h1>Dataset Bug Detection<a class="headerlink" href="#Dataset-Bug-Detection" title="Permalink to this headline"></a></h1>
+<p>In this example, we will demonstrate how to detect bugs in a data set using the public Airlines data set.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Since we use the category_encoders library to perform binary encoding on some of the features in this demo,
+# we&#39;ll need to install it.
+!pip install category_encoders
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas
+pandas.options.display.max_rows=5 # restrict to 5 rows on display
+
+df = pandas.read_csv(&quot;https://raw.githubusercontent.com/Devvrat53/Flight-Delay-Prediction/master/Data/flight_data.csv&quot;)
+df[&#39;date&#39;] = pandas.to_datetime(df[[&#39;year&#39;, &#39;month&#39;, &#39;day&#39;]])
+df[&#39;day_index&#39;] = (df[&#39;date&#39;] - df[&#39;date&#39;].min()).dt.days
+df[&#39;DayOfWeek&#39;] = df[&#39;date&#39;].dt.day_name()
+df[&#39;Month&#39;] = df[&#39;date&#39;].dt.month_name()
+df
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>dep_time</th>
+      <th>sched_dep_time</th>
+      <th>dep_delay</th>
+      <th>arr_time</th>
+      <th>sched_arr_time</th>
+      <th>arr_delay</th>
+      <th>carrier</th>
+      <th>...</th>
+      <th>dest</th>
+      <th>air_time</th>
+      <th>distance</th>
+      <th>hour</th>
+      <th>minute</th>
+      <th>time_hour</th>
+      <th>date</th>
+      <th>day_index</th>
+      <th>DayOfWeek</th>
+      <th>Month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2013</td>
+      <td>1</td>
+      <td>1</td>
+      <td>517.0</td>
+      <td>515</td>
+      <td>2.0</td>
+      <td>830.0</td>
+      <td>819</td>
+      <td>11.0</td>
+      <td>UA</td>
+      <td>...</td>
+      <td>IAH</td>
+      <td>227.0</td>
+      <td>1400</td>
+      <td>5</td>
+      <td>15</td>
+      <td>1/1/2013 5:00</td>
+      <td>2013-01-01</td>
+      <td>0</td>
+      <td>Tuesday</td>
+      <td>January</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2013</td>
+      <td>1</td>
+      <td>1</td>
+      <td>533.0</td>
+      <td>529</td>
+      <td>4.0</td>
+      <td>850.0</td>
+      <td>830</td>
+      <td>20.0</td>
+      <td>UA</td>
+      <td>...</td>
+      <td>IAH</td>
+      <td>227.0</td>
+      <td>1416</td>
+      <td>5</td>
+      <td>29</td>
+      <td>1/1/2013 5:00</td>
+      <td>2013-01-01</td>
+      <td>0</td>
+      <td>Tuesday</td>
+      <td>January</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>336774</th>
+      <td>2013</td>
+      <td>9</td>
+      <td>30</td>
+      <td>NaN</td>
+      <td>1159</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1344</td>
+      <td>NaN</td>
+      <td>MQ</td>
+      <td>...</td>
+      <td>CLE</td>
+      <td>NaN</td>
+      <td>419</td>
+      <td>11</td>
+      <td>59</td>
+      <td>30-09-2013 11:00</td>
+      <td>2013-09-30</td>
+      <td>272</td>
+      <td>Monday</td>
+      <td>September</td>
+    </tr>
+    <tr>
+      <th>336775</th>
+      <td>2013</td>
+      <td>9</td>
+      <td>30</td>
+      <td>NaN</td>
+      <td>840</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1020</td>
+      <td>NaN</td>
+      <td>MQ</td>
+      <td>...</td>
+      <td>RDU</td>
+      <td>NaN</td>
+      <td>431</td>
+      <td>8</td>
+      <td>40</td>
+      <td>30-09-2013 08:00</td>
+      <td>2013-09-30</td>
+      <td>272</td>
+      <td>Monday</td>
+      <td>September</td>
+    </tr>
+  </tbody>
+</table>
+<p>336776 rows × 23 columns</p>
+</div></div>
+</div>
+<section id="Prepare-daily-data">
+<h2>Prepare daily data<a class="headerlink" href="#Prepare-daily-data" title="Permalink to this headline"></a></h2>
+<p>Let’s assume that we run new data each day through our model. For simplicity we will just look at the last 10 days of data.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_daily = df[df[&#39;month&#39;] &gt; 11]
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_daily = df_daily[df_daily[&#39;day&#39;] &gt; 20]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_daily
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>dep_time</th>
+      <th>sched_dep_time</th>
+      <th>dep_delay</th>
+      <th>arr_time</th>
+      <th>sched_arr_time</th>
+      <th>arr_delay</th>
+      <th>carrier</th>
+      <th>...</th>
+      <th>dest</th>
+      <th>air_time</th>
+      <th>distance</th>
+      <th>hour</th>
+      <th>minute</th>
+      <th>time_hour</th>
+      <th>date</th>
+      <th>day_index</th>
+      <th>DayOfWeek</th>
+      <th>Month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>101780</th>
+      <td>2013</td>
+      <td>12</td>
+      <td>21</td>
+      <td>2.0</td>
+      <td>2359</td>
+      <td>3.0</td>
+      <td>445.0</td>
+      <td>445</td>
+      <td>0.0</td>
+      <td>B6</td>
+      <td>...</td>
+      <td>PSE</td>
+      <td>206.0</td>
+      <td>1617</td>
+      <td>23</td>
+      <td>59</td>
+      <td>21-12-2013 23:00</td>
+      <td>2013-12-21</td>
+      <td>354</td>
+      <td>Saturday</td>
+      <td>December</td>
+    </tr>
+    <tr>
+      <th>101781</th>
+      <td>2013</td>
+      <td>12</td>
+      <td>21</td>
+      <td>29.0</td>
+      <td>2040</td>
+      <td>229.0</td>
+      <td>138.0</td>
+      <td>2220</td>
+      <td>198.0</td>
+      <td>WN</td>
+      <td>...</td>
+      <td>MDW</td>
+      <td>117.0</td>
+      <td>725</td>
+      <td>20</td>
+      <td>40</td>
+      <td>21-12-2013 20:00</td>
+      <td>2013-12-21</td>
+      <td>354</td>
+      <td>Saturday</td>
+      <td>December</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>111294</th>
+      <td>2013</td>
+      <td>12</td>
+      <td>31</td>
+      <td>NaN</td>
+      <td>600</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>735</td>
+      <td>NaN</td>
+      <td>UA</td>
+      <td>...</td>
+      <td>ORD</td>
+      <td>NaN</td>
+      <td>719</td>
+      <td>6</td>
+      <td>0</td>
+      <td>31-12-2013 06:00</td>
+      <td>2013-12-31</td>
+      <td>364</td>
+      <td>Tuesday</td>
+      <td>December</td>
+    </tr>
+    <tr>
+      <th>111295</th>
+      <td>2013</td>
+      <td>12</td>
+      <td>31</td>
+      <td>NaN</td>
+      <td>830</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1154</td>
+      <td>NaN</td>
+      <td>UA</td>
+      <td>...</td>
+      <td>LAX</td>
+      <td>NaN</td>
+      <td>2475</td>
+      <td>8</td>
+      <td>30</td>
+      <td>31-12-2013 08:00</td>
+      <td>2013-12-31</td>
+      <td>364</td>
+      <td>Tuesday</td>
+      <td>December</td>
+    </tr>
+  </tbody>
+</table>
+<p>9516 rows × 23 columns</p>
+</div></div>
+</div>
+</section>
+<section id="Bug-Detection">
+<h2>Bug Detection<a class="headerlink" href="#Bug-Detection" title="Permalink to this headline"></a></h2>
+<p>Now we want to find any bugs in any of our daily sets of data that we feed to our model. Note that we are performing binary encoding on the categorical columns (carrier, origin, and dest) so that we can pass the data to the variational estimation function directly. We are doing this for performance reasons vs. the hybrid estimation, and to strike a balance between plain index encoding and one-hot encoding.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import category_encoders as ce
+from mvtk.supervisor.utils import compute_divergence_crosstabs
+from mvtk.supervisor.divergence import calc_tv_knn
+
+columns = [&#39;dep_time&#39;, &#39;sched_dep_time&#39;, &#39;dep_delay&#39;, &#39;arr_time&#39;, &#39;sched_arr_time&#39;, &#39;arr_delay&#39;, &#39;air_time&#39;, &#39;distance&#39;, &#39;hour&#39;, &#39;minute&#39;, &#39;carrier&#39;, &#39;origin&#39;, &#39;dest&#39;]
+
+encoder = ce.BinaryEncoder(cols=[&#39;carrier&#39;, &#39;origin&#39;, &#39;dest&#39;])
+encoder.fit(df_daily[columns + [&#39;day&#39;]])
+df_daily_encoded = encoder.transform(df_daily[columns + [&#39;day&#39;]].fillna(0))
+
+f = lambda x, y: calc_tv_knn(x, y, k = 26)
+result = compute_divergence_crosstabs(df_daily_encoded, datecol=&#39;day&#39;, divergence=f)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "213ef1a64a704ce493058f8d27ba3ebb", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.heatmap(result, cmap=&#39;coolwarm&#39;, linewidths=0.30, annot=True)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_divergence_BugDetection_9_0.png" src="../../_images/notebooks_divergence_BugDetection_9_0.png" />
+</div>
+</div>
+<p>As you can see from the heatmap above, although there are some divergences between the days, there is nothing that is too alarming.</p>
+<p>Let’s now update our data set to contain a “bug” in the “sched_dep_time” feature. For day 30, all of the values of that feature are null (which we are then translating to 0).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_daily.loc[df_daily[&#39;day&#39;] == 30, [&#39;sched_dep_time&#39;]] = None
+</pre></div>
+</div>
+</div>
+<p>Below is the percentage of scheduled departure times that are empty per day in our updated daily data set</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>day = 21
+for df_day in df_daily.groupby(&#39;day&#39;):
+    day_pct = df_day[1][&#39;sched_dep_time&#39;].value_counts(normalize=True, dropna=False) * 100
+    pct = day_pct.loc[day_pct.index.isnull()].values
+    if (len(pct) == 0):
+        pct = 0
+    else:
+        pct = pct[0]
+    print(&#39;Day &#39; + str(day) + &#39;: &#39; + str(round(pct)) + &#39;%&#39;)
+    day += 1
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Day 21: 0%
+Day 22: 0%
+Day 23: 0%
+Day 24: 0%
+Day 25: 0%
+Day 26: 0%
+Day 27: 0%
+Day 28: 0%
+Day 29: 0%
+Day 30: 100%
+Day 31: 0%
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from mvtk.supervisor.divergence import calc_tv_knn
+
+encoder = ce.BinaryEncoder(cols=[&#39;carrier&#39;, &#39;origin&#39;, &#39;dest&#39;])
+encoder.fit(df_daily[columns + [&#39;day&#39;]])
+df_daily_encoded = encoder.transform(df_daily[columns + [&#39;day&#39;]].fillna(0))
+
+f = lambda x, y: calc_tv_knn(x, y, k = 26)
+result = compute_divergence_crosstabs(df_daily_encoded, datecol=&#39;day&#39;, divergence=f)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4a46f204fb314ec99d6c631e5ec8195a", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.heatmap(result, cmap=&#39;coolwarm&#39;, linewidths=0.30, annot=True)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_divergence_BugDetection_15_0.png" src="../../_images/notebooks_divergence_BugDetection_15_0.png" />
+</div>
+</div>
+<p>As we can see above, our heatmap now clearly shows that we have a “bug” in our day 30 dataset.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="CategoricalColumns.html" class="btn btn-neutral float-left" title="Handling Categorical Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="TrainingDatasetDrift.html" class="btn btn-neutral float-right" title="Training Dataset Drift Detection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Model Validation Toolkit Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

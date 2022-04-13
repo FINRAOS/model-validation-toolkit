@@ -1,50 +1,26 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Notes on Using Divergence Functions &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/logo.svg"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -62,29 +38,14 @@
 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> Model Validation Toolkit
-          
-
-          
-            
             <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -92,25 +53,14 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Overview</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../supervisor_user_guide.html">Supervisor User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../credibility_user_guide.html">Credibility User Guide</a></li>
@@ -118,7 +68,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../interprenet_user_guide.html">Interprenet User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sobol_user_guide.html">Sobol User Guide</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Airlines.html">Airlines Dataset: Divergence Applications</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Notes on Using Divergence Functions</a><ul>
@@ -141,24 +91,26 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="CategoricalColumns.html">Handling Categorical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BugDetection.html">Dataset Bug Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TrainingDatasetDrift.html">Training Dataset Drift Detection</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Credibility Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Thresholding Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Interprenet Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../interprenet/Interprenet.html">Introduction to Interprenet</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Bias and Metrics Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Bias and Metrics Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Python API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../supervisor.html">supervisor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../credibility.html">credibility</a></li>
@@ -168,71 +120,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../../metrics.html">metrics</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Model Validation Toolkit</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Notes on Using Divergence Functions</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../_sources/notebooks/divergence/DivergenceFunctions.ipynb.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS for nbsphinx extension */
@@ -443,7 +354,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -503,27 +414,26 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Notes-on-Using-Divergence-Functions">
-<h1>Notes on Using Divergence Functions<a class="headerlink" href="#Notes-on-Using-Divergence-Functions" title="Permalink to this headline">¶</a></h1>
+<section id="Notes-on-Using-Divergence-Functions">
+<h1>Notes on Using Divergence Functions<a class="headerlink" href="#Notes-on-Using-Divergence-Functions" title="Permalink to this headline"></a></h1>
 <p>The <strong>mvtk.supervisor.divergence</strong> contains several functions that compute <strong>total variation</strong> between two data distributions. However, these functions have very different mechanisms for arriving at total variation. Some functions, such as <strong>calc_tv</strong> use a neural network under the hood, while others such as <strong>calc_tv_knn</strong> use a different mechanism to arrive at the range of values to inform on whether two distributions are more similar or not. Because of these differences, there functions are
 often best suited for different circumstances, be it data size, computational resources, or accuracy requirements. This notebook provides a guide to when and how to use the functions.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">HTML</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">mvtk.supervisor.divergence</span> <span class="kn">import</span> <span class="n">calc_tv</span><span class="p">,</span> <span class="n">calc_tv_knn</span><span class="p">,</span> <span class="n">calc_tv_density</span><span class="p">,</span> <span class="n">calc_tv_mle</span><span class="p">,</span> <span class="n">calc_kl_mle</span><span class="p">,</span> <span class="n">calc_hl</span>
-<span class="kn">from</span> <span class="nn">mvtk.supervisor.utils</span> <span class="kn">import</span> <span class="n">column_indexes</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import warnings
+from IPython.display import display
+from ipywidgets import HTML
+warnings.filterwarnings(&#39;ignore&#39;)
+from mvtk.supervisor.divergence import calc_tv, calc_tv_knn, calc_tv_density, calc_tv_mle, calc_kl_mle, calc_hl
+from mvtk.supervisor.utils import column_indexes
 </pre></div>
 </div>
 </div>
-<div class="section" id="Data-Types">
-<h2>Data Types<a class="headerlink" href="#Data-Types" title="Permalink to this headline">¶</a></h2>
+<section id="Data-Types">
+<h2>Data Types<a class="headerlink" href="#Data-Types" title="Permalink to this headline"></a></h2>
 <p>The algorithms underneath the divergence functions all operate on <strong>numpy arrays</strong>. A divergence function compares a <strong>sample_a</strong> vs a <strong>sample_b</strong>, where a sample is either an array</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def divergence_function(sample_a, sample_b, **kwargs):
     algorithm
@@ -545,20 +455,19 @@ sample_b = [batch2]
 </pre></div>
 </div>
 <p>For the divergence functions that you intend to use, you should check the documentation as to whether it accepts lists or arrays.</p>
-</div>
-<div class="section" id="Using-Dataframes">
-<h2>Using Dataframes<a class="headerlink" href="#Using-Dataframes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Using-Dataframes">
+<h2>Using Dataframes<a class="headerlink" href="#Using-Dataframes" title="Permalink to this headline"></a></h2>
 <p>Pandas dataframes are a perfect input source for the divergence functions. The underlying storage for dataframes are numpy arrays on which all divergence functions can operate.</p>
 <p>If your data is in <strong>Pyspark</strong> dataframes then you either convert to pandas dataframes, or numpy arrays.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10000</span><span class="p">)),</span>
-                  <span class="s1">&#39;colors&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])})</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+df = pd.DataFrame({&#39;weight&#39;: np.random.uniform(1, 100, size=(10000)),
+                  &#39;colors&#39;: np.random.choice([&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;, &#39;yellow&#39;], p=[0.2, 0.3, 0.3, 0.2])})
+df.head(3)
 </pre></div>
 </div>
 </div>
@@ -609,18 +518,17 @@ sample_b = [batch2]
 </table>
 </div></div>
 </div>
-</div>
-<div class="section" id="Create-Data-Distributions">
-<h2>Create Data Distributions<a class="headerlink" href="#Create-Data-Distributions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Create-Data-Distributions">
+<h2>Create Data Distributions<a class="headerlink" href="#Create-Data-Distributions" title="Permalink to this headline"></a></h2>
 <p>For data, we will create datasets drawn from different distributions. We will use about a <strong>million rows</strong>, and about <strong>100</strong> columns.</p>
 <p>Each row in a dataset becomes a training example to be used in the neural network that calculates the divergence. If you have too few rows, then the divergence value will not be calculated accurately, and in practice will be close to zero.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ROWS</span><span class="p">,</span> <span class="n">COLUMNS</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">,</span> <span class="mi">10</span>
-<span class="n">DATA_SHAPE</span> <span class="o">=</span> <span class="n">ROWS</span><span class="p">,</span> <span class="n">COLUMNS</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ROWS, COLUMNS = 1000000, 10
+DATA_SHAPE = ROWS, COLUMNS
 </pre></div>
 </div>
 </div>
@@ -628,39 +536,37 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">samples</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<span class="n">uniform_a</span>   <span class="o">=</span> <span class="n">samples</span><span class="p">[</span><span class="s1">&#39;uniform_a&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">DATA_SHAPE</span><span class="p">)</span>
-<span class="n">uniform_b</span>   <span class="o">=</span> <span class="n">samples</span><span class="p">[</span><span class="s1">&#39;uniform_b&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">DATA_SHAPE</span><span class="p">)</span>
-<span class="n">beta_a</span>      <span class="o">=</span> <span class="n">samples</span><span class="p">[</span><span class="s1">&#39;beta_a&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">DATA_SHAPE</span><span class="p">)</span>
-<span class="n">chisquare_a</span> <span class="o">=</span> <span class="n">samples</span><span class="p">[</span><span class="s1">&#39;chisquare_a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">DATA_SHAPE</span><span class="p">)</span>
-<span class="n">ones</span>        <span class="o">=</span> <span class="n">samples</span><span class="p">[</span><span class="s1">&#39;ones&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">DATA_SHAPE</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>samples = dict()
+uniform_a   = samples[&#39;uniform_a&#39;]   = np.random.uniform(1, 100, size=DATA_SHAPE)
+uniform_b   = samples[&#39;uniform_b&#39;]   = np.random.uniform(1, 100, size=DATA_SHAPE)
+beta_a      = samples[&#39;beta_a&#39;]      = np.random.beta(0.2, 0.9, size=DATA_SHAPE)
+chisquare_a = samples[&#39;chisquare_a&#39;] = np.random.chisquare(2,DATA_SHAPE)
+ones        = samples[&#39;ones&#39;]        = np.ones(DATA_SHAPE)
 
-<span class="n">funcs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;calc_tv&#39;</span><span class="p">:</span> <span class="n">calc_tv</span><span class="p">}</span>
+funcs = {&#39;calc_tv&#39;: calc_tv}
 </pre></div>
 </div>
 </div>
-<div class="section" id="Visualizing-the-distributions">
-<h3>Visualizing the distributions<a class="headerlink" href="#Visualizing-the-distributions" title="Permalink to this headline">¶</a></h3>
+<section id="Visualizing-the-distributions">
+<h3>Visualizing the distributions<a class="headerlink" href="#Visualizing-the-distributions" title="Permalink to this headline"></a></h3>
 <p>Let’s visualize each of our probability distributions. In this case, each of the <code class="docutils literal notranslate"><span class="pre">COLUMNS=10</span></code> features has exactly the same distribution and they are all independent of eachother, so the following function just lumps all of the samples together. In general, you would <em>not</em> want to do this!</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.style</span> <span class="k">as</span> <span class="nn">style</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
+import matplotlib.style as style
+import seaborn as sns; sns.set()
 
-<span class="k">def</span> <span class="nf">distplot</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
-        <span class="n">series</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">series</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">title</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+def distplot(series, title=None):
+    if isinstance(series, pd.Series):
+        series = series.values
+    sns.distplot(series.ravel())
+    plt.xticks([])
+    plt.yticks([])
+    plt.grid(False)
+    if title:
+        plt.title(title)
 </pre></div>
 </div>
 </div>
@@ -668,8 +574,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">distplot</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>distplot(uniform_a)
 </pre></div>
 </div>
 </div>
@@ -684,8 +589,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">distplot</span><span class="p">(</span><span class="n">beta_a</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>distplot(beta_a)
 </pre></div>
 </div>
 </div>
@@ -700,8 +604,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">distplot</span><span class="p">(</span><span class="n">chisquare_a</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>distplot(chisquare_a)
 </pre></div>
 </div>
 </div>
@@ -716,8 +619,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">distplot</span><span class="p">(</span><span class="n">ones</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>distplot(ones)
 </pre></div>
 </div>
 </div>
@@ -728,14 +630,14 @@ sample_b = [batch2]
 <img alt="../../_images/notebooks_divergence_DivergenceFunctions_13_0.png" src="../../_images/notebooks_divergence_DivergenceFunctions_13_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Calculating-Total-Variation">
-<h2>Calculating Total Variation<a class="headerlink" href="#Calculating-Total-Variation" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Calculating-Total-Variation">
+<h2>Calculating Total Variation<a class="headerlink" href="#Calculating-Total-Variation" title="Permalink to this headline"></a></h2>
 <p>The main divergence functions calculate the total variation between distributions. However, there are very different ways to arrive at a range of 0-1 with 0 meaning no divergence, and 1 meaning total divergence. This presents users with different approaches with benefits that match different circumstances and dta sizes.</p>
-</div>
-<div class="section" id="calc_tv">
-<h2>calc_tv<a class="headerlink" href="#calc_tv" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calc_tv">
+<h2>calc_tv<a class="headerlink" href="#calc_tv" title="Permalink to this headline"></a></h2>
 <p>Computes the total variation between two distributions.</p>
 <p>See <a class="reference external" href="https://en.wikipedia.org/wiki/Total_variation_distance_of_probability_measures">https://en.wikipedia.org/wiki/Total_variation_distance_of_probability_measures</a> It uses a neural network to calculate the total variation between distributions. Since it uses a neural network internally, it exposes some familar settings such as the num_epochs, num_batches etc. which you can tune for greater accuracy.</p>
 <p><code class="docutils literal notranslate"><span class="pre">sample_distribution_p</span></code> <em>The first distribution</em></p>
@@ -750,8 +652,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">,</span> <span class="n">uniform_b</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv(uniform_a, uniform_b)
 </pre></div>
 </div>
 </div>
@@ -769,8 +670,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">,</span> <span class="n">ones</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv(uniform_a, ones)
 </pre></div>
 </div>
 </div>
@@ -788,8 +688,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">,</span> <span class="n">ones</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">num_batches</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">model_generator_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;depth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv(uniform_a, ones, num_epochs=16, num_batches=128, model_generator_kwargs={&#39;width&#39;: 32, &#39;depth&#39;: 2})
 </pre></div>
 </div>
 </div>
@@ -806,8 +705,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">,</span> <span class="n">chisquare_a</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv(uniform_a, chisquare_a)
 </pre></div>
 </div>
 </div>
@@ -824,8 +722,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">,</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">chisquare_a</span><span class="p">),</span> <span class="n">ones</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv(uniform_a, [pd.DataFrame(chisquare_a), ones])
 </pre></div>
 </div>
 </div>
@@ -842,8 +739,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv</span><span class="p">([</span><span class="n">uniform_a</span><span class="p">,</span> <span class="n">ones</span><span class="p">],[</span><span class="n">chisquare_a</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv([uniform_a, ones],[chisquare_a])
 </pre></div>
 </div>
 </div>
@@ -856,9 +752,9 @@ sample_b = [batch2]
 0.5061822533607483
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="calc_hl">
-<h2>calc_hl<a class="headerlink" href="#calc_hl" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calc_hl">
+<h2>calc_hl<a class="headerlink" href="#calc_hl" title="Permalink to this headline"></a></h2>
 <p>Calculate divergence using Hellinger distance.</p>
 <p>See <a class="reference external" href="https://en.wikipedia.org/wiki/Hellinger_distance">https://en.wikipedia.org/wiki/Hellinger_distance</a></p>
 <p><strong>sample_distribution_p</strong> <em>The first distribution</em></p>
@@ -870,8 +766,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_hl</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">,</span> <span class="n">uniform_b</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_hl(uniform_a, uniform_b)
 </pre></div>
 </div>
 </div>
@@ -888,8 +783,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_hl</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">,</span> <span class="n">chisquare_a</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_hl(uniform_a, chisquare_a)
 </pre></div>
 </div>
 </div>
@@ -907,8 +801,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_hl</span><span class="p">(</span><span class="n">beta_a</span><span class="p">,</span> <span class="n">chisquare_a</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_hl(beta_a, chisquare_a)
 </pre></div>
 </div>
 </div>
@@ -921,9 +814,9 @@ sample_b = [batch2]
 0.9981940472630377
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="calc_tv_knn">
-<h2>calc_tv_knn<a class="headerlink" href="#calc_tv_knn" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calc_tv_knn">
+<h2>calc_tv_knn<a class="headerlink" href="#calc_tv_knn" title="Permalink to this headline"></a></h2>
 <p>Computes the total variation between two distributions. Because it uses KNN which is a fairly simple algorithm it is often faster to compute that <strong>calc_tv</strong>. However, you will want to take care to set the function parameters based on your data dimensions in order for it to get the best accuracy.</p>
 <p><strong>sample_distribution_p</strong> <em>The first distribution</em></p>
 <p><strong>sample_distribution_q</strong> <em>The second distribution</em></p>
@@ -936,8 +829,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_knn</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">,</span> <span class="n">uniform_b</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(uniform_a, uniform_b)
 </pre></div>
 </div>
 </div>
@@ -955,8 +847,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_knn</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">,</span> <span class="n">beta_a</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(uniform_a, beta_a, k=20)
 </pre></div>
 </div>
 </div>
@@ -974,8 +865,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_knn</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">,</span> <span class="n">chisquare_a</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(uniform_a, chisquare_a)
 </pre></div>
 </div>
 </div>
@@ -993,8 +883,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_knn</span><span class="p">(</span><span class="n">beta_a</span><span class="p">,</span> <span class="n">chisquare_a</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(beta_a, chisquare_a)
 </pre></div>
 </div>
 </div>
@@ -1012,8 +901,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_knn</span><span class="p">(</span><span class="n">beta_a</span><span class="p">,</span> <span class="n">chisquare_a</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(beta_a, chisquare_a, k = 20)
 </pre></div>
 </div>
 </div>
@@ -1030,8 +918,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_knn</span><span class="p">(</span><span class="n">beta_a</span><span class="p">,</span> <span class="n">beta_a</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(beta_a, beta_a, k=20)
 </pre></div>
 </div>
 </div>
@@ -1044,19 +931,18 @@ sample_b = [batch2]
 0.07457887528399548
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Density-Based-Estimators">
-<h2>Density Based Estimators<a class="headerlink" href="#Density-Based-Estimators" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Density-Based-Estimators">
+<h2>Density Based Estimators<a class="headerlink" href="#Density-Based-Estimators" title="Permalink to this headline"></a></h2>
 <p>Density estimation is the problem of reconstructing the probability density function using a set of given data points.</p>
-</div>
-<div class="section" id="calc_tv_density">
-<h2>calc_tv_density<a class="headerlink" href="#calc_tv_density" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calc_tv_density">
+<h2>calc_tv_density<a class="headerlink" href="#calc_tv_density" title="Permalink to this headline"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_density</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">,</span> <span class="n">uniform_b</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_density(uniform_a, uniform_b)
 </pre></div>
 </div>
 </div>
@@ -1073,8 +959,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_density</span><span class="p">(</span><span class="n">uniform_a</span><span class="p">,</span> <span class="n">beta_a</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_density(uniform_a, beta_a)
 </pre></div>
 </div>
 </div>
@@ -1087,28 +972,27 @@ sample_b = [batch2]
 251557894.78209227
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Handling-Categorical-Data">
-<h2>Handling Categorical Data<a class="headerlink" href="#Handling-Categorical-Data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Handling-Categorical-Data">
+<h2>Handling Categorical Data<a class="headerlink" href="#Handling-Categorical-Data" title="Permalink to this headline"></a></h2>
 <p>If your data is all categorical, then you would probably want to use <strong>calc_tv_mle</strong>.</p>
 <p>For these examples, we will create categorical columns drawn from different distributions.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">FRUITS</span><span class="p">,</span> <span class="n">FRUIT_PROBS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;plum&#39;</span><span class="p">,</span> <span class="s1">&#39;raspberry&#39;</span><span class="p">,</span> <span class="s1">&#39;blueberry&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
-<span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">FRUIT_PROBS</span><span class="p">)</span> <span class="o">==</span><span class="mi">1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>FRUITS, FRUIT_PROBS = [&#39;apple&#39;, &#39;orange&#39;, &#39;plum&#39;, &#39;raspberry&#39;, &#39;blueberry&#39;], [0.1, 0.3, 0.3, 0.25, 0.05]
+assert sum(FRUIT_PROBS) ==1
 
-<span class="n">raspberry_blast</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">FRUITS</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000000</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="n">FRUIT_PROBS</span><span class="p">)</span>
-<span class="n">blueberry_blast</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">FRUITS</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000000</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="n">FRUIT_PROBS</span><span class="p">)</span>
-<span class="n">plain_smoothie</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">FRUITS</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000000</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+raspberry_blast = np.random.choice(FRUITS,size=(1000000, 10), p=FRUIT_PROBS)
+blueberry_blast = np.random.choice(FRUITS,size=(1000000, 10), p=FRUIT_PROBS)
+plain_smoothie = np.random.choice(FRUITS, size=(1000000, 10))
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="calc_tv_mle">
-<h2>calc_tv_mle<a class="headerlink" href="#calc_tv_mle" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calc_tv_mle">
+<h2>calc_tv_mle<a class="headerlink" href="#calc_tv_mle" title="Permalink to this headline"></a></h2>
 <p>Computes the total variation between two distributions using histogram based density estimators. All columns are assumed to be categorical.</p>
 <p><strong>sample_distribution_p</strong> <em>The first distribution</em></p>
 <p><strong>sample_distribution_q</strong> <em>The second distribution</em></p>
@@ -1116,8 +1000,7 @@ sample_b = [batch2]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">raspberry_blast</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>raspberry_blast[0]
 </pre></div>
 </div>
 </div>
@@ -1136,8 +1019,7 @@ array([&#39;orange&#39;, &#39;apple&#39;, &#39;plum&#39;, &#39;plum&#39;, &#39;p
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_mle</span><span class="p">(</span><span class="n">raspberry_blast</span><span class="p">,</span> <span class="n">plain_smoothie</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_mle(raspberry_blast, plain_smoothie)
 </pre></div>
 </div>
 </div>
@@ -1155,8 +1037,7 @@ array([&#39;orange&#39;, &#39;apple&#39;, &#39;plum&#39;, &#39;plum&#39;, &#39;p
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_mle</span><span class="p">(</span><span class="n">raspberry_blast</span><span class="p">,</span> <span class="n">blueberry_blast</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_mle(raspberry_blast, blueberry_blast)
 </pre></div>
 </div>
 </div>
@@ -1169,16 +1050,15 @@ array([&#39;orange&#39;, &#39;apple&#39;, &#39;plum&#39;, &#39;plum&#39;, &#39;p
 0.6263819999999999
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="calc_kl_mle">
-<h2>calc_kl_mle<a class="headerlink" href="#calc_kl_mle" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calc_kl_mle">
+<h2>calc_kl_mle<a class="headerlink" href="#calc_kl_mle" title="Permalink to this headline"></a></h2>
 <p>When the second distribution is zero when the first distribution is nonzero for categorical data, kl divergence will hit infinity. For histograms derived from high dimensional categorical data this becomes likely.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_kl_mle</span><span class="p">(</span><span class="n">raspberry_blast</span><span class="p">,</span> <span class="n">plain_smoothie</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_kl_mle(raspberry_blast, plain_smoothie)
 </pre></div>
 </div>
 </div>
@@ -1191,21 +1071,20 @@ array([&#39;orange&#39;, &#39;apple&#39;, &#39;plum&#39;, &#39;plum&#39;, &#39;p
 inf
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Handling-Mixed-Data">
-<h2>Handling Mixed Data<a class="headerlink" href="#Handling-Mixed-Data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Handling-Mixed-Data">
+<h2>Handling Mixed Data<a class="headerlink" href="#Handling-Mixed-Data" title="Permalink to this headline"></a></h2>
 <p>If your data contains categorical columns, then you need to specify the indices of the categorical columns. To demonstrate this, we will create a dataframe with one categorical column and one numeric column, then compute the total variation.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">NUM_ITEMS</span> <span class="o">=</span> <span class="mi">100000</span>
-<span class="n">inventory_a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;fruits&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">FRUITS</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">NUM_ITEMS</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">FRUIT_PROBS</span><span class="p">),</span>
-                          <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_ITEMS</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()})</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>NUM_ITEMS = 100000
+inventory_a = pd.DataFrame({&#39;fruits&#39;: np.random.choice(FRUITS,size=NUM_ITEMS, p=FRUIT_PROBS),
+                          &#39;weight&#39;: np.random.uniform(1, 100, size=NUM_ITEMS).tolist()})
 
-<span class="n">inventory_b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;fruits&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">FRUITS</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">NUM_ITEMS</span><span class="p">),</span>
-                            <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">NUM_ITEMS</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()})</span>
+inventory_b = pd.DataFrame({&#39;fruits&#39;: np.random.choice(FRUITS,size=NUM_ITEMS),
+                            &#39;weight&#39;: np.random.beta(0.2, 0.9, size=NUM_ITEMS).tolist()})
 </pre></div>
 </div>
 </div>
@@ -1213,8 +1092,7 @@ inf
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">inventory_a</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>inventory_a.head(4)
 </pre></div>
 </div>
 </div>
@@ -1274,8 +1152,7 @@ inf
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">inventory_b</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>inventory_b.head(4)
 </pre></div>
 </div>
 </div>
@@ -1336,8 +1213,7 @@ inf
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_knn</span><span class="p">(</span><span class="n">inventory_a</span><span class="p">,</span> <span class="n">inventory_b</span><span class="p">,</span> <span class="n">categorical_columns</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(inventory_a, inventory_b, categorical_columns=[0], k=4)
 </pre></div>
 </div>
 </div>
@@ -1355,8 +1231,7 @@ inf
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_knn</span><span class="p">(</span><span class="n">inventory_a</span><span class="p">,</span> <span class="n">inventory_a</span><span class="p">,</span> <span class="n">categorical_columns</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(inventory_a, inventory_a, categorical_columns=[0], k=4)
 </pre></div>
 </div>
 </div>
@@ -1369,55 +1244,38 @@ inf
 0.216708554622229
 </pre></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="CategoricalColumns.html" class="btn btn-neutral float-right" title="Handling Categorical Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Airlines.html" class="btn btn-neutral float-left" title="Airlines Dataset: Divergence Applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="CategoricalColumns.html" class="btn btn-neutral float-right" title="Handling Categorical Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Model Validation Toolkit Team.
-
-    </p>
+    <p>&#169; Copyright 2021, Model Validation Toolkit Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

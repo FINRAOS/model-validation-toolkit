@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Adaptive Thresholding &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../../../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+ 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BGSHYDJP8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BGSHYDJP8');
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../../index.html" class="icon icon-home"> Model Validation Toolkit
+            <img src="../../../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/divergence/BugDetection.html">Dataset Bug Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/divergence/TrainingDatasetDrift.html">Training Dataset Drift Detection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bias and Metrics Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../metrics.html">metrics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Model Validation Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Introduction to Adaptive Thresholding</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/linkcheck/.doctrees/nbsphinx/notebooks/thresholding/Thresholding.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Introduction-to-Adaptive-Thresholding">
+<h1>Introduction to Adaptive Thresholding<a class="headerlink" href="#Introduction-to-Adaptive-Thresholding" title="Permalink to this headline"></a></h1>
+<p>This tutorial will go over some basic concepts you may wish to consider when setting thresholds for production models or otherwise.</p>
+<section id="Make-Some-Data">
+<h2>Make Some Data<a class="headerlink" href="#Make-Some-Data" title="Permalink to this headline"></a></h2>
+<p>This tutorial doesn’t actually require real data–nor even a model! We’ll make some fake data to get the idea. Don’t worry too much about this step. Let’s just assume we have a series of scores. These could represent model performance, divergences, or model scores themselves. Throughout this tutorial, we’ll assume that increasing values of this score will be increasingly likely to represent a good alert. Then we are left to determine an appropriate threshold to balance true/false
+positive/negatives. This is balancing time wasted on bad alerts with the utility gained from finding a good alert that resulted from a lower score.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy
+import pandas
+
+numpy.random.seed(0)
+pandas.options.display.max_rows=5 # restrict to 5 rows on display
+
+n_positive = 600
+positives = numpy.random.beta(5, 1, size=n_positive)
+n_negative = 5 * n_positive
+negatives = numpy.random.beta(2, 3, size=n_negative)
+data = pandas.DataFrame(numpy.asarray((numpy.concatenate((numpy.ones(n_positive),
+                                                          numpy.zeros(n_negative))),
+                                       numpy.concatenate((positives,
+                                                          negatives)))).T,
+                        columns=[&#39;Ground Truth&#39;, &#39;Model Score&#39;])
+data = data.sample(frac=1, random_state=0).reset_index(drop=True)
+data
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ground Truth</th>
+      <th>Model Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>0.677909</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>0.327262</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3598</th>
+      <td>0.0</td>
+      <td>0.185715</td>
+    </tr>
+    <tr>
+      <th>3599</th>
+      <td>0.0</td>
+      <td>0.113929</td>
+    </tr>
+  </tbody>
+</table>
+<p>3600 rows × 2 columns</p>
+</div></div>
+</div>
+</section>
+<section id="Positive-and-Negative-Distributions">
+<h2>Positive and Negative Distributions<a class="headerlink" href="#Positive-and-Negative-Distributions" title="Permalink to this headline"></a></h2>
+<p>We want to determine the trade off between catching more true positives and getting more false negatives. Let’s see what the distribution of scores associated with good (positive) and bad (negative) alerts looks like.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns; sns.set()
+import matplotlib
+import matplotlib.pylab as plt
+import numpy
+
+plt.figure(figsize=(10, 2))
+
+plt.title(&#39;Positive Scores&#39;)
+plt.xlabel(&#39;Model Score&#39;)
+plt.yticks([])
+positives = data[data[&#39;Ground Truth&#39;] == 1][&#39;Model Score&#39;].sample(100, random_state=0).values
+sns.rugplot(positives,
+            height=1.0,
+            color=&#39;green&#39;,
+            label=&#39;Positive Samples&#39;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_4_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_4_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns; sns.set()
+import matplotlib
+import matplotlib.pylab as plt
+import numpy
+
+plt.figure(figsize=(10, 2))
+
+plt.title(&#39;Negative Scores&#39;)
+plt.xlabel(&#39;Model Score&#39;)
+plt.yticks([])
+negatives = data[data[&#39;Ground Truth&#39;] == 0][&#39;Model Score&#39;].sample(100, random_state=0).values
+sns.rugplot(negatives,
+            height=1.0,
+            color=&#39;red&#39;,
+            label=&#39;Negative Samples&#39;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_5_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_5_0.png" />
+</div>
+</div>
+<p>We can also plot an approximation of the probability distribution of positive and negative scores given our sample data.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(10, 10))
+
+sns.set()
+plt.title(&#39;Positive Score Distribution&#39;)
+plt.xlabel(&#39;Model Score&#39;)
+plt.ylabel(&#39;Probability Density&#39;)
+positives = data[data[&#39;Ground Truth&#39;] == 1][&#39;Model Score&#39;].values
+sns.kdeplot(positives,
+            color=&#39;green&#39;,
+            label=&#39;Positive Score Distribution&#39;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_7_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_7_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(10, 10))
+
+sns.set()
+plt.title(&#39;Negative Score Distribution&#39;)
+plt.xlabel(&#39;Model Score&#39;)
+plt.ylabel(&#39;Probability Density&#39;)
+negatives = data[data[&#39;Ground Truth&#39;] == 0][&#39;Model Score&#39;].values
+sns.kdeplot(negatives,
+            color=&#39;red&#39;,
+            label=&#39;Negative Score Distribution&#39;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_8_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_8_0.png" />
+</div>
+</div>
+<p>It will also be important to keep in mind the distribution of model scores.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(10, 10))
+
+sns.set()
+plt.title(&#39;Score Distribution&#39;)
+plt.xlabel(&#39;Model Score&#39;)
+plt.ylabel(&#39;Probability Density&#39;)
+scores = data[&#39;Model Score&#39;].values
+sns.kdeplot(scores,
+            color=&#39;blue&#39;,
+            label=&#39;Score Distribution&#39;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_10_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_10_0.png" />
+</div>
+</div>
+</section>
+<section id="Computing-Optimal-Thresholds">
+<h2>Computing Optimal Thresholds<a class="headerlink" href="#Computing-Optimal-Thresholds" title="Permalink to this headline"></a></h2>
+<p>When scoring a model after choosing a threshold, each model score can be associated with one of four possible outcomes:</p>
+<ol class="arabic simple">
+<li><p>Positive instance is scored above the threshold.</p></li>
+<li><p>Negative instance is scored above the threshold.</p></li>
+<li><p>Negative instance is scored at or below the threshold.</p></li>
+<li><p>Positive instance is scored at or below the threshold.</p></li>
+</ol>
+<p>Let’s say each of these outcomes has an associated probability <span class="math notranslate nohighlight">\(p\)</span> and an associated utility <span class="math notranslate nohighlight">\(u\)</span> as determined by the business:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(p_\mathrm{tp}\)</span>, <span class="math notranslate nohighlight">\(u_\mathrm{tp}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(p_\mathrm{fp}\)</span>, <span class="math notranslate nohighlight">\(u_\mathrm{fp}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(p_\mathrm{tn}\)</span>, <span class="math notranslate nohighlight">\(u_\mathrm{tn}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(p_\mathrm{fn}\)</span>, <span class="math notranslate nohighlight">\(u_\mathrm{fn}\)</span></p></li>
+</ol>
+<p>Then the expected utility of a scored sample with unknown ground truth is</p>
+<p><span class="math notranslate nohighlight">\(u = p_\mathrm{tp}u_\mathrm{tp} + p_\mathrm{fp}u_\mathrm{fp} + p_\mathrm{tn}u_\mathrm{tn} + p_\mathrm{fn}u_\mathrm{fn}\)</span></p>
+<p>For the purposes of this experiment, let’s say the business would be 10 times as disappointed to learn of a false negative than they would be to have to pay for analysts wasting their time on a false positive.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def utility(tp, fp, tn, fn):
+    return -10 * fn - fp
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Visualizing-Utility-of-Each-Threshold">
+<h2>Visualizing Utility of Each Threshold<a class="headerlink" href="#Visualizing-Utility-of-Each-Threshold" title="Permalink to this headline"></a></h2>
+<p>Let’s plot expected utility against some candidate thresholds. The algorithm below will generate a plot with error bars over the expected value. If you need to interpret them, you can say <em>there’s a 50% chance the true utility of each threshold falls within the shaded region</em>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy
+import matplotlib.pylab as plt
+import seaborn as sns, numpy
+
+from mvtk import thresholding
+
+plt.figure(figsize=(10, 10))
+plt.title(&#39;Expected Utility vs Threshold&#39;)
+plt.xlabel(&#39;Threshold&#39;)
+plt.ylabel(&#39;Expected Utility&#39;)
+
+scores, utility_mean, utility_quantiles = thresholding.expected_utility(
+    utility, data[[&#39;Ground Truth&#39;, &#39;Model Score&#39;]].values)
+thresholding.plot_err(scores,
+         utility_mean,
+         utility_quantiles,
+         label=&#39;Expected Utility&#39;)
+leg = plt.legend()
+for lh in leg.legendHandles:
+    lh.set_alpha(1)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_14_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_14_0.png" />
+</div>
+</div>
+</section>
+<section id="Finding-the-Optimal-Threshold">
+<h2>Finding the Optimal Threshold<a class="headerlink" href="#Finding-the-Optimal-Threshold" title="Permalink to this headline"></a></h2>
+<p>This is the threshold that corresponds to the peak of the utility function plotted above.</p>
+<p>You don’t need to worry about the mechanics of this function, you can just copy and paste it.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>thresholding.optimal_threshold(utility, data)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(0.6114780190088583, -0.2845361056272087)
+</pre></div></div>
+</div>
+</section>
+<section id="Optimal-Threshold-Distribution">
+<h2>Optimal Threshold Distribution<a class="headerlink" href="#Optimal-Threshold-Distribution" title="Permalink to this headline"></a></h2>
+<p>If we know our sample of positives and negatives is unbiased (e.g. the analysts were equally likely to label any instance of their data), we can generally express our uncertainty in the location of the optimal threshold (which stems from our uncertainty in the utility function) to compute a distribution over what our optimum threshold might be given the data we have so far.</p>
+<p>You don’t need to worry about the mechanics of this function, you can just copy and paste it.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.set(); numpy.random.seed(0)
+plt.figure(figsize=(10, 10))
+plt.xlim([0, 1])
+plt.title(&#39;Threshold Distribution&#39;)
+plt.xlabel(&#39;Threshold&#39;)
+plt.ylabel(&#39;Probability Density&#39;)
+sns.kdeplot(thresholding.thompson_sample(utility, data),
+             color=&#39;blue&#39;,
+             label=&#39;Likelihood Threshold is Optimal&#39;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_18_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_18_0.png" />
+</div>
+</div>
+</section>
+<section id="Adaptive-Thresholding">
+<h2>Adaptive Thresholding<a class="headerlink" href="#Adaptive-Thresholding" title="Permalink to this headline"></a></h2>
+<p>Without getting into the mechanics, we can dynamically choose between <em>exploration mode</em>, during which it will set the threshold to <code class="docutils literal notranslate"><span class="pre">0</span></code>, and <em>exploitation mode</em>, during which it will attempt to pick the optimal choice (or, in practice, something likely to be optimal).</p>
+</section>
+<section id="Online-Learning">
+<h2>Online Learning<a class="headerlink" href="#Online-Learning" title="Permalink to this headline"></a></h2>
+<p>Here we will give an example of how to apply adaptive thresholding to an online learning problem.</p>
+<p>In this example, we will iterate over the data we have in chronological order (since it’s fake data, let’s just assume it was already ordered chronologically) and simulate a system that applies the above adaptive thresholding algorithm to the problem of identifying a new optimal threshold each time a new label arrives (e.g. from someone checking in on an alert and determining if it’s a good one).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>thresholder = thresholding.AdaptiveThreshold(utility)
+thresholds = []
+for ground_truth, score in data[[&#39;Ground Truth&#39;, &#39;Model Score&#39;]].values:
+    thresholds.append(thresholder(ground_truth, score))
+thresholds = numpy.asarray(thresholds)
+</pre></div>
+</div>
+</div>
+<p>What percent of the time did we end up setting the threshold to <code class="docutils literal notranslate"><span class="pre">0</span></code>? You’ll notice we start out setting the threshold to <code class="docutils literal notranslate"><span class="pre">0</span></code> about 45% of the time to gather data, but that quickly drops to about 5% once we have a good understanding of the system.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pylab as plt
+
+plt.figure(figsize=(9, 9))
+plt.ylabel(&#39;Exploration Percent (Moving Average)&#39;)
+plt.xlabel(&#39;Epoch&#39;)
+plt.plot(thresholding.exploration_proportion(thresholds, 100))
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_23_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_23_0.png" />
+</div>
+</div>
+<p>About 10% of the alerts triggered were just to get unbiased data.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(thresholds == 0).sum()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+379
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(thresholds == 0).mean()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.10527777777777778
+</pre></div></div>
+</div>
+</section>
+<section id="Examining-Results">
+<h2>Examining Results<a class="headerlink" href="#Examining-Results" title="Permalink to this headline"></a></h2>
+<p>To get a feel for what the algorithm is doing, let’s reconstruct the utility function plot as before, but with the 64 most recent thresholds. As you can see, the thresholds are landing pretty close to the optimal value, while we were typically only taking unbiased data 2 to 3% of the time.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pylab as plt
+import seaborn as sns, numpy
+
+plt.figure(figsize=(10, 10))
+plt.title(&#39;Expected Utility vs Threshold&#39;)
+plt.xlabel(&#39;Threshold&#39;)
+plt.ylabel(&#39;Expected Utility&#39;)
+
+scores, utility_mean, utility_quantiles = thresholding.expected_utility(
+    utility, data[[&#39;Ground Truth&#39;, &#39;Model Score&#39;]].values)
+
+# candidate thresholds are existing model scores
+thresholding.plot_err(scores,
+         utility_mean,
+         utility_quantiles,
+         label=&#39;Expected Utility&#39;)
+ax = sns.rugplot(thresholds[-64:], # most recent
+                  color=&#39;green&#39;,
+                  label=&#39;64 Most Recent Thresholds&#39;)
+leg = plt.legend()
+for lh in leg.legendHandles:
+    lh.set_alpha(1)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_28_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_28_0.png" />
+</div>
+</div>
+<p>We can watch the distribution of (nonzero) thresholds chosen evolve over time and approach the ideal one (computed using <em>all</em> the data in our data set).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+
+import matplotlib.pylab as plt
+import seaborn as sns, numpy
+import os
+import shutil
+
+from pathlib import Path
+
+frame_dir = &#39;frames&#39;
+if os.path.exists(frame_dir):
+    shutil.rmtree(frame_dir)
+Path(frame_dir).mkdir(parents=True, exist_ok=True)
+
+
+def mkplot(thresholds, large_sample_ideal_thresholds):
+    sns.set(); numpy.random.seed(0)
+    plt.figure(figsize=(10, 10))
+    plt.xlim([0, 1])
+    plt.title(f&#39;Threshold Distribution (epoch {i})&#39;)
+    plt.xlabel(&#39;Threshold&#39;)
+    plt.ylabel(&#39;Probability Density&#39;)
+    ax = sns.distplot(thresholds[thresholds &gt; 0],
+                      rug=True,
+                      hist=False,
+                      kde=True,
+                      color=&#39;green&#39;,
+                      label=&#39;Thresholds Chosen Using Unbiased Samples&#39;)
+    ax = sns.distplot(large_sample_ideal_thresholds, # most recent
+                      rug=False,
+                      hist=False,
+                      kde=True,
+                      color=&#39;blue&#39;,
+                      label=&#39;Ideal Threshold Distribution&#39;)
+    leg = plt.legend(loc=&#39;upper right&#39;)
+    for lh in leg.legendHandles:
+        lh.set_alpha(1)
+    plt.savefig(os.path.join(frame_dir, f&#39;im_{i}.png&#39;))
+
+large_sample_ideal_thresholds = thresholding.thompson_sample(utility, data)
+N = 64
+dn = len(thresholds) // N
+j = 0
+for num_frames, i in enumerate(range(dn, len(thresholds) + dn, dn)):
+    mkplot(thresholds[j:i], large_sample_ideal_thresholds)
+    j = i
+mkplot(thresholds[j:], large_sample_ideal_thresholds)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
+import imageio
+
+images = []
+for filename in sorted(os.listdir(frame_dir), key=lambda x: int(x[3:-4])):
+    images.append(imageio.imread(os.path.join(frame_dir, filename)))
+imageio.mimsave(&#39;threshold_distribution_evolution.gif&#39;, images,  duration=30 / (num_frames + 1))
+</pre></div>
+</div>
+</div>
+<p><img alt="threshold_distribution_evolution" src="linkcheck/.doctrees/nbsphinx/notebooks/thresholding/threshold_distribution_evolution.gif" /></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Model Validation Toolkit Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
