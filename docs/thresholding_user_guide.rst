@@ -73,7 +73,7 @@ Note that we don't actually have the true distribution of positive
 and negative scores in practice. Rather, we have examples. If we
 only had 4 positive scores and 4 negative scores, we cannot be very
 certain of its results. More on this in the `credibility user guide
-<credibility_user_guide>`_. We model the distribution of true/false
+<credibility_user_guide.rst>`__. We model the distribution of true/false
 positive/negatives as a `Dirichlet-multinomial distribution
 <https://en.wikipedia.org/wiki/Dirichlet-multinomial_distribution>`_ with
 a `maximum entropy prior

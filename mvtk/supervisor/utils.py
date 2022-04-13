@@ -21,7 +21,7 @@ else:
 
 @public.add
 def parallel(
-    func, arr: Collection, max_workers: int = None, show_progress: bool = True
+    func, arr: Collection, max_workers: int = None, show_progress: bool = False
 ):
     """
     NOTE: This code was adapted from the ``parallel`` function

@@ -12,7 +12,7 @@ def get_drift_series(metric, baseline, test):
 
 
 @public.add
-def get_distance_matrix(metric, sample_distributions):
+def get_distance_matrix(metric, sample_distributions, show_progress=False):
     distance_matrix = numpy.zeros((len(sample_distributions),) * 2)
     for index, d in parallel(
         lambda x: (x[0], metric(x[1][0], x[1][1])),
@@ -20,7 +20,7 @@ def get_distance_matrix(metric, sample_distributions):
             list(zip(*x))
             for x in itertools.combinations(enumerate(sample_distributions), 2)
         ],
-        show_progress=True,
+        show_progress=show_progress,
     ):
         distance_matrix[index] = d
     distance_matrix += distance_matrix.T

@@ -20,7 +20,8 @@ Check out this repository and `cd` into the directory.
 
 Run `pip install -e ".[doc]"`.
 
-The `[doc]` is used to install dependencies for building documentation.
+The `[doc]` is used to install dependencies for building documentation. You
+will need [pandoc](https://pandoc.org/) installed.
 
 # Submodules
 You can import:
@@ -29,7 +30,7 @@ You can import:
 - `mvtk.interprenet` for building interpretable neural nets.
 - `mvtk.thresholding` for adaptive thresholding.
 - `mvtk.sobol` for Sobol sensitivity analysis
-- `mvtk.supervisor` for divergence anlysis
+- `mvtk.supervisor` for divergence analysis
 - `mvtk.metrics` for specialised metrics
 
 # Documentation

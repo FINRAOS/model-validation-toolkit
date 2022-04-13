@@ -10,7 +10,7 @@ from .nn import Approximator, NormalizedLinear
 from .generators import fdiv_data_stream, js_data_stream
 from collections import Counter
 from functools import partial
-from jax.experimental import optimizers
+from jax.example_libraries import optimizers
 from mvtk.supervisor.utils import parallel, split
 from .utils import arrayify
 
@@ -29,7 +29,7 @@ def calc_div_variational(data_stream, loss, model_generator=Approximator, summar
             outputs. Returns a scalar.
         model_generator: A function that takes a Jax ``PRNGKey`` the number
             of dimensions of the support and returns a `Jax model
-            <https://jax.readthedocs.io/en/latest/jax.experimental.stax.html>`_ to
+            <https://jax.readthedocs.io/en/latest/jax.example_libraries.stax.html>`_ to
             be used for variational approximations. The function this model is
             trained to approximate is sometimes known as the *witness
             function*--especially when dealing with `integral probability metrics
@@ -74,7 +74,7 @@ def calc_div_variational(data_stream, loss, model_generator=Approximator, summar
             loss_kwargs (optional): Dictionary of optional kwargs to pass to
                 loss function. ``weights`` is commonly used for reweighting
                 expectations. See `hybrid estimation
-                <user_guide.rst#hybrid-estimation>`__ for details.
+                <supervisor_user_guide.rst#hybrid-estimation>`__ for details.
             categorical_columns (optional): List of indices of columns which should
                 be treated as categorical.
             nprng (optional): Numpy ``RandomState``
@@ -190,7 +190,7 @@ def fdiv_loss(convex_conjugate):
         batch: pair of minibatches drawn from each sample
         weights: Provides an alternative means of reweighting minibatches.
             See `hybrid estimation
-        <user_guide.rst#hybrid-estimation>`__ for details."""
+        <supervisor_user_guide.rst#hybrid-estimation>`__ for details."""
         input1, input2 = batch
         batch_loss = (
             convex_conjugate(input2).mean() * weights[1] - input1.mean() * weights[0]
@@ -642,7 +642,7 @@ def calc_tv_knn(sample_distribution_p, sample_distribution_q, **kwargs):
     def bias(N, k):
         def integral_no_p(p):
             return (
-                (1 - p) ** (-k + N) * p ** k
+                (1 - p) ** (-k + N) * p**k
                 - N * scipy.special.betainc(k, 1 - k + N, p)
             ) / (k - N)
 
