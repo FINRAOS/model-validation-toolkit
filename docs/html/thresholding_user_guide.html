@@ -1,78 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Thresholding User Guide &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="shortcut icon" href="_static/logo.svg"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Interprenet User Guide" href="interprenet_user_guide.html" />
-    <link rel="prev" title="Credibility User Guide" href="credibility_user_guide.html" /> 
+    <link rel="prev" title="Credibility User Guide" href="credibility_user_guide.html" />
+ 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BGSHYDJP8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BGSHYDJP8');
+</script>
+
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> Model Validation Toolkit
-          
-
-          
-            
             <img src="_static/logo.svg" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,25 +51,14 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Overview</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="supervisor_user_guide.html">Supervisor User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="credibility_user_guide.html">Credibility User Guide</a></li>
@@ -113,29 +73,31 @@
 <li class="toctree-l1"><a class="reference internal" href="interprenet_user_guide.html">Interprenet User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/BugDetection.html">Dataset Bug Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/TrainingDatasetDrift.html">Training Dataset Drift Detection</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Credibility Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Thresholding Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Interprenet Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Bias and Metrics Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Bias and Metrics Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Python API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="supervisor.html">supervisor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="credibility.html">credibility</a></li>
@@ -145,71 +107,30 @@
 <li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Model Validation Toolkit</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Thresholding User Guide</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/thresholding_user_guide.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -234,10 +155,10 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="thresholding-user-guide">
-<h1>Thresholding User Guide<a class="headerlink" href="#thresholding-user-guide" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="motivation">
-<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<section id="thresholding-user-guide">
+<h1>Thresholding User Guide<a class="headerlink" href="#thresholding-user-guide" title="Permalink to this headline"></a></h1>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline"></a></h2>
 <p>Let’s say you’re monitoring some process for alerts. Maybe it’s model
 performance. Maybe it’s model drift. In any case, let’s say you have a score
 that increases with the likelihood that you have something wrong that needs to be
@@ -247,16 +168,16 @@ But where to put the threshold? Set it too high and you’ll miss important
 alerts. Set it too low and you’ll be flooded with noise. This module comes with
 tools and techniques to experimentally determine where to set your threshold
 given your tolerance for noise.</p>
-<div class="section" id="how">
-<h3>How?<a class="headerlink" href="#how" title="Permalink to this headline">¶</a></h3>
+<section id="how">
+<h3>How?<a class="headerlink" href="#how" title="Permalink to this headline"></a></h3>
 <p>Let’s say the scores associated with good alerts looks like this.</p>
-<div class="align-center figure">
+<figure class="align-center">
 <a class="reference internal image-reference" href="_images/thresholding_positive_scores.png"><img alt="alternate text" src="_images/thresholding_positive_scores.png" style="width: 500px; height: 500px;" /></a>
-</div>
+</figure>
 <p>Moreover, scores associated with negative alerts look like this.</p>
-<div class="align-center figure">
+<figure class="align-center">
 <a class="reference internal image-reference" href="_images/thresholding_negative_scores.png"><img alt="alternate text" src="_images/thresholding_negative_scores.png" style="width: 500px; height: 500px;" /></a>
-</div>
+</figure>
 <p>Clearly the likelihood of finding a good alert increases with model score, but
 any choice will imply a trade off between true/false positive/negatives. In
 general, you need to decide on a utility function of true/false
@@ -270,16 +191,18 @@ utility function is a function of a categorical distribution over true/false
 positives/negatives.</p>
 <p>Now that we have a utility function, and a sample of positive and negative alert
 scores, we can plot a utility function as a function of threshold.</p>
-<div class="align-center figure" id="id21">
+<figure class="align-center" id="id21">
 <a class="reference internal image-reference" href="_images/thresholding_expected_utility.png"><img alt="alternate text" src="_images/thresholding_expected_utility.png" style="width: 500px; height: 400px;" /></a>
-<p class="caption"><span class="caption-text">Expected utility as a function of threshold (solid) and 50%
+<figcaption>
+<p><span class="caption-text">Expected utility as a function of threshold (solid) and 50%
 <a class="reference external" href="https://en.wikipedia.org/wiki/Credible_interval">credible interval</a> (shaded
-region).</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
-</div>
+region).</span><a class="headerlink" href="#id21" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <p>Note that we don’t actually have the true distribution of positive
 and negative scores in practice. Rather, we have examples. If we
 only had 4 positive scores and 4 negative scores, we cannot be very
-certain of its results. More on this in the <a class="reference external" href="credibility_user_guide">credibility user guide</a>. We model the distribution of true/false
+certain of its results. More on this in the <a class="reference internal" href="credibility_user_guide.html"><span class="doc">credibility user guide</span></a>. We model the distribution of true/false
 positive/negatives as a <a class="reference external" href="https://en.wikipedia.org/wiki/Dirichlet-multinomial_distribution">Dirichlet-multinomial distribution</a> with
 a <a class="reference external" href="https://en.wikipedia.org/wiki/Principle_of_maximum_entropy">maximum entropy prior</a>.</p>
 <p>This shows a particularly apparent peak in utility, but only after (in this
@@ -289,10 +212,10 @@ worse, we will only find out if an alert was good or not if we investigate it.
 Anything that falls below our threshold forever remains unlabeled. We developed
 a specific algorithm to tackle this problem that we call <em>adaptive
 thresholding</em>.</p>
-</div>
-</div>
-<div class="section" id="adaptive-thresholding">
-<h2>Adaptive Thresholding<a class="headerlink" href="#adaptive-thresholding" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="adaptive-thresholding">
+<h2>Adaptive Thresholding<a class="headerlink" href="#adaptive-thresholding" title="Permalink to this headline"></a></h2>
 <p>We face a classic <a class="reference external" href="https://en.wikipedia.org/wiki/Reinforcement_learning">exploitation/exploration dilemma</a>. We can either choose
 to <em>exploit</em> the information we have so far about positive and negative score
 distributions to set a threshold or <em>explore</em> what may lie below that threshold
@@ -336,18 +259,21 @@ the optimal threshold after exploration. As a result, the expected utility
 gained per round of exploitation will gradually decrease over time, and we will
 need more and more rounds of exploitation to make up for the opportunity cost
 of exploration (shown below).</p>
-<div class="align-center figure" id="id22">
+<figure class="align-center" id="id22">
 <a class="reference internal image-reference" href="_images/thresholding_exploration_proportion.png"><img alt="alternate text" src="_images/thresholding_exploration_proportion.png" style="width: 500px; height: 500px;" /></a>
-<p class="caption"><span class="caption-text">Probability of chosing exploration decreases from about 45% at the
-beginning to about 5% after 3600 rounds.</span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text">Probability of chosing exploration decreases from about 45% at the
+beginning to about 5% after 3600 rounds.</span><a class="headerlink" href="#id22" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <div class="topic">
 <p class="topic-title">Tutorials:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="notebooks/thresholding/Thresholding.html"><span class="doc">Thresholding</span></a></p></li>
 </ul>
 </div>
-<p id="id1"><dl class="citation">
+<div class="docutils container" id="id1">
+<dl class="citation">
 <dt class="label" id="id15"><span class="brackets">ALG19</span></dt>
 <dd><p>Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In <em>International Conference on Machine Learning</em>, 291–301. PMLR, 2019.</p>
 </dd>
@@ -400,56 +326,39 @@ beginning to about 5% after 3600 rounds.</span><a class="headerlink" href="#id22
 <dd><p>Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: <a class="reference external" href="http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf">http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf</a>.</p>
 </dd>
 </dl>
-</p>
 </div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="interprenet_user_guide.html" class="btn btn-neutral float-right" title="Interprenet User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="credibility_user_guide.html" class="btn btn-neutral float-left" title="Credibility User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="interprenet_user_guide.html" class="btn btn-neutral float-right" title="Interprenet User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Model Validation Toolkit Team.
-
-    </p>
+    <p>&#169; Copyright 2021, Model Validation Toolkit Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

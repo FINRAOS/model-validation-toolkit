@@ -33,6 +33,8 @@ The Model Validation Toolkit is a library for model validation, metaanalysis, an
     notebooks/divergence/Airlines
     notebooks/divergence/DivergenceFunctions
     notebooks/divergence/CategoricalColumns
+    notebooks/divergence/BugDetection
+    notebooks/divergence/TrainingDatasetDrift
 
 .. toctree::
     :maxdepth: 1

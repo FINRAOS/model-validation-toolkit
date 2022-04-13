@@ -1,80 +1,51 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Handling Categorical Data &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../../_static/logo.svg"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Assessing Credibility From Sample Size" href="../credibility/Credibility.html" />
-    <link rel="prev" title="Notes on Using Divergence Functions" href="DivergenceFunctions.html" /> 
+    <link rel="next" title="Dataset Bug Detection" href="BugDetection.html" />
+    <link rel="prev" title="Notes on Using Divergence Functions" href="DivergenceFunctions.html" />
+ 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BGSHYDJP8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BGSHYDJP8');
+</script>
+
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> Model Validation Toolkit
-          
-
-          
-            
             <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -82,25 +53,14 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Overview</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../supervisor_user_guide.html">Supervisor User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../credibility_user_guide.html">Credibility User Guide</a></li>
@@ -108,7 +68,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../interprenet_user_guide.html">Interprenet User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sobol_user_guide.html">Sobol User Guide</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Divergence Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Airlines.html">Airlines Dataset: Divergence Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
@@ -122,24 +82,26 @@
 <li class="toctree-l2"><a class="reference internal" href="#mvtk.supervisor.utils.column_indexes">mvtk.supervisor.utils.column_indexes</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="BugDetection.html">Dataset Bug Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TrainingDatasetDrift.html">Training Dataset Drift Detection</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Credibility Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Credibility Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Thresholding Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Thresholding Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Interprenet Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Interprenet Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../interprenet/Interprenet.html">Introduction to Interprenet</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Bias and Metrics Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Bias and Metrics Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Python API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../supervisor.html">supervisor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../credibility.html">credibility</a></li>
@@ -149,71 +111,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../../metrics.html">metrics</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Model Validation Toolkit</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Handling Categorical Data</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../_sources/notebooks/divergence/CategoricalColumns.ipynb.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS for nbsphinx extension */
@@ -424,7 +345,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -484,37 +405,36 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Handling-Categorical-Data">
-<h1>Handling Categorical Data<a class="headerlink" href="#Handling-Categorical-Data" title="Permalink to this headline">¶</a></h1>
+<section id="Handling-Categorical-Data">
+<h1>Handling Categorical Data<a class="headerlink" href="#Handling-Categorical-Data" title="Permalink to this headline"></a></h1>
 <p>More often than not a dataset is comprised of both <strong>numeric</strong>, and <strong>categorical</strong> data types. The supervisor divergence functions can handle both, but it needs to know which columns are categorical so that it can handle it properly. This notebook shows you how to do so when using the <strong>supervisor</strong> divergence package.</p>
-<div class="section" id="Dataset-with-Mixed-Data-Types">
-<h2>Dataset with Mixed Data Types<a class="headerlink" href="#Dataset-with-Mixed-Data-Types" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Create-a-dataset">
-<h3>Create a dataset<a class="headerlink" href="#Create-a-dataset" title="Permalink to this headline">¶</a></h3>
+<section id="Dataset-with-Mixed-Data-Types">
+<h2>Dataset with Mixed Data Types<a class="headerlink" href="#Dataset-with-Mixed-Data-Types" title="Permalink to this headline"></a></h2>
+<section id="Create-a-dataset">
+<h3>Create a dataset<a class="headerlink" href="#Create-a-dataset" title="Permalink to this headline"></a></h3>
 <p>To demonstrate, we will create a simple dataset with a mix of categorical and numeric columns.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import numpy as np
 
 
-<span class="n">size</span> <span class="o">=</span> <span class="mi">100000</span>
+size = 100000
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;fruit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;plum&#39;</span><span class="p">,</span> <span class="s1">&#39;raspberry&#39;</span><span class="p">,</span> <span class="s1">&#39;blueberry&#39;</span><span class="p">],</span>
-                          <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span>      <span class="mf">0.3</span><span class="p">,</span>      <span class="mf">0.3</span><span class="p">,</span>    <span class="mf">0.25</span><span class="p">,</span>          <span class="mf">0.05</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">,</span> <span class="s1">&#39;Newport&#39;</span><span class="p">,</span> <span class="s1">&#39;Bradfield&#39;</span><span class="p">,</span> <span class="s1">&#39;Coldport&#39;</span><span class="p">,</span> <span class="s1">&#39;Filly Downs&#39;</span><span class="p">],</span>
-                          <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.15</span><span class="p">,</span>      <span class="mf">0.2</span><span class="p">,</span>      <span class="mf">0.1</span><span class="p">,</span>      <span class="mf">0.1</span><span class="p">,</span>         <span class="mf">0.3</span><span class="p">,</span>         <span class="mf">0.15</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+data = pd.DataFrame()
+data[&#39;latitude&#39;] =np.random.randint(0, 360, size=size)
+data[&#39;fruit&#39;] = np.random.choice(a=[&#39;apple&#39;, &#39;orange&#39;, &#39;plum&#39;, &#39;raspberry&#39;, &#39;blueberry&#39;],
+                          p=[0.1,      0.3,      0.3,    0.25,          0.05], size=size)
+data[&#39;temp&#39;] =np.random.randint(-10, 120, size=size)
+data[&#39;city&#39;] = np.random.choice(a=[&#39;London&#39;, &#39;Paris&#39;, &#39;Newport&#39;, &#39;Bradfield&#39;, &#39;Coldport&#39;, &#39;Filly Downs&#39;],
+                          p=[0.15,      0.2,      0.1,      0.1,         0.3,         0.15], size=size)
 
 
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+data[&#39;longitude&#39;] = np.random.randint(0, 360, size=size)
 
-<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+data.head(5)
 </pre></div>
 </div>
 </div>
@@ -594,34 +514,32 @@ div.rendered_html tbody tr:hover {
 </div></div>
 </div>
 <p>In the dataset, the <strong>fruit</strong> and <strong>city</strong> columns are <em>categorical</em>, while <strong>latitude</strong>, <strong>temp</strong> and <strong>longitude</strong> are <em>numeric</em>.</p>
-</div>
-<div class="section" id="Create-a-comparison-dataset">
-<h3>Create a comparison dataset<a class="headerlink" href="#Create-a-comparison-dataset" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Create-a-comparison-dataset">
+<h3>Create a comparison dataset<a class="headerlink" href="#Create-a-comparison-dataset" title="Permalink to this headline"></a></h3>
 <p>We will create a dataset to compare by taking the original dataset and modify some of the values. In this case, we will set a couple of columns to a constant value, which would result in the new dataset being of a different distribution from the original dataset.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data_shifted</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">data_shifted</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">data_shifted</span><span class="o">.</span><span class="n">fruit</span> <span class="o">=</span> <span class="s1">&#39;apple&#39;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data_shifted = data.copy()
+data_shifted[&#39;temp&#39;] = 1
+data_shifted.fruit = &#39;apple&#39;
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Calculating-Divergence">
-<h2>Calculating Divergence<a class="headerlink" href="#Calculating-Divergence" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Calculating-Divergence">
+<h2>Calculating Divergence<a class="headerlink" href="#Calculating-Divergence" title="Permalink to this headline"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">warnings</span>
-<span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-    <span class="kn">from</span> <span class="nn">mvtk.supervisor.divergence</span> <span class="kn">import</span> <span class="n">calc_tv_knn</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import warnings
+with warnings.catch_warnings():
+    warnings.simplefilter(&quot;ignore&quot;)
+    from mvtk.supervisor.divergence import calc_tv_knn
 </pre></div>
 </div>
 </div>
@@ -631,8 +549,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_knn</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data_shifted</span><span class="p">,</span> <span class="n">categorical_columns</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(data, data_shifted, categorical_columns=[1,3])
 </pre></div>
 </div>
 </div>
@@ -649,8 +566,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_knn</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">categorical_columns</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(data, data, categorical_columns=[1,3])
 </pre></div>
 </div>
 </div>
@@ -663,18 +579,17 @@ div.rendered_html tbody tr:hover {
 0.2598375876037403
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="mvtk.supervisor.utils.column_indexes">
-<h2>mvtk.supervisor.utils.column_indexes<a class="headerlink" href="#mvtk.supervisor.utils.column_indexes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mvtk.supervisor.utils.column_indexes">
+<h2>mvtk.supervisor.utils.column_indexes<a class="headerlink" href="#mvtk.supervisor.utils.column_indexes" title="Permalink to this headline"></a></h2>
 <p>With the utility function <strong>column_indexes</strong> you can get a list of the ccategorical columns in the dataframe.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mvtk.supervisor.utils</span> <span class="kn">import</span> <span class="n">column_indexes</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from mvtk.supervisor.utils import column_indexes
 
-<span class="n">column_indexes</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fruit&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">])</span>
+column_indexes(data, cols=[&#39;fruit&#39;, &#39;city&#39;])
 </pre></div>
 </div>
 </div>
@@ -692,9 +607,8 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">calc_tv_knn</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span>
-            <span class="n">categorical_columns</span><span class="o">=</span><span class="n">column_indexes</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fruit&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">]))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(data, data,
+            categorical_columns=column_indexes(data, cols=[&#39;fruit&#39;, &#39;city&#39;]))
 </pre></div>
 </div>
 </div>
@@ -707,55 +621,38 @@ div.rendered_html tbody tr:hover {
 0.25967482718707363
 </pre></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../credibility/Credibility.html" class="btn btn-neutral float-right" title="Assessing Credibility From Sample Size" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="DivergenceFunctions.html" class="btn btn-neutral float-left" title="Notes on Using Divergence Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="BugDetection.html" class="btn btn-neutral float-right" title="Dataset Bug Detection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Model Validation Toolkit Team.
-
-    </p>
+    <p>&#169; Copyright 2021, Model Validation Toolkit Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

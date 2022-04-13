@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes on Using Divergence Functions &mdash; Model Validation Toolkit 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../../../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+ 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BGSHYDJP8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BGSHYDJP8');
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../../index.html" class="icon icon-home"> Model Validation Toolkit
+            <img src="../../../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sobol_user_guide.html">Sobol User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/divergence/BugDetection.html">Dataset Bug Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/divergence/TrainingDatasetDrift.html">Training Dataset Drift Detection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bias and Metrics Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../metrics.html">metrics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Model Validation Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Notes on Using Divergence Functions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/linkcheck/.doctrees/nbsphinx/notebooks/divergence/DivergenceFunctions.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Notes-on-Using-Divergence-Functions">
+<h1>Notes on Using Divergence Functions<a class="headerlink" href="#Notes-on-Using-Divergence-Functions" title="Permalink to this headline"></a></h1>
+<p>The <strong>mvtk.supervisor.divergence</strong> contains several functions that compute <strong>total variation</strong> between two data distributions. However, these functions have very different mechanisms for arriving at total variation. Some functions, such as <strong>calc_tv</strong> use a neural network under the hood, while others such as <strong>calc_tv_knn</strong> use a different mechanism to arrive at the range of values to inform on whether two distributions are more similar or not. Because of these differences, there functions are
+often best suited for different circumstances, be it data size, computational resources, or accuracy requirements. This notebook provides a guide to when and how to use the functions.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import warnings
+from IPython.display import display
+from ipywidgets import HTML
+warnings.filterwarnings(&#39;ignore&#39;)
+from mvtk.supervisor.divergence import calc_tv, calc_tv_knn, calc_tv_density, calc_tv_mle, calc_kl_mle, calc_hl
+from mvtk.supervisor.utils import column_indexes
+</pre></div>
+</div>
+</div>
+<section id="Data-Types">
+<h2>Data Types<a class="headerlink" href="#Data-Types" title="Permalink to this headline"></a></h2>
+<p>The algorithms underneath the divergence functions all operate on <strong>numpy arrays</strong>. A divergence function compares a <strong>sample_a</strong> vs a <strong>sample_b</strong>, where a sample is either an array</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def divergence_function(sample_a, sample_b, **kwargs):
+    algorithm
+</pre></div>
+</div>
+<p><strong>OR</strong> a <em>list of arrays</em></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def divergence_function([sample_a], [sample_b], **kwargs):
+    algorithm
+</pre></div>
+</div>
+<p>The functions that accept lists allow you to test one <em>list of batches</em> against another <em>list of batches</em>. For example,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sample_a = [batch1, batch2, batch3]
+sample_b = [[batch5, batch6]
+</pre></div>
+</div>
+<p>This will compare the average of the distributions that generated <code class="docutils literal notranslate"><span class="pre">batch1</span></code>, <code class="docutils literal notranslate"><span class="pre">batch2</span></code>, and <code class="docutils literal notranslate"><span class="pre">batch3</span></code> to the average of the distributions that generated <code class="docutils literal notranslate"><span class="pre">batch4</span></code> and <code class="docutils literal notranslate"><span class="pre">batch5</span></code>. You can just use singletons to compare <code class="docutils literal notranslate"><span class="pre">batch1</span></code> to <code class="docutils literal notranslate"><span class="pre">batch2</span></code>, i.e.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sample_a = [batch1]
+sample_b = [batch2]
+</pre></div>
+</div>
+<p>For the divergence functions that you intend to use, you should check the documentation as to whether it accepts lists or arrays.</p>
+</section>
+<section id="Using-Dataframes">
+<h2>Using Dataframes<a class="headerlink" href="#Using-Dataframes" title="Permalink to this headline"></a></h2>
+<p>Pandas dataframes are a perfect input source for the divergence functions. The underlying storage for dataframes are numpy arrays on which all divergence functions can operate.</p>
+<p>If your data is in <strong>Pyspark</strong> dataframes then you either convert to pandas dataframes, or numpy arrays.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+df = pd.DataFrame({&#39;weight&#39;: np.random.uniform(1, 100, size=(10000)),
+                  &#39;colors&#39;: np.random.choice([&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;, &#39;yellow&#39;], p=[0.2, 0.3, 0.3, 0.2])})
+df.head(3)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weight</th>
+      <th>colors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>79.360725</td>
+      <td>green</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>92.373537</td>
+      <td>green</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>91.021177</td>
+      <td>green</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Create-Data-Distributions">
+<h2>Create Data Distributions<a class="headerlink" href="#Create-Data-Distributions" title="Permalink to this headline"></a></h2>
+<p>For data, we will create datasets drawn from different distributions. We will use about a <strong>million rows</strong>, and about <strong>100</strong> columns.</p>
+<p>Each row in a dataset becomes a training example to be used in the neural network that calculates the divergence. If you have too few rows, then the divergence value will not be calculated accurately, and in practice will be close to zero.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ROWS, COLUMNS = 1000000, 10
+DATA_SHAPE = ROWS, COLUMNS
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>samples = dict()
+uniform_a   = samples[&#39;uniform_a&#39;]   = np.random.uniform(1, 100, size=DATA_SHAPE)
+uniform_b   = samples[&#39;uniform_b&#39;]   = np.random.uniform(1, 100, size=DATA_SHAPE)
+beta_a      = samples[&#39;beta_a&#39;]      = np.random.beta(0.2, 0.9, size=DATA_SHAPE)
+chisquare_a = samples[&#39;chisquare_a&#39;] = np.random.chisquare(2,DATA_SHAPE)
+ones        = samples[&#39;ones&#39;]        = np.ones(DATA_SHAPE)
+
+funcs = {&#39;calc_tv&#39;: calc_tv}
+</pre></div>
+</div>
+</div>
+<section id="Visualizing-the-distributions">
+<h3>Visualizing the distributions<a class="headerlink" href="#Visualizing-the-distributions" title="Permalink to this headline"></a></h3>
+<p>Let’s visualize each of our probability distributions. In this case, each of the <code class="docutils literal notranslate"><span class="pre">COLUMNS=10</span></code> features has exactly the same distribution and they are all independent of eachother, so the following function just lumps all of the samples together. In general, you would <em>not</em> want to do this!</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
+import matplotlib.style as style
+import seaborn as sns; sns.set()
+
+def distplot(series, title=None):
+    if isinstance(series, pd.Series):
+        series = series.values
+    sns.distplot(series.ravel())
+    plt.xticks([])
+    plt.yticks([])
+    plt.grid(False)
+    if title:
+        plt.title(title)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>distplot(uniform_a)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_divergence_DivergenceFunctions_10_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_divergence_DivergenceFunctions_10_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>distplot(beta_a)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_divergence_DivergenceFunctions_11_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_divergence_DivergenceFunctions_11_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>distplot(chisquare_a)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_divergence_DivergenceFunctions_12_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_divergence_DivergenceFunctions_12_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>distplot(ones)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_divergence_DivergenceFunctions_13_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_divergence_DivergenceFunctions_13_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="Calculating-Total-Variation">
+<h2>Calculating Total Variation<a class="headerlink" href="#Calculating-Total-Variation" title="Permalink to this headline"></a></h2>
+<p>The main divergence functions calculate the total variation between distributions. However, there are very different ways to arrive at a range of 0-1 with 0 meaning no divergence, and 1 meaning total divergence. This presents users with different approaches with benefits that match different circumstances and dta sizes.</p>
+</section>
+<section id="calc_tv">
+<h2>calc_tv<a class="headerlink" href="#calc_tv" title="Permalink to this headline"></a></h2>
+<p>Computes the total variation between two distributions.</p>
+<p>See <a class="reference external" href="https://en.wikipedia.org/wiki/Total_variation_distance_of_probability_measures">https://en.wikipedia.org/wiki/Total_variation_distance_of_probability_measures</a> It uses a neural network to calculate the total variation between distributions. Since it uses a neural network internally, it exposes some familar settings such as the num_epochs, num_batches etc. which you can tune for greater accuracy.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sample_distribution_p</span></code> <em>The first distribution</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">sample_distribution_q</span></code> <em>The second distribution</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">categorical_columns</span></code> If using a dataframe, the categorical columns</p>
+<p><code class="docutils literal notranslate"><span class="pre">num_epochs</span></code> The number of epochs to train for</p>
+<p><code class="docutils literal notranslate"><span class="pre">num_batches</span></code></p>
+<p>Additionally, you can use <code class="docutils literal notranslate"><span class="pre">model_generator_kwargs</span></code> to set <code class="docutils literal notranslate"><span class="pre">model_generator</span></code> default <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>. Of particular importance are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">depth</span></code> The number of layers of the neural network. Defaults to <code class="docutils literal notranslate"><span class="pre">3</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">width</span></code> The size of the hidden layer</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv(uniform_a, uniform_b)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.0004881620407104492
+</pre></div></div>
+</div>
+<p>If two distributions are different then the divergence will be close to one.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv(uniform_a, ones)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.9995993375778198
+</pre></div></div>
+</div>
+<p>You can get better accuracy by changing the default parameters - in this case <strong>num_epochs=16, num_batches=128, depth=2, width=32</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv(uniform_a, ones, num_epochs=16, num_batches=128, model_generator_kwargs={&#39;width&#39;: 32, &#39;depth&#39;: 2})
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.999308705329895
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv(uniform_a, chisquare_a)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.9999822974205017
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv(uniform_a, [pd.DataFrame(chisquare_a), ones])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.9989728927612305
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv([uniform_a, ones],[chisquare_a])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.5061822533607483
+</pre></div></div>
+</div>
+</section>
+<section id="calc_hl">
+<h2>calc_hl<a class="headerlink" href="#calc_hl" title="Permalink to this headline"></a></h2>
+<p>Calculate divergence using Hellinger distance.</p>
+<p>See <a class="reference external" href="https://en.wikipedia.org/wiki/Hellinger_distance">https://en.wikipedia.org/wiki/Hellinger_distance</a></p>
+<p><strong>sample_distribution_p</strong> <em>The first distribution</em></p>
+<p><strong>sample_distribution_q</strong> <em>The second distribution</em></p>
+<p>Additionally, you can use <code class="docutils literal notranslate"><span class="pre">model_generator_kwargs</span></code> to set <code class="docutils literal notranslate"><span class="pre">model_generator</span></code> default <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>. Of particular importance are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">depth</span></code> The number of layers of the neural network. Defaults to <code class="docutils literal notranslate"><span class="pre">3</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">width</span></code> The size of the hidden layer</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_hl(uniform_a, uniform_b)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_hl(uniform_a, chisquare_a)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.0
+</pre></div></div>
+</div>
+<p><strong>calc_hl</strong> finds a significant divergence between the beta and chisquare distributions</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_hl(beta_a, chisquare_a)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.9981940472630377
+</pre></div></div>
+</div>
+</section>
+<section id="calc_tv_knn">
+<h2>calc_tv_knn<a class="headerlink" href="#calc_tv_knn" title="Permalink to this headline"></a></h2>
+<p>Computes the total variation between two distributions. Because it uses KNN which is a fairly simple algorithm it is often faster to compute that <strong>calc_tv</strong>. However, you will want to take care to set the function parameters based on your data dimensions in order for it to get the best accuracy.</p>
+<p><strong>sample_distribution_p</strong> <em>The first distribution</em></p>
+<p><strong>sample_distribution_q</strong> <em>The second distribution</em></p>
+<p><strong>bias</strong></p>
+<p><strong>num_samples</strong> <em>Number of subsamples to take from each distribution on which to construct kdtrees and otherwise make computations. Defaults to 2046</em></p>
+<p><strong>categorical_columns</strong></p>
+<p><strong>k</strong> <em>number of nearest neighbours. As a rule of thumb, you should multiply this by two with every dimension past one. Defaults to 128</em></p>
+<p>Here is an example of using the default parameters for <strong>calc_tv_knn</strong> on similar distributions.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(uniform_a, uniform_b)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.03465665858242252
+</pre></div></div>
+</div>
+<p>In this example, <strong>calc_tv_knn</strong> picks up a divergence between the <strong>uniform</strong> and <strong>beta</strong> distributions</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(uniform_a, beta_a, k=20)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.8272527964149479
+</pre></div></div>
+</div>
+<p>and between the uniform and chisquare distributions</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(uniform_a, chisquare_a)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.9306603225843605
+</pre></div></div>
+</div>
+<p><strong>KNN</strong> is an unbiased estimator and will sometimes overshoot.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(beta_a, chisquare_a)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.20928344516188
+</pre></div></div>
+</div>
+<p>One way to address this is to set the value of <strong>k neighbours</strong> to <strong>2 * the number of dimensions</strong>. There are 10 columns so we set k to <strong>20</strong>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(beta_a, chisquare_a, k = 20)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.1124090464149479
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(beta_a, beta_a, k=20)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.07457887528399548
+</pre></div></div>
+</div>
+</section>
+<section id="Density-Based-Estimators">
+<h2>Density Based Estimators<a class="headerlink" href="#Density-Based-Estimators" title="Permalink to this headline"></a></h2>
+<p>Density estimation is the problem of reconstructing the probability density function using a set of given data points.</p>
+</section>
+<section id="calc_tv_density">
+<h2>calc_tv_density<a class="headerlink" href="#calc_tv_density" title="Permalink to this headline"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_density(uniform_a, uniform_b)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+165011946.1532011
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_density(uniform_a, beta_a)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+251557894.78209227
+</pre></div></div>
+</div>
+</section>
+<section id="Handling-Categorical-Data">
+<h2>Handling Categorical Data<a class="headerlink" href="#Handling-Categorical-Data" title="Permalink to this headline"></a></h2>
+<p>If your data is all categorical, then you would probably want to use <strong>calc_tv_mle</strong>.</p>
+<p>For these examples, we will create categorical columns drawn from different distributions.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>FRUITS, FRUIT_PROBS = [&#39;apple&#39;, &#39;orange&#39;, &#39;plum&#39;, &#39;raspberry&#39;, &#39;blueberry&#39;], [0.1, 0.3, 0.3, 0.25, 0.05]
+assert sum(FRUIT_PROBS) ==1
+
+raspberry_blast = np.random.choice(FRUITS,size=(1000000, 10), p=FRUIT_PROBS)
+blueberry_blast = np.random.choice(FRUITS,size=(1000000, 10), p=FRUIT_PROBS)
+plain_smoothie = np.random.choice(FRUITS, size=(1000000, 10))
+</pre></div>
+</div>
+</div>
+</section>
+<section id="calc_tv_mle">
+<h2>calc_tv_mle<a class="headerlink" href="#calc_tv_mle" title="Permalink to this headline"></a></h2>
+<p>Computes the total variation between two distributions using histogram based density estimators. All columns are assumed to be categorical.</p>
+<p><strong>sample_distribution_p</strong> <em>The first distribution</em></p>
+<p><strong>sample_distribution_q</strong> <em>The second distribution</em></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>raspberry_blast[0]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([&#39;orange&#39;, &#39;apple&#39;, &#39;plum&#39;, &#39;plum&#39;, &#39;plum&#39;, &#39;plum&#39;, &#39;orange&#39;,
+       &#39;raspberry&#39;, &#39;plum&#39;, &#39;orange&#39;], dtype=&#39;&lt;U9&#39;)
+</pre></div></div>
+</div>
+<p>The samples <strong>raspberry_blast</strong> and <strong>plain_smoothie</strong> have been drawn from different distributions and so we expect to see a high <strong>total variation</strong>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_mle(raspberry_blast, plain_smoothie)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.9319870000000001
+</pre></div></div>
+</div>
+<p>But the samples <strong>raspberry_blast</strong> and <strong>plain_smoothie</strong> have been drawn from similar distributions and so we expect to see lower total variation.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_mle(raspberry_blast, blueberry_blast)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.6263819999999999
+</pre></div></div>
+</div>
+</section>
+<section id="calc_kl_mle">
+<h2>calc_kl_mle<a class="headerlink" href="#calc_kl_mle" title="Permalink to this headline"></a></h2>
+<p>When the second distribution is zero when the first distribution is nonzero for categorical data, kl divergence will hit infinity. For histograms derived from high dimensional categorical data this becomes likely.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_kl_mle(raspberry_blast, plain_smoothie)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+inf
+</pre></div></div>
+</div>
+</section>
+<section id="Handling-Mixed-Data">
+<h2>Handling Mixed Data<a class="headerlink" href="#Handling-Mixed-Data" title="Permalink to this headline"></a></h2>
+<p>If your data contains categorical columns, then you need to specify the indices of the categorical columns. To demonstrate this, we will create a dataframe with one categorical column and one numeric column, then compute the total variation.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>NUM_ITEMS = 100000
+inventory_a = pd.DataFrame({&#39;fruits&#39;: np.random.choice(FRUITS,size=NUM_ITEMS, p=FRUIT_PROBS),
+                          &#39;weight&#39;: np.random.uniform(1, 100, size=NUM_ITEMS).tolist()})
+
+inventory_b = pd.DataFrame({&#39;fruits&#39;: np.random.choice(FRUITS,size=NUM_ITEMS),
+                            &#39;weight&#39;: np.random.beta(0.2, 0.9, size=NUM_ITEMS).tolist()})
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>inventory_a.head(4)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fruits</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>plum</td>
+      <td>9.043091</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>orange</td>
+      <td>82.114676</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>raspberry</td>
+      <td>31.065103</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>raspberry</td>
+      <td>64.049112</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>inventory_b.head(4)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fruits</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>plum</td>
+      <td>0.001619</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>plum</td>
+      <td>0.000238</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>raspberry</td>
+      <td>0.978383</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>orange</td>
+      <td>0.514946</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Now we can use <strong>calc_tv_knn</strong>, setting <strong>k=4</strong> since there are only two columns</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(inventory_a, inventory_b, categorical_columns=[0], k=4)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.664169492122229
+</pre></div></div>
+</div>
+<p>If you use <strong>calc_tv_knn</strong> on the same data you get a lower value since it’s the same distribution</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>calc_tv_knn(inventory_a, inventory_a, categorical_columns=[0], k=4)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.216708554622229
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Model Validation Toolkit Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
