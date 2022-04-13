@@ -30,7 +30,7 @@ You can import:
 - `mvtk.interprenet` for building interpretable neural nets.
 - `mvtk.thresholding` for adaptive thresholding.
 - `mvtk.sobol` for Sobol sensitivity analysis
-- `mvtk.supervisor` for divergence anlysis
+- `mvtk.supervisor` for divergence analysis
 - `mvtk.metrics` for specialised metrics
 
 # Documentation
