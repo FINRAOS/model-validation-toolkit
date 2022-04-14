@@ -491,13 +491,12 @@ data
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns; sns.set()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns; sns.set(font_scale=2)
 import matplotlib
 import matplotlib.pylab as plt
 import numpy
 
 plt.figure(figsize=(10, 2))
-
 plt.title(&#39;Positive Scores&#39;)
 plt.xlabel(&#39;Model Score&#39;)
 plt.yticks([])
@@ -521,12 +520,7 @@ plt.show()
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns; sns.set()
-import matplotlib
-import matplotlib.pylab as plt
-import numpy
-
-plt.figure(figsize=(10, 2))
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(10, 2))
 
 plt.title(&#39;Negative Scores&#39;)
 plt.xlabel(&#39;Model Score&#39;)
@@ -554,7 +548,6 @@ plt.show()
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(10, 10))
 
-sns.set()
 plt.title(&#39;Positive Score Distribution&#39;)
 plt.xlabel(&#39;Model Score&#39;)
 plt.ylabel(&#39;Probability Density&#39;)
@@ -579,7 +572,6 @@ plt.show()
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(10, 10))
 
-sns.set()
 plt.title(&#39;Negative Score Distribution&#39;)
 plt.xlabel(&#39;Model Score&#39;)
 plt.ylabel(&#39;Probability Density&#39;)
@@ -605,7 +597,6 @@ plt.show()
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(10, 10))
 
-sns.set()
 plt.title(&#39;Score Distribution&#39;)
 plt.xlabel(&#39;Model Score&#39;)
 plt.ylabel(&#39;Probability Density&#39;)
@@ -661,11 +652,7 @@ plt.show()
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy
-import matplotlib.pylab as plt
-import seaborn as sns, numpy
-
-from mvtk import thresholding
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from mvtk import thresholding
 
 plt.figure(figsize=(10, 10))
 plt.title(&#39;Expected Utility vs Threshold&#39;)
@@ -678,18 +665,23 @@ thresholding.plot_err(scores,
          utility_mean,
          utility_quantiles,
          label=&#39;Expected Utility&#39;)
-leg = plt.legend()
-for lh in leg.legendHandles:
-    lh.set_alpha(1)
 plt.show()
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_14_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_14_0.png" />
+<img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_14_1.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_thresholding_Thresholding_14_1.png" />
 </div>
 </div>
 </section>
@@ -723,7 +715,7 @@ plt.show()
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.set(); numpy.random.seed(0)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numpy.random.seed(0)
 plt.figure(figsize=(10, 10))
 plt.xlim([0, 1])
 plt.title(&#39;Threshold Distribution&#39;)
@@ -771,10 +763,10 @@ thresholds = numpy.asarray(thresholds)
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pylab as plt
 
-plt.figure(figsize=(9, 9))
+plt.figure(figsize=(10, 10))
 plt.ylabel(&#39;Exploration Percent (Moving Average)&#39;)
 plt.xlabel(&#39;Epoch&#39;)
-plt.plot(thresholding.exploration_proportion(thresholds, 100))
+plt.plot(100 * numpy.array(thresholding.exploration_proportion(thresholds, 100)))
 plt.show()
 </pre></div>
 </div>
@@ -829,10 +821,7 @@ plt.show()
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pylab as plt
-import seaborn as sns, numpy
-
-plt.figure(figsize=(10, 10))
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(10, 10))
 plt.title(&#39;Expected Utility vs Threshold&#39;)
 plt.xlabel(&#39;Threshold&#39;)
 plt.ylabel(&#39;Expected Utility&#39;)
@@ -848,7 +837,7 @@ thresholding.plot_err(scores,
 ax = sns.rugplot(thresholds[-64:], # most recent
                   color=&#39;green&#39;,
                   label=&#39;64 Most Recent Thresholds&#39;)
-leg = plt.legend()
+leg = plt.legend(loc=&#39;center&#39;)
 for lh in leg.legendHandles:
     lh.set_alpha(1)
 plt.show()
@@ -868,9 +857,6 @@ plt.show()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
-
-import matplotlib.pylab as plt
-import seaborn as sns, numpy
 import os
 import shutil
 
@@ -883,7 +869,7 @@ Path(frame_dir).mkdir(parents=True, exist_ok=True)
 
 
 def mkplot(thresholds, large_sample_ideal_thresholds):
-    sns.set(); numpy.random.seed(0)
+    numpy.random.seed(0)
     plt.figure(figsize=(10, 10))
     plt.xlim([0, 1])
     plt.title(f&#39;Threshold Distribution (epoch {i})&#39;)
@@ -894,14 +880,14 @@ def mkplot(thresholds, large_sample_ideal_thresholds):
                       hist=False,
                       kde=True,
                       color=&#39;green&#39;,
-                      label=&#39;Thresholds Chosen Using Unbiased Samples&#39;)
+                      label=&#39;Thresholds Chosen&#39;)
     ax = sns.distplot(large_sample_ideal_thresholds, # most recent
                       rug=False,
                       hist=False,
                       kde=True,
                       color=&#39;blue&#39;,
-                      label=&#39;Ideal Threshold Distribution&#39;)
-    leg = plt.legend(loc=&#39;upper right&#39;)
+                      label=&#39;Ideal Distribution&#39;)
+    leg = plt.legend(loc=&#39;upper left&#39;)
     for lh in leg.legendHandles:
         lh.set_alpha(1)
     plt.savefig(os.path.join(frame_dir, f&#39;im_{i}.png&#39;))
@@ -918,7 +904,7 @@ mkplot(thresholds[j:], large_sample_ideal_thresholds)
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
