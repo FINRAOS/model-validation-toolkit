@@ -535,7 +535,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Below is the percentage of departure delays that are 500 seconds or more per day in our updated daily data set"
+    "Below is the percentage of departure delays that are 100 seconds or more per day in our updated daily data set"
    ]
   },
   {
@@ -638,13 +638,6 @@
    "source": [
     "As we can see above, our drift detection increases this time starting from day 28, alerting us of the drift."
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {
