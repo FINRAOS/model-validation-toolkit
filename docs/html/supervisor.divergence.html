@@ -48,7 +48,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -123,7 +123,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
           <li><a href="supervisor.html">supervisor</a> &raquo;</li>
       <li>divergence</li>
       <li class="wy-breadcrumbs-aside">
@@ -162,7 +162,7 @@
 <section id="module-mvtk.supervisor.divergence">
 <span id="divergence"></span><h1>divergence<a class="headerlink" href="#module-mvtk.supervisor.divergence" title="Permalink to this headline"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.Approximator">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.Approximator">
 <span class="sig-name descname"><span class="pre">Approximator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">input_size,</span> <span class="pre">depth=3,</span> <span class="pre">width=None,</span> <span class="pre">output_size=1,</span> <span class="pre">linear=&lt;function</span> <span class="pre">Dense&gt;,</span> <span class="pre">residual=True,</span> <span class="pre">activation=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;,</span> <span class="pre">rng=DeviceArray([0,</span> <span class="pre">0],</span> <span class="pre">dtype=uint32)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/nn.html#Approximator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.Approximator" title="Permalink to this definition"></a></dt>
 <dd><p>Basic Neural network based function
 <span class="math notranslate nohighlight">\(\mathbb{R}^N\rightarrow\mathbb{R}^M\)</span> function approximator.</p>
@@ -189,13 +189,13 @@ Defaults to the identity.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.NormalizedLinear">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.NormalizedLinear">
 <span class="sig-name descname"><span class="pre">NormalizedLinear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W_init=&lt;function</span> <span class="pre">variance_scaling.&lt;locals&gt;.init&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_init=&lt;function</span> <span class="pre">normal.&lt;locals&gt;.init&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/nn.html#NormalizedLinear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.NormalizedLinear" title="Permalink to this definition"></a></dt>
 <dd><p>Linear layer with positive weights with columns that sum to one.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.arrayify">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.arrayify">
 <span class="sig-name descname"><span class="pre">arrayify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/utils.html#arrayify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.arrayify" title="Permalink to this definition"></a></dt>
 <dd><p>Convert the value to at least dim 3. If is dataframe it converts it to a
 list of values.</p>
@@ -211,12 +211,12 @@ list of dataframes or series</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.average_histograms">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.average_histograms">
 <span class="sig-name descname"><span class="pre">average_histograms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">histograms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#average_histograms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.average_histograms" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.balanced_binary_cross_entropy">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.balanced_binary_cross_entropy">
 <span class="sig-name descname"><span class="pre">balanced_binary_cross_entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#balanced_binary_cross_entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.balanced_binary_cross_entropy" title="Permalink to this definition"></a></dt>
 <dd><p>Compute cross entropy loss while compensating for class imbalance</p>
 <dl class="field-list simple">
@@ -230,7 +230,7 @@ list of dataframes or series</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.cal_div_knn">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.cal_div_knn">
 <span class="sig-name descname"><span class="pre">cal_div_knn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">divergence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples=2048</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns=()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprng=RandomState(MT19937)</span> <span class="pre">at</span> <span class="pre">0x7F9DBC0BE040</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k=128</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#cal_div_knn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.cal_div_knn" title="Permalink to this definition"></a></dt>
 <dd><p><span class="math notranslate nohighlight">\(f\)</span>-divergence from knn density estimators</p>
 <dl class="field-list simple">
@@ -263,7 +263,7 @@ past one. Defaults to 128.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_div_variational">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_div_variational">
 <span class="sig-name descname"><span class="pre">calc_div_variational</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_stream</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_generator=&lt;function</span> <span class="pre">Approximator&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary=''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_div_variational"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_div_variational" title="Permalink to this definition"></a></dt>
 <dd><p>Calculate an <span class="math notranslate nohighlight">\(f\)</span>-divergence or integral probability metric using
 a variational of hybrid variational estimator.</p>
@@ -294,7 +294,7 @@ inputs to the model outputs. Defaults to
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_em">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_em">
 <span class="sig-name descname"><span class="pre">calc_em</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_generator_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_batches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_test_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0125</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mvtk.supervisor.divergence.calc_em" title="Permalink to this definition"></a></dt>
 <dd><p>Wasserstein-1 (Earth Mover’s) metric</p>
 <p><span class="math notranslate nohighlight">\(\int dxdx^\prime d(x, x^\prime)\gamma(x, x^\prime)\)</span></p>
@@ -360,7 +360,7 @@ validation. If None, no split is used. Defaults to 0.75.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_hl">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_hl">
 <span class="sig-name descname"><span class="pre">calc_hl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_generator_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_batches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_test_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0125</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mvtk.supervisor.divergence.calc_hl" title="Permalink to this definition"></a></dt>
 <dd><p>Hellinger distance calculator</p>
 <p><span class="math notranslate nohighlight">\(f(x) = 1 - \sqrt{x}\)</span></p>
@@ -418,7 +418,7 @@ validation. If None, no split is used. Defaults to 0.75.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_hl_density">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_hl_density">
 <span class="sig-name descname"><span class="pre">calc_hl_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_hl_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_hl_density" title="Permalink to this definition"></a></dt>
 <dd><p>Hellinger distance calculated from histograms.</p>
 <p>Hellinger distance is defined as</p>
@@ -435,7 +435,7 @@ validation. If None, no split is used. Defaults to 0.75.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_hl_mle">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_hl_mle">
 <span class="sig-name descname"><span class="pre">calc_hl_mle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_hl_mle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_hl_mle" title="Permalink to this definition"></a></dt>
 <dd><p>Hellinger distance calculated via histogram based density estimators.</p>
 <p>Hellinger distance is defined as</p>
@@ -461,7 +461,7 @@ The outer most list is typically a singleton.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_js">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_js">
 <span class="sig-name descname"><span class="pre">calc_js</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_generator_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_batches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_test_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0125</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mvtk.supervisor.divergence.calc_js" title="Permalink to this definition"></a></dt>
 <dd><p>Jensen-Shannon divergence calculator</p>
 <p><span class="math notranslate nohighlight">\(f(x) = -\log_2(x)\)</span></p>
@@ -516,7 +516,7 @@ validation. If None, no split is used. Defaults to 0.75.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_js_density">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_js_density">
 <span class="sig-name descname"><span class="pre">calc_js_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">densities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_js_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_js_density" title="Permalink to this definition"></a></dt>
 <dd><p>Jensen-Shannon divergence calculated from histograms.</p>
 <p>For two distributions, <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> defined over the same
@@ -537,7 +537,7 @@ therefore taken to be 2.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_js_mle">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_js_mle">
 <span class="sig-name descname"><span class="pre">calc_js_mle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_js_mle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_js_mle" title="Permalink to this definition"></a></dt>
 <dd><p>Jensen-Shannon divergences calculated via histogram based density estimators.</p>
 <p>For two distributions, <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> defined over the same
@@ -567,7 +567,7 @@ The outer most list is typically a singleton.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_kl_density">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_kl_density">
 <span class="sig-name descname"><span class="pre">calc_kl_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_kl_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_kl_density" title="Permalink to this definition"></a></dt>
 <dd><p>Kullback–Leibler (KL) divergence calculated from histograms.</p>
 <dl class="simple">
@@ -586,7 +586,7 @@ The outer most list is typically a singleton.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_kl_mle">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_kl_mle">
 <span class="sig-name descname"><span class="pre">calc_kl_mle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_kl_mle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_kl_mle" title="Permalink to this definition"></a></dt>
 <dd><p>Kullback–Leibler (KL) divergence calculated via histogram based density estimators.</p>
 <p>For two distributions, <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> defined over the same
@@ -612,12 +612,12 @@ The outer most list is typically a singleton.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_mle">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_mle">
 <span class="sig-name descname"><span class="pre">calc_mle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_mle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_mle" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_tv">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_tv">
 <span class="sig-name descname"><span class="pre">calc_tv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_generator_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_batches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_test_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0125</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mvtk.supervisor.divergence.calc_tv" title="Permalink to this definition"></a></dt>
 <dd><p>Total variation - <span class="math notranslate nohighlight">\(f\)</span>-divergence form</p>
 <p><span class="math notranslate nohighlight">\(\frac{1}{2}\int dx \vert p\left(x\right) - q\left(x\right) \vert =
@@ -669,7 +669,7 @@ validation. If None, no split is used. Defaults to 0.75.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_tv_density">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_tv_density">
 <span class="sig-name descname"><span class="pre">calc_tv_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_tv_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_tv_density" title="Permalink to this definition"></a></dt>
 <dd><p>Total variation calculated from histograms.</p>
 <p>For two distributions, <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> defined over the same
@@ -686,7 +686,7 @@ probability space, <span class="math notranslate nohighlight">\(\mathcal{X}\)</s
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_tv_knn">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_tv_knn">
 <span class="sig-name descname"><span class="pre">calc_tv_knn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_tv_knn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_tv_knn" title="Permalink to this definition"></a></dt>
 <dd><p>Total variation from knn density estimators</p>
 <dl class="field-list simple">
@@ -719,7 +719,7 @@ past one. Defaults to 128.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_tv_lower_bound">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_tv_lower_bound">
 <span class="sig-name descname"><span class="pre">calc_tv_lower_bound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_tv_lower_bound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_tv_lower_bound" title="Permalink to this definition"></a></dt>
 <dd><p>Lower bound of total variation. A model (not provided) must be trained
 to classify data as belonging to one of two datasets using log loss,
@@ -735,7 +735,7 @@ compensated.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_tv_mle">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.calc_tv_mle">
 <span class="sig-name descname"><span class="pre">calc_tv_mle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_tv_mle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_tv_mle" title="Permalink to this definition"></a></dt>
 <dd><p>Total variation calculated via histogram based density estimators. All
 columns are assumed to be categorical.</p>
@@ -762,12 +762,12 @@ The outer most list is typically a singleton.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.cat_histograms">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.cat_histograms">
 <span class="sig-name descname"><span class="pre">cat_histograms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">histograms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#cat_histograms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.cat_histograms" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.fdiv_data_stream">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.fdiv_data_stream">
 <span class="sig-name descname"><span class="pre">fdiv_data_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nprng</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/generators.html#fdiv_data_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.fdiv_data_stream" title="Permalink to this definition"></a></dt>
 <dd><p>Data stream generator for f-divergence.</p>
 <dl class="field-list simple">
@@ -796,7 +796,7 @@ from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 + p_3}{3}\)</s
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.fdiv_loss">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.fdiv_loss">
 <span class="sig-name descname"><span class="pre">fdiv_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">convex_conjugate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#fdiv_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.fdiv_loss" title="Permalink to this definition"></a></dt>
 <dd><p>General template for <span class="math notranslate nohighlight">\(f\)</span>-divergence losses given convex conjugate.</p>
 <dl class="field-list simple">
@@ -807,33 +807,33 @@ from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 + p_3}{3}\)</s
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.get_density_estimators">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.get_density_estimators">
 <span class="sig-name descname"><span class="pre">get_density_estimators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sample_distributions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#get_density_estimators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.get_density_estimators" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.get_distance_matrix">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.get_distance_matrix">
 <span class="sig-name descname"><span class="pre">get_distance_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/utils.html#get_distance_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.get_distance_matrix" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.get_drift_series">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.get_drift_series">
 <span class="sig-name descname"><span class="pre">get_drift_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/utils.html#get_drift_series"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.get_drift_series" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.histogram">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.histogram">
 <span class="sig-name descname"><span class="pre">histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.histogram" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.ipm_loss">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.ipm_loss">
 <span class="sig-name descname"><span class="pre">ipm_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#ipm_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.ipm_loss" title="Permalink to this definition"></a></dt>
 <dd><p>Integral probability metric loss.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.js_data_stream">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.js_data_stream">
 <span class="sig-name descname"><span class="pre">js_data_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nprng</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/generators.html#js_data_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.js_data_stream" title="Permalink to this definition"></a></dt>
 <dd><p>Data stream generator for Jensen-Shannon divergence of N distributions.
 Jensen-Shannon divergence measures the information of knowing which of
@@ -883,12 +883,12 @@ otherwise unrelated roles of the same <span class="math notranslate nohighlight"
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.metric_from_density">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.metric_from_density">
 <span class="sig-name descname"><span class="pre">metric_from_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">densities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#metric_from_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.metric_from_density" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.supervisor.divergence.sparse_wrapper">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.supervisor.divergence.sparse_wrapper">
 <span class="sig-name descname"><span class="pre">sparse_wrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/utils.html#sparse_wrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.sparse_wrapper" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 

@@ -46,7 +46,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -113,7 +113,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
       <li>thresholding</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/thresholding.rst.txt" rel="nofollow"> View page source</a>
@@ -151,7 +151,7 @@
 <section id="module-mvtk.thresholding">
 <span id="thresholding"></span><h1>thresholding<a class="headerlink" href="#module-mvtk.thresholding" title="Permalink to this headline"></a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="mvtk.thresholding.AdaptiveThreshold">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.thresholding.AdaptiveThreshold">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AdaptiveThreshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">utility</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/thresholding.html#AdaptiveThreshold"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.thresholding.AdaptiveThreshold" title="Permalink to this definition"></a></dt>
 <dd><p>Adaptive agent that balances exploration with exploitation with respect
 to setting and adjusting thresholds.</p>
@@ -162,7 +162,7 @@ balance the opportunity cost of running an experiment with the
 utility gained over subsequent rounds using the information gained
 from this experiment.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="mvtk.thresholding.AdaptiveThreshold.__call__">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.thresholding.AdaptiveThreshold.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/thresholding.html#AdaptiveThreshold.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.thresholding.AdaptiveThreshold.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Args are ignored if previous threshold was not 0. Otherwise, the
 score is added as a potential threhold and ground_truth noted to help
@@ -178,7 +178,7 @@ identify the optimal threshold.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="mvtk.thresholding.AdaptiveThreshold.__init__">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.thresholding.AdaptiveThreshold.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">utility</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/thresholding.html#AdaptiveThreshold.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.thresholding.AdaptiveThreshold.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -190,14 +190,14 @@ representing utility.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="mvtk.thresholding.AdaptiveThreshold.get_best_threshold">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.thresholding.AdaptiveThreshold.get_best_threshold">
 <span class="sig-name descname"><span class="pre">get_best_threshold</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/thresholding.html#AdaptiveThreshold.get_best_threshold"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.thresholding.AdaptiveThreshold.get_best_threshold" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.thresholding.expected_utility">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.thresholding.expected_utility">
 <span class="sig-name descname"><span class="pre">expected_utility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">utility</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credibility</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/thresholding.html#expected_utility"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.thresholding.expected_utility" title="Permalink to this definition"></a></dt>
 <dd><p>Get the utility distribution over possible thresholds.</p>
 <dl class="field-list simple">
@@ -228,22 +228,22 @@ with each threshold</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.thresholding.exploration_proportion">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.thresholding.exploration_proportion">
 <span class="sig-name descname"><span class="pre">exploration_proportion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thresholds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/thresholding.html#exploration_proportion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.thresholding.exploration_proportion" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.thresholding.optimal_threshold">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.thresholding.optimal_threshold">
 <span class="sig-name descname"><span class="pre">optimal_threshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">utility</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/thresholding.html#optimal_threshold"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.thresholding.optimal_threshold" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.thresholding.plot_err">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.thresholding.plot_err">
 <span class="sig-name descname"><span class="pre">plot_err</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scores</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">utility_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">utility_err</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/thresholding.html#plot_err"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.thresholding.plot_err" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.thresholding.sample_utilities">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.thresholding.sample_utilities">
 <span class="sig-name descname"><span class="pre">sample_utilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">utility</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/thresholding.html#sample_utilities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.thresholding.sample_utilities" title="Permalink to this definition"></a></dt>
 <dd><p>Get distribution of utilities.</p>
 <dl class="field-list simple">
@@ -260,12 +260,12 @@ Feedback is null when an alert is not triggered.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.thresholding.thompson_sample">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.thresholding.thompson_sample">
 <span class="sig-name descname"><span class="pre">thompson_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">utility</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/thresholding.html#thompson_sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.thresholding.thompson_sample" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.thresholding.update_rates">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.thresholding.update_rates">
 <span class="sig-name descname"><span class="pre">update_rates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/thresholding.html#update_rates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.thresholding.update_rates" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 

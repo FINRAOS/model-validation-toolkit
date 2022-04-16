@@ -47,7 +47,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -114,7 +114,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
       <li>metrics</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/metrics.rst.txt" rel="nofollow"> View page source</a>
@@ -152,7 +152,7 @@
 <section id="module-mvtk.metrics">
 <span id="metrics"></span><h1>metrics<a class="headerlink" href="#module-mvtk.metrics" title="Permalink to this headline"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.metrics.monotonicity">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.metrics.monotonicity">
 <span class="sig-name descname"><span class="pre">monotonicity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/metrics.html#monotonicity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.metrics.monotonicity" title="Permalink to this definition"></a></dt>
 <dd><p>Generalizes ROC AUC by computing
 <span class="math notranslate nohighlight">\(P\left(\frac{\Delta\mathrm{y_pred}}{\Delta\mathrm{y_true}} &gt;
@@ -182,14 +182,14 @@ chance of either.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.metrics.normalized_mutual_info">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.metrics.normalized_mutual_info">
 <span class="sig-name descname"><span class="pre">normalized_mutual_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/metrics.html#normalized_mutual_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.metrics.normalized_mutual_info" title="Permalink to this definition"></a></dt>
 <dd><p>Thin wrapper around <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.mutual_info_classif.html">sklearn’s mutual information</a>.
 This normalizes the result to 0-1 scale. <code class="docutils literal notranslate"><span class="pre">y</span></code> is assumed categorical.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mvtk.metrics.rank_auc">
+<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.metrics.rank_auc">
 <span class="sig-name descname"><span class="pre">rank_auc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/metrics.html#rank_auc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.metrics.rank_auc" title="Permalink to this definition"></a></dt>
 <dd><p>Generalizes ROC AUC by computing probability that two randomly chosen
 data points would be ranked consistently with ground truth labels. This
