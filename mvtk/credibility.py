@@ -22,9 +22,12 @@ def credible_interval(positive, negative, credibility=0.5, prior=(1, 1)):
     """
     positive += prior[0]
     negative += prior[1]
+    if not (positive > 1 or negative > 1):
+        raise ValueError(
+            "Credible intervals are only defined when at least one count + psueocount"
+            " is greater than 1"
+        )
     distribution = beta(positive, negative)
-    if positive + negative <= 0:
-        raise ValueError("Counts plus pseudocounts must be positive")
     mode = positive / (positive + negative)
     cdf_mode = distribution.cdf(mode)
     cred_2 = credibility / 2
