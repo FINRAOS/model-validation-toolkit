@@ -22,9 +22,10 @@ def credible_interval(positive, negative, credibility=0.5, prior=(1, 1)):
     """
     positive += prior[0]
     negative += prior[1]
-    if positive < 1 or negative < 1:
+    if not (positive > 1 or negative > 1):
         raise ValueError(
-            "Credible intervals are undefined when counts + priors are not both greater than 1"
+            "Credible intervals are only defined when at least one count + psueocount is"
+            " greater than 1"
         )
     distribution = beta(positive, negative)
     mode = positive / (positive + negative)
