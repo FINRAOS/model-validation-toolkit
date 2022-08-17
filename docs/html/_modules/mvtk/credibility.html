@@ -147,9 +147,12 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">positive</span> <span class="o">+=</span> <span class="n">prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">negative</span> <span class="o">+=</span> <span class="n">prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">positive</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">negative</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Credible intervals are only defined when at least one count + psueocount&quot;</span>
+            <span class="s2">&quot; is greater than 1&quot;</span>
+        <span class="p">)</span>
     <span class="n">distribution</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">positive</span><span class="p">,</span> <span class="n">negative</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">positive</span> <span class="o">+</span> <span class="n">negative</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Counts plus pseudocounts must be positive&quot;</span><span class="p">)</span>
     <span class="n">mode</span> <span class="o">=</span> <span class="n">positive</span> <span class="o">/</span> <span class="p">(</span><span class="n">positive</span> <span class="o">+</span> <span class="n">negative</span><span class="p">)</span>
     <span class="n">cdf_mode</span> <span class="o">=</span> <span class="n">distribution</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
     <span class="n">cred_2</span> <span class="o">=</span> <span class="n">credibility</span> <span class="o">/</span> <span class="mi">2</span>
