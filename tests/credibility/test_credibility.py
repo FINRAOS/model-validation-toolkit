@@ -14,8 +14,8 @@ def test_value_error():
 
 
 def test_equivalence():
-    assert credibility.credible_interval(0, 0) == credibility.credible_interval(
-        1, 1, prior=(0, 0)
+    assert credibility.credible_interval(0, 1) == credibility.credible_interval(
+        1, 2, prior=(0, 0)
     )
 
 
