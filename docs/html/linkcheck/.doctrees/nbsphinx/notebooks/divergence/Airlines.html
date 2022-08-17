@@ -16,6 +16,7 @@
         <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
         <script src="../../../../../_static/jquery.js"></script>
         <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -46,7 +47,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -113,7 +114,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../../index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Airlines Dataset: Divergence Applications</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../../_sources/linkcheck/.doctrees/nbsphinx/notebooks/divergence/Airlines.ipynb.txt" rel="nofollow"> View page source</a>
@@ -339,6 +340,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -347,10 +349,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -362,12 +368,15 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
@@ -395,7 +404,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Airlines-Dataset:-Divergence-Applications">
-<h1>Airlines Dataset: Divergence Applications<a class="headerlink" href="#Airlines-Dataset:-Divergence-Applications" title="Permalink to this headline"></a></h1>
+<h1>Airlines Dataset: Divergence Applications<a class="headerlink" href="#Airlines-Dataset:-Divergence-Applications" title="Permalink to this heading"></a></h1>
 <p>In this example, we will demonstrate change point detection and clustering on the public Airlines data set.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -435,7 +444,7 @@ df
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <td></td>
+      <th></th>
       <th>year</th>
       <th>month</th>
       <th>day</th>
@@ -586,7 +595,7 @@ df
 </div></div>
 </div>
 <section id="Destination-Airport">
-<h2>Destination Airport<a class="headerlink" href="#Destination-Airport" title="Permalink to this headline"></a></h2>
+<h2>Destination Airport<a class="headerlink" href="#Destination-Airport" title="Permalink to this heading"></a></h2>
 <p>Let’s just look at how the <code class="docutils literal notranslate"><span class="pre">dest</span></code> feature changes from month to month. In this example, we will use total variation. Since <code class="docutils literal notranslate"><span class="pre">dest</span></code> is a categorical variable, it is natural to use a density estimator based approach to calculating statistical divergences such as total variation. We use the <code class="docutils literal notranslate"><span class="pre">calc_tv_mle</span></code> function for this, which computes maximum likelihood based density estimators using histograms, and subsequently feeds this into the formula for <a class="reference external" href="https://en.wikipedia.org/wiki/Total_variation_distance_of_probability_measures">total
 variation</a>.</p>
 <div class="nbinput docutils container">
@@ -657,7 +666,7 @@ dtype: int64
 </div>
 </section>
 <section id="Density-vs-Variational">
-<h2>Density vs Variational<a class="headerlink" href="#Density-vs-Variational" title="Permalink to this headline"></a></h2>
+<h2>Density vs Variational<a class="headerlink" href="#Density-vs-Variational" title="Permalink to this heading"></a></h2>
 <p>Now let’s compare these results to those produced by variational estimators. Variational estimation of statistical divergences is an elegant approach well suited for high dimensional floating point data. However, categorical data needs to be one hot encoded to be made compatible with the variational approach. Since <code class="docutils literal notranslate"><span class="pre">dest</span></code> has 105 unique values, this requires turning a one dimensional dataset into a 105 dimensional one. We can increase the batch size and number of epochs to try to compensate
 for this. As we shall see, this makes the problem complex enough that the variational estimates do not agree well with the histogram based ones.</p>
 <div class="nbinput nblast docutils container">
@@ -731,7 +740,7 @@ plt.show()
 </div>
 </section>
 <section id="Clustering">
-<h2>Clustering<a class="headerlink" href="#Clustering" title="Permalink to this headline"></a></h2>
+<h2>Clustering<a class="headerlink" href="#Clustering" title="Permalink to this heading"></a></h2>
 <p>Now let’s construct a distance matrix between data aggregated by each day of the week and cluster it.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -807,7 +816,7 @@ Three clusters [0 0 1 2 0 0 0]
 </div>
 </section>
 <section id="More-data">
-<h2>More data<a class="headerlink" href="#More-data" title="Permalink to this headline"></a></h2>
+<h2>More data<a class="headerlink" href="#More-data" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>

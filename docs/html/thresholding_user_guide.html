@@ -16,6 +16,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -46,7 +47,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -120,7 +121,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Thresholding User Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/thresholding_user_guide.rst.txt" rel="nofollow"> View page source</a>
@@ -156,9 +157,9 @@
 }
 </style>
 <section id="thresholding-user-guide">
-<h1>Thresholding User Guide<a class="headerlink" href="#thresholding-user-guide" title="Permalink to this headline"></a></h1>
+<h1>Thresholding User Guide<a class="headerlink" href="#thresholding-user-guide" title="Permalink to this heading"></a></h1>
 <section id="motivation">
-<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline"></a></h2>
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading"></a></h2>
 <p>Let’s say you’re monitoring some process for alerts. Maybe it’s model
 performance. Maybe it’s model drift. In any case, let’s say you have a score
 that increases with the likelihood that you have something wrong that needs to be
@@ -169,7 +170,7 @@ alerts. Set it too low and you’ll be flooded with noise. This module comes wit
 tools and techniques to experimentally determine where to set your threshold
 given your tolerance for noise.</p>
 <section id="how">
-<h3>How?<a class="headerlink" href="#how" title="Permalink to this headline"></a></h3>
+<h3>How?<a class="headerlink" href="#how" title="Permalink to this heading"></a></h3>
 <p>Let’s say the scores associated with good alerts looks like this.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="_images/thresholding_positive_scores.png"><img alt="alternate text" src="_images/thresholding_positive_scores.png" style="width: 500px; height: 500px;" /></a>
@@ -215,7 +216,7 @@ thresholding</em>.</p>
 </section>
 </section>
 <section id="adaptive-thresholding">
-<h2>Adaptive Thresholding<a class="headerlink" href="#adaptive-thresholding" title="Permalink to this headline"></a></h2>
+<h2>Adaptive Thresholding<a class="headerlink" href="#adaptive-thresholding" title="Permalink to this heading"></a></h2>
 <p>We face a classic <a class="reference external" href="https://en.wikipedia.org/wiki/Reinforcement_learning">exploitation/exploration dilemma</a>. We can either choose
 to <em>exploit</em> the information we have so far about positive and negative score
 distributions to set a threshold or <em>explore</em> what may lie below that threshold

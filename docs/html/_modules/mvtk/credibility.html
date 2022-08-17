@@ -15,6 +15,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -43,7 +44,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -110,7 +111,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Module code</a> &raquo;</li>
       <li>mvtk.credibility</li>
       <li class="wy-breadcrumbs-aside">
@@ -144,7 +145,11 @@
 <span class="sd">    returns:</span>
 <span class="sd">        (lower bound, upper bound)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">distribution</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">positive</span> <span class="o">+</span> <span class="n">prior</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">negative</span> <span class="o">+</span> <span class="n">prior</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">positive</span> <span class="o">+=</span> <span class="n">prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">negative</span> <span class="o">+=</span> <span class="n">prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">distribution</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">positive</span><span class="p">,</span> <span class="n">negative</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">positive</span> <span class="o">+</span> <span class="n">negative</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Counts plus pseudocounts must be positive&quot;</span><span class="p">)</span>
     <span class="n">mode</span> <span class="o">=</span> <span class="n">positive</span> <span class="o">/</span> <span class="p">(</span><span class="n">positive</span> <span class="o">+</span> <span class="n">negative</span><span class="p">)</span>
     <span class="n">cdf_mode</span> <span class="o">=</span> <span class="n">distribution</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
     <span class="n">cred_2</span> <span class="o">=</span> <span class="n">credibility</span> <span class="o">/</span> <span class="mi">2</span>

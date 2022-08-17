@@ -16,6 +16,7 @@
         <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
         <script src="../../../../../_static/jquery.js"></script>
         <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -46,7 +47,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -113,7 +114,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../../index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Handling Categorical Data</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../../_sources/linkcheck/.doctrees/nbsphinx/notebooks/divergence/CategoricalColumns.ipynb.txt" rel="nofollow"> View page source</a>
@@ -339,6 +340,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -347,10 +349,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -362,12 +368,15 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
@@ -395,12 +404,12 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Handling-Categorical-Data">
-<h1>Handling Categorical Data<a class="headerlink" href="#Handling-Categorical-Data" title="Permalink to this headline"></a></h1>
+<h1>Handling Categorical Data<a class="headerlink" href="#Handling-Categorical-Data" title="Permalink to this heading"></a></h1>
 <p>More often than not a dataset is comprised of both <strong>numeric</strong>, and <strong>categorical</strong> data types. The supervisor divergence functions can handle both, but it needs to know which columns are categorical so that it can handle it properly. This notebook shows you how to do so when using the <strong>supervisor</strong> divergence package.</p>
 <section id="Dataset-with-Mixed-Data-Types">
-<h2>Dataset with Mixed Data Types<a class="headerlink" href="#Dataset-with-Mixed-Data-Types" title="Permalink to this headline"></a></h2>
+<h2>Dataset with Mixed Data Types<a class="headerlink" href="#Dataset-with-Mixed-Data-Types" title="Permalink to this heading"></a></h2>
 <section id="Create-a-dataset">
-<h3>Create a dataset<a class="headerlink" href="#Create-a-dataset" title="Permalink to this headline"></a></h3>
+<h3>Create a dataset<a class="headerlink" href="#Create-a-dataset" title="Permalink to this heading"></a></h3>
 <p>To demonstrate, we will create a simple dataset with a mix of categorical and numeric columns.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -449,7 +458,7 @@ data.head(5)
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <td></td>
+      <th></th>
       <th>latitude</th>
       <th>fruit</th>
       <th>temp</th>
@@ -505,7 +514,7 @@ data.head(5)
 <p>In the dataset, the <strong>fruit</strong> and <strong>city</strong> columns are <em>categorical</em>, while <strong>latitude</strong>, <strong>temp</strong> and <strong>longitude</strong> are <em>numeric</em>.</p>
 </section>
 <section id="Create-a-comparison-dataset">
-<h3>Create a comparison dataset<a class="headerlink" href="#Create-a-comparison-dataset" title="Permalink to this headline"></a></h3>
+<h3>Create a comparison dataset<a class="headerlink" href="#Create-a-comparison-dataset" title="Permalink to this heading"></a></h3>
 <p>We will create a dataset to compare by taking the original dataset and modify some of the values. In this case, we will set a couple of columns to a constant value, which would result in the new dataset being of a different distribution from the original dataset.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -520,7 +529,7 @@ data_shifted.fruit = &#39;apple&#39;
 </section>
 </section>
 <section id="Calculating-Divergence">
-<h2>Calculating Divergence<a class="headerlink" href="#Calculating-Divergence" title="Permalink to this headline"></a></h2>
+<h2>Calculating Divergence<a class="headerlink" href="#Calculating-Divergence" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -570,7 +579,7 @@ with warnings.catch_warnings():
 </div>
 </section>
 <section id="mvtk.supervisor.utils.column_indexes">
-<h2>mvtk.supervisor.utils.column_indexes<a class="headerlink" href="#mvtk.supervisor.utils.column_indexes" title="Permalink to this headline"></a></h2>
+<h2>mvtk.supervisor.utils.column_indexes<a class="headerlink" href="#mvtk.supervisor.utils.column_indexes" title="Permalink to this heading"></a></h2>
 <p>With the utility function <strong>column_indexes</strong> you can get a list of the ccategorical columns in the dataframe.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:

@@ -16,6 +16,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -48,7 +49,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -133,7 +134,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Notes on Using Divergence Functions</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/notebooks/divergence/DivergenceFunctions.ipynb.txt" rel="nofollow"> View page source</a>
@@ -359,6 +360,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -367,10 +369,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -382,12 +388,15 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
@@ -415,7 +424,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Notes-on-Using-Divergence-Functions">
-<h1>Notes on Using Divergence Functions<a class="headerlink" href="#Notes-on-Using-Divergence-Functions" title="Permalink to this headline"></a></h1>
+<h1>Notes on Using Divergence Functions<a class="headerlink" href="#Notes-on-Using-Divergence-Functions" title="Permalink to this heading"></a></h1>
 <p>The <strong>mvtk.supervisor.divergence</strong> contains several functions that compute <strong>total variation</strong> between two data distributions. However, these functions have very different mechanisms for arriving at total variation. Some functions, such as <strong>calc_tv</strong> use a neural network under the hood, while others such as <strong>calc_tv_knn</strong> use a different mechanism to arrive at the range of values to inform on whether two distributions are more similar or not. Because of these differences, there functions are
 often best suited for different circumstances, be it data size, computational resources, or accuracy requirements. This notebook provides a guide to when and how to use the functions.</p>
 <div class="nbinput nblast docutils container">
@@ -433,7 +442,7 @@ from mvtk.supervisor.utils import column_indexes
 </div>
 </div>
 <section id="Data-Types">
-<h2>Data Types<a class="headerlink" href="#Data-Types" title="Permalink to this headline"></a></h2>
+<h2>Data Types<a class="headerlink" href="#Data-Types" title="Permalink to this heading"></a></h2>
 <p>The algorithms underneath the divergence functions all operate on <strong>numpy arrays</strong>. A divergence function compares a <strong>sample_a</strong> vs a <strong>sample_b</strong>, where a sample is either an array</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def divergence_function(sample_a, sample_b, **kwargs):
     algorithm
@@ -457,7 +466,7 @@ sample_b = [batch2]
 <p>For the divergence functions that you intend to use, you should check the documentation as to whether it accepts lists or arrays.</p>
 </section>
 <section id="Using-Dataframes">
-<h2>Using Dataframes<a class="headerlink" href="#Using-Dataframes" title="Permalink to this headline"></a></h2>
+<h2>Using Dataframes<a class="headerlink" href="#Using-Dataframes" title="Permalink to this heading"></a></h2>
 <p>Pandas dataframes are a perfect input source for the divergence functions. The underlying storage for dataframes are numpy arrays on which all divergence functions can operate.</p>
 <p>If your data is in <strong>Pyspark</strong> dataframes then you either convert to pandas dataframes, or numpy arrays.</p>
 <div class="nbinput docutils container">
@@ -493,7 +502,7 @@ df.head(3)
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <td></td>
+      <th></th>
       <th>weight</th>
       <th>colors</th>
     </tr>
@@ -520,7 +529,7 @@ df.head(3)
 </div>
 </section>
 <section id="Create-Data-Distributions">
-<h2>Create Data Distributions<a class="headerlink" href="#Create-Data-Distributions" title="Permalink to this headline"></a></h2>
+<h2>Create Data Distributions<a class="headerlink" href="#Create-Data-Distributions" title="Permalink to this heading"></a></h2>
 <p>For data, we will create datasets drawn from different distributions. We will use about a <strong>million rows</strong>, and about <strong>100</strong> columns.</p>
 <p>Each row in a dataset becomes a training example to be used in the neural network that calculates the divergence. If you have too few rows, then the divergence value will not be calculated accurately, and in practice will be close to zero.</p>
 <div class="nbinput nblast docutils container">
@@ -548,7 +557,7 @@ funcs = {&#39;calc_tv&#39;: calc_tv}
 </div>
 </div>
 <section id="Visualizing-the-distributions">
-<h3>Visualizing the distributions<a class="headerlink" href="#Visualizing-the-distributions" title="Permalink to this headline"></a></h3>
+<h3>Visualizing the distributions<a class="headerlink" href="#Visualizing-the-distributions" title="Permalink to this heading"></a></h3>
 <p>Let’s visualize each of our probability distributions. In this case, each of the <code class="docutils literal notranslate"><span class="pre">COLUMNS=10</span></code> features has exactly the same distribution and they are all independent of eachother, so the following function just lumps all of the samples together. In general, you would <em>not</em> want to do this!</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -633,11 +642,11 @@ def distplot(series, title=None):
 </section>
 </section>
 <section id="Calculating-Total-Variation">
-<h2>Calculating Total Variation<a class="headerlink" href="#Calculating-Total-Variation" title="Permalink to this headline"></a></h2>
+<h2>Calculating Total Variation<a class="headerlink" href="#Calculating-Total-Variation" title="Permalink to this heading"></a></h2>
 <p>The main divergence functions calculate the total variation between distributions. However, there are very different ways to arrive at a range of 0-1 with 0 meaning no divergence, and 1 meaning total divergence. This presents users with different approaches with benefits that match different circumstances and dta sizes.</p>
 </section>
 <section id="calc_tv">
-<h2>calc_tv<a class="headerlink" href="#calc_tv" title="Permalink to this headline"></a></h2>
+<h2>calc_tv<a class="headerlink" href="#calc_tv" title="Permalink to this heading"></a></h2>
 <p>Computes the total variation between two distributions.</p>
 <p>See <a class="reference external" href="https://en.wikipedia.org/wiki/Total_variation_distance_of_probability_measures">https://en.wikipedia.org/wiki/Total_variation_distance_of_probability_measures</a> It uses a neural network to calculate the total variation between distributions. Since it uses a neural network internally, it exposes some familar settings such as the num_epochs, num_batches etc. which you can tune for greater accuracy.</p>
 <p><code class="docutils literal notranslate"><span class="pre">sample_distribution_p</span></code> <em>The first distribution</em></p>
@@ -754,7 +763,7 @@ def distplot(series, title=None):
 </div>
 </section>
 <section id="calc_hl">
-<h2>calc_hl<a class="headerlink" href="#calc_hl" title="Permalink to this headline"></a></h2>
+<h2>calc_hl<a class="headerlink" href="#calc_hl" title="Permalink to this heading"></a></h2>
 <p>Calculate divergence using Hellinger distance.</p>
 <p>See <a class="reference external" href="https://en.wikipedia.org/wiki/Hellinger_distance">https://en.wikipedia.org/wiki/Hellinger_distance</a></p>
 <p><strong>sample_distribution_p</strong> <em>The first distribution</em></p>
@@ -816,7 +825,7 @@ def distplot(series, title=None):
 </div>
 </section>
 <section id="calc_tv_knn">
-<h2>calc_tv_knn<a class="headerlink" href="#calc_tv_knn" title="Permalink to this headline"></a></h2>
+<h2>calc_tv_knn<a class="headerlink" href="#calc_tv_knn" title="Permalink to this heading"></a></h2>
 <p>Computes the total variation between two distributions. Because it uses KNN which is a fairly simple algorithm it is often faster to compute that <strong>calc_tv</strong>. However, you will want to take care to set the function parameters based on your data dimensions in order for it to get the best accuracy.</p>
 <p><strong>sample_distribution_p</strong> <em>The first distribution</em></p>
 <p><strong>sample_distribution_q</strong> <em>The second distribution</em></p>
@@ -933,11 +942,11 @@ def distplot(series, title=None):
 </div>
 </section>
 <section id="Density-Based-Estimators">
-<h2>Density Based Estimators<a class="headerlink" href="#Density-Based-Estimators" title="Permalink to this headline"></a></h2>
+<h2>Density Based Estimators<a class="headerlink" href="#Density-Based-Estimators" title="Permalink to this heading"></a></h2>
 <p>Density estimation is the problem of reconstructing the probability density function using a set of given data points.</p>
 </section>
 <section id="calc_tv_density">
-<h2>calc_tv_density<a class="headerlink" href="#calc_tv_density" title="Permalink to this headline"></a></h2>
+<h2>calc_tv_density<a class="headerlink" href="#calc_tv_density" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
@@ -974,7 +983,7 @@ def distplot(series, title=None):
 </div>
 </section>
 <section id="Handling-Categorical-Data">
-<h2>Handling Categorical Data<a class="headerlink" href="#Handling-Categorical-Data" title="Permalink to this headline"></a></h2>
+<h2>Handling Categorical Data<a class="headerlink" href="#Handling-Categorical-Data" title="Permalink to this heading"></a></h2>
 <p>If your data is all categorical, then you would probably want to use <strong>calc_tv_mle</strong>.</p>
 <p>For these examples, we will create categorical columns drawn from different distributions.</p>
 <div class="nbinput nblast docutils container">
@@ -992,7 +1001,7 @@ plain_smoothie = np.random.choice(FRUITS, size=(1000000, 10))
 </div>
 </section>
 <section id="calc_tv_mle">
-<h2>calc_tv_mle<a class="headerlink" href="#calc_tv_mle" title="Permalink to this headline"></a></h2>
+<h2>calc_tv_mle<a class="headerlink" href="#calc_tv_mle" title="Permalink to this heading"></a></h2>
 <p>Computes the total variation between two distributions using histogram based density estimators. All columns are assumed to be categorical.</p>
 <p><strong>sample_distribution_p</strong> <em>The first distribution</em></p>
 <p><strong>sample_distribution_q</strong> <em>The second distribution</em></p>
@@ -1052,7 +1061,7 @@ array([&#39;orange&#39;, &#39;apple&#39;, &#39;plum&#39;, &#39;plum&#39;, &#39;p
 </div>
 </section>
 <section id="calc_kl_mle">
-<h2>calc_kl_mle<a class="headerlink" href="#calc_kl_mle" title="Permalink to this headline"></a></h2>
+<h2>calc_kl_mle<a class="headerlink" href="#calc_kl_mle" title="Permalink to this heading"></a></h2>
 <p>When the second distribution is zero when the first distribution is nonzero for categorical data, kl divergence will hit infinity. For histograms derived from high dimensional categorical data this becomes likely.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
@@ -1073,7 +1082,7 @@ inf
 </div>
 </section>
 <section id="Handling-Mixed-Data">
-<h2>Handling Mixed Data<a class="headerlink" href="#Handling-Mixed-Data" title="Permalink to this headline"></a></h2>
+<h2>Handling Mixed Data<a class="headerlink" href="#Handling-Mixed-Data" title="Permalink to this heading"></a></h2>
 <p>If your data contains categorical columns, then you need to specify the indices of the categorical columns. To demonstrate this, we will create a dataframe with one categorical column and one numeric column, then compute the total variation.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
@@ -1118,7 +1127,7 @@ inventory_b = pd.DataFrame({&#39;fruits&#39;: np.random.choice(FRUITS,size=NUM_I
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <td></td>
+      <th></th>
       <th>fruits</th>
       <th>weight</th>
     </tr>
@@ -1178,7 +1187,7 @@ inventory_b = pd.DataFrame({&#39;fruits&#39;: np.random.choice(FRUITS,size=NUM_I
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <td></td>
+      <th></th>
       <th>fruits</th>
       <th>weight</th>
     </tr>

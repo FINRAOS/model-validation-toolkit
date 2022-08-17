@@ -16,6 +16,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -46,7 +47,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -113,7 +114,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>interprenet</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/interprenet.rst.txt" rel="nofollow"> View page source</a>
@@ -149,9 +150,9 @@
 }
 </style>
 <section id="module-mvtk.interprenet">
-<span id="interprenet"></span><h1>interprenet<a class="headerlink" href="#module-mvtk.interprenet" title="Permalink to this headline"></a></h1>
+<span id="interprenet"></span><h1>interprenet<a class="headerlink" href="#module-mvtk.interprenet" title="Permalink to this heading"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.ConstrainedDense">
+<dt class="sig sig-object py" id="mvtk.interprenet.ConstrainedDense">
 <span class="sig-name descname"><span class="pre">ConstrainedDense</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constraint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#ConstrainedDense"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.ConstrainedDense" title="Permalink to this definition"></a></dt>
 <dd><p>Layer constructor function for a constrained dense (fully-connected)
 layer.</p>
@@ -163,24 +164,24 @@ layer.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.SortLayer">
-<span class="sig-name descname"><span class="pre">SortLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#SortLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.SortLayer" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="mvtk.interprenet.SortLayer">
+<span class="sig-name descname"><span class="pre">SortLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#SortLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.SortLayer" title="Permalink to this definition"></a></dt>
 <dd><p>Sort layer used for lipschitz preserving nonlinear activation function.</p>
 <p><a class="reference external" href="https://arxiv.org/abs/1811.05381">https://arxiv.org/abs/1811.05381</a></p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.batch_generator">
+<dt class="sig sig-object py" id="mvtk.interprenet.batch_generator">
 <span class="sig-name descname"><span class="pre">batch_generator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">balance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#batch_generator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.batch_generator" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.clip">
+<dt class="sig sig-object py" id="mvtk.interprenet.clip">
 <span class="sig-name descname"><span class="pre">clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.52587890625e-05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#clip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.clip" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.constrained_model">
+<dt class="sig sig-object py" id="mvtk.interprenet.constrained_model">
 <span class="sig-name descname"><span class="pre">constrained_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">constraints,</span> <span class="pre">get_layers=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;,</span> <span class="pre">output_shape=1,</span> <span class="pre">preprocess=&lt;function</span> <span class="pre">identity&gt;,</span> <span class="pre">postprocess=&lt;function</span> <span class="pre">sigmoid_clip&gt;,</span> <span class="pre">rng=DeviceArray([0,</span> <span class="pre">0],</span> <span class="pre">dtype=uint32)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#constrained_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.constrained_model" title="Permalink to this definition"></a></dt>
 <dd><p>Create a neural network with groups of constraints assigned to each
 feature. Separate constrained neural networks are generated for each group
@@ -211,40 +212,40 @@ ones.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.cross_entropy">
+<dt class="sig sig-object py" id="mvtk.interprenet.cross_entropy">
 <span class="sig-name descname"><span class="pre">cross_entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#cross_entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.cross_entropy" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.identity">
+<dt class="sig sig-object py" id="mvtk.interprenet.identity">
 <span class="sig-name descname"><span class="pre">identity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#identity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.identity" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.lipschitz_constraint">
+<dt class="sig sig-object py" id="mvtk.interprenet.lipschitz_constraint">
 <span class="sig-name descname"><span class="pre">lipschitz_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#lipschitz_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.lipschitz_constraint" title="Permalink to this definition"></a></dt>
 <dd><p>Lipschitz constraint on weights.</p>
 <p><a class="reference external" href="https://arxiv.org/abs/1811.05381">https://arxiv.org/abs/1811.05381</a></p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.monotonic_constraint">
+<dt class="sig sig-object py" id="mvtk.interprenet.monotonic_constraint">
 <span class="sig-name descname"><span class="pre">monotonic_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#monotonic_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.monotonic_constraint" title="Permalink to this definition"></a></dt>
 <dd><p>Monotonicity constraint on weights.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.net">
+<dt class="sig sig-object py" id="mvtk.interprenet.net">
 <span class="sig-name descname"><span class="pre">net</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#net"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.net" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.parameterized_loss">
+<dt class="sig sig-object py" id="mvtk.interprenet.parameterized_loss">
 <span class="sig-name descname"><span class="pre">parameterized_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">net</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#parameterized_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.parameterized_loss" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.plot">
+<dt class="sig sig-object py" id="mvtk.interprenet.plot">
 <span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">DeviceArray([0,</span> <span class="pre">0],</span> <span class="pre">dtype=uint32)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.plot" title="Permalink to this definition"></a></dt>
 <dd><p><a class="reference external" href="https://christophm.github.io/interpretable-ml-book/ice.html">Individual Conditional Expectation plot
 (blue)</a> and
@@ -272,17 +273,17 @@ x-axis. Randomly chosen from unique values of this feature within
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.sigmoid_clip">
+<dt class="sig sig-object py" id="mvtk.interprenet.sigmoid_clip">
 <span class="sig-name descname"><span class="pre">sigmoid_clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.52587890625e-05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#sigmoid_clip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.sigmoid_clip" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.thread">
+<dt class="sig sig-object py" id="mvtk.interprenet.thread">
 <span class="sig-name descname"><span class="pre">thread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fns</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#thread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.thread" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" style="color: rgb(0, 0, 0)" id="mvtk.interprenet.train">
+<dt class="sig sig-object py" id="mvtk.interprenet.train">
 <span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn=&lt;function</span> <span class="pre">cross_entropy&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mini_batch_size=32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs=64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size=0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">track=1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.train" title="Permalink to this definition"></a></dt>
 <dd><p>Train interpretable neural network. This routine will check accuracy
 using <code class="docutils literal notranslate"><span class="pre">metric</span></code> every <code class="docutils literal notranslate"><span class="pre">track</span></code> epochs. The model parameters with the

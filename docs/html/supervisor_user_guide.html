@@ -16,6 +16,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -48,7 +49,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -135,7 +136,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Supervisor User Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/supervisor_user_guide.rst.txt" rel="nofollow"> View page source</a>
@@ -171,11 +172,11 @@
 }
 </style>
 <section id="supervisor-user-guide">
-<h1>Supervisor User Guide<a class="headerlink" href="#supervisor-user-guide" title="Permalink to this headline"></a></h1>
+<h1>Supervisor User Guide<a class="headerlink" href="#supervisor-user-guide" title="Permalink to this heading"></a></h1>
 <section id="motivation">
-<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline"></a></h2>
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading"></a></h2>
 <section id="my-model-is-done">
-<h3>My Model is Done!<a class="headerlink" href="#my-model-is-done" title="Permalink to this headline"></a></h3>
+<h3>My Model is Done!<a class="headerlink" href="#my-model-is-done" title="Permalink to this heading"></a></h3>
 <p>OK, so your model is trained and ready to be put into a production pipeline.
 Models are, however, not like hard coded rules in the sense that they are not
 expected to work perfectly all the time. They are expected to work well most of
@@ -193,7 +194,7 @@ place, and it’s the only way you’ll know if your model is still accurate ove
 time.</p>
 </section>
 <section id="how">
-<h3>How?<a class="headerlink" href="#how" title="Permalink to this headline"></a></h3>
+<h3>How?<a class="headerlink" href="#how" title="Permalink to this heading"></a></h3>
 <p>There are <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html">tons</a> of ways to
 evaluate model performance, but they all require you to know what you wanted
 the model to say in hindsight. These metrics are typically used to assess
@@ -207,7 +208,7 @@ same manner that it was validated during training. However, there are also
 plenty of situations where this is not the case…</p>
 </section>
 <section id="divergence-what">
-<h3>Divergence What?<a class="headerlink" href="#divergence-what" title="Permalink to this headline"></a></h3>
+<h3>Divergence What?<a class="headerlink" href="#divergence-what" title="Permalink to this heading"></a></h3>
 <p>Just as we can compare the data coming out of a model to ground truth, we can
 compare the data coming into the model to the training data. In the former
 case, we match up each prediction to the answer we wished in hindsight we had
@@ -241,7 +242,7 @@ when you look at a plot involving divergence metrics.</p>
 </section>
 </section>
 <section id="divergences">
-<h2>Divergences<a class="headerlink" href="#divergences" title="Permalink to this headline"></a></h2>
+<h2>Divergences<a class="headerlink" href="#divergences" title="Permalink to this heading"></a></h2>
 <p>Divergences are all about quantifying differences between two probability
 distributions. This is not just about a literal subtraction of one value from
 another, so much as coming up with a process that assigns a number that
@@ -300,7 +301,7 @@ analyses of concept drift prefer divergences that are proper metrics
 <p>As we shall see, there are two ways to estimate <span class="math notranslate nohighlight">\(f\)</span>-divergences: with
 density estimators, and with variational methods.</p>
 <section id="estimation-with-density-estimators">
-<h3>Estimation with Density Estimators<a class="headerlink" href="#estimation-with-density-estimators" title="Permalink to this headline"></a></h3>
+<h3>Estimation with Density Estimators<a class="headerlink" href="#estimation-with-density-estimators" title="Permalink to this heading"></a></h3>
 <p>The most intuitive approach to estimating <cite>f</cite>-divergences is with density
 estimation. This involves estimating <span class="math notranslate nohighlight">\(p(x)\)</span> and <span class="math notranslate nohighlight">\(q(x)\)</span> given a
 finite number of samples, and then plugging those estimates into the explicit
@@ -335,7 +336,7 @@ use the following functions to calculate <span class="math notranslate nohighlig
 </div>
 </section>
 <section id="variational-estimation-of-f-divergences">
-<h3>Variational Estimation of <span class="math notranslate nohighlight">\(f\)</span>-divergences<a class="headerlink" href="#variational-estimation-of-f-divergences" title="Permalink to this headline"></a></h3>
+<h3>Variational Estimation of <span class="math notranslate nohighlight">\(f\)</span>-divergences<a class="headerlink" href="#variational-estimation-of-f-divergences" title="Permalink to this heading"></a></h3>
 <p>Density estimation via histograms is straightforward, and indeed a gold
 standard of sorts, for categorical data. However, constructing histograms for
 real valued data requires binning, which tends to become increasingly
@@ -426,7 +427,7 @@ found to work poorly for <a class="reference internal" href="notebooks/divergenc
 of categories</span></a>.</p>
 </section>
 <section id="hybrid-estimation">
-<h3>Hybrid Estimation<a class="headerlink" href="#hybrid-estimation" title="Permalink to this headline"></a></h3>
+<h3>Hybrid Estimation<a class="headerlink" href="#hybrid-estimation" title="Permalink to this heading"></a></h3>
 <p>What if we have data that is partially categorical, and partially real valued?
 Are we just limited to binning the real valued data to effectively make the
 entire dataset categorical? As of the time of this writing, this seems to
@@ -476,7 +477,7 @@ you will never end up with more unique combinations of categories than you have
 records accross both datasets.</p>
 </section>
 <section id="featureless-datasets">
-<h3>Featureless Datasets<a class="headerlink" href="#featureless-datasets" title="Permalink to this headline"></a></h3>
+<h3>Featureless Datasets<a class="headerlink" href="#featureless-datasets" title="Permalink to this heading"></a></h3>
 <p>Sometimes you’re dealing with datasets that have varying lengths and are not
 converted to a fixed number of features. For example, some NLP and time series
 models do not provide obvious features. In this case, we can develop an lower
@@ -514,7 +515,7 @@ trivial model that predicts <span class="math notranslate nohighlight">\(p(y|X)=
 a lower bound of <span class="math notranslate nohighlight">\(0\)</span>.</p>
 </section>
 <section id="integral-probability-metrics">
-<h3>Integral Probability Metrics<a class="headerlink" href="#integral-probability-metrics" title="Permalink to this headline"></a></h3>
+<h3>Integral Probability Metrics<a class="headerlink" href="#integral-probability-metrics" title="Permalink to this heading"></a></h3>
 <p>There are another class of divergences known as integral probability metrics.
 They too generally admit density estimator based and variational methods of
 estimation. The basic idea is we determine whether two samples come from the
@@ -567,7 +568,7 @@ estimate of the metric and its gradient <span id="id19">[<a class="reference int
 convergence to an incorrect (over) estimate of true value of the metric.</p>
 </div>
 <section id="earth-mover-s-distance">
-<h4>Earth Mover’s distance<a class="headerlink" href="#earth-mover-s-distance" title="Permalink to this headline"></a></h4>
+<h4>Earth Mover’s distance<a class="headerlink" href="#earth-mover-s-distance" title="Permalink to this heading"></a></h4>
 <p>When we let <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> be the set of functions such that <span class="math notranslate nohighlight">\(\|
 f(x)-f(x^\prime)\|_p \le \| x - x^\prime\|_p\)</span>, where
 <span class="math notranslate nohighlight">\(\|\|_p\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Taxicab_geometry">Lp distance</a>, we get the so called <a class="reference external" href="https://en.wikipedia.org/wiki/Earth_mover%27s_distance">earth
@@ -602,7 +603,7 @@ mover’s distance is implemented.</p>
 </section>
 </section>
 <section id="f-divergences-vs-integral-probability-metrics">
-<h3><span class="math notranslate nohighlight">\(f\)</span>-divergences vs Integral Probability Metrics<a class="headerlink" href="#f-divergences-vs-integral-probability-metrics" title="Permalink to this headline"></a></h3>
+<h3><span class="math notranslate nohighlight">\(f\)</span>-divergences vs Integral Probability Metrics<a class="headerlink" href="#f-divergences-vs-integral-probability-metrics" title="Permalink to this heading"></a></h3>
 <p>There have been several sources using earth mover’s distance
 <span id="id27">[<a class="reference internal" href="thresholding_user_guide.html#id13" title="Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. arXiv preprint arXiv:1701.07875, 2017.">ACB17</a>]</span> <span id="id28">[<a class="reference internal" href="thresholding_user_guide.html#id12" title="Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron C Courville. Improved training of wasserstein gans. In Advances in neural information processing systems, 5767–5777. 2017.">GAA+17</a>]</span> as a
 differentiable hypothesis test to train <a class="reference external" href="https://en.wikipedia.org/wiki/Generative_adversarial_network">GANs</a> as well as

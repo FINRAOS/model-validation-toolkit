@@ -16,6 +16,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -46,7 +47,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -119,7 +120,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Getting Started</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
@@ -155,14 +156,14 @@
 }
 </style>
 <section id="getting-started">
-<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h1>
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
 <p>Model Validation Toolkit is an open source library that provides various
 tools for model validation, data quality checks, analysis of thresholding,
 sensitivity analysis, and interpretable model development. The purpose of this
 guide is to illustrate some of the main features that Model Validation Toolkit
 provides. Please refer to the README for installation instructions.</p>
 <section id="divergences">
-<h2>Divergences<a class="headerlink" href="#divergences" title="Permalink to this headline"></a></h2>
+<h2>Divergences<a class="headerlink" href="#divergences" title="Permalink to this heading"></a></h2>
 <p>Model Validation Toolkit provides a fast and accurate means of assessing
 large scale statistical differences between datasets. Rather than checking
 whether two samples are identical, this check asserts that they are similar in
@@ -183,7 +184,7 @@ detection.</p>
 <p>See the <a class="reference internal" href="supervisor_user_guide.html"><span class="doc">user guide</span></a> for more information.</p>
 </section>
 <section id="credibility">
-<h2>Credibility<a class="headerlink" href="#credibility" title="Permalink to this headline"></a></h2>
+<h2>Credibility<a class="headerlink" href="#credibility" title="Permalink to this heading"></a></h2>
 <p>Model Validation Toolkit provides a lightweight suite to assess credibility
 of model performance given a finite sample. Whether your validation set has
 several dozen or million records, you can quantify your confidence in
@@ -201,14 +202,14 @@ would be less than 70% if we had more data.</p>
 <p>See the <a class="reference internal" href="credibility_user_guide.html"><span class="doc">user guide</span></a> for more information.</p>
 </section>
 <section id="thresholding">
-<h2>Thresholding<a class="headerlink" href="#thresholding" title="Permalink to this headline"></a></h2>
+<h2>Thresholding<a class="headerlink" href="#thresholding" title="Permalink to this heading"></a></h2>
 <p>Model Validation Toolkit provides a module for determining and
 dynamically seta nd sample thresholds for binary classifiers that maximize a
 utility function. The general idea is to intelligently reassess false and true
 negative rates in a production system. See the <a class="reference internal" href="interprenet_user_guide.html"><span class="doc">user guide</span></a> for more information.</p>
 </section>
 <section id="sobol">
-<h2>Sobol<a class="headerlink" href="#sobol" title="Permalink to this headline"></a></h2>
+<h2>Sobol<a class="headerlink" href="#sobol" title="Permalink to this heading"></a></h2>
 <p>Model Validation Toolkit provides a lightweight module for <a class="reference external" href="https://en.wikipedia.org/wiki/Variance-based_sensitivity_analysis">sobol
 sensitivity analysis</a>. This can
 be used to assess and quantify uncertainty of model outputs with respect to

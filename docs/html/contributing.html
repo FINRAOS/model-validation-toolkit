@@ -16,6 +16,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -46,7 +47,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -124,7 +125,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Contributing</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/contributing.md.txt" rel="nofollow"> View page source</a>
@@ -160,7 +161,7 @@
 }
 </style>
 <section id="contributing">
-<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline"></a></h1>
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading"></a></h1>
 <p>Everyone can contribute to Model Validation Toolkit, and we value everyone’s contributions. There are several
 ways to contribute, including:</p>
 <ul class="simple">
@@ -169,7 +170,7 @@ ways to contribute, including:</p>
 <li><p>Contributing to Model Validation Toolkit’s <a class="reference external" href="https://github.com/FINRAOS/model-validation-toolkit/">code-base</a></p></li>
 </ul>
 <section id="ways-to-contribute">
-<h2>Ways to contribute<a class="headerlink" href="#ways-to-contribute" title="Permalink to this headline"></a></h2>
+<h2>Ways to contribute<a class="headerlink" href="#ways-to-contribute" title="Permalink to this heading"></a></h2>
 <p>We welcome pull requests, in particular for those issues marked with
 <a class="reference external" href="https://github.com/FINRAOS/model-validation-toolkit/issues?q=is%3Aopen+is%3Aissue+label%3A%22contributions+welcome%22">contributions welcome</a> or
 <a class="reference external" href="https://github.com/FINRAOS/model-validation-toolkit/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22">good first issue</a>.</p>
@@ -179,7 +180,7 @@ ways to contribute, including:</p>
 <p>to seek feedback on your planned contribution.</p>
 </section>
 <section id="contributing-code-using-pull-requests">
-<h2>Contributing code using pull requests<a class="headerlink" href="#contributing-code-using-pull-requests" title="Permalink to this headline"></a></h2>
+<h2>Contributing code using pull requests<a class="headerlink" href="#contributing-code-using-pull-requests" title="Permalink to this heading"></a></h2>
 <p>We do all of our development using git, so basic knowledge is assumed.</p>
 <p>Follow these steps to contribute code:</p>
 <ol class="arabic">
@@ -243,14 +244,14 @@ if you need more information on using pull requests.</p></li>
 </ol>
 </section>
 <section id="model-validation-toolkit-pull-request-checklist">
-<h2>Model Validation Toolkit pull request checklist<a class="headerlink" href="#model-validation-toolkit-pull-request-checklist" title="Permalink to this headline"></a></h2>
+<h2>Model Validation Toolkit pull request checklist<a class="headerlink" href="#model-validation-toolkit-pull-request-checklist" title="Permalink to this heading"></a></h2>
 <p>As you prepare a Model Validation Toolkit pull request, here are a few things to keep in mind:</p>
 <section id="dco">
-<h3>DCO<a class="headerlink" href="#dco" title="Permalink to this headline"></a></h3>
+<h3>DCO<a class="headerlink" href="#dco" title="Permalink to this heading"></a></h3>
 <p>By contributing to this project, you agree to our <a class="reference external" href="https://raw.githubusercontent.com/FINRAOS/model-validation-toolkit/main/DCO">DCO</a>.</p>
 </section>
 <section id="single-change-commits-and-pull-requests">
-<h3>Single-change commits and pull requests<a class="headerlink" href="#single-change-commits-and-pull-requests" title="Permalink to this headline"></a></h3>
+<h3>Single-change commits and pull requests<a class="headerlink" href="#single-change-commits-and-pull-requests" title="Permalink to this heading"></a></h3>
 <p>A git commit ought to be a self-contained, single change with a descriptive
 message. This helps with review and with identifying or reverting changes if
 issues are uncovered later on.</p>
@@ -259,7 +260,7 @@ request for review, you may need to squash together multiple commits. We ask
 that you do this prior to sending the PR for review if possible. The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">-i</span></code> command might be useful to this end.</p>
 </section>
 <section id="linting-and-type-checking">
-<h3>Linting and Type-checking<a class="headerlink" href="#linting-and-type-checking" title="Permalink to this headline"></a></h3>
+<h3>Linting and Type-checking<a class="headerlink" href="#linting-and-type-checking" title="Permalink to this heading"></a></h3>
 <p>Model Validation Toolkit uses <a class="reference external" href="https://mypy.readthedocs.io/">mypy</a> and <a class="reference external" href="https://flake8.pycqa.org/">flake8</a>
 to statically test code quality; the easiest way to run these checks locally is via
 the <a class="reference external" href="https://pre-commit.com/">pre-commit</a> framework:</p>
@@ -269,7 +270,7 @@ pre-commit run --all
 </div>
 </section>
 <section id="full-github-test-suite">
-<h3>Full GitHub test suite<a class="headerlink" href="#full-github-test-suite" title="Permalink to this headline"></a></h3>
+<h3>Full GitHub test suite<a class="headerlink" href="#full-github-test-suite" title="Permalink to this heading"></a></h3>
 <p>Your PR will automatically be run through a full test suite on GitHub CI, which
 covers a range of Python versions, dependency versions, and configuration options.
 It’s normal for these tests to turn up failures that you didn’t catch locally; to

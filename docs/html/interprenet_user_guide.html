@@ -16,6 +16,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -48,7 +49,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -123,7 +124,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Interprenet User Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/interprenet_user_guide.rst.txt" rel="nofollow"> View page source</a>
@@ -159,9 +160,9 @@
 }
 </style>
 <section id="interprenet-user-guide">
-<h1>Interprenet User Guide<a class="headerlink" href="#interprenet-user-guide" title="Permalink to this headline"></a></h1>
+<h1>Interprenet User Guide<a class="headerlink" href="#interprenet-user-guide" title="Permalink to this heading"></a></h1>
 <section id="motivation">
-<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline"></a></h2>
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading"></a></h2>
 <p>Neural networks are generally difficult to interpret. While there
 are tools that can help to interpret certain types of neural
 networks such as image classifiers and language models,
@@ -189,7 +190,7 @@ maximum rate of change of the model. This can make the model arbitrarily robust
 <a class="reference external" href="http://karpathy.github.io/2015/03/30/breaking-convnets">against adversarial perturbations</a>
 <span id="id1">[<a class="reference internal" href="thresholding_user_guide.html#id15" title="Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In International Conference on Machine Learning, 291–301. PMLR, 2019.">ALG19</a>]</span>.</p>
 <section id="how">
-<h3>How?<a class="headerlink" href="#how" title="Permalink to this headline"></a></h3>
+<h3>How?<a class="headerlink" href="#how" title="Permalink to this heading"></a></h3>
 <p>All constraints are currently implemented as weight constraints. While
 arbitrary weights are stored within each linear layer, the weights are
 transformed before application so the network can satisfy is prescribed
@@ -211,7 +212,7 @@ slope greater than <span class="math notranslate nohighlight">\(1\)</span> for a
 </section>
 </section>
 <section id="different-constraints-on-different-features">
-<h2>Different Constraints on Different Features<a class="headerlink" href="#different-constraints-on-different-features" title="Permalink to this headline"></a></h2>
+<h2>Different Constraints on Different Features<a class="headerlink" href="#different-constraints-on-different-features" title="Permalink to this heading"></a></h2>
 <p><a class="reference internal" href="interprenet.html#mvtk.interprenet.constrained_model" title="mvtk.interprenet.constrained_model"><code class="xref py py-meth docutils literal notranslate"><span class="pre">constrained_model()</span></code></a> generates a neural network with one set of
 constraints per feature. Constraints currently available are:</p>
 <ul class="simple">
@@ -241,7 +242,7 @@ permutation matrix, which retains any Lipschitz and monotonicity
 constraints.</p>
 </section>
 <section id="preprocessing">
-<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline"></a></h2>
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading"></a></h2>
 <p>Thus far, we have left out two important detail: How to constrain
 the Lipschitz constant to be something other than <span class="math notranslate nohighlight">\(1\)</span>, and how
 to create monotonically decreasing networks. Both are a simple

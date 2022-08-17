@@ -16,6 +16,7 @@
         <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
         <script src="../../../../../_static/jquery.js"></script>
         <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -46,7 +47,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -113,7 +114,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../../index.html" class="icon icon-home" title="Model Validation Toolkit"></a> &raquo;</li>
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Assessing Credibility From Sample Size</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../../_sources/linkcheck/.doctrees/nbsphinx/notebooks/credibility/Credibility.ipynb.txt" rel="nofollow"> View page source</a>
@@ -339,6 +340,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -347,10 +349,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -362,12 +368,15 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
@@ -395,7 +404,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Assessing-Credibility-From-Sample-Size">
-<h1>Assessing Credibility From Sample Size<a class="headerlink" href="#Assessing-Credibility-From-Sample-Size" title="Permalink to this headline"></a></h1>
+<h1>Assessing Credibility From Sample Size<a class="headerlink" href="#Assessing-Credibility-From-Sample-Size" title="Permalink to this heading"></a></h1>
 <p>The goal of this notebook is to be able to answer two types of questions:</p>
 <ol class="arabic simple">
 <li><p>For my KPI (precision, recall, true positive rate, false negative rate, ROC AUC, etc), what is the probability that after many more measurements, it could in fact be very different from what I am currently reporting?</p></li>
@@ -403,7 +412,7 @@ div.rendered_html tbody tr:hover {
 </ol>
 <p>Throughout this tutorial, you should keep in mind the differences between “experimental probability” and “theoretical probability” and how experimental probability will approach some theoretical value (though not necessarily <em>your</em> theoretical value!) as you gather more and more measurements.</p>
 <section id="Quantifying-Credibility-of-Recall">
-<h2>Quantifying Credibility of Recall<a class="headerlink" href="#Quantifying-Credibility-of-Recall" title="Permalink to this headline"></a></h2>
+<h2>Quantifying Credibility of Recall<a class="headerlink" href="#Quantifying-Credibility-of-Recall" title="Permalink to this heading"></a></h2>
 <p><em>Recall</em> is defined as the proportion of positive instances that your binary classifier labeled as being positive. This could be an important metric for something like medical diagnosis for a rare condition since there would likely be great concern that the model is catching the vast majority of the positive cases. Suppose a data scientist that you are working with says the model has a recall of 97%, meaning it catches 97% of cases that would be labeled as potential positive diagnoses at this
 phase of a pipeline. Since recall is concerned with positive instances, you should be wary that they had enough positive examples to make that claim with any degree of certainly. You might ask your data scientist “So what was your sample size?”. And your data scientist might confidently tout that they used over a <em>100,000</em> instances! Wow that’s a lot! But since you are a smart engineer, you follow up, “So how many of those were positive?” because again, recall is only concerned with positive
 instances. They will probably report a <em>much</em> smaller number. “Well, since positive cases are so rare, we only had 100 examples in our dataset”. This would be typical.</p>
@@ -412,14 +421,14 @@ of samples the proportions would look very different?</em>. You might intuitivel
 <p>So going back to recall, let’s say you asked what proportion of missed positive instances would be unacceptably high, and you were informed that more than 5% would not be acceptable. This means that a recall lower than 95% would be unacceptable. The question is, given 97 correctly identified positive instances, and 3 false negative, what is the probability that after an infinite number of samples, the recall would be 95% instead of the current estimate of 97%?</p>
 </section>
 <section id="The-Beta-Distribution">
-<h2>The Beta Distribution<a class="headerlink" href="#The-Beta-Distribution" title="Permalink to this headline"></a></h2>
+<h2>The Beta Distribution<a class="headerlink" href="#The-Beta-Distribution" title="Permalink to this heading"></a></h2>
 <p>A very popular and successful approach to answering this question is by querying the <em>beta distribution</em>. Much like a Gaussian distribution (bell curve) reporting frequency from mean and standard deviation, the beta distribution describes the probability that a coin will have a given degree of bias, and is characterized by the number of heads and tails (rather than mean and standard deviation) we have seen so far. In this case, recall is like our “coin” and each “flip” is either a true positive
 or a false negative. The beta distribution is implemented in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, and in the code below, we will ask it what the probability is that the recall is <em>less than</em> 95% given 97 true positives and 3 false negatives.</p>
 </section>
 <section id="Recall">
-<h2>Recall<a class="headerlink" href="#Recall" title="Permalink to this headline"></a></h2>
+<h2>Recall<a class="headerlink" href="#Recall" title="Permalink to this heading"></a></h2>
 <section id="What-is-the-probability-that-recall-is-unaceptably-low?">
-<h3>What is the probability that recall is unaceptably low?<a class="headerlink" href="#What-is-the-probability-that-recall-is-unaceptably-low?" title="Permalink to this headline"></a></h3>
+<h3>What is the probability that recall is unaceptably low?<a class="headerlink" href="#What-is-the-probability-that-recall-is-unaceptably-low?" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -443,7 +452,7 @@ credibility.prob_below(true_positives, false_negatives, cutoff) * 100
 </pre></div></div>
 </div>
 <section id="Interpreting-the-Result">
-<h4>Interpreting the Result<a class="headerlink" href="#Interpreting-the-Result" title="Permalink to this headline"></a></h4>
+<h4>Interpreting the Result<a class="headerlink" href="#Interpreting-the-Result" title="Permalink to this heading"></a></h4>
 <p>Inside of the <code class="docutils literal notranslate"><span class="pre">credibility.prob_below</span></code> function, there is a call to <code class="docutils literal notranslate"><span class="pre">beta</span></code> that takes the following as arguments: 1. The number of instances of <em>heads</em> (<em>true positives</em>) 2. The number of instances of <em>tails</em> (<em>false negatives</em>) We add <code class="docutils literal notranslate"><span class="pre">1</span></code> to each count to encode a belief that both outcomes are at least <em>possible</em>, and is a <a class="reference external" href="https://en.wikipedia.org/wiki/Rule_of_succession">common rule of thumb</a> in practice. This creates an instance of a beta distribution specified by the number of
 <em>true positives</em> (<em>heads</em> if this were a coin) and <em>false negatives</em> (<em>tails</em> if this were a coin). <code class="docutils literal notranslate"><span class="pre">.cdf</span></code> calculates the probability that after an infinite number of samples, the proportion of true positives (heads) would be less than our desired cutoff of <code class="docutils literal notranslate"><span class="pre">95/100</span> <span class="pre">=</span> <span class="pre">0.95</span></code>.</p>
 <p>We multiply the resulting probability by <code class="docutils literal notranslate"><span class="pre">100%</span></code> to report the answer as a percentage. Based on the above readout, there is <code class="docutils literal notranslate"><span class="pre">~25%</span></code> chance that after collecting more and more data, the <em>proportion</em> of <code class="docutils literal notranslate"><span class="pre">true_positives</span></code> would ultimataly fall below the <code class="docutils literal notranslate"><span class="pre">cutoff</span></code> of <code class="docutils literal notranslate"><span class="pre">95%</span></code>.</p>
@@ -451,7 +460,7 @@ credibility.prob_below(true_positives, false_negatives, cutoff) * 100
 </section>
 </section>
 <section id="Credible-Intervals-of-Recall">
-<h3>Credible Intervals of Recall<a class="headerlink" href="#Credible-Intervals-of-Recall" title="Permalink to this headline"></a></h3>
+<h3>Credible Intervals of Recall<a class="headerlink" href="#Credible-Intervals-of-Recall" title="Permalink to this heading"></a></h3>
 <p>Your manager is suprised at how likely it is that recall is unacceptably low. It raises a new question: If there is a 25% chance that recall is below 95%, could we prescribe an interpretable notion of margin of error to the original recall estimate? That is, could we say something like, “While the best estimate of recall is 97%, there is a high probabliity that the true value is between this lower bound and this upper bound”. In general, there are lots of such intervals. We could for example say
 there is a 50% chance the true recall will be between “0 to the median of <code class="docutils literal notranslate"><span class="pre">beta(1</span> <span class="pre">+</span> <span class="pre">true_positives,</span> <span class="pre">1</span> <span class="pre">+</span> <span class="pre">false_negatives)</span></code>”. We could just as accurately say there is a 50% chance the true recall will be between the median and 100%. However, it should be somewhat intuitive that the shortest interval that correctly answers the question “For what interval is there a 50% chance that true value lies within it?” is probably most convenient to work with.</p>
 <p>The following snippet can be used to find the shortest interval for a given “credibility level” (such as 50% for the examples mentioned so far) for a beta distribution.</p>
@@ -477,9 +486,9 @@ print(lower_bound * 100, upper_bound * 100)
 </section>
 </section>
 <section id="ROC-AUC">
-<h2>ROC AUC<a class="headerlink" href="#ROC-AUC" title="Permalink to this headline"></a></h2>
+<h2>ROC AUC<a class="headerlink" href="#ROC-AUC" title="Permalink to this heading"></a></h2>
 <section id="What-is-the-probability-that-ROC-AUC-is-unaceptably-low?">
-<h3>What is the probability that ROC AUC is unaceptably low?<a class="headerlink" href="#What-is-the-probability-that-ROC-AUC-is-unaceptably-low?" title="Permalink to this headline"></a></h3>
+<h3>What is the probability that ROC AUC is unaceptably low?<a class="headerlink" href="#What-is-the-probability-that-ROC-AUC-is-unaceptably-low?" title="Permalink to this heading"></a></h3>
 <p>As you may recall, ROC AUC is a very important KPI for binary classifiers. It is calculated by computing the area under a curve (AUC) that reports true positive rate (proportion of positive instances reported by the model as being positive) against the false positive rate (proportion of negative instances reported as being positive). This curve is plotted over different thresholds (as you may remember, we can adjust our thresholds to balance false positives and false negatives). However, for
 mathematical reasons we will not delve into further, ROC AUC turns out to be equal to <em>the probability that a randomly selected positive instance would be scored higher than a randomly selected negative instance</em>. Therefore, our “how fair is this coin?” analysis still holds, but with a twist.</p>
 <p>In this example, your data scientist reports a 92% ROC AUC with a validation set that consists of 10 positive instances and 90 negative instances. They say they would have disqualified the model with an AUC of less than 90%. You can again apply beta distributions to determine the probability that given an infinite validation set, the AUC would be less than 90%.</p>
@@ -511,7 +520,7 @@ ranked when scored by the model (that is, with the positive instance scored high
 <p>In this case, there is a <code class="docutils literal notranslate"><span class="pre">~2.3%</span></code> chance of the AUC ending up below 90% after an infinite number of samples.</p>
 </section>
 <section id="Credible-Intervals-of-ROC-AUC">
-<h3>Credible Intervals of ROC AUC<a class="headerlink" href="#Credible-Intervals-of-ROC-AUC" title="Permalink to this headline"></a></h3>
+<h3>Credible Intervals of ROC AUC<a class="headerlink" href="#Credible-Intervals-of-ROC-AUC" title="Permalink to this heading"></a></h3>
 <p>We will now demonstrate how to compute credible intervals of ROC AUC in a similar fashion to the credible interval constructed for recall.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
