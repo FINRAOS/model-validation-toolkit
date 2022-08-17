@@ -9,7 +9,7 @@ def test_value_error():
     try:
         credibility.credible_interval(0, 0, prior=(0, 0))
     except ValueError:
-        pass
+        return
     raise Exception("Expected ValueError")
 
 
