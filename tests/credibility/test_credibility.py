@@ -5,6 +5,20 @@ import pandas
 from mvtk import credibility
 
 
+def test_value_error():
+    try:
+        credibility.credible_interval(0, 0, prior=(0, 0))
+    except ValueError:
+        pass
+    raise Exception("Expected ValueError")
+
+
+def test_equivalence():
+    assert credibility.credible_interval(0, 0) == credibility.credible_interval(
+        1, 1, prior=(0, 0)
+    )
+
+
 def test_prob_greater_cmp():
     nprng = numpy.random.RandomState(0)
     prior_sample_size = 10**6
