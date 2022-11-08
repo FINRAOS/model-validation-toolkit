@@ -35,10 +35,10 @@ setup(
         "Operating System :: POSIX :: Linux",
     ],
     install_requires=[
-        "jax>=0.2.8",
+        "jax==0.2.10",
         "public>=2020.12.3",
         "fastcore>=1.3.25",
-        "jaxlib>=0.1.23",
+        "jaxlib==0.1.60",
         "scikit-learn",
         "numpy",
         "matplotlib",
