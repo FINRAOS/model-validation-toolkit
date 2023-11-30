@@ -25,6 +25,7 @@ The Model Validation Toolkit is a library for model validation, metaanalysis, an
     thresholding_user_guide
     interprenet_user_guide
     sobol_user_guide
+    bias_variance_user_guide
 
 .. toctree::
     :maxdepth: 1
@@ -62,6 +63,14 @@ The Model Validation Toolkit is a library for model validation, metaanalysis, an
 
 .. toctree::
     :maxdepth: 1
+    :caption: Bias-Variance Decomposition Tutorials
+
+    notebooks/bias_variance/BiasVarianceClassification
+    notebooks/bias_variance/BiasVarianceRegression
+    notebooks/bias_variance/BiasVarianceVisualization
+
+.. toctree::
+    :maxdepth: 1
     :caption: Python API
  
     supervisor
@@ -70,6 +79,7 @@ The Model Validation Toolkit is a library for model validation, metaanalysis, an
     interprenet
     sobol
     metrics
+    bias_variance
 
 Indices and tables
 ==================

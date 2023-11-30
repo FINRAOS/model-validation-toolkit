@@ -58,9 +58,7 @@ Before we begin, let's take a look at the distribution of the labels. Notice
 that the majority of label values are around 1 and 2, and much less around 5.
 
 .. figure:: images/bias_variance_label_distribution.png
-    :width: 800px
     :align: center
-    :height: 400px
     :alt: alternate text
     :figclass: align-center
 
@@ -70,9 +68,7 @@ the test labels as is. Given that values of greater than 5 in the entire label
 set are considered outliers, we are fitting the model against outliers.
 
 .. figure:: images/high_bias_low_variance.png
-    :width: 800px
     :align: center
-    :height: 400px
     :alt: alternate text
     :figclass: align-center
 
@@ -85,9 +81,7 @@ introducing 8 random "noise" features to the data set. We also reduce the size
 of the training set and train a neural network over a low number of epochs.
 
 .. figure:: images/low_bias_high_variance.png
-    :width: 800px
     :align: center
-    :height: 400px
     :alt: alternate text
     :figclass: align-center
 
@@ -100,9 +94,7 @@ a combination of the techniques from the high bias low variance example and
 the low bias high variance example and train another neural network.
 
 .. figure:: images/high_bias_high_variance.png
-    :width: 800px
     :align: center
-    :height: 400px
     :alt: alternate text
     :figclass: align-center
 
@@ -114,9 +106,7 @@ Finally we have a model with low bias and low variance. This is a simple
 linear regression model with no modifications to the training or test labels.
 
 .. figure:: images/low_bias_low_variance.png
-    :width: 800px
     :align: center
-    :height: 400px
     :alt: alternate text
     :figclass: align-center
 
@@ -134,7 +124,7 @@ There are formulas for breaking down total model error into three parts: bias,
 variance, and noise. This can be applied to both regression problem loss
 functions (mean squared error) and classification problem loss functions
 (0-1 loss). In a paper by Pedro Domingos, a method of unified
-decomposition was proposed for both types of problems:cite:`domingos2000decomp`.
+decomposition was proposed for both types of problems :cite:`domingos2000decomp`.
 
 First lets define :math:`y` as a single prediction, :math:`D` as the set of
 training sets used to train the models, :math:`Y` as the set of predictions
@@ -144,28 +134,28 @@ prediction.
 The main prediction :math:`y_m` is the smallest average loss for a prediction
 when compared to the set of predictions :math:`Y`. The main prediction is
 the mean of :math:`Y` for mean squared error and the mode of :math:`Y` for
-0-1 loss:cite:`domingos2000decomp`.
+0-1 loss :cite:`domingos2000decomp`.
 
 Bias can now be defined for a single example :math:`x` over the set of models
 trained on :math:`D` as the loss calculated between the main prediction
-:math:`y_m` and the correct prediction :math:`y_*`:cite:`domingos2000decomp`.
+:math:`y_m` and the correct prediction :math:`y_*` :cite:`domingos2000decomp`.
 
 .. math::
     B(x) = L(y_*,y_m)
 
 Variance can now be defined for a single example :math:`x` over the set of
 models trained on :math:`D` as the average loss calculated between all predictions
-and the main prediction :math:`y_m`:cite:`domingos2000decomp`.
+and the main prediction :math:`y_m` :cite:`domingos2000decomp`.
 
 .. math::
     V(x) = E_D[L(y_m, y)]
 
 We will need to take the average of the bias over all examples as
 :math:`E_x[B(x)]` and the average of the variance over all examples as
-:math:`E_x[V(x)]`:cite:`domingos2000decomp`.
+:math:`E_x[V(x)]` :cite:`domingos2000decomp`.
 
 With :math:`N(x)` representing the irreducible error from observation noise, we
-can decompose the average expected loss as:cite:`domingos2000decomp`
+can decompose the average expected loss as :cite:`domingos2000decomp`
 
 .. math::
     E_x[N(x)] + E_x[B(x)] + E_x[cV(x)]
@@ -186,7 +176,7 @@ For mean squared loss functions, :math:`c = 1`, meaning that average variance
 is equal to net variance.
 
 For zero-one loss functions, :math:`c = 1` when :math:`y_m = y_*` otherwise
-:math:`c = -P_D(y = y_* | y != y_m)`.:cite:`domingos2000decomp` In other words,
+:math:`c = -P_D(y = y_* | y != y_m)`. :cite:`domingos2000decomp` In other words,
 :math:`c` is 1 when the main prediction is the correct prediction. If the main
 prediction is not the correct prediction, then :math:`c` is equal to the
 probability of a single prediction being the correct prediction given that the
@@ -200,7 +190,7 @@ variance, and net variance for an estimator trained and tested over a specified 
 of training sets. This was inspired and modeled after Sebastian Raschka's
 `bias_variance_decomp
 <https://github.com/rasbt/mlxtend/blob/master/mlxtend/evaluate/bias_variance_decomp.py>`_
-function:cite:`mlxtenddecomp`.
+function :cite:`mlxtenddecomp`.
 We use the `bootstrapping <https://en.wikipedia.org/wiki/Bootstrapping_(statistics)>`_
 method to produce our sets of training data from the original training set. By default
 it will use mean squared error as the loss function, but it will accept the following
@@ -228,8 +218,8 @@ This allows for faster calculations using computations over a distributed archit
 .. topic:: Tutorials:
 
     * :doc:`Bias-Variance Visualization <notebooks/bias_variance/BiasVarianceVisualization>`
-    * :doc:`Bias-Variance Regression <notebooks/divergence/BiasVarianceRegression>`
-    * :doc:`Bias-Variance Classification <notebooks/divergence/BiasVarianceClassification>`
+    * :doc:`Bias-Variance Regression <notebooks/bias_variance/BiasVarianceRegression>`
+    * :doc:`Bias-Variance Classification <notebooks/bias_variance/BiasVarianceClassification>`
 
 .. bibliography:: refs.bib
     :cited:

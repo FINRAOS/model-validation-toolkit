@@ -13,6 +13,9 @@ extras_require = {
         "sphinxcontrib-bibtex",
         "imageio",
         "myst-parser",
+        "ipykernel",
+        "torch",
+        "tensorflow"
     ],
     "pytorch": [
         "torch"
