@@ -166,7 +166,8 @@ def test_pytorch_estimator_wrapper_custom_fit():
 
     torch.manual_seed(123)
     model_test, optimizer_test, loss_fn_test = create_model()
-    model_wrapped = PyTorchEstimatorWrapper(model_test, optimizer_gen, loss_fn_test, fit_fn=custom_fit)
+    model_wrapped = PyTorchEstimatorWrapper(model_test, optimizer_gen, loss_fn_test,
+                                            fit_fn=custom_fit)
 
     model_wrapped.fit(X_train_torch, y_train_torch)
     pred_wrapped = model_wrapped.predict(X_test_torch)
@@ -192,7 +193,8 @@ def test_pytorch_estimator_wrapper_custom_predict():
 
     torch.manual_seed(123)
     model_test, optimizer_test, loss_fn_test = create_model()
-    model_wrapped = PyTorchEstimatorWrapper(model_test, optimizer_gen, loss_fn_test, predict_fn=custom_predict)
+    model_wrapped = PyTorchEstimatorWrapper(model_test, optimizer_gen, loss_fn_test,
+                                            predict_fn=custom_predict)
 
     model_wrapped.fit(X_train_torch, y_train_torch)
     pred_wrapped = model_wrapped.predict(X_test_torch)

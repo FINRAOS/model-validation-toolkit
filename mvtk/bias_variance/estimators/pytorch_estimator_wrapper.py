@@ -2,7 +2,8 @@ from . import EstimatorWrapper
 
 
 class PyTorchEstimatorWrapper(EstimatorWrapper):
-    def __init__(self, estimator, optimizer_generator, loss_fn, fit_fn=None, predict_fn=None):
+    def __init__(self, estimator, optimizer_generator, loss_fn, fit_fn=None,
+                 predict_fn=None):
         r"""Create a wrapper for a PyTorch estimator
 
         Args:
@@ -10,7 +11,8 @@ class PyTorchEstimatorWrapper(EstimatorWrapper):
             optimizer_generator: generator function for the optimizer
             loss_fn: loss function
             fit_fn (optional): custom fit function to be called instead of default one
-            predict_fn (optional): custom predict function to be called instead of default one
+            predict_fn (optional): custom predict function to be called instead
+                of default one
 
         Returns:
             self

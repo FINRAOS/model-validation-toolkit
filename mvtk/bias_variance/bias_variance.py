@@ -31,12 +31,16 @@ def train_and_predict(estimator, X_train_values, y_train_values, X_test_prepared
     r"""Train an estimator and get predictions from it
 
     Args:
-        estimator (EstimatorWrapper): estimator wrapped with a class extending EstimatorWrapper
+        estimator (EstimatorWrapper): estimator wrapped with a class extending
+            EstimatorWrapper
         X_train_values: numpy array of features for training
         y_train_values: numpy array of ground truth labels for training
-        X_test_prepared: feature set for testing which has been processed by prepare_X function
-        prepare_X (function, optional): function to transform feature datasets before calling fit and predict methods
-        prepare_y_train (function, optional): function to transform train ground truth labels before calling fit method
+        X_test_prepared: feature set for testing which has been processed by
+            prepare_X function
+        prepare_X (function, optional): function to transform feature datasets
+            before calling fit and predict methods
+        prepare_y_train (function, optional): function to transform train ground
+            truth labels before calling fit method
         fit_kwargs (dict, optional): kwargs to pass to the fit method
         predict_kwargs (dict, optional): kwargs to pass to the predict method
 
@@ -57,28 +61,36 @@ def train_and_predict(estimator, X_train_values, y_train_values, X_test_prepared
 
 
 @public.add
-def bootstrap_train_and_predict(estimator, X_train_values, y_train_values, X_test_prepared,
-                                prepare_X=lambda x: x, prepare_y_train=lambda x: x,
-                                random_state=None, fit_kwargs=None, predict_kwargs=None):
-    r"""Train an estimator using a bootstrap sample of the training data and get predictions from it
+def bootstrap_train_and_predict(estimator, X_train_values, y_train_values,
+                                X_test_prepared, prepare_X=lambda x: x,
+                                prepare_y_train=lambda x: x,
+                                random_state=None, fit_kwargs=None,
+                                predict_kwargs=None):
+    r"""Train an estimator using a bootstrap sample of the training data and get
+    predictions from it
 
     Args:
-        estimator (EstimatorWrapper): estimator wrapped with a class extending EstimatorWrapper
+        estimator (EstimatorWrapper): estimator wrapped with a class extending
+            EstimatorWrapper
         X_train_values: numpy array of features for training
         y_train_values: numpy array of ground truth labels for training
-        X_test_prepared: feature set for testing which has been processed by prepare_X function
-        prepare_X (function, optional): function to transform feature datasets before calling fit and predict methods
-        prepare_y_train (function, optional): function to transform train ground truth labels before calling fit method
+        X_test_prepared: feature set for testing which has been processed by prepare_X
+            function
+        prepare_X (function, optional): function to transform feature datasets before
+            calling fit and predict methods
+        prepare_y_train (function, optional): function to transform train ground
+            truth labels before calling fit method
         random_state (int, optional): random state for bootstrap sampling
         fit_kwargs (dict, optional): kwargs to pass to the fit method
         predict_kwargs (dict, optional): kwargs to pass to the predict method
 
     Returns:
         predictions"""
-    X_sample, y_sample = resample(X_train_values, y_train_values, random_state=random_state)
+    X_sample, y_sample = resample(X_train_values, y_train_values,
+                                  random_state=random_state)
 
-    return train_and_predict(estimator, X_sample, y_sample, X_test_prepared, prepare_X, prepare_y_train,
-                             fit_kwargs, predict_kwargs)
+    return train_and_predict(estimator, X_sample, y_sample, X_test_prepared, prepare_X,
+                             prepare_y_train, fit_kwargs, predict_kwargs)
 
 
 @public.add
@@ -136,7 +148,8 @@ def bias_variance_0_1_loss(predictions, y_test):
         arr_var[i] = pred_not_main / predictions.shape[0]
 
         if main_predictions[i] != y_test[i]:
-            prb_true_given_not_main = pred_true / pred_not_main if pred_not_main != 0 else 0
+            prb_true_given_not_main = pred_true / pred_not_main if pred_not_main != 0 \
+                else 0
             var_b += (pred_not_main / predictions.shape[0]) * prb_true_given_not_main
         else:
             var_u += pred_not_main / predictions.shape[0]
@@ -152,19 +165,25 @@ def bias_variance_0_1_loss(predictions, y_test):
 
 
 @public.add
-def bias_variance_compute(estimator, X_train, y_train, X_test, y_test, prepare_X=lambda x: x, prepare_y_train=lambda x: x,
-                          iterations=200, random_state=None, decomp_fn=bias_variance_mse, fit_kwargs=None,
-                          predict_kwargs=None):
+def bias_variance_compute(estimator, X_train, y_train, X_test, y_test,
+                          prepare_X=lambda x: x,
+                          prepare_y_train=lambda x: x,
+                          iterations=200, random_state=None,
+                          decomp_fn=bias_variance_mse,
+                          fit_kwargs=None, predict_kwargs=None):
     r"""Compute the bias-variance decomposition in serial
 
     Args:
-        estimator (EstimatorWrapper): estimator wrapped with a class extending EstimatorWrapper
+        estimator (EstimatorWrapper): estimator wrapped with a class extending
+            EstimatorWrapper
         X_train: features for training
         y_train: ground truth labels for training
         X_test: features for testing
         y_test: ground truth labels for testing
-        prepare_X (function, optional): function to transform feature datasets before calling fit and predict methods
-        prepare_y_train (function, optional): function to transform training ground truth labels before calling fit method
+        prepare_X (function, optional): function to transform feature datasets before
+            calling fit and predict methods
+        prepare_y_train (function, optional): function to transform training ground
+            truth labels before calling fit method
         iterations (int, optional): number of iterations for the training/testing
         random_state (int, optional): random state for bootstrap sampling
         decomp_fn (function, optional): bias-variance decomposition function
@@ -189,8 +208,11 @@ def bias_variance_compute(estimator, X_train, y_train, X_test, y_test, prepare_X
     X_test_prepared = prepare_X(X_test_values)
 
     for i in range(iterations):
-        predictions[i] = bootstrap_train_and_predict(estimator, X_train_values, y_train_values, X_test_prepared,
-                                                     prepare_X, prepare_y_train, random_state,
+        predictions[i] = bootstrap_train_and_predict(estimator, X_train_values,
+                                                     y_train_values,
+                                                     X_test_prepared,
+                                                     prepare_X, prepare_y_train,
+                                                     random_state,
                                                      fit_kwargs, predict_kwargs)
 
     y_test_values = get_values(y_test)

@@ -1,5 +1,6 @@
 class EstimatorWrapper:
-    r"""This is a wrapper class that can be inherited to conform any estimator to the fit/predict interface"""
+    r"""This is a wrapper class that can be inherited to conform any estimator
+    to the fit/predict interface"""
 
     def fit(self, X, y, **kwargs):
         r"""Train the estimator

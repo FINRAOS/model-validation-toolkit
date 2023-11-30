@@ -4,8 +4,9 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LinearRegression
 
-from mvtk.bias_variance import bias_variance_compute, bias_variance_mse, bias_variance_0_1_loss, get_values, \
-    train_and_predict, bootstrap_train_and_predict
+from mvtk.bias_variance import (bias_variance_compute, bias_variance_mse,
+                                bias_variance_0_1_loss, get_values,
+                                train_and_predict, bootstrap_train_and_predict)
 from mvtk.bias_variance.estimators import SciKitLearnEstimatorWrapper
 
 
@@ -52,7 +53,8 @@ def test_train_and_predict_prepare():
     model_wrapped = SciKitLearnEstimatorWrapper(model)
 
     predictions = train_and_predict(model_wrapped, X_train, y_train, X_test,
-                                    prepare_X=lambda x: x + 1, prepare_y_train=lambda x: x + 1)
+                                    prepare_X=lambda x: x + 1,
+                                    prepare_y_train=lambda x: x + 1)
 
     expected = np.array([1.314285714285714, 1.5428571428571427, 1.7714285714285714])
 
@@ -97,7 +99,8 @@ def test_bootstrap_train_and_predict_default():
     model = LinearRegression()
     model_wrapped = SciKitLearnEstimatorWrapper(model)
 
-    predictions = bootstrap_train_and_predict(model_wrapped, X_train, y_train, X_test, random_state=321)
+    predictions = bootstrap_train_and_predict(model_wrapped, X_train, y_train, X_test,
+                                              random_state=321)
 
     expected = np.array([0.7142857142857142, 0.8571428571428571, 1.0])
 
@@ -110,8 +113,10 @@ def test_bootstrap_train_and_predict_kwargs_fit():
     model = DecisionTreeClassifier(random_state=123)
     model_wrapped = SciKitLearnEstimatorWrapper(model)
 
-    predictions = bootstrap_train_and_predict(model_wrapped, X_train, y_train, X_test, random_state=321,
-                                              fit_kwargs={'sample_weight': [0, 0, 1, 0, 1, 0]})
+    predictions = bootstrap_train_and_predict(model_wrapped, X_train, y_train, X_test,
+                                              random_state=321,
+                                              fit_kwargs={'sample_weight':
+                                                          [0, 0, 1, 0, 1, 0]})
 
     expected = np.array([0, 0, 0])
 
@@ -124,10 +129,12 @@ def test_bootstrap_train_and_predict_kwargs_predict():
     model = DecisionTreeClassifier(random_state=123)
     model_wrapped = SciKitLearnEstimatorWrapper(model)
 
-    bootstrap_train_and_predict(model_wrapped, X_train, y_train, X_test, random_state=321)
+    bootstrap_train_and_predict(model_wrapped, X_train, y_train, X_test,
+                                random_state=321)
 
     try:
-        bootstrap_train_and_predict(model_wrapped, X_train, y_train, X_test, random_state=321,
+        bootstrap_train_and_predict(model_wrapped, X_train, y_train, X_test,
+                                    random_state=321,
                                     predict_kwargs={'check_input': False})
     except ValueError as e:
         assert e.args[0] == 'X.dtype should be np.float32, got int64'
@@ -142,9 +149,10 @@ def test_bias_variance_compute_mse():
     model = LinearRegression()
     model_wrapped = SciKitLearnEstimatorWrapper(model)
 
-    avg_loss, avg_bias, avg_var, net_var = bias_variance_compute(model_wrapped, X_train, y_train, X_test, y_test,
-                                                                 iterations=10,
-                                                                 random_state=123, decomp_fn=bias_variance_mse)
+    avg_loss, avg_bias, avg_var, net_var = (
+        bias_variance_compute(model_wrapped, X_train, y_train, X_test, y_test,
+                              iterations=10, random_state=123,
+                              decomp_fn=bias_variance_mse))
 
     assert avg_loss == np.float64(1.1661215949979167)
     assert avg_bias == np.float64(0.11952943334828559)
@@ -161,9 +169,10 @@ def test_bias_variance_compute_0_1():
     model = DecisionTreeClassifier(random_state=123)
     model_wrapped = SciKitLearnEstimatorWrapper(model)
 
-    avg_loss, avg_bias, avg_var, net_var = bias_variance_compute(model_wrapped, X_train, y_train, X_test, y_test,
-                                                                 iterations=10,
-                                                                 random_state=123, decomp_fn=bias_variance_0_1_loss)
+    avg_loss, avg_bias, avg_var, net_var = (
+        bias_variance_compute(model_wrapped, X_train, y_train, X_test, y_test,
+                              iterations=10, random_state=123,
+                              decomp_fn=bias_variance_0_1_loss))
 
     assert avg_loss == np.float64(0.4666666666666666)
     assert avg_bias == np.float64(0.3333333333333333)
