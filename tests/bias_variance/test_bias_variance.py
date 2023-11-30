@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
 
 from mvtk.bias_variance import (
     bias_variance_compute,
@@ -41,12 +41,12 @@ def test_get_values():
 def test_train_and_predict_default():
     X_train, y_train, X_test, y_test = create_data()
 
-    model = LinearRegression()
+    model = Ridge(random_state=123)
     model_wrapped = SciKitLearnEstimatorWrapper(model)
 
     predictions = train_and_predict(model_wrapped, X_train, y_train, X_test)
 
-    expected = np.array([0.4285714285714284, 0.657142857142857, 0.8857142857142857])
+    expected = np.array([0.4326241134751774, 0.6595744680851064, 0.8865248226950355])
 
     assert np.array_equal(predictions, expected)
 
@@ -54,7 +54,7 @@ def test_train_and_predict_default():
 def test_train_and_predict_prepare():
     X_train, y_train, X_test, y_test = create_data()
 
-    model = LinearRegression()
+    model = Ridge(random_state=123)
     model_wrapped = SciKitLearnEstimatorWrapper(model)
 
     predictions = train_and_predict(
@@ -66,7 +66,7 @@ def test_train_and_predict_prepare():
         prepare_y_train=lambda x: x + 1,
     )
 
-    expected = np.array([1.314285714285714, 1.5428571428571427, 1.7714285714285714])
+    expected = np.array([1.3191489361702131, 1.546099290780142, 1.773049645390071])
 
     assert np.array_equal(predictions, expected)
 
@@ -116,14 +116,14 @@ def test_train_and_predict_kwargs_predict():
 def test_bootstrap_train_and_predict_default():
     X_train, y_train, X_test, y_test = create_data()
 
-    model = LinearRegression()
+    model = Ridge(random_state=123)
     model_wrapped = SciKitLearnEstimatorWrapper(model)
 
     predictions = bootstrap_train_and_predict(
         model_wrapped, X_train, y_train, X_test, random_state=321
     )
 
-    expected = np.array([0.7142857142857142, 0.8571428571428571, 1.0])
+    expected = np.array([0.7168141592920354, 0.8584070796460177, 1.0])
 
     assert np.array_equal(predictions, expected)
 
@@ -177,7 +177,7 @@ def test_bootstrap_train_and_predict_kwargs_predict():
 def test_bias_variance_compute_mse():
     X_train, y_train, X_test, y_test = create_data()
 
-    model = LinearRegression()
+    model = Ridge(random_state=123)
     model_wrapped = SciKitLearnEstimatorWrapper(model)
 
     avg_loss, avg_bias, avg_var, net_var = bias_variance_compute(
@@ -191,12 +191,12 @@ def test_bias_variance_compute_mse():
         decomp_fn=bias_variance_mse,
     )
 
-    assert avg_loss == np.float64(1.1661215949979167)
-    assert avg_bias == np.float64(0.11952943334828559)
-    assert avg_var == np.float64(1.0465921616496312)
-    assert net_var == np.float64(1.0465921616496312)
+    assert avg_loss == np.float64(1.1158203908105646)
+    assert avg_bias == np.float64(0.1191924176014536)
+    assert avg_var == np.float64(0.9966279732091108)
+    assert net_var == np.float64(0.9966279732091108)
 
-    assert avg_loss == avg_bias + net_var
+    assert np.round(avg_loss, decimals=12) == np.round(avg_bias + net_var, decimals=12)
     assert avg_var == net_var
 
 

@@ -1,7 +1,7 @@
 import numpy as np
 
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
 
 from mvtk.bias_variance import (
     bias_variance_compute_parallel,
@@ -23,7 +23,7 @@ def create_data():
 def test_bias_variance_compute_parallel_mse():
     X_train, y_train, X_test, y_test = create_data()
 
-    model = LinearRegression()
+    model = Ridge(random_state=123)
     model_wrapped = SciKitLearnEstimatorWrapper(model)
 
     avg_loss, avg_bias, avg_var, net_var = bias_variance_compute_parallel(
@@ -36,10 +36,10 @@ def test_bias_variance_compute_parallel_mse():
         decomp_fn=bias_variance_mse,
     )
 
-    assert avg_loss == np.float64(0.4065913365224816)
-    assert avg_bias == np.float64(0.13137593111071386)
-    assert avg_var == np.float64(0.27521540541176753)
-    assert net_var == np.float64(0.27521540541176753)
+    assert avg_loss == np.float64(0.3967829075484304)
+    assert avg_bias == np.float64(0.13298143583764407)
+    assert avg_var == np.float64(0.26380147171078644)
+    assert net_var == np.float64(0.26380147171078644)
 
     assert np.round(avg_loss, decimals=12) == np.round(avg_bias + net_var, decimals=12)
     assert avg_var == net_var
@@ -72,7 +72,7 @@ def test_bias_variance_calc_parallel_0_1():
 def test_bias_variance_calc_parallel_mse_no_random_state():
     X_train, y_train, X_test, y_test = create_data()
 
-    model = LinearRegression()
+    model = Ridge(random_state=123)
     model_wrapped = SciKitLearnEstimatorWrapper(model)
 
     avg_loss, avg_bias, avg_var, net_var = bias_variance_compute_parallel(
