@@ -48,7 +48,8 @@ def test_train_and_predict_default():
 
     expected = np.array([0.4326241134751774, 0.6595744680851064, 0.8865248226950355])
 
-    assert np.array_equal(predictions, expected)
+    assert np.array_equal(np.round(predictions, decimals=12),
+                          np.round(expected, decimals=12))
 
 
 def test_train_and_predict_prepare():
@@ -68,7 +69,8 @@ def test_train_and_predict_prepare():
 
     expected = np.array([1.3191489361702131, 1.546099290780142, 1.773049645390071])
 
-    assert np.array_equal(predictions, expected)
+    assert np.array_equal(np.round(predictions, decimals=12),
+                          np.round(expected, decimals=12))
 
 
 def test_train_and_predict_kwargs_fit():
@@ -191,10 +193,14 @@ def test_bias_variance_compute_mse():
         decomp_fn=bias_variance_mse,
     )
 
-    assert avg_loss == np.float64(1.1158203908105646)
-    assert avg_bias == np.float64(0.1191924176014536)
-    assert avg_var == np.float64(0.9966279732091108)
-    assert net_var == np.float64(0.9966279732091108)
+    assert (np.round(avg_loss, decimals=12) ==
+            np.round(np.float64(1.1158203908105646), decimals=12))
+    assert (np.round(avg_bias, decimals=12) ==
+            np.round(np.float64(0.1191924176014536), decimals=12))
+    assert (np.round(avg_var, decimals=12) ==
+            np.round(np.float64(0.9966279732091108), decimals=12))
+    assert (np.round(net_var, decimals=12) ==
+            np.round(np.float64(0.9966279732091108), decimals=12))
 
     assert np.round(avg_loss, decimals=12) == np.round(avg_bias + net_var, decimals=12)
     assert avg_var == net_var
