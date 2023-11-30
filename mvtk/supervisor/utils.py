@@ -12,7 +12,6 @@ from typing import List
 from itertools import combinations
 from fastcore.imports import in_notebook
 
-
 if in_notebook():
     from tqdm import tqdm_notebook as tqdm
 else:
@@ -21,7 +20,7 @@ else:
 
 @public.add
 def parallel(
-    func, arr: Collection, max_workers: int = None, show_progress: bool = False
+        func, arr: Collection, max_workers=None, show_progress: bool = False
 ):
     """
     NOTE: This code was adapted from the ``parallel`` function
@@ -73,7 +72,7 @@ def format_date(date_str, dateformat="%b%d"):
 
 @public.add
 def compute_divergence_crosstabs(
-    data, datecol=None, format=None, show_progress=True, divergence=None
+        data, datecol=None, format=None, show_progress=True, divergence=None
 ):
     """Compute the divergence crosstabs.
 
@@ -98,7 +97,7 @@ def compute_divergence_crosstabs(
 
 @public.add
 def compute_divergence_crosstabs_split(
-    subsets, dates, format=None, show_progress=True, divergence=None
+        subsets, dates, format=None, show_progress=True, divergence=None
 ):
     """Compute the divergence crosstabs.
 
@@ -121,10 +120,10 @@ def compute_divergence_crosstabs_split(
         return divergence(*args)
 
     for (i, j), v in zip(
-        combinations(range(len(dates)), 2),
-        parallel(
-            compute_divergence, combinations(subsets, 2), show_progress=show_progress
-        ),
+            combinations(range(len(dates)), 2),
+            parallel(
+                compute_divergence, combinations(subsets, 2), show_progress=show_progress
+            ),
     ):
         divergences[i, j] = divergences[j, i] = v
     if format is None:
