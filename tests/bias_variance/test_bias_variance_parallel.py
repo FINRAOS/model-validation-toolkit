@@ -36,14 +36,18 @@ def test_bias_variance_compute_parallel_mse():
         decomp_fn=bias_variance_mse,
     )
 
-    assert (np.round(avg_loss, decimals=12) ==
-            np.round(np.float64(0.3967829075484304), decimals=12))
-    assert (np.round(avg_bias, decimals=12) ==
-            np.round(np.float64(0.13298143583764407), decimals=12))
-    assert (np.round(avg_var, decimals=12) ==
-            np.round(np.float64(0.26380147171078644), decimals=12))
-    assert (np.round(net_var, decimals=12) ==
-            np.round(np.float64(0.26380147171078644), decimals=12))
+    assert np.round(avg_loss, decimals=12) == np.round(
+        np.float64(0.3967829075484304), decimals=12
+    )
+    assert np.round(avg_bias, decimals=12) == np.round(
+        np.float64(0.13298143583764407), decimals=12
+    )
+    assert np.round(avg_var, decimals=12) == np.round(
+        np.float64(0.26380147171078644), decimals=12
+    )
+    assert np.round(net_var, decimals=12) == np.round(
+        np.float64(0.26380147171078644), decimals=12
+    )
 
     assert np.round(avg_loss, decimals=12) == np.round(avg_bias + net_var, decimals=12)
     assert avg_var == net_var
