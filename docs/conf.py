@@ -74,7 +74,7 @@ html_favicon = html_logo
 master_doc = "index"
 
 # increase the timeout for long-running notebooks
-nbsphinx_timeout = 360
+nbsphinx_timeout = 900
 
 # Don't show full paths
 add_module_names = False
