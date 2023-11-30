@@ -15,14 +15,10 @@ extras_require = {
         "myst-parser",
         "ipykernel",
         "torch",
-        "tensorflow"
+        "tensorflow",
     ],
-    "pytorch": [
-        "torch"
-    ],
-    "tensorflow": [
-        "tensorflow"
-    ]
+    "pytorch": ["torch"],
+    "tensorflow": ["tensorflow"],
 }
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -55,7 +51,7 @@ setup(
         "seaborn",
         "pandas>=0.23.4",
         "tqdm",
-        "ray"
+        "ray",
     ],
     extras_require=extras_require,
     url="https://finraos.github.io/model-validation-toolkit/",

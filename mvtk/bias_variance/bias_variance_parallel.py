@@ -12,11 +12,20 @@ def _prepare_X_and_y(X_train_values, y_train_values, prepare_X, prepare_y_train)
 
 
 @public.add
-def bias_variance_compute_parallel(estimator, X_train, y_train, X_test, y_test,
-                                   prepare_X=lambda x: x, prepare_y_train=lambda x: x,
-                                   iterations=200, random_state=None,
-                                   decomp_fn=bias_variance_mse, fit_kwargs=None,
-                                   predict_kwargs=None):
+def bias_variance_compute_parallel(
+    estimator,
+    X_train,
+    y_train,
+    X_test,
+    y_test,
+    prepare_X=lambda x: x,
+    prepare_y_train=lambda x: x,
+    iterations=200,
+    random_state=None,
+    decomp_fn=bias_variance_mse,
+    fit_kwargs=None,
+    predict_kwargs=None,
+):
     r"""Compute the bias-variance decomposition in parallel
 
     Args:
@@ -52,20 +61,36 @@ def bias_variance_compute_parallel(estimator, X_train, y_train, X_test, y_test,
     X_test_prepared = prepare_X(X_test_values)
 
     if random_state is None:
-        result = [bootstrap_train_and_predict_ray.remote(estimator,
-                                                         X_train_values, y_train_values,
-                                                         X_test_prepared,
-                                                         prepare_X, prepare_y_train,
-                                                         fit_kwargs, predict_kwargs)
-                  for _ in range(iterations)]
+        result = [
+            bootstrap_train_and_predict_ray.remote(
+                estimator,
+                X_train_values,
+                y_train_values,
+                X_test_prepared,
+                prepare_X,
+                prepare_y_train,
+                fit_kwargs,
+                predict_kwargs,
+            )
+            for _ in range(iterations)
+        ]
     else:
-        result = [train_and_predict_ray.remote(
-            estimator,
-            *_prepare_X_and_y(*resample(X_train_values, y_train_values,
-                                        random_state=random_state),
-                              prepare_X, prepare_y_train),
-            X_test_prepared, fit_kwargs, predict_kwargs)
-                  for _ in range(iterations)]
+        result = [
+            train_and_predict_ray.remote(
+                estimator,
+                *_prepare_X_and_y(
+                    *resample(
+                        X_train_values, y_train_values, random_state=random_state
+                    ),
+                    prepare_X,
+                    prepare_y_train
+                ),
+                X_test_prepared,
+                fit_kwargs,
+                predict_kwargs
+            )
+            for _ in range(iterations)
+        ]
 
     predictions = np.array(ray.get(result))
 
@@ -75,8 +100,14 @@ def bias_variance_compute_parallel(estimator, X_train, y_train, X_test, y_test,
 
 
 @ray.remote
-def train_and_predict_ray(estimator, X_train_values, y_train_values, X_test_prepared,
-                          fit_kwargs=None, predict_kwargs=None):
+def train_and_predict_ray(
+    estimator,
+    X_train_values,
+    y_train_values,
+    X_test_prepared,
+    fit_kwargs=None,
+    predict_kwargs=None,
+):
     r"""Train an estimator and get predictions from it
 
     Args:
@@ -91,15 +122,27 @@ def train_and_predict_ray(estimator, X_train_values, y_train_values, X_test_prep
 
     Returns:
         predictions"""
-    return train_and_predict(estimator, X_train_values, y_train_values, X_test_prepared,
-                             fit_kwargs=fit_kwargs, predict_kwargs=predict_kwargs)
+    return train_and_predict(
+        estimator,
+        X_train_values,
+        y_train_values,
+        X_test_prepared,
+        fit_kwargs=fit_kwargs,
+        predict_kwargs=predict_kwargs,
+    )
 
 
 @ray.remote
-def bootstrap_train_and_predict_ray(estimator, X_train_values, y_train_values,
-                                    X_test_prepared,
-                                    prepare_X=lambda x: x, prepare_y_train=lambda x: x,
-                                    fit_kwargs=None, predict_kwargs=None):
+def bootstrap_train_and_predict_ray(
+    estimator,
+    X_train_values,
+    y_train_values,
+    X_test_prepared,
+    prepare_X=lambda x: x,
+    prepare_y_train=lambda x: x,
+    fit_kwargs=None,
+    predict_kwargs=None,
+):
     r"""Train an estimator using a bootstrap sample of the training data and get
     predictions from it
 
@@ -126,6 +169,13 @@ def bootstrap_train_and_predict_ray(estimator, X_train_values, y_train_values,
 
     X_sample, y_sample = resample(X_train_values, y_train_values)
 
-    return train_and_predict(estimator, X_sample, y_sample, X_test_prepared,
-                             prepare_X, prepare_y_train,
-                             fit_kwargs, predict_kwargs)
+    return train_and_predict(
+        estimator,
+        X_sample,
+        y_sample,
+        X_test_prepared,
+        prepare_X,
+        prepare_y_train,
+        fit_kwargs,
+        predict_kwargs,
+    )

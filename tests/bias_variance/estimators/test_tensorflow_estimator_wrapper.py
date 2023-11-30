@@ -14,15 +14,19 @@ def create_data():
 
 
 def create_model():
-    model = tf.keras.Sequential([
-        tf.keras.layers.Dense(64, activation='relu'),
-        tf.keras.layers.Dense(64, activation='relu'),
-        tf.keras.layers.Dense(1)
-    ])
+    model = tf.keras.Sequential(
+        [
+            tf.keras.layers.Dense(64, activation="relu"),
+            tf.keras.layers.Dense(64, activation="relu"),
+            tf.keras.layers.Dense(1),
+        ]
+    )
 
-    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
-                  loss='mean_absolute_error',
-                  metrics=['mean_squared_error'])
+    model.compile(
+        optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
+        loss="mean_absolute_error",
+        metrics=["mean_squared_error"],
+    )
 
     return model
 

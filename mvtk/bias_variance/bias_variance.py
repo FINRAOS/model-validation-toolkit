@@ -25,9 +25,16 @@ def get_values(x):
 
 
 @public.add
-def train_and_predict(estimator, X_train_values, y_train_values, X_test_prepared,
-                      prepare_X=lambda x: x, prepare_y_train=lambda x: x,
-                      fit_kwargs=None, predict_kwargs=None):
+def train_and_predict(
+    estimator,
+    X_train_values,
+    y_train_values,
+    X_test_prepared,
+    prepare_X=lambda x: x,
+    prepare_y_train=lambda x: x,
+    fit_kwargs=None,
+    predict_kwargs=None,
+):
     r"""Train an estimator and get predictions from it
 
     Args:
@@ -61,11 +68,17 @@ def train_and_predict(estimator, X_train_values, y_train_values, X_test_prepared
 
 
 @public.add
-def bootstrap_train_and_predict(estimator, X_train_values, y_train_values,
-                                X_test_prepared, prepare_X=lambda x: x,
-                                prepare_y_train=lambda x: x,
-                                random_state=None, fit_kwargs=None,
-                                predict_kwargs=None):
+def bootstrap_train_and_predict(
+    estimator,
+    X_train_values,
+    y_train_values,
+    X_test_prepared,
+    prepare_X=lambda x: x,
+    prepare_y_train=lambda x: x,
+    random_state=None,
+    fit_kwargs=None,
+    predict_kwargs=None,
+):
     r"""Train an estimator using a bootstrap sample of the training data and get
     predictions from it
 
@@ -86,11 +99,20 @@ def bootstrap_train_and_predict(estimator, X_train_values, y_train_values,
 
     Returns:
         predictions"""
-    X_sample, y_sample = resample(X_train_values, y_train_values,
-                                  random_state=random_state)
+    X_sample, y_sample = resample(
+        X_train_values, y_train_values, random_state=random_state
+    )
 
-    return train_and_predict(estimator, X_sample, y_sample, X_test_prepared, prepare_X,
-                             prepare_y_train, fit_kwargs, predict_kwargs)
+    return train_and_predict(
+        estimator,
+        X_sample,
+        y_sample,
+        X_test_prepared,
+        prepare_X,
+        prepare_y_train,
+        fit_kwargs,
+        predict_kwargs,
+    )
 
 
 @public.add
@@ -138,8 +160,8 @@ def bias_variance_0_1_loss(predictions, y_test):
 
     arr_loss = np.zeros(pred_by_x.shape[0], dtype=np.float64)
     arr_var = np.zeros(pred_by_x.shape[0], dtype=np.float64)
-    var_b = 0.0     # biased example contribution to avg_var
-    var_u = 0.0     # unbiased example contribution to avg_var
+    var_b = 0.0  # biased example contribution to avg_var
+    var_u = 0.0  # unbiased example contribution to avg_var
     for i in range(pred_by_x.shape[0]):
         pred_true = np.sum(pred_by_x[i] == y_test[i])
         pred_not_main = np.sum(pred_by_x[i] != main_predictions[i])
@@ -148,8 +170,9 @@ def bias_variance_0_1_loss(predictions, y_test):
         arr_var[i] = pred_not_main / predictions.shape[0]
 
         if main_predictions[i] != y_test[i]:
-            prb_true_given_not_main = pred_true / pred_not_main if pred_not_main != 0 \
-                else 0
+            prb_true_given_not_main = (
+                pred_true / pred_not_main if pred_not_main != 0 else 0
+            )
             var_b += (pred_not_main / predictions.shape[0]) * prb_true_given_not_main
         else:
             var_u += pred_not_main / predictions.shape[0]
@@ -165,12 +188,20 @@ def bias_variance_0_1_loss(predictions, y_test):
 
 
 @public.add
-def bias_variance_compute(estimator, X_train, y_train, X_test, y_test,
-                          prepare_X=lambda x: x,
-                          prepare_y_train=lambda x: x,
-                          iterations=200, random_state=None,
-                          decomp_fn=bias_variance_mse,
-                          fit_kwargs=None, predict_kwargs=None):
+def bias_variance_compute(
+    estimator,
+    X_train,
+    y_train,
+    X_test,
+    y_test,
+    prepare_X=lambda x: x,
+    prepare_y_train=lambda x: x,
+    iterations=200,
+    random_state=None,
+    decomp_fn=bias_variance_mse,
+    fit_kwargs=None,
+    predict_kwargs=None,
+):
     r"""Compute the bias-variance decomposition in serial
 
     Args:
@@ -208,12 +239,17 @@ def bias_variance_compute(estimator, X_train, y_train, X_test, y_test,
     X_test_prepared = prepare_X(X_test_values)
 
     for i in range(iterations):
-        predictions[i] = bootstrap_train_and_predict(estimator, X_train_values,
-                                                     y_train_values,
-                                                     X_test_prepared,
-                                                     prepare_X, prepare_y_train,
-                                                     random_state,
-                                                     fit_kwargs, predict_kwargs)
+        predictions[i] = bootstrap_train_and_predict(
+            estimator,
+            X_train_values,
+            y_train_values,
+            X_test_prepared,
+            prepare_X,
+            prepare_y_train,
+            random_state,
+            fit_kwargs,
+            predict_kwargs,
+        )
 
     y_test_values = get_values(y_test)
 

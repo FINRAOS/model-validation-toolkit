@@ -52,11 +52,13 @@ class TensorFlowEstimatorWrapper(EstimatorWrapper):
         import tensorflow as tf
 
         for layer in self.estimator.layers:
-            if hasattr(layer, 'kernel_initializer') and hasattr(layer, 'kernel'):
+            if hasattr(layer, "kernel_initializer") and hasattr(layer, "kernel"):
                 layer.kernel.assign(layer.kernel_initializer(tf.shape(layer.kernel)))
-            if hasattr(layer, 'bias_initializer') and hasattr(layer, 'bias'):
+            if hasattr(layer, "bias_initializer") and hasattr(layer, "bias"):
                 layer.bias.assign(layer.bias_initializer(tf.shape(layer.bias)))
-            if (hasattr(layer, 'recurrent_initializer') and
-                    hasattr(layer, 'recurrent_kernal')):
-                layer.recurrent_kernal.assign(layer.recurrent_initializer(
-                    tf.shape(layer.recurrent_kernal)))
+            if hasattr(layer, "recurrent_initializer") and hasattr(
+                layer, "recurrent_kernal"
+            ):
+                layer.recurrent_kernal.assign(
+                    layer.recurrent_initializer(tf.shape(layer.recurrent_kernal))
+                )

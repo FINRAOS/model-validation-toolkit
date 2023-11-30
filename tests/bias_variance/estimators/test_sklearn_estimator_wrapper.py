@@ -57,7 +57,7 @@ def test_sklearn_estimator_wrapper_kwargs_predict():
     try:
         model.predict(X_test, check_input=False)
     except ValueError as e:
-        assert e.args[0] == 'X.dtype should be np.float32, got int64'
+        assert e.args[0] == "X.dtype should be np.float32, got int64"
         return
 
     model_test = DecisionTreeClassifier(random_state=123)
@@ -67,7 +67,7 @@ def test_sklearn_estimator_wrapper_kwargs_predict():
     try:
         model_wrapped.predict(X_test, check_input=False)
     except ValueError as e:
-        assert e.args[0] == 'X.dtype should be np.float32, got int64'
+        assert e.args[0] == "X.dtype should be np.float32, got int64"
         return
 
     assert False

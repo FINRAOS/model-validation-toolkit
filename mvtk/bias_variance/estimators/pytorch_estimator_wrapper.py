@@ -2,8 +2,9 @@ from . import EstimatorWrapper
 
 
 class PyTorchEstimatorWrapper(EstimatorWrapper):
-    def __init__(self, estimator, optimizer_generator, loss_fn, fit_fn=None,
-                 predict_fn=None):
+    def __init__(
+        self, estimator, optimizer_generator, loss_fn, fit_fn=None, predict_fn=None
+    ):
         r"""Create a wrapper for a PyTorch estimator
 
         Args:
@@ -41,17 +42,17 @@ class PyTorchEstimatorWrapper(EstimatorWrapper):
             self.fit_fn(self, X, y, **kwargs)
             return self
 
-        if kwargs.get('epochs') is None:
+        if kwargs.get("epochs") is None:
             epochs = 100
         else:
-            epochs = kwargs.get('epochs')
+            epochs = kwargs.get("epochs")
 
         for i in range(epochs):
             loss = 0
-            if kwargs.get('batch_size') is None:
+            if kwargs.get("batch_size") is None:
                 batch_size = len(y)
             else:
-                batch_size = kwargs.get('batch_size')
+                batch_size = kwargs.get("batch_size")
             for j in range(0, len(y), batch_size):
                 batch_start = j
                 batch_end = j + batch_size
@@ -63,8 +64,8 @@ class PyTorchEstimatorWrapper(EstimatorWrapper):
                 self.optimizer.zero_grad()
                 loss.backward()
                 self.optimizer.step()
-            if kwargs.get('verbose'):
-                print(f'epoch: {i:2} training loss: {loss.item():10.8f}')
+            if kwargs.get("verbose"):
+                print(f"epoch: {i:2} training loss: {loss.item():10.8f}")
 
         return self
 
