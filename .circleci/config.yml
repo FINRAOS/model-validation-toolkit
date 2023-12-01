@@ -51,7 +51,7 @@ jobs:
               cp main/.circleci/config.yml website/.circleci/config.yml
       - add_ssh_keys:
           fingerprints:
-            - "4e:e4:68:5b:4b:62:62:47:73:47:d5:b4:99:23:98:b1"
+            - "dd:11:5d:b8:a7:d2:be:16:47:4e:a0:66:00:96:b4:f7"
       - run:
           name: Deploy docs to website branch
           command: |
