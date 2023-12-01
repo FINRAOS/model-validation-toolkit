@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>interprenet &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <title>interprenet &mdash; Model Validation Toolkit 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c58e1459" />
+
+  
     <link rel="shortcut icon" href="_static/logo.svg"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b1f64a84"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
@@ -42,12 +44,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Model Validation Toolkit
-            <img src="_static/logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Model Validation Toolkit
+              <img src="_static/logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -66,6 +72,7 @@
 <li class="toctree-l1"><a class="reference internal" href="thresholding_user_guide.html">Thresholding User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interprenet_user_guide.html">Interprenet User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias_variance_user_guide.html">Bias-Variance User Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul>
@@ -91,14 +98,38 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Bias-Variance Decomposition Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceClassification.html">Bias-Variance Decomposition for Classification Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceRegression.html">Bias-Variance Decomposition for Regression Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceVisualization.html">Bias-Variance Visualizations</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="supervisor.html">supervisor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="credibility.html">credibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="thresholding.html">thresholding</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">interprenet</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">interprenet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.ConstrainedDense"><code class="docutils literal notranslate"><span class="pre">ConstrainedDense()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.SortLayer"><code class="docutils literal notranslate"><span class="pre">SortLayer()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.batch_generator"><code class="docutils literal notranslate"><span class="pre">batch_generator()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.clip"><code class="docutils literal notranslate"><span class="pre">clip()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.constrained_model"><code class="docutils literal notranslate"><span class="pre">constrained_model()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.cross_entropy"><code class="docutils literal notranslate"><span class="pre">cross_entropy()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.identity"><code class="docutils literal notranslate"><span class="pre">identity()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.lipschitz_constraint"><code class="docutils literal notranslate"><span class="pre">lipschitz_constraint()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.monotonic_constraint"><code class="docutils literal notranslate"><span class="pre">monotonic_constraint()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.net"><code class="docutils literal notranslate"><span class="pre">net()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.parameterized_loss"><code class="docutils literal notranslate"><span class="pre">parameterized_loss()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.sigmoid_clip"><code class="docutils literal notranslate"><span class="pre">sigmoid_clip()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.thread"><code class="docutils literal notranslate"><span class="pre">thread()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mvtk.interprenet.train"><code class="docutils literal notranslate"><span class="pre">train()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias_variance.html">bias_variance</a></li>
 </ul>
 
         </div>
@@ -114,8 +145,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>interprenet</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">interprenet</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/interprenet.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -125,31 +156,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-mvtk.interprenet">
+  <section id="module-mvtk.interprenet">
 <span id="interprenet"></span><h1>interprenet<a class="headerlink" href="#module-mvtk.interprenet" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="mvtk.interprenet.ConstrainedDense">
@@ -157,7 +164,7 @@
 <dd><p>Layer constructor function for a constrained dense (fully-connected)
 layer.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>constraint</strong> (<em>function</em>) – Transformation to be applied to weights</p>
 </dd>
 </dl>
@@ -182,15 +189,15 @@ layer.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mvtk.interprenet.constrained_model">
-<span class="sig-name descname"><span class="pre">constrained_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">constraints,</span> <span class="pre">get_layers=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;,</span> <span class="pre">output_shape=1,</span> <span class="pre">preprocess=&lt;function</span> <span class="pre">identity&gt;,</span> <span class="pre">postprocess=&lt;function</span> <span class="pre">sigmoid_clip&gt;,</span> <span class="pre">rng=DeviceArray([0,</span> <span class="pre">0],</span> <span class="pre">dtype=uint32)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#constrained_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.constrained_model" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">constrained_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">constraints,</span> <span class="pre">get_layers=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;,</span> <span class="pre">output_shape=1,</span> <span class="pre">preprocess=&lt;function</span> <span class="pre">identity&gt;,</span> <span class="pre">postprocess=&lt;function</span> <span class="pre">sigmoid_clip&gt;,</span> <span class="pre">rng=Array([0,</span> <span class="pre">0],</span> <span class="pre">dtype=uint32)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#constrained_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.constrained_model" title="Permalink to this definition"></a></dt>
 <dd><p>Create a neural network with groups of constraints assigned to each
 feature. Separate constrained neural networks are generated for each group
-of contraints. Each feature is fed into exactly one of these neural
+of constraints. Each feature is fed into exactly one of these neural
 networks (the one that matches its assigned group of constraints). The
 output of these constrained neural networks are concatenated and fed into
 one final neural network that obeys the union of all constraints applied.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>constraints</strong> (<em>list</em>) – List sets of constraints (one frozenset of constraints
 for each feature)</p></li>
@@ -205,7 +212,7 @@ ones.</p></li>
 <li><p><strong>rng</strong> – jax PRNGKey</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>init_params, model</p>
 </dd>
 </dl>
@@ -246,13 +253,13 @@ ones.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mvtk.interprenet.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">DeviceArray([0,</span> <span class="pre">0],</span> <span class="pre">dtype=uint32)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.plot" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Array([0,</span> <span class="pre">0],</span> <span class="pre">dtype=uint32)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/interprenet.html#plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.interprenet.plot" title="Permalink to this definition"></a></dt>
 <dd><p><a class="reference external" href="https://christophm.github.io/interpretable-ml-book/ice.html">Individual Conditional Expectation plot
 (blue)</a> and
 <a class="reference external" href="https://christophm.github.io/interpretable-ml-book/pdp.html">Partial Dependence Plot
 (red)</a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<em>function</em>) – function from data (as dataframe) to scores</p></li>
 <li><p><strong>feature</strong> (<em>string</em>) – Feature to examine</p></li>
@@ -266,7 +273,7 @@ x-axis. Randomly chosen from unique values of this feature within
 <li><p><strong>rng</strong> (<em>PRNGKey</em>) – Jax <code class="docutils literal notranslate"><span class="pre">PRNGKey</span></code></p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>matplolib figure</p>
 </dd>
 </dl>
@@ -289,7 +296,7 @@ x-axis. Randomly chosen from unique values of this feature within
 using <code class="docutils literal notranslate"><span class="pre">metric</span></code> every <code class="docutils literal notranslate"><span class="pre">track</span></code> epochs. The model parameters with the
 highest accuracy are returned.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>train</strong> (<em>tuple</em>) – (X, y), each <code class="docutils literal notranslate"><span class="pre">jax.numpy.array</span></code> of type <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
 <li><p><strong>test</strong> (<em>tuple</em>) – (X, y), each <code class="docutils literal notranslate"><span class="pre">jax.numpy.array</span></code> of type <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
@@ -306,7 +313,7 @@ stochastic gradient descent</p></li>
 <li><p><strong>track</strong> (<em>int</em>) – Number of epochs between metric checks</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>best params</p>
 </dd>
 </dl>

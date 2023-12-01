@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interprenet User Guide &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <title>Interprenet User Guide &mdash; Model Validation Toolkit 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c58e1459" />
+
+  
     <link rel="shortcut icon" href="_static/logo.svg"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b1f64a84"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -44,12 +46,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Model Validation Toolkit
-            <img src="_static/logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Model Validation Toolkit
+              <img src="_static/logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -76,6 +82,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias_variance_user_guide.html">Bias-Variance User Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul>
@@ -101,6 +108,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Bias-Variance Decomposition Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceClassification.html">Bias-Variance Decomposition for Classification Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceRegression.html">Bias-Variance Decomposition for Regression Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceVisualization.html">Bias-Variance Visualizations</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="supervisor.html">supervisor</a></li>
@@ -109,6 +122,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interprenet.html">interprenet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias_variance.html">bias_variance</a></li>
 </ul>
 
         </div>
@@ -124,8 +138,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Interprenet User Guide</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Interprenet User Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/interprenet_user_guide.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -135,31 +149,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="interprenet-user-guide">
+  <section id="interprenet-user-guide">
 <h1>Interprenet User Guide<a class="headerlink" href="#interprenet-user-guide" title="Permalink to this heading"></a></h1>
 <section id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading"></a></h2>
@@ -227,13 +217,13 @@ and fed into a final neural network constrained using all
 constraints applied to all features. Since constraints on weight
 matrices compose, they can be applied as a series of transformations
 on the weights before application.</p>
-<figure class="align-center" id="id25">
+<figure class="align-center" id="id27">
 <a class="reference internal image-reference" href="_images/interprenet.png"><img alt="alternate text" src="_images/interprenet.png" style="width: 500px; height: 400px;" /></a>
 <figcaption>
 <p><span class="caption-text">4 features with Lipschitz constraints and 4 features wtih
 monotonic constraints are fed to their respectively constrained
 neural networks. Intermediate outputs are concatenated and fed into a neural
-network with monotonic and lipschitz constraints.</span><a class="headerlink" href="#id25" title="Permalink to this image"></a></p>
+network with monotonic and lipschitz constraints.</span><a class="headerlink" href="#id27" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>We use the Sort function as a nonlinear activation as described in
@@ -252,66 +242,92 @@ vector before passing it to the neural network. For decreasing
 monotonic constraints, multiply the respective features by
 <span class="math notranslate nohighlight">\(-1\)</span>. For a Lipschitz constant of <span class="math notranslate nohighlight">\(L\)</span>, multiply the
 respective features by <span class="math notranslate nohighlight">\(L\)</span>.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Tutorials:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="notebooks/interprenet/Interprenet.html"><span class="doc">Interprenet</span></a></p></li>
 </ul>
-</div>
+</aside>
 <div class="docutils container" id="id5">
-<dl class="citation">
-<dt class="label" id="id19"><span class="brackets">ALG19</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id4">3</a>)</span></dt>
-<dd><p>Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In <em>International Conference on Machine Learning</em>, 291–301. PMLR, 2019.</p>
-</dd>
-<dt class="label" id="id17"><span class="brackets">ACB17</span></dt>
-<dd><p>Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. <em>arXiv preprint arXiv:1701.07875</em>, 2017.</p>
-</dd>
-<dt class="label" id="id15"><span class="brackets">BDD+17</span></dt>
-<dd><p>Marc G Bellemare, Ivo Danihelka, Will Dabney, Shakir Mohamed, Balaji Lakshminarayanan, Stephan Hoyer, and Rémi Munos. The cramer distance as a solution to biased wasserstein gradients. <em>arXiv preprint arXiv:1705.10743</em>, 2017.</p>
-</dd>
-<dt class="label" id="id9"><span class="brackets">CsiszarS+04</span></dt>
-<dd><p>Imre Csiszár, Paul C Shields, and others. Information theory and statistics: a tutorial. <em>Foundations and Trends® in Communications and Information Theory</em>, 1(4):417–528, 2004.</p>
-</dd>
-<dt class="label" id="id12"><span class="brackets">GBR+12</span></dt>
-<dd><p>Arthur Gretton, Karsten M Borgwardt, Malte J Rasch, Bernhard Schölkopf, and Alexander Smola. A kernel two-sample test. <em>Journal of Machine Learning Research</em>, 13(Mar):723–773, 2012.</p>
-</dd>
-<dt class="label" id="id16"><span class="brackets">GAA+17</span></dt>
-<dd><p>Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron C Courville. Improved training of wasserstein gans. In <em>Advances in neural information processing systems</em>, 5767–5777. 2017.</p>
-</dd>
-<dt class="label" id="id14"><span class="brackets">Her17</span></dt>
-<dd><p>Vincent Herrmann. Wasserstein gan and the kantorovich-rubinstein duality. February 2017. URL: <a class="reference external" href="https://vincentherrmann.github.io/blog/wasserstein/">https://vincentherrmann.github.io/blog/wasserstein/</a>.</p>
-</dd>
-<dt class="label" id="id22"><span class="brackets">IM93</span></dt>
-<dd><p>Sobol’ IM. Sensitivity estimates for nonlinear mathematical models. <em>Math. Model. Comput. Exp</em>, 1(4):407–414, 1993.</p>
-</dd>
-<dt class="label" id="id24"><span class="brackets">Lin91</span></dt>
-<dd><p>Jianhua Lin. Divergence measures based on the shannon entropy. <em>IEEE Transactions on Information theory</em>, 37(1):145–151, 1991.</p>
-</dd>
-<dt class="label" id="id10"><span class="brackets">NWJ10</span></dt>
-<dd><p>XuanLong Nguyen, Martin J Wainwright, and Michael I Jordan. Estimating divergence functionals and the likelihood ratio by convex risk minimization. <em>IEEE Transactions on Information Theory</em>, 56(11):5847–5861, 2010.</p>
-</dd>
-<dt class="label" id="id7"><span class="brackets">NCT16</span></dt>
-<dd><p>Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In <em>Advances in neural information processing systems</em>, 271–279. 2016.</p>
-</dd>
-<dt class="label" id="id21"><span class="brackets">SRA+08</span></dt>
-<dd><p>Andrea Saltelli, Marco Ratto, Terry Andres, Francesca Campolongo, Jessica Cariboni, Debora Gatelli, Michaela Saisana, and Stefano Tarantola. <em>Global sensitivity analysis: the primer</em>. John Wiley &amp; Sons, 2008.</p>
-</dd>
-<dt class="label" id="id20"><span class="brackets">Sob01</span></dt>
-<dd><p>Ilya M Sobol. Global sensitivity indices for nonlinear mathematical models and their monte carlo estimates. <em>Mathematics and computers in simulation</em>, 55(1-3):271–280, 2001.</p>
-</dd>
-<dt class="label" id="id6"><span class="brackets">SFG+09</span></dt>
-<dd><p>Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. <em>arXiv preprint arXiv:0901.2698</em>, 2009.</p>
-</dd>
-<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id3">Tro04</a></span></dt>
-<dd><p>Joel Aaron Tropp. <em>Topics in sparse approximation</em>. PhD thesis, University of Texas at Austin, 2004.</p>
-</dd>
-<dt class="label" id="id13"><span class="brackets">WHC+16</span></dt>
-<dd><p>Geoffrey I Webb, Roy Hyde, Hong Cao, Hai Long Nguyen, and Francois Petitjean. Characterizing concept drift. <em>Data Mining and Knowledge Discovery</em>, 30(4):964–994, 2016.</p>
-</dd>
-<dt class="label" id="id8"><span class="brackets">Wu16</span></dt>
-<dd><p>Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: <a class="reference external" href="http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf">http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf</a>.</p>
-</dd>
-</dl>
+<div role="list" class="citation-list">
+<div class="citation" id="id19" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>ALG19<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>,<a role="doc-backlink" href="#id4">3</a>)</span>
+<p>Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In <em>International Conference on Machine Learning</em>, 291–301. PMLR, 2019.</p>
+</div>
+<div class="citation" id="id17" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>ACB17<span class="fn-bracket">]</span></span>
+<p>Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. <em>arXiv preprint arXiv:1701.07875</em>, 2017.</p>
+</div>
+<div class="citation" id="id15" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>BDD+17<span class="fn-bracket">]</span></span>
+<p>Marc G Bellemare, Ivo Danihelka, Will Dabney, Shakir Mohamed, Balaji Lakshminarayanan, Stephan Hoyer, and Rémi Munos. The cramer distance as a solution to biased wasserstein gradients. <em>arXiv preprint arXiv:1705.10743</em>, 2017.</p>
+</div>
+<div class="citation" id="id9" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>CsiszarS+04<span class="fn-bracket">]</span></span>
+<p>Imre Csiszár, Paul C Shields, and others. Information theory and statistics: a tutorial. <em>Foundations and Trends® in Communications and Information Theory</em>, 1(4):417–528, 2004.</p>
+</div>
+<div class="citation" id="id25" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Dom00<span class="fn-bracket">]</span></span>
+<p>Pedro Domingos. A unified bias-variance decomposition and its applications. Technical Report, University of Washington, Seattle, WA, January 2000. URL: <a class="reference external" href="https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf">https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf</a>.</p>
+</div>
+<div class="citation" id="id12" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>GBR+12<span class="fn-bracket">]</span></span>
+<p>Arthur Gretton, Karsten M Borgwardt, Malte J Rasch, Bernhard Schölkopf, and Alexander Smola. A kernel two-sample test. <em>Journal of Machine Learning Research</em>, 13(Mar):723–773, 2012.</p>
+</div>
+<div class="citation" id="id16" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>GAA+17<span class="fn-bracket">]</span></span>
+<p>Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron C Courville. Improved training of wasserstein gans. In <em>Advances in neural information processing systems</em>, 5767–5777. 2017.</p>
+</div>
+<div class="citation" id="id14" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Her17<span class="fn-bracket">]</span></span>
+<p>Vincent Herrmann. Wasserstein gan and the kantorovich-rubinstein duality. February 2017. URL: <a class="reference external" href="https://vincentherrmann.github.io/blog/wasserstein/">https://vincentherrmann.github.io/blog/wasserstein/</a>.</p>
+</div>
+<div class="citation" id="id22" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>IM93<span class="fn-bracket">]</span></span>
+<p>Sobol’ IM. Sensitivity estimates for nonlinear mathematical models. <em>Math. Model. Comput. Exp</em>, 1(4):407–414, 1993.</p>
+</div>
+<div class="citation" id="id24" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Lin91<span class="fn-bracket">]</span></span>
+<p>Jianhua Lin. Divergence measures based on the shannon entropy. <em>IEEE Transactions on Information theory</em>, 37(1):145–151, 1991.</p>
+</div>
+<div class="citation" id="id10" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>NWJ10<span class="fn-bracket">]</span></span>
+<p>XuanLong Nguyen, Martin J Wainwright, and Michael I Jordan. Estimating divergence functionals and the likelihood ratio by convex risk minimization. <em>IEEE Transactions on Information Theory</em>, 56(11):5847–5861, 2010.</p>
+</div>
+<div class="citation" id="id7" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>NCT16<span class="fn-bracket">]</span></span>
+<p>Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In <em>Advances in neural information processing systems</em>, 271–279. 2016.</p>
+</div>
+<div class="citation" id="id26" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Ras23<span class="fn-bracket">]</span></span>
+<p>Sebastian Raschka. Bias_variance_decomp: bias-variance decomposition for classification and regression losses. 2014-2023. URL: <a class="reference external" href="https://rasbt.github.io/mlxtend/user_guide/evaluate/bias_variance_decomp/">https://rasbt.github.io/mlxtend/user_guide/evaluate/bias_variance_decomp/</a>.</p>
+</div>
+<div class="citation" id="id21" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SRA+08<span class="fn-bracket">]</span></span>
+<p>Andrea Saltelli, Marco Ratto, Terry Andres, Francesca Campolongo, Jessica Cariboni, Debora Gatelli, Michaela Saisana, and Stefano Tarantola. <em>Global sensitivity analysis: the primer</em>. John Wiley &amp; Sons, 2008.</p>
+</div>
+<div class="citation" id="id20" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Sob01<span class="fn-bracket">]</span></span>
+<p>Ilya M Sobol. Global sensitivity indices for nonlinear mathematical models and their monte carlo estimates. <em>Mathematics and computers in simulation</em>, 55(1-3):271–280, 2001.</p>
+</div>
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SFG+09<span class="fn-bracket">]</span></span>
+<p>Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. <em>arXiv preprint arXiv:0901.2698</em>, 2009.</p>
+</div>
+<div class="citation" id="id18" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Tro04</a><span class="fn-bracket">]</span></span>
+<p>Joel Aaron Tropp. <em>Topics in sparse approximation</em>. PhD thesis, University of Texas at Austin, 2004.</p>
+</div>
+<div class="citation" id="id13" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>WHC+16<span class="fn-bracket">]</span></span>
+<p>Geoffrey I Webb, Roy Hyde, Hong Cao, Hai Long Nguyen, and Francois Petitjean. Characterizing concept drift. <em>Data Mining and Knowledge Discovery</em>, 30(4):964–994, 2016.</p>
+</div>
+<div class="citation" id="id8" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Wu16<span class="fn-bracket">]</span></span>
+<p>Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: <a class="reference external" href="http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf">http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf</a>.</p>
+</div>
+</div>
 </div>
 </section>
 </section>

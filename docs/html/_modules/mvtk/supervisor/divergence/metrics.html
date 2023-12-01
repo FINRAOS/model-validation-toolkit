@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mvtk.supervisor.divergence.metrics &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  <title>mvtk.supervisor.divergence.metrics &mdash; Model Validation Toolkit 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=c58e1459" />
+
+  
     <link rel="shortcut icon" href="../../../../_static/logo.svg"/>
   <!--[if lt IE 9]>
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=b1f64a84"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../../../about.html" />
@@ -39,12 +41,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> Model Validation Toolkit
-            <img src="../../../../_static/logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Model Validation Toolkit
+              <img src="../../../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -63,6 +69,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../thresholding_user_guide.html">Thresholding User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../interprenet_user_guide.html">Interprenet User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../sobol_user_guide.html">Sobol User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bias_variance_user_guide.html">Bias-Variance User Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul>
@@ -88,6 +95,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Bias-Variance Decomposition Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/bias_variance/BiasVarianceClassification.html">Bias-Variance Decomposition for Classification Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/bias_variance/BiasVarianceRegression.html">Bias-Variance Decomposition for Regression Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/bias_variance/BiasVarianceVisualization.html">Bias-Variance Visualizations</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../supervisor.html">supervisor</a></li>
@@ -96,6 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../interprenet.html">interprenet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../sobol.html">sobol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../metrics.html">metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bias_variance.html">bias_variance</a></li>
 </ul>
 
         </div>
@@ -111,9 +125,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-      <li>mvtk.supervisor.divergence.metrics</li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">mvtk.supervisor.divergence.metrics</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -142,7 +156,7 @@
 
 <div class="viewcode-block" id="calc_div_variational"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_div_variational">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">calc_div_variational</span><span class="p">(</span><span class="n">data_stream</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">model_generator</span><span class="o">=</span><span class="n">Approximator</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate an :math:`f`-divergence or integral probability metric using</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate an :math:`f`-divergence or integral probability metric using</span>
 <span class="sd">    a variational of hybrid variational estimator.</span>
 
 <span class="sd">    Variational estimates will generally (but, not always, thanks to the</span>
@@ -180,7 +194,7 @@
         <span class="n">train_test_split</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
         <span class="n">step_size</span><span class="o">=</span><span class="mf">0.0125</span>
     <span class="p">):</span>
-        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            *sample_distributions (list): Sample distributions. A numpy array,</span>
@@ -287,7 +301,7 @@
             <span class="n">epoch_loss</span> <span class="o">=</span> <span class="n">_loss</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">large_batches</span><span class="p">))</span>
             <span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">epoch_loss</span><span class="p">):</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="sd">&quot;&quot;&quot;The loss is NaN.</span>
+<span class="w">                    </span><span class="sd">&quot;&quot;&quot;The loss is NaN.</span>
 <span class="sd">                Make sure floating point arithmetic makes sense for your data.&quot;&quot;&quot;</span>
                 <span class="p">)</span>
             <span class="k">if</span> <span class="n">epoch_loss</span> <span class="o">&lt;</span> <span class="n">best_loss</span><span class="p">:</span>
@@ -304,14 +318,14 @@
 
 <div class="viewcode-block" id="fdiv_loss"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.fdiv_loss">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">fdiv_loss</span><span class="p">(</span><span class="n">convex_conjugate</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;General template for :math:`f`-divergence losses given convex conjugate.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;General template for :math:`f`-divergence losses given convex conjugate.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        convex_conjugate: The convex conjugate of the function, :math:`f`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
-        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Args:</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Args:</span>
 <span class="sd">        batch: pair of minibatches drawn from each sample</span>
 <span class="sd">        weights: Provides an alternative means of reweighting minibatches.</span>
 <span class="sd">            See `hybrid estimation</span>
@@ -328,7 +342,7 @@
 
 <div class="viewcode-block" id="ipm_loss"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.ipm_loss">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">ipm_loss</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Integral probability metric loss.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Integral probability metric loss.&quot;&quot;&quot;</span>
     <span class="n">input1</span><span class="p">,</span> <span class="n">input2</span> <span class="o">=</span> <span class="n">batch</span>
     <span class="n">batch_loss</span> <span class="o">=</span> <span class="n">input2</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">input1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">batch_loss</span><span class="p">)</span></div>
@@ -505,7 +519,7 @@
 
 <div class="viewcode-block" id="calc_hl_density"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_hl_density">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">calc_hl_density</span><span class="p">(</span><span class="n">density_p</span><span class="p">,</span> <span class="n">density_q</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Hellinger distance calculated from histograms.</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Hellinger distance calculated from histograms.</span>
 
 <span class="sd">    Hellinger distance is defined as</span>
 
@@ -520,7 +534,7 @@
 
 <div class="viewcode-block" id="calc_hl_mle"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_hl_mle">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">calc_hl_mle</span><span class="p">(</span><span class="n">sample_distribution_p</span><span class="p">,</span> <span class="n">sample_distribution_q</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Hellinger distance calculated via histogram based density estimators.</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Hellinger distance calculated via histogram based density estimators.</span>
 
 <span class="sd">    Hellinger distance is defined as</span>
 
@@ -544,7 +558,7 @@
 
 <div class="viewcode-block" id="calc_tv_density"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_density">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">calc_tv_density</span><span class="p">(</span><span class="n">density_p</span><span class="p">,</span> <span class="n">density_q</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Total variation calculated from histograms.</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Total variation calculated from histograms.</span>
 
 <span class="sd">    For two distributions, :math:`p` and :math:`q` defined over the same</span>
 <span class="sd">    probability space, :math:`\mathcal{X}`, the total variation is defined as</span>
@@ -559,7 +573,7 @@
 
 <div class="viewcode-block" id="calc_tv_mle"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_mle">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">calc_tv_mle</span><span class="p">(</span><span class="n">sample_distribution_p</span><span class="p">,</span> <span class="n">sample_distribution_q</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Total variation calculated via histogram based density estimators. All</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Total variation calculated via histogram based density estimators. All</span>
 <span class="sd">    columns are assumed to be categorical.</span>
 
 <span class="sd">    For two distributions, :math:`p` and :math:`q` defined over the same</span>
@@ -584,7 +598,7 @@
 
 <div class="viewcode-block" id="calc_kl_density"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_kl_density">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">calc_kl_density</span><span class="p">(</span><span class="n">density_p</span><span class="p">,</span> <span class="n">density_q</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Kullback–Leibler (KL) divergence calculated from histograms.</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Kullback–Leibler (KL) divergence calculated from histograms.</span>
 
 <span class="sd">    For two distributions, :math:`p` and :math:`q` defined over the same</span>
 <span class="sd">        probability space, `\mathcal{X}`, the total variation is defined as</span>
@@ -599,7 +613,8 @@
 
 <div class="viewcode-block" id="calc_kl_mle"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_kl_mle">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">calc_kl_mle</span><span class="p">(</span><span class="n">sample_distribution_p</span><span class="p">,</span> <span class="n">sample_distribution_q</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Kullback–Leibler (KL) divergence calculated via histogram based density estimators.</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Kullback–Leibler (KL) divergence calculated via histogram based density</span>
+<span class="sd">    estimators.</span>
 
 <span class="sd">    For two distributions, :math:`p` and :math:`q` defined over the same</span>
 <span class="sd">    probability space, `\mathcal{X}`, the KL divergence is defined as</span>
@@ -623,7 +638,7 @@
 
 <div class="viewcode-block" id="calc_js_density"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_js_density">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">calc_js_density</span><span class="p">(</span><span class="o">*</span><span class="n">densities</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Jensen-Shannon divergence calculated from histograms.</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Jensen-Shannon divergence calculated from histograms.</span>
 
 <span class="sd">    For two distributions, :math:`p` and :math:`q` defined over the same</span>
 <span class="sd">    probability space, `\mathcal{X}`, the Jensen-Shannon divergence is defined</span>
@@ -647,7 +662,7 @@
 
 <div class="viewcode-block" id="calc_js_mle"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_js_mle">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">calc_js_mle</span><span class="p">(</span><span class="o">*</span><span class="n">sample_distributions</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Jensen-Shannon divergences calculated via histogram based density estimators.</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Jensen-Shannon divergences calculated via histogram based density estimators.</span>
 
 <span class="sd">    For two distributions, :math:`p` and :math:`q` defined over the same</span>
 <span class="sd">    probability space, `\mathcal{X}`, the Jensen-Shannon divergence is defined</span>
@@ -685,7 +700,7 @@
     <span class="n">nprng</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
     <span class="n">k</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
 <span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;:math:`f`-divergence from knn density estimators</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;:math:`f`-divergence from knn density estimators</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        divergence: :math:`f` that defines the :math:`f`-divergence.</span>
@@ -739,7 +754,7 @@
 
 <div class="viewcode-block" id="calc_tv_knn"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_knn">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">calc_tv_knn</span><span class="p">(</span><span class="n">sample_distribution_p</span><span class="p">,</span> <span class="n">sample_distribution_q</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Total variation from knn density estimators</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Total variation from knn density estimators</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        divergence: :math:`f` that defines the :math:`f`-divergence.</span>
@@ -798,7 +813,7 @@
 
 <div class="viewcode-block" id="balanced_binary_cross_entropy"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.balanced_binary_cross_entropy">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">balanced_binary_cross_entropy</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute cross entropy loss while compensating for class imbalance</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute cross entropy loss while compensating for class imbalance</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        y_true (array): Ground truth, binary or soft labels.</span>
@@ -813,7 +828,7 @@
 
 <div class="viewcode-block" id="calc_tv_lower_bound"><a class="viewcode-back" href="../../../../supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_lower_bound">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">calc_tv_lower_bound</span><span class="p">(</span><span class="n">log_loss</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Lower bound of total variation. A model (not provided) must be trained</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Lower bound of total variation. A model (not provided) must be trained</span>
 <span class="sd">    to classify data as belonging to one of two datasets using log loss,</span>
 <span class="sd">    ideally compensating for class imbalance during training. This function</span>
 <span class="sd">    will compute an lower bound on the total variation of the two datasets the</span>

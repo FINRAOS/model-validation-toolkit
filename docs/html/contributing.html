@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contributing &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <title>Contributing &mdash; Model Validation Toolkit 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c58e1459" />
+
+  
     <link rel="shortcut icon" href="_static/logo.svg"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b1f64a84"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
@@ -42,12 +44,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Model Validation Toolkit
-            <img src="_static/logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Model Validation Toolkit
+              <img src="_static/logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -77,6 +83,7 @@
 <li class="toctree-l1"><a class="reference internal" href="thresholding_user_guide.html">Thresholding User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interprenet_user_guide.html">Interprenet User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias_variance_user_guide.html">Bias-Variance User Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul>
@@ -102,6 +109,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Bias-Variance Decomposition Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceClassification.html">Bias-Variance Decomposition for Classification Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceRegression.html">Bias-Variance Decomposition for Regression Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceVisualization.html">Bias-Variance Visualizations</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="supervisor.html">supervisor</a></li>
@@ -110,6 +123,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interprenet.html">interprenet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias_variance.html">bias_variance</a></li>
 </ul>
 
         </div>
@@ -125,8 +139,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Contributing</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Contributing</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/contributing.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -136,31 +150,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="contributing">
+  <section id="contributing">
 <h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading"></a></h1>
 <p>Everyone can contribute to Model Validation Toolkit, and we value everyone’s contributions. There are several
 ways to contribute, including:</p>
@@ -190,50 +180,50 @@ a copy of the Model Validation Toolkit repository in your own account.</p></li>
 <li><p>Install Python &gt;=3.6 locally in order to run tests.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pip</span></code> installing your fork from source. This allows you to modify the code
 and immediately test it out:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/YOUR_USERNAME/model-validation-toolkit
-<span class="nb">cd</span> model-validation-toolkit
-pip install -e .  <span class="c1"># Installs Model Validation Toolkit from the current directory in editable mode.</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR_USERNAME/model-validation-toolkit
+<span class="nb">cd</span><span class="w"> </span>model-validation-toolkit
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w">  </span><span class="c1"># Installs Model Validation Toolkit from the current directory in editable mode.</span>
 </pre></div>
 </div>
 </li>
 <li><p>Add the Model Validation Toolkit repo as an upstream remote, so you can use it to sync your
 changes.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote add upstream http://www.github.com/FINRAOS/model-validation-toolkit
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>http://www.github.com/FINRAOS/model-validation-toolkit
 </pre></div>
 </div>
 </li>
 <li><p>Create a branch where you will develop from:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout -b name-of-change
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>name-of-change
 </pre></div>
 </div>
 <p>And implement your changes using your favorite editor.</p>
 </li>
 <li><p>Make sure the tests pass by running the following command from the top of
 the repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest tests/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>tests/
 </pre></div>
 </div>
 <p>If you know the specific test file that covers your changes, you can limit the tests to that; for example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest tests/supervisor
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>tests/supervisor
 </pre></div>
 </div>
 <p>Model Validation Toolkit also offers more fine-grained control over which particular tests are run;
 see <span class="xref std std-ref">running-tests</span> for more information.</p>
 </li>
 <li><p>Once you are satisfied with your change, create a commit as follows (<a class="reference external" href="https://chris.beams.io/posts/git-commit/">how to write a commit message</a>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add file1.py file2.py ...
-git commit -s -m <span class="s2">&quot;Your commit message&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>file1.py<span class="w"> </span>file2.py<span class="w"> </span>...
+git<span class="w"> </span>commit<span class="w"> </span>-s<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Your commit message&quot;</span>
 </pre></div>
 </div>
 <p>Please be sure to sign off your work when you commit it with the <code class="docutils literal notranslate"><span class="pre">-s</span></code> or, equivalently <code class="docutils literal notranslate"><span class="pre">--sign-off</span></code> flag to agree to our <a class="reference external" href="https://raw.githubusercontent.com/FINRAOS/model-validation-toolkit/main/DCO">DCO</a>.</p>
 <p>Then sync your code with the main repo:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git fetch upstream
-git rebase upstream/main
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+git<span class="w"> </span>rebase<span class="w"> </span>upstream/main
 </pre></div>
 </div>
 <p>Finally, push your commit on your development branch and create a remote
 branch in your fork that you can use to create a pull request from:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push --set-upstream origin name-of-change
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>name-of-change
 </pre></div>
 </div>
 </li>
@@ -264,8 +254,8 @@ that you do this prior to sending the PR for review if possible. The <code class
 <p>Model Validation Toolkit uses <a class="reference external" href="https://mypy.readthedocs.io/">mypy</a> and <a class="reference external" href="https://flake8.pycqa.org/">flake8</a>
 to statically test code quality; the easiest way to run these checks locally is via
 the <a class="reference external" href="https://pre-commit.com/">pre-commit</a> framework:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pre-commit
-pre-commit run --all
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pre-commit
+pre-commit<span class="w"> </span>run<span class="w"> </span>--all
 </pre></div>
 </div>
 </section>

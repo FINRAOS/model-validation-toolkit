@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mvtk.bias_variance.estimators.pytorch_estimator_wrapper &mdash; Model Validation Toolkit 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=c58e1459" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=b1f64a84"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+ 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BGSHYDJP8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BGSHYDJP8');
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Model Validation Toolkit
+              <img src="../../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sobol_user_guide.html">Sobol User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bias_variance_user_guide.html">Bias-Variance User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/BugDetection.html">Dataset Bug Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/divergence/TrainingDatasetDrift.html">Training Dataset Drift Detection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bias and Metrics Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bias-Variance Decomposition Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/bias_variance/BiasVarianceClassification.html">Bias-Variance Decomposition for Classification Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/bias_variance/BiasVarianceRegression.html">Bias-Variance Decomposition for Regression Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/bias_variance/BiasVarianceVisualization.html">Bias-Variance Visualizations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../metrics.html">metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bias_variance.html">bias_variance</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Model Validation Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">mvtk.bias_variance.estimators.pytorch_estimator_wrapper</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for mvtk.bias_variance.estimators.pytorch_estimator_wrapper</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">EstimatorWrapper</span>
+
+
+<div class="viewcode-block" id="PyTorchEstimatorWrapper"><a class="viewcode-back" href="../../../../bias_variance.estimators.html#mvtk.bias_variance.estimators.PyTorchEstimatorWrapper">[docs]</a><span class="k">class</span> <span class="nc">PyTorchEstimatorWrapper</span><span class="p">(</span><span class="n">EstimatorWrapper</span><span class="p">):</span>
+<div class="viewcode-block" id="PyTorchEstimatorWrapper.__init__"><a class="viewcode-back" href="../../../../bias_variance.estimators.html#mvtk.bias_variance.estimators.PyTorchEstimatorWrapper.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">optimizer_generator</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">fit_fn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">predict_fn</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Create a wrapper for a PyTorch estimator</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            estimator: PyTorch estimator instance</span>
+<span class="sd">            optimizer_generator: generator function for the optimizer</span>
+<span class="sd">            loss_fn: loss function</span>
+<span class="sd">            fit_fn (optional): custom fit function to be called instead of default one</span>
+<span class="sd">            predict_fn (optional): custom predict function to be called instead</span>
+<span class="sd">                of default one</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span> <span class="o">=</span> <span class="n">estimator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer_generator</span> <span class="o">=</span> <span class="n">optimizer_generator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">optimizer_generator</span><span class="p">(</span><span class="n">estimator</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span> <span class="o">=</span> <span class="n">loss_fn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit_fn</span> <span class="o">=</span> <span class="n">fit_fn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">predict_fn</span> <span class="o">=</span> <span class="n">predict_fn</span></div>
+
+<div class="viewcode-block" id="PyTorchEstimatorWrapper.fit"><a class="viewcode-back" href="../../../../bias_variance.estimators.html#mvtk.bias_variance.estimators.PyTorchEstimatorWrapper.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Train the estimator</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            X: features</span>
+<span class="sd">            y: ground truth labels</span>
+<span class="sd">            kwargs (optional): kwargs for use in training</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">PyTorchEstimatorWrapper</span><span class="o">.</span><span class="n">_reset_parameters</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_fn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fit_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;epochs&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">epochs</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">epochs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;epochs&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;batch_size&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">batch_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">batch_size</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;batch_size&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">):</span>
+                <span class="n">batch_start</span> <span class="o">=</span> <span class="n">j</span>
+                <span class="n">batch_end</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="n">batch_size</span>
+                <span class="n">X_batch</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">batch_start</span><span class="p">:</span><span class="n">batch_end</span><span class="p">]</span>
+                <span class="n">y_batch</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">batch_start</span><span class="p">:</span><span class="n">batch_end</span><span class="p">]</span>
+                <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">(</span><span class="n">X_batch</span><span class="p">)</span>
+                <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">y_batch</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+                <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;verbose&quot;</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;epoch: </span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">2</span><span class="si">}</span><span class="s2"> training loss: </span><span class="si">{</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">10.8f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="PyTorchEstimatorWrapper.predict"><a class="viewcode-back" href="../../../../bias_variance.estimators.html#mvtk.bias_variance.estimators.PyTorchEstimatorWrapper.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Get predictions from the estimator</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            X: features</span>
+<span class="sd">            kwargs (optional): kwargs for use in predicting</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_fn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="kn">import</span> <span class="nn">torch</span>
+
+        <span class="n">prediction_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
+                <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">prediction_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prediction</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">prediction_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prediction</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">prediction_list</span></div>
+
+    <span class="k">def</span> <span class="nf">_reset_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Reset parameters of the estimator&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;reset_parameters&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reset_parameters</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Model Validation Toolkit Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

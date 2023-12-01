@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>divergence &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <title>divergence &mdash; Model Validation Toolkit 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c58e1459" />
+
+  
     <link rel="shortcut icon" href="_static/logo.svg"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b1f64a84"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -44,12 +46,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Model Validation Toolkit
-            <img src="_static/logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Model Validation Toolkit
+              <img src="_static/logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -68,6 +74,7 @@
 <li class="toctree-l1"><a class="reference internal" href="thresholding_user_guide.html">Thresholding User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interprenet_user_guide.html">Interprenet User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias_variance_user_guide.html">Bias-Variance User Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul>
@@ -93,11 +100,52 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Bias-Variance Decomposition Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceClassification.html">Bias-Variance Decomposition for Classification Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceRegression.html">Bias-Variance Decomposition for Regression Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceVisualization.html">Bias-Variance Visualizations</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="supervisor.html">supervisor</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="supervisor.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">divergence</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">divergence</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.Approximator"><code class="docutils literal notranslate"><span class="pre">Approximator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.NormalizedLinear"><code class="docutils literal notranslate"><span class="pre">NormalizedLinear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.arrayify"><code class="docutils literal notranslate"><span class="pre">arrayify()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.average_histograms"><code class="docutils literal notranslate"><span class="pre">average_histograms()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.balanced_binary_cross_entropy"><code class="docutils literal notranslate"><span class="pre">balanced_binary_cross_entropy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.cal_div_knn"><code class="docutils literal notranslate"><span class="pre">cal_div_knn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_div_variational"><code class="docutils literal notranslate"><span class="pre">calc_div_variational()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_em"><code class="docutils literal notranslate"><span class="pre">calc_em()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_hl"><code class="docutils literal notranslate"><span class="pre">calc_hl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_hl_density"><code class="docutils literal notranslate"><span class="pre">calc_hl_density()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_hl_mle"><code class="docutils literal notranslate"><span class="pre">calc_hl_mle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_js"><code class="docutils literal notranslate"><span class="pre">calc_js()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_js_density"><code class="docutils literal notranslate"><span class="pre">calc_js_density()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_js_mle"><code class="docutils literal notranslate"><span class="pre">calc_js_mle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_kl_density"><code class="docutils literal notranslate"><span class="pre">calc_kl_density()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_kl_mle"><code class="docutils literal notranslate"><span class="pre">calc_kl_mle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_mle"><code class="docutils literal notranslate"><span class="pre">calc_mle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_tv"><code class="docutils literal notranslate"><span class="pre">calc_tv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_tv_density"><code class="docutils literal notranslate"><span class="pre">calc_tv_density()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_tv_knn"><code class="docutils literal notranslate"><span class="pre">calc_tv_knn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_tv_lower_bound"><code class="docutils literal notranslate"><span class="pre">calc_tv_lower_bound()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.calc_tv_mle"><code class="docutils literal notranslate"><span class="pre">calc_tv_mle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.cat_histograms"><code class="docutils literal notranslate"><span class="pre">cat_histograms()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.fdiv_data_stream"><code class="docutils literal notranslate"><span class="pre">fdiv_data_stream()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.fdiv_loss"><code class="docutils literal notranslate"><span class="pre">fdiv_loss()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.get_density_estimators"><code class="docutils literal notranslate"><span class="pre">get_density_estimators()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.get_distance_matrix"><code class="docutils literal notranslate"><span class="pre">get_distance_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.get_drift_series"><code class="docutils literal notranslate"><span class="pre">get_drift_series()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.histogram"><code class="docutils literal notranslate"><span class="pre">histogram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.ipm_loss"><code class="docutils literal notranslate"><span class="pre">ipm_loss()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.js_data_stream"><code class="docutils literal notranslate"><span class="pre">js_data_stream()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.metric_from_density"><code class="docutils literal notranslate"><span class="pre">metric_from_density()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvtk.supervisor.divergence.sparse_wrapper"><code class="docutils literal notranslate"><span class="pre">sparse_wrapper()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="supervisor.processing.html">processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="supervisor.utils.html">utils</a></li>
 </ul>
@@ -109,6 +157,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interprenet.html">interprenet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias_variance.html">bias_variance</a></li>
 </ul>
 
         </div>
@@ -124,9 +173,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="supervisor.html">supervisor</a> &raquo;</li>
-      <li>divergence</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="supervisor.html">supervisor</a></li>
+      <li class="breadcrumb-item active">divergence</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/supervisor.divergence.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -136,39 +185,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-mvtk.supervisor.divergence">
+  <section id="module-mvtk.supervisor.divergence">
 <span id="divergence"></span><h1>divergence<a class="headerlink" href="#module-mvtk.supervisor.divergence" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="mvtk.supervisor.divergence.Approximator">
-<span class="sig-name descname"><span class="pre">Approximator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">input_size,</span> <span class="pre">depth=3,</span> <span class="pre">width=None,</span> <span class="pre">output_size=1,</span> <span class="pre">linear=&lt;function</span> <span class="pre">Dense&gt;,</span> <span class="pre">residual=True,</span> <span class="pre">activation=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;,</span> <span class="pre">rng=DeviceArray([0,</span> <span class="pre">0],</span> <span class="pre">dtype=uint32)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/nn.html#Approximator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.Approximator" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Approximator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">input_size,</span> <span class="pre">depth=3,</span> <span class="pre">width=None,</span> <span class="pre">output_size=1,</span> <span class="pre">linear=&lt;function</span> <span class="pre">Dense&gt;,</span> <span class="pre">residual=True,</span> <span class="pre">activation=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;,</span> <span class="pre">rng=Array([0,</span> <span class="pre">0],</span> <span class="pre">dtype=uint32)</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/nn.html#Approximator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.Approximator" title="Permalink to this definition"></a></dt>
 <dd><p>Basic Neural network based function
 <span class="math notranslate nohighlight">\(\mathbb{R}^N\rightarrow\mathbb{R}^M\)</span> function approximator.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_size</strong> (<em>int</em>) – Size of input dimension.</p></li>
 <li><p><strong>depth</strong> (<em>int</em><em>, </em><em>optional</em>) – Depth of network. Defaults to <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p></li>
@@ -183,7 +208,7 @@ Defaults to the identity.</p></li>
 <li><p><strong>rng</strong> (<em>optional</em>) – Jax <code class="docutils literal notranslate"><span class="pre">PRNGKey</span></code> key. Defaults to <cite>jax.random.PRNGKey(0)`</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>initial parameter values, neural network function</p>
 </dd>
 </dl>
@@ -201,11 +226,11 @@ Defaults to the identity.</p></li>
 <dd><p>Convert the value to at least dim 3. If is dataframe it converts it to a
 list of values.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>item</strong> – ndarray or a list of ndarray, or a dataframe, a series or a
 list of dataframes or series</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>a list of dataframes/series or array of dim 3</p>
 </dd>
 </dl>
@@ -221,7 +246,7 @@ list of dataframes or series</p>
 <span class="sig-name descname"><span class="pre">balanced_binary_cross_entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#balanced_binary_cross_entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.balanced_binary_cross_entropy" title="Permalink to this definition"></a></dt>
 <dd><p>Compute cross entropy loss while compensating for class imbalance</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>y_true</strong> (<em>array</em>) – Ground truth, binary or soft labels.</p></li>
 <li><p><strong>y_pred</strong> (<em>array</em>) – Array of model scores.</p></li>
@@ -232,10 +257,10 @@ list of dataframes or series</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mvtk.supervisor.divergence.cal_div_knn">
-<span class="sig-name descname"><span class="pre">cal_div_knn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">divergence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples=2048</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns=()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprng=RandomState(MT19937)</span> <span class="pre">at</span> <span class="pre">0x7F1FD38FA940</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k=128</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#cal_div_knn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.cal_div_knn" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">cal_div_knn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">divergence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples=2048</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns=()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprng=RandomState(MT19937)</span> <span class="pre">at</span> <span class="pre">0x7FA6E2538B40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k=128</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#cal_div_knn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.cal_div_knn" title="Permalink to this definition"></a></dt>
 <dd><p><span class="math notranslate nohighlight">\(f\)</span>-divergence from knn density estimators</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>divergence</strong> – <span class="math notranslate nohighlight">\(f\)</span> that defines the <span class="math notranslate nohighlight">\(f\)</span>-divergence.</p></li>
 <li><p><strong>sample_distribution_p</strong> (<em>list</em>) – A numpy array,
@@ -271,7 +296,7 @@ a variational of hybrid variational estimator.</p>
 <p>Variational estimates will generally (but, not always, thanks to the
 training proceedure!) be a lower bound on the true value</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data_stream</strong> (<em>generator</em>) – The data stream generator.</p></li>
 <li><p><strong>loss</strong> (<em>function</em>) – Loss function that takes as arguments the model
@@ -288,7 +313,7 @@ inputs to the model outputs. Defaults to
 <li><p><strong>summary</strong> (<em>string</em>) – Summary of divergence to appear in docstring</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>function for computing divergence</p>
 </dd>
 </dl>
@@ -426,7 +451,7 @@ validation. If None, no split is used. Defaults to 0.75.</p>
 <p><span class="math notranslate nohighlight">\(\sqrt{\frac{1}{2}\sum\limits_{x\in\mathcal{X}}\left(\sqrt{p(x)} -
 \sqrt{q(x)}\right)^2}\)</span>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>density_p</strong> (<em>list</em>) – probability mass function of p</p></li>
 <li><p><strong>density_q</strong> (<em>list</em>) – probability mass function of q</p></li>
@@ -443,7 +468,7 @@ validation. If None, no split is used. Defaults to 0.75.</p>
 <p><span class="math notranslate nohighlight">\(\sqrt{\frac{1}{2}\sum\limits_{x\in\mathcal{X}}\left(\sqrt{p(x)} -
 \sqrt{q(x)}\right)^2}\)</span>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>sample_distribution_p</strong> (<em>list</em>) – A numpy array,
 pandas dataframe, or pandas series or a list of numpy arrays,
@@ -531,7 +556,7 @@ to the number of probability masses being compared. Typically, there will
 be only two probability mass functions, and the logarithmic base is
 therefore taken to be 2.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>*densities</strong> (<em>list</em>) – probability mass functions</p>
 </dd>
 </dl>
@@ -552,7 +577,7 @@ to the number of probability masses being compared. Typically, there will
 be only two probability mass functions, and the logarithmic base is
 therefore taken to be 2.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>*sample_distributions</strong> (<em>list</em>) – A numpy array,
 pandas dataframe, or pandas series or a list of numpy arrays,
 dataframes or series. If it is a list then will sample from each in the
@@ -577,7 +602,7 @@ The outer most list is typically a singleton.</p>
 </dl>
 <p><span class="math notranslate nohighlight">\(\sum\limits_{x\in\mathcal{X}}p(x)\log\left(\frac{p(x)}{q(x)}\right)\)</span>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>density_p</strong> (<em>list</em>) – probability mass function of <span class="math notranslate nohighlight">\(p\)</span></p></li>
 <li><p><strong>density_q</strong> (<em>list</em>) – probability mass function of <span class="math notranslate nohighlight">\(q\)</span></p></li>
@@ -589,12 +614,13 @@ The outer most list is typically a singleton.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="mvtk.supervisor.divergence.calc_kl_mle">
 <span class="sig-name descname"><span class="pre">calc_kl_mle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_kl_mle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_kl_mle" title="Permalink to this definition"></a></dt>
-<dd><p>Kullback–Leibler (KL) divergence calculated via histogram based density estimators.</p>
+<dd><p>Kullback–Leibler (KL) divergence calculated via histogram based density
+estimators.</p>
 <p>For two distributions, <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> defined over the same
 probability space, <cite>mathcal{X}</cite>, the KL divergence is defined as</p>
 <p><span class="math notranslate nohighlight">\(\sum\limits_{x\in\mathcal{X}}p(x)\log\left(\frac{p(x)}{q(x)}\right)\)</span>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>sample_distribution_p</strong> (<em>list</em>) – A numpy array,
 pandas dataframe, or pandas series or a list of numpy arrays,
@@ -677,7 +703,7 @@ validation. If None, no split is used. Defaults to 0.75.</p>
 probability space, <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, the total variation is defined as</p>
 <p><span class="math notranslate nohighlight">\(\frac{1}{2}\sum\limits_{x\in\mathcal{X}}\vert p(x) - q(x)\vert\)</span>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>density_p</strong> (<em>list</em>) – probability mass function of p</p></li>
 <li><p><strong>density_q</strong> (<em>list</em>) – probability mass function of q</p></li>
@@ -691,7 +717,7 @@ probability space, <span class="math notranslate nohighlight">\(\mathcal{X}\)</s
 <span class="sig-name descname"><span class="pre">calc_tv_knn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_distribution_p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distribution_q</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#calc_tv_knn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.calc_tv_knn" title="Permalink to this definition"></a></dt>
 <dd><p>Total variation from knn density estimators</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>divergence</strong> – <span class="math notranslate nohighlight">\(f\)</span> that defines the <span class="math notranslate nohighlight">\(f\)</span>-divergence.</p></li>
 <li><p><strong>sample_distribution_p</strong> (<em>list</em>) – A numpy array,
@@ -728,7 +754,7 @@ ideally compensating for class imbalance during training. This function
 will compute an lower bound on the total variation of the two datasets the
 model was trained to distinguish using the loss from the validation set.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>log_loss</strong> (<em>float</em>) – Binary cross entropy loss with class imbalance
 compensated.</p>
 </dd>
@@ -744,7 +770,7 @@ columns are assumed to be categorical.</p>
 probability space, <cite>mathcal{X}</cite>, the total variation is defined as</p>
 <p><span class="math notranslate nohighlight">\(\frac{1}{2}\sum\limits_{x\in\mathcal{X}}\vert p(x) - q(x)\vert\)</span>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>sample_distribution_p</strong> (<em>list</em>) – A numpy array,
 pandas dataframe, or pandas series or a list of numpy arrays,
@@ -772,7 +798,7 @@ The outer most list is typically a singleton.</p></li>
 <span class="sig-name descname"><span class="pre">fdiv_data_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nprng</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_distributions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/generators.html#fdiv_data_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.fdiv_data_stream" title="Permalink to this definition"></a></dt>
 <dd><p>Data stream generator for f-divergence.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>nprng</strong> – Numpy <code class="docutils literal notranslate"><span class="pre">RandomState</span></code> used to generate random samples</p></li>
 <li><p><strong>batch_size</strong> – size of batch</p></li>
@@ -783,7 +809,7 @@ partition of the data. For example, <code class="docutils literal notranslate"><
 considered categorical.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The output of this function will be <code class="docutils literal notranslate"><span class="pre">N</span></code> samples of size
 <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">len(sample_distributions)</span></code> Following the
 example above, assuming <code class="docutils literal notranslate"><span class="pre">batch1</span></code> came from distribution p_1,
@@ -801,7 +827,7 @@ from <span class="math notranslate nohighlight">\(\frac{p_1 + p_2 + p_3}{3}\)</s
 <span class="sig-name descname"><span class="pre">fdiv_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">convex_conjugate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mvtk/supervisor/divergence/metrics.html#fdiv_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mvtk.supervisor.divergence.fdiv_loss" title="Permalink to this definition"></a></dt>
 <dd><p>General template for <span class="math notranslate nohighlight">\(f\)</span>-divergence losses given convex conjugate.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>convex_conjugate</strong> – The convex conjugate of the function, <span class="math notranslate nohighlight">\(f\)</span>.</p>
 </dd>
 </dl>
@@ -854,7 +880,7 @@ distribution), then randomly sampling elements of the chosen batch. This
 can ultimately be thought of a more data efficient means to the same end as
 downsampling large batch sizes.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>nprng</strong> – Numpy <code class="docutils literal notranslate"><span class="pre">RandomState</span></code> used to generate random samples
 batch_size: size of batch</p></li>
@@ -870,7 +896,7 @@ p_7}{2}\)</span>.</p></li>
 considered categorical.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The output of this function will be two samples of size batch_size with
 samples, <span class="math notranslate nohighlight">\(x\)</span>, drawn from batch_size roles, <span class="math notranslate nohighlight">\(z\)</span>, of our
 <span class="math notranslate nohighlight">\(N\)</span> sided die. Following the example above for which <span class="math notranslate nohighlight">\(N=3\)</span>,

@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mvtk.metrics &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <title>mvtk.metrics &mdash; Model Validation Toolkit 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=c58e1459" />
+
+  
     <link rel="shortcut icon" href="../../_static/logo.svg"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b1f64a84"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../about.html" />
@@ -39,12 +41,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Model Validation Toolkit
-            <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Model Validation Toolkit
+              <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -63,6 +69,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../thresholding_user_guide.html">Thresholding User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../interprenet_user_guide.html">Interprenet User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sobol_user_guide.html">Sobol User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bias_variance_user_guide.html">Bias-Variance User Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul>
@@ -88,6 +95,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Bias-Variance Decomposition Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/bias_variance/BiasVarianceClassification.html">Bias-Variance Decomposition for Classification Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/bias_variance/BiasVarianceRegression.html">Bias-Variance Decomposition for Regression Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/bias_variance/BiasVarianceVisualization.html">Bias-Variance Visualizations</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../supervisor.html">supervisor</a></li>
@@ -96,6 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../interprenet.html">interprenet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../sobol.html">sobol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../metrics.html">metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bias_variance.html">bias_variance</a></li>
 </ul>
 
         </div>
@@ -111,9 +125,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-      <li>mvtk.metrics</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">mvtk.metrics</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -138,7 +152,7 @@
 
 <div class="viewcode-block" id="monotonicity"><a class="viewcode-back" href="../../metrics.html#mvtk.metrics.monotonicity">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">monotonicity</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generalizes ROC AUC by computing</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generalizes ROC AUC by computing</span>
 <span class="sd">    :math:`P\left(\frac{\Delta\mathrm{y_pred}}{\Delta\mathrm{y_true}} &gt;</span>
 <span class="sd">    0\right)`, the probability incrementing ``y_true`` increases ``y_pred`` for</span>
 <span class="sd">    a randomly chosen pair of instances. This reduces to ROC AUC when</span>
@@ -195,7 +209,7 @@
 
 <div class="viewcode-block" id="rank_auc"><a class="viewcode-back" href="../../metrics.html#mvtk.metrics.rank_auc">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">rank_auc</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generalizes ROC AUC by computing probability that two randomly chosen</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generalizes ROC AUC by computing probability that two randomly chosen</span>
 <span class="sd">    data points would be ranked consistently with ground truth labels. This</span>
 <span class="sd">    reduces to ROC AUC when ``y_true`` has two unique values.</span>
 <span class="sd">    Adapted from Algorithm 2 in `Fawcett, T. (2006). An introduction</span>
@@ -243,7 +257,7 @@
 
 <div class="viewcode-block" id="normalized_mutual_info"><a class="viewcode-back" href="../../metrics.html#mvtk.metrics.normalized_mutual_info">[docs]</a><span class="nd">@public</span><span class="o">.</span><span class="n">add</span>
 <span class="k">def</span> <span class="nf">normalized_mutual_info</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Thin wrapper around `sklearn&#39;s mutual information</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Thin wrapper around `sklearn&#39;s mutual information</span>
 <span class="sd">    &lt;https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.mutual_info_classif.html&gt;`_.</span>
 <span class="sd">    This normalizes the result to 0-1 scale. ``y`` is assumed categorical.</span>
 <span class="sd">    &quot;&quot;&quot;</span>

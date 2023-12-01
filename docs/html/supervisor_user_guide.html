@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Supervisor User Guide &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <title>Supervisor User Guide &mdash; Model Validation Toolkit 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c58e1459" />
+
+  
     <link rel="shortcut icon" href="_static/logo.svg"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b1f64a84"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -44,12 +46,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Model Validation Toolkit
-            <img src="_static/logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Model Validation Toolkit
+              <img src="_static/logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -88,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="thresholding_user_guide.html">Thresholding User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interprenet_user_guide.html">Interprenet User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias_variance_user_guide.html">Bias-Variance User Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul>
@@ -113,6 +120,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Bias-Variance Decomposition Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceClassification.html">Bias-Variance Decomposition for Classification Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceRegression.html">Bias-Variance Decomposition for Regression Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceVisualization.html">Bias-Variance Visualizations</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="supervisor.html">supervisor</a></li>
@@ -121,6 +134,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interprenet.html">interprenet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias_variance.html">bias_variance</a></li>
 </ul>
 
         </div>
@@ -136,8 +150,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Supervisor User Guide</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Supervisor User Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/supervisor_user_guide.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -147,31 +161,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="supervisor-user-guide">
+  <section id="supervisor-user-guide">
 <h1>Supervisor User Guide<a class="headerlink" href="#supervisor-user-guide" title="Permalink to this heading"></a></h1>
 <section id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading"></a></h2>
@@ -259,11 +249,11 @@ the two probability distributions being compared, <span class="math notranslate 
 <span id="id1">[<a class="reference internal" href="thresholding_user_guide.html#id4" title="Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf.">Wu16</a>]</span>.</p>
 <div class="math notranslate nohighlight">
 \[\frac{1}{2}\int dx \vert p(x) - q(x)\vert\]</div>
-<figure class="align-center" id="id56">
+<figure class="align-center" id="id58">
 <a class="reference internal image-reference" href="_images/pdf_total_variation.png"><img alt="alternate text" src="_images/pdf_total_variation.png" style="width: 800px; height: 400px;" /></a>
 <figcaption>
 <p><span class="caption-text">Total variation is one half the average absolute difference between two
-probability distributions (shown in grey).</span><a class="headerlink" href="#id56" title="Permalink to this image"></a></p>
+probability distributions (shown in grey).</span><a class="headerlink" href="#id58" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>By factoring out <span class="math notranslate nohighlight">\(q(x)\)</span> and applying the <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_large_numbers">law of large numbers</a>, this can be rewritten
@@ -301,7 +291,7 @@ analyses of concept drift prefer divergences that are proper metrics
 <p>As we shall see, there are two ways to estimate <span class="math notranslate nohighlight">\(f\)</span>-divergences: with
 density estimators, and with variational methods.</p>
 <section id="estimation-with-density-estimators">
-<h3>Estimation with Density Estimators<a class="headerlink" href="#estimation-with-density-estimators" title="Permalink to this heading"></a></h3>
+<span id="density-estimators"></span><h3>Estimation with Density Estimators<a class="headerlink" href="#estimation-with-density-estimators" title="Permalink to this heading"></a></h3>
 <p>The most intuitive approach to estimating <cite>f</cite>-divergences is with density
 estimation. This involves estimating <span class="math notranslate nohighlight">\(p(x)\)</span> and <span class="math notranslate nohighlight">\(q(x)\)</span> given a
 finite number of samples, and then plugging those estimates into the explicit
@@ -314,7 +304,7 @@ provides common utilities for density estimator based estimates of
 <span class="math notranslate nohighlight">\(f\)</span>-divergences, but also can also construct histograms from raw data.</p>
 <p>The following functions come with the Supervisor’s <a class="reference internal" href="supervisor.divergence.html"><span class="doc">divergence</span></a> module for estimating <span class="math notranslate nohighlight">\(f\)</span>-divergences by
 explicitly constructing histograms from raw samples.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Estimates via maximum likelihood density estimators</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_hl_mle" title="mvtk.supervisor.divergence.calc_hl_mle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_hl_mle()</span></code></a> for Hellinger distance</p></li>
@@ -322,10 +312,10 @@ explicitly constructing histograms from raw samples.</p>
 <li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_kl_mle" title="mvtk.supervisor.divergence.calc_kl_mle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_kl_mle()</span></code></a> for KL-divergence</p></li>
 <li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_mle" title="mvtk.supervisor.divergence.calc_tv_mle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_tv_mle()</span></code></a> for Total variation</p></li>
 </ul>
-</div>
+</aside>
 <p>Alternatively, if you chose to construct your own density estimates, you can
 use the following functions to calculate <span class="math notranslate nohighlight">\(f\)</span>-divergences from those.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Estimates via externally computed density estimates</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_hl_density" title="mvtk.supervisor.divergence.calc_hl_density"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_hl_density()</span></code></a> for Hellinger distance</p></li>
@@ -333,7 +323,7 @@ use the following functions to calculate <span class="math notranslate nohighlig
 <li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_kl_density" title="mvtk.supervisor.divergence.calc_kl_density"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_kl_density()</span></code></a> for KL-divergence</p></li>
 <li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv_density" title="mvtk.supervisor.divergence.calc_tv_density"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_tv_density()</span></code></a> for Total variation</p></li>
 </ul>
-</div>
+</aside>
 </section>
 <section id="variational-estimation-of-f-divergences">
 <h3>Variational Estimation of <span class="math notranslate nohighlight">\(f\)</span>-divergences<a class="headerlink" href="#variational-estimation-of-f-divergences" title="Permalink to this heading"></a></h3>
@@ -414,14 +404,14 @@ differentiable.</p>
 </div>
 <p>The following functions come with the Supervisor’s <a class="reference internal" href="supervisor.divergence.html"><span class="doc">divergence</span></a> module for estimating <span class="math notranslate nohighlight">\(f\)</span>-divergences using
 variational methods.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Estimates via variational estimators</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_hl" title="mvtk.supervisor.divergence.calc_hl"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_hl()</span></code></a> for Hellinger distance</p></li>
 <li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_js" title="mvtk.supervisor.divergence.calc_js"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_js()</span></code></a> for Jensen Shannon divergence</p></li>
 <li><p><a class="reference internal" href="supervisor.divergence.html#mvtk.supervisor.divergence.calc_tv" title="mvtk.supervisor.divergence.calc_tv"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_tv()</span></code></a> for Total variation</p></li>
 </ul>
-</div>
+</aside>
 <p>Variational estimation is only applicable for numerically encoded data, and was
 found to work poorly for <a class="reference internal" href="notebooks/divergence/Airlines.html"><span class="doc">one hot encoded categorical data with large numbers
 of categories</span></a>.</p>
@@ -632,68 +622,101 @@ probability density functions</a>.
 This too can give misleading results when different features have very
 different senses of scale. We recommend at least normalizing features to the
 same scale before using integral probability metrics.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Tutorials:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="notebooks/divergence/Airlines.html"><span class="doc">Airlines</span></a></p></li>
 <li><p><a class="reference internal" href="notebooks/divergence/DivergenceFunctions.html"><span class="doc">Divergence Functions</span></a></p></li>
 <li><p><a class="reference internal" href="notebooks/divergence/CategoricalColumns.html"><span class="doc">Categorical Columns</span></a></p></li>
 </ul>
-</div>
+</aside>
 <div class="docutils container" id="id36">
-<dl class="citation">
-<dt class="label" id="id50"><span class="brackets">ALG19</span></dt>
-<dd><p>Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In <em>International Conference on Machine Learning</em>, 291–301. PMLR, 2019.</p>
-</dd>
-<dt class="label" id="id48"><span class="brackets">ACB17</span><span class="fn-backref">(<a href="#id24">1</a>,<a href="#id27">2</a>,<a href="#id33">3</a>)</span></dt>
-<dd><p>Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. <em>arXiv preprint arXiv:1701.07875</em>, 2017.</p>
-</dd>
-<dt class="label" id="id46"><span class="brackets">BDD+17</span><span class="fn-backref">(<a href="#id19">1</a>,<a href="#id21">2</a>,<a href="#id30">3</a>)</span></dt>
-<dd><p>Marc G Bellemare, Ivo Danihelka, Will Dabney, Shakir Mohamed, Balaji Lakshminarayanan, Stephan Hoyer, and Rémi Munos. The cramer distance as a solution to biased wasserstein gradients. <em>arXiv preprint arXiv:1705.10743</em>, 2017.</p>
-</dd>
-<dt class="label" id="id40"><span class="brackets"><a class="fn-backref" href="#id2">CsiszarS+04</a></span></dt>
-<dd><p>Imre Csiszár, Paul C Shields, and others. Information theory and statistics: a tutorial. <em>Foundations and Trends® in Communications and Information Theory</em>, 1(4):417–528, 2004.</p>
-</dd>
-<dt class="label" id="id43"><span class="brackets">GBR+12</span><span class="fn-backref">(<a href="#id16">1</a>,<a href="#id20">2</a>,<a href="#id29">3</a>)</span></dt>
-<dd><p>Arthur Gretton, Karsten M Borgwardt, Malte J Rasch, Bernhard Schölkopf, and Alexander Smola. A kernel two-sample test. <em>Journal of Machine Learning Research</em>, 13(Mar):723–773, 2012.</p>
-</dd>
-<dt class="label" id="id47"><span class="brackets">GAA+17</span><span class="fn-backref">(<a href="#id25">1</a>,<a href="#id28">2</a>)</span></dt>
-<dd><p>Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron C Courville. Improved training of wasserstein gans. In <em>Advances in neural information processing systems</em>, 5767–5777. 2017.</p>
-</dd>
-<dt class="label" id="id45"><span class="brackets"><a class="fn-backref" href="#id23">Her17</a></span></dt>
-<dd><p>Vincent Herrmann. Wasserstein gan and the kantorovich-rubinstein duality. February 2017. URL: <a class="reference external" href="https://vincentherrmann.github.io/blog/wasserstein/">https://vincentherrmann.github.io/blog/wasserstein/</a>.</p>
-</dd>
-<dt class="label" id="id53"><span class="brackets">IM93</span></dt>
-<dd><p>Sobol’ IM. Sensitivity estimates for nonlinear mathematical models. <em>Math. Model. Comput. Exp</em>, 1(4):407–414, 1993.</p>
-</dd>
-<dt class="label" id="id55"><span class="brackets"><a class="fn-backref" href="#id14">Lin91</a></span></dt>
-<dd><p>Jianhua Lin. Divergence measures based on the shannon entropy. <em>IEEE Transactions on Information theory</em>, 37(1):145–151, 1991.</p>
-</dd>
-<dt class="label" id="id41"><span class="brackets">NWJ10</span><span class="fn-backref">(<a href="#id7">1</a>,<a href="#id12">2</a>)</span></dt>
-<dd><p>XuanLong Nguyen, Martin J Wainwright, and Michael I Jordan. Estimating divergence functionals and the likelihood ratio by convex risk minimization. <em>IEEE Transactions on Information Theory</em>, 56(11):5847–5861, 2010.</p>
-</dd>
-<dt class="label" id="id38"><span class="brackets">NCT16</span><span class="fn-backref">(<a href="#id4">1</a>,<a href="#id9">2</a>,<a href="#id11">3</a>,<a href="#id31">4</a>)</span></dt>
-<dd><p>Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In <em>Advances in neural information processing systems</em>, 271–279. 2016.</p>
-</dd>
-<dt class="label" id="id52"><span class="brackets">SRA+08</span></dt>
-<dd><p>Andrea Saltelli, Marco Ratto, Terry Andres, Francesca Campolongo, Jessica Cariboni, Debora Gatelli, Michaela Saisana, and Stefano Tarantola. <em>Global sensitivity analysis: the primer</em>. John Wiley &amp; Sons, 2008.</p>
-</dd>
-<dt class="label" id="id51"><span class="brackets">Sob01</span></dt>
-<dd><p>Ilya M Sobol. Global sensitivity indices for nonlinear mathematical models and their monte carlo estimates. <em>Mathematics and computers in simulation</em>, 55(1-3):271–280, 2001.</p>
-</dd>
-<dt class="label" id="id37"><span class="brackets">SFG+09</span><span class="fn-backref">(<a href="#id6">1</a>,<a href="#id15">2</a>,<a href="#id17">3</a>,<a href="#id18">4</a>)</span></dt>
-<dd><p>Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. <em>arXiv preprint arXiv:0901.2698</em>, 2009.</p>
-</dd>
-<dt class="label" id="id49"><span class="brackets"><a class="fn-backref" href="#id26">Tro04</a></span></dt>
-<dd><p>Joel Aaron Tropp. <em>Topics in sparse approximation</em>. PhD thesis, University of Texas at Austin, 2004.</p>
-</dd>
-<dt class="label" id="id44"><span class="brackets"><a class="fn-backref" href="#id5">WHC+16</a></span></dt>
-<dd><p>Geoffrey I Webb, Roy Hyde, Hong Cao, Hai Long Nguyen, and Francois Petitjean. Characterizing concept drift. <em>Data Mining and Knowledge Discovery</em>, 30(4):964–994, 2016.</p>
-</dd>
-<dt class="label" id="id39"><span class="brackets">Wu16</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>,<a href="#id8">3</a>)</span></dt>
-<dd><p>Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: <a class="reference external" href="http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf">http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf</a>.</p>
-</dd>
-</dl>
+<div role="list" class="citation-list">
+<div class="citation" id="id50" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>ALG19<span class="fn-bracket">]</span></span>
+<p>Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In <em>International Conference on Machine Learning</em>, 291–301. PMLR, 2019.</p>
+</div>
+<div class="citation" id="id48" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>ACB17<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id24">1</a>,<a role="doc-backlink" href="#id27">2</a>,<a role="doc-backlink" href="#id33">3</a>)</span>
+<p>Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. <em>arXiv preprint arXiv:1701.07875</em>, 2017.</p>
+</div>
+<div class="citation" id="id46" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>BDD+17<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id19">1</a>,<a role="doc-backlink" href="#id21">2</a>,<a role="doc-backlink" href="#id30">3</a>)</span>
+<p>Marc G Bellemare, Ivo Danihelka, Will Dabney, Shakir Mohamed, Balaji Lakshminarayanan, Stephan Hoyer, and Rémi Munos. The cramer distance as a solution to biased wasserstein gradients. <em>arXiv preprint arXiv:1705.10743</em>, 2017.</p>
+</div>
+<div class="citation" id="id40" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">CsiszarS+04</a><span class="fn-bracket">]</span></span>
+<p>Imre Csiszár, Paul C Shields, and others. Information theory and statistics: a tutorial. <em>Foundations and Trends® in Communications and Information Theory</em>, 1(4):417–528, 2004.</p>
+</div>
+<div class="citation" id="id56" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Dom00<span class="fn-bracket">]</span></span>
+<p>Pedro Domingos. A unified bias-variance decomposition and its applications. Technical Report, University of Washington, Seattle, WA, January 2000. URL: <a class="reference external" href="https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf">https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf</a>.</p>
+</div>
+<div class="citation" id="id43" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>GBR+12<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id16">1</a>,<a role="doc-backlink" href="#id20">2</a>,<a role="doc-backlink" href="#id29">3</a>)</span>
+<p>Arthur Gretton, Karsten M Borgwardt, Malte J Rasch, Bernhard Schölkopf, and Alexander Smola. A kernel two-sample test. <em>Journal of Machine Learning Research</em>, 13(Mar):723–773, 2012.</p>
+</div>
+<div class="citation" id="id47" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>GAA+17<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id25">1</a>,<a role="doc-backlink" href="#id28">2</a>)</span>
+<p>Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron C Courville. Improved training of wasserstein gans. In <em>Advances in neural information processing systems</em>, 5767–5777. 2017.</p>
+</div>
+<div class="citation" id="id45" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id23">Her17</a><span class="fn-bracket">]</span></span>
+<p>Vincent Herrmann. Wasserstein gan and the kantorovich-rubinstein duality. February 2017. URL: <a class="reference external" href="https://vincentherrmann.github.io/blog/wasserstein/">https://vincentherrmann.github.io/blog/wasserstein/</a>.</p>
+</div>
+<div class="citation" id="id53" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>IM93<span class="fn-bracket">]</span></span>
+<p>Sobol’ IM. Sensitivity estimates for nonlinear mathematical models. <em>Math. Model. Comput. Exp</em>, 1(4):407–414, 1993.</p>
+</div>
+<div class="citation" id="id55" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">Lin91</a><span class="fn-bracket">]</span></span>
+<p>Jianhua Lin. Divergence measures based on the shannon entropy. <em>IEEE Transactions on Information theory</em>, 37(1):145–151, 1991.</p>
+</div>
+<div class="citation" id="id41" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>NWJ10<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id7">1</a>,<a role="doc-backlink" href="#id12">2</a>)</span>
+<p>XuanLong Nguyen, Martin J Wainwright, and Michael I Jordan. Estimating divergence functionals and the likelihood ratio by convex risk minimization. <em>IEEE Transactions on Information Theory</em>, 56(11):5847–5861, 2010.</p>
+</div>
+<div class="citation" id="id38" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>NCT16<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id9">2</a>,<a role="doc-backlink" href="#id11">3</a>,<a role="doc-backlink" href="#id31">4</a>)</span>
+<p>Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In <em>Advances in neural information processing systems</em>, 271–279. 2016.</p>
+</div>
+<div class="citation" id="id57" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Ras23<span class="fn-bracket">]</span></span>
+<p>Sebastian Raschka. Bias_variance_decomp: bias-variance decomposition for classification and regression losses. 2014-2023. URL: <a class="reference external" href="https://rasbt.github.io/mlxtend/user_guide/evaluate/bias_variance_decomp/">https://rasbt.github.io/mlxtend/user_guide/evaluate/bias_variance_decomp/</a>.</p>
+</div>
+<div class="citation" id="id52" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SRA+08<span class="fn-bracket">]</span></span>
+<p>Andrea Saltelli, Marco Ratto, Terry Andres, Francesca Campolongo, Jessica Cariboni, Debora Gatelli, Michaela Saisana, and Stefano Tarantola. <em>Global sensitivity analysis: the primer</em>. John Wiley &amp; Sons, 2008.</p>
+</div>
+<div class="citation" id="id51" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Sob01<span class="fn-bracket">]</span></span>
+<p>Ilya M Sobol. Global sensitivity indices for nonlinear mathematical models and their monte carlo estimates. <em>Mathematics and computers in simulation</em>, 55(1-3):271–280, 2001.</p>
+</div>
+<div class="citation" id="id37" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SFG+09<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id6">1</a>,<a role="doc-backlink" href="#id15">2</a>,<a role="doc-backlink" href="#id17">3</a>,<a role="doc-backlink" href="#id18">4</a>)</span>
+<p>Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. <em>arXiv preprint arXiv:0901.2698</em>, 2009.</p>
+</div>
+<div class="citation" id="id49" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id26">Tro04</a><span class="fn-bracket">]</span></span>
+<p>Joel Aaron Tropp. <em>Topics in sparse approximation</em>. PhD thesis, University of Texas at Austin, 2004.</p>
+</div>
+<div class="citation" id="id44" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">WHC+16</a><span class="fn-bracket">]</span></span>
+<p>Geoffrey I Webb, Roy Hyde, Hong Cao, Hai Long Nguyen, and Francois Petitjean. Characterizing concept drift. <em>Data Mining and Knowledge Discovery</em>, 30(4):964–994, 2016.</p>
+</div>
+<div class="citation" id="id39" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Wu16<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id8">3</a>)</span>
+<p>Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: <a class="reference external" href="http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf">http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf</a>.</p>
+</div>
+</div>
 </div>
 </section>
 </section>

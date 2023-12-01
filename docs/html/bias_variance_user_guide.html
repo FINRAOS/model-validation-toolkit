@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bias-Variance User Guide &mdash; Model Validation Toolkit 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c58e1459" />
+
+  
+    <link rel="shortcut icon" href="_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b1f64a84"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Airlines Dataset: Divergence Applications" href="notebooks/divergence/Airlines.html" />
+    <link rel="prev" title="Sobol User Guide" href="sobol_user_guide.html" />
+ 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BGSHYDJP8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BGSHYDJP8');
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Model Validation Toolkit
+              <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol_user_guide.html">Sobol User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bias-Variance User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#statistical-bias-vs-fairness">Statistical Bias vs. “Fairness”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-should-we-care-about-bias-and-variance">Why should we care about bias and variance?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#visualize-bias-and-variance-with-examples">Visualize Bias and Variance With Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bias-variance-decomposition">Bias-Variance Decomposition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/BugDetection.html">Dataset Bug Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/divergence/TrainingDatasetDrift.html">Training Dataset Drift Detection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bias and Metrics Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bias-Variance Decomposition Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceClassification.html">Bias-Variance Decomposition for Classification Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceRegression.html">Bias-Variance Decomposition for Regression Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/bias_variance/BiasVarianceVisualization.html">Bias-Variance Visualizations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias_variance.html">bias_variance</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Model Validation Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Bias-Variance User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/bias_variance_user_guide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bias-variance-user-guide">
+<h1>Bias-Variance User Guide<a class="headerlink" href="#bias-variance-user-guide" title="Permalink to this heading"></a></h1>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading"></a></h2>
+<section id="statistical-bias-vs-fairness">
+<h3>Statistical Bias vs. “Fairness”<a class="headerlink" href="#statistical-bias-vs-fairness" title="Permalink to this heading"></a></h3>
+<p>For this user guide and associated submodule, we are referring to
+<a class="reference external" href="https://en.wikipedia.org/wiki/Bias_(statistics)">statistical bias</a> rather
+than the “fairness” type of bias.</p>
+</section>
+<section id="why-should-we-care-about-bias-and-variance">
+<h3>Why should we care about bias and variance?<a class="headerlink" href="#why-should-we-care-about-bias-and-variance" title="Permalink to this heading"></a></h3>
+<p>Bias and variance are two indicators of model performance and together represent
+two-thirds of model error (the remaining one-third is irreducible “noise” error that
+comes from the data set itself). We can define bias and variance as follows
+by training a model with multiple <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">bootstrap sampled</a> training sets, resulting in
+multiple instances of the model.</p>
+<aside class="topic">
+<p class="topic-title">Bias and variance defined over multiple training sets:</p>
+<ul class="simple">
+<li><p>Bias represents the average difference between the prediction a model makes and the correct prediction.</p></li>
+<li><p>Variance represents the average variability of the prediction a model makes.</p></li>
+</ul>
+</aside>
+<p>Typically, a model with high bias is “underfit” and a model with high variance is
+“overfit,” but keep in mind this is not always the case and there can be many reasons
+why a model has high bias or high variance. An “underfit” model is oversimplified and
+performs poorly on the training data, whereas an “overfit” model sticks too closely to
+the training data and performs poorly on unseen examples. See Scikit-Learn’s
+<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html">Underfitting vs. Overfitting</a>
+for a clear example of an “underfit” model vs. an “overfit” model.</p>
+<p>There is a concept
+known as the <a class="reference external" href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">“bias-variance tradeoff”</a> that describes
+the relationship between high bias and high variance in a model. Our ultimate goal
+here is to find the ideal balance where both bias and variance is at a minimum.
+It is also important from a business problem standpoint on whether the model
+error that we are unable to reduce should favor bias or variance.</p>
+</section>
+</section>
+<section id="visualize-bias-and-variance-with-examples">
+<h2>Visualize Bias and Variance With Examples<a class="headerlink" href="#visualize-bias-and-variance-with-examples" title="Permalink to this heading"></a></h2>
+<p>In order to easily understand the concepts of bias and variance, we will show
+four different examples of models for each of the high and low bias and variance
+combinations. These are extreme and engineered cases for the purpose of clearly
+seeing the bias/variance.</p>
+<p>Before we begin, let’s take a look at the distribution of the labels. Notice
+that the majority of label values are around 1 and 2, and much less around 5.</p>
+<figure class="align-center">
+<img alt="alternate text" src="_images/bias_variance_label_distribution.png" />
+</figure>
+<p>First we have a model with high bias and low variance. We artificially
+introduce bias to the model by adding 10 to every training label, but leaving
+the test labels as is. Given that values of greater than 5 in the entire label
+set are considered outliers, we are fitting the model against outliers.</p>
+<figure class="align-center" id="id31">
+<img alt="alternate text" src="_images/high_bias_low_variance.png" />
+<figcaption>
+<p><span class="caption-text">Five sets of mean squared error results from the test set from the five
+bootstrap sample trainings of the model. Notice the model error is very
+consistent among the trials and is not centered around 0.</span><a class="headerlink" href="#id31" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Next we have a model with low bias and high variance. We simulate this by
+introducing 8 random “noise” features to the data set. We also reduce the size
+of the training set and train a neural network over a low number of epochs.</p>
+<figure class="align-center" id="id32">
+<img alt="alternate text" src="_images/low_bias_high_variance.png" />
+<figcaption>
+<p><span class="caption-text">Five sets of mean squared error results from the test set from the five
+bootstrap sample trainings of the model. Notice the model error has
+different distributions among the trials and centers mainly around 0.</span><a class="headerlink" href="#id32" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Next we have a model with high bias and high variance. We simulate through
+a combination of the techniques from the high bias low variance example and
+the low bias high variance example and train another neural network.</p>
+<figure class="align-center" id="id33">
+<img alt="alternate text" src="_images/high_bias_high_variance.png" />
+<figcaption>
+<p><span class="caption-text">Five sets of mean squared error results from the test set from the five
+bootstrap sample trainings of the model. Notice the model error has
+different distributions among the trials and is not centered around 0.</span><a class="headerlink" href="#id33" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Finally we have a model with low bias and low variance. This is a simple
+linear regression model with no modifications to the training or test labels.</p>
+<figure class="align-center" id="id34">
+<img alt="alternate text" src="_images/low_bias_low_variance.png" />
+<figcaption>
+<p><span class="caption-text">Five sets of mean squared error results from the test set from the five
+bootstrap sample trainings of the model. Notice the model error is very
+consistent among the trials and centers mainly around 0.</span><a class="headerlink" href="#id34" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="bias-variance-decomposition">
+<h2>Bias-Variance Decomposition<a class="headerlink" href="#bias-variance-decomposition" title="Permalink to this heading"></a></h2>
+<p>There are formulas for breaking down total model error into three parts: bias,
+variance, and noise. This can be applied to both regression problem loss
+functions (mean squared error) and classification problem loss functions
+(0-1 loss). In a paper by Pedro Domingos, a method of unified
+decomposition was proposed for both types of problems <span id="id1">[<a class="reference internal" href="thresholding_user_guide.html#id21" title="Pedro Domingos. A unified bias-variance decomposition and its applications. Technical Report, University of Washington, Seattle, WA, January 2000. URL: https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf.">Dom00</a>]</span>.</p>
+<p>First lets define <span class="math notranslate nohighlight">\(y\)</span> as a single prediction, <span class="math notranslate nohighlight">\(D\)</span> as the set of
+training sets used to train the models, <span class="math notranslate nohighlight">\(Y\)</span> as the set of predictions
+from the models trained on <span class="math notranslate nohighlight">\(D\)</span>, and a loss function <span class="math notranslate nohighlight">\(L\)</span> that
+calculates the error between our prediction <span class="math notranslate nohighlight">\(y\)</span> and the correct
+prediction.
+The main prediction <span class="math notranslate nohighlight">\(y_m\)</span> is the smallest average loss for a prediction
+when compared to the set of predictions <span class="math notranslate nohighlight">\(Y\)</span>. The main prediction is
+the mean of <span class="math notranslate nohighlight">\(Y\)</span> for mean squared error and the mode of <span class="math notranslate nohighlight">\(Y\)</span> for
+0-1 loss <span id="id2">[<a class="reference internal" href="thresholding_user_guide.html#id21" title="Pedro Domingos. A unified bias-variance decomposition and its applications. Technical Report, University of Washington, Seattle, WA, January 2000. URL: https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf.">Dom00</a>]</span>.</p>
+<p>Bias can now be defined for a single example <span class="math notranslate nohighlight">\(x\)</span> over the set of models
+trained on <span class="math notranslate nohighlight">\(D\)</span> as the loss calculated between the main prediction
+<span class="math notranslate nohighlight">\(y_m\)</span> and the correct prediction <span class="math notranslate nohighlight">\(y_*\)</span> <span id="id3">[<a class="reference internal" href="thresholding_user_guide.html#id21" title="Pedro Domingos. A unified bias-variance decomposition and its applications. Technical Report, University of Washington, Seattle, WA, January 2000. URL: https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf.">Dom00</a>]</span>.</p>
+<div class="math notranslate nohighlight">
+\[B(x) = L(y_*,y_m)\]</div>
+<p>Variance can now be defined for a single example <span class="math notranslate nohighlight">\(x\)</span> over the set of
+models trained on <span class="math notranslate nohighlight">\(D\)</span> as the average loss calculated between all predictions
+and the main prediction <span class="math notranslate nohighlight">\(y_m\)</span> <span id="id4">[<a class="reference internal" href="thresholding_user_guide.html#id21" title="Pedro Domingos. A unified bias-variance decomposition and its applications. Technical Report, University of Washington, Seattle, WA, January 2000. URL: https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf.">Dom00</a>]</span>.</p>
+<div class="math notranslate nohighlight">
+\[V(x) = E_D[L(y_m, y)]\]</div>
+<p>We will need to take the average of the bias over all examples as
+<span class="math notranslate nohighlight">\(E_x[B(x)]\)</span> and the average of the variance over all examples as
+<span class="math notranslate nohighlight">\(E_x[V(x)]\)</span> <span id="id5">[<a class="reference internal" href="thresholding_user_guide.html#id21" title="Pedro Domingos. A unified bias-variance decomposition and its applications. Technical Report, University of Washington, Seattle, WA, January 2000. URL: https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf.">Dom00</a>]</span>.</p>
+<p>With <span class="math notranslate nohighlight">\(N(x)\)</span> representing the irreducible error from observation noise, we
+can decompose the average expected loss as <span id="id6">[<a class="reference internal" href="thresholding_user_guide.html#id21" title="Pedro Domingos. A unified bias-variance decomposition and its applications. Technical Report, University of Washington, Seattle, WA, January 2000. URL: https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf.">Dom00</a>]</span></p>
+<div class="math notranslate nohighlight">
+\[E_x[N(x)] + E_x[B(x)] + E_x[cV(x)]\]</div>
+<p>In other words, the average loss over all examples is equal to the noise plus the
+average bias plus the net variance (the <span class="math notranslate nohighlight">\(c\)</span> factor included with the variance
+when calculating average variance gives us the net variance).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are generalizing the actual value of <span class="math notranslate nohighlight">\(N(x)\)</span>, as the Model Validation
+Toolkit’s implementation of bias-variance decomposition does not include noise
+in the average expected loss. This noise represents error in the actual data
+and not error related to the model itself. If you would like to dive deeper
+into the noise representation, please consult the <a class="reference external" href="https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf">Pedro Domingos paper</a>.</p>
+</div>
+<p>For mean squared loss functions, <span class="math notranslate nohighlight">\(c = 1\)</span>, meaning that average variance
+is equal to net variance.</p>
+<p>For zero-one loss functions, <span class="math notranslate nohighlight">\(c = 1\)</span> when <span class="math notranslate nohighlight">\(y_m = y_*\)</span> otherwise
+<span class="math notranslate nohighlight">\(c = -P_D(y = y_* | y != y_m)\)</span>. <span id="id7">[<a class="reference internal" href="thresholding_user_guide.html#id21" title="Pedro Domingos. A unified bias-variance decomposition and its applications. Technical Report, University of Washington, Seattle, WA, January 2000. URL: https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf.">Dom00</a>]</span> In other words,
+<span class="math notranslate nohighlight">\(c\)</span> is 1 when the main prediction is the correct prediction. If the main
+prediction is not the correct prediction, then <span class="math notranslate nohighlight">\(c\)</span> is equal to the
+probability of a single prediction being the correct prediction given that the
+single prediction is not the main prediction.</p>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h3>
+<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">bias_variance_compute()</span></code> will return the average loss, average bias, average
+variance, and net variance for an estimator trained and tested over a specified number
+of training sets. This was inspired and modeled after Sebastian Raschka’s
+<a class="reference external" href="https://github.com/rasbt/mlxtend/blob/master/mlxtend/evaluate/bias_variance_decomp.py">bias_variance_decomp</a>
+function <span id="id8">[<a class="reference internal" href="thresholding_user_guide.html#id22" title="Sebastian Raschka. Bias_variance_decomp: bias-variance decomposition for classification and regression losses. 2014-2023. URL: https://rasbt.github.io/mlxtend/user_guide/evaluate/bias_variance_decomp/.">Ras23</a>]</span>.
+We use the <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">bootstrapping</a>
+method to produce our sets of training data from the original training set. By default
+it will use mean squared error as the loss function, but it will accept the following
+functions for calculating loss.</p>
+<ul class="simple">
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">bias_variance_mse()</span></code> for mean squared error</p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">bias_variance_0_1_loss()</span></code> for 0-1 loss</p></li>
+</ul>
+<p>Since <code class="xref py py-meth docutils literal notranslate"><span class="pre">bias_variance_compute()</span></code> trains an estimator over multiple iterations, it also
+expects the estimator to be wrapped in a class that extends the
+<a class="reference internal" href="bias_variance.estimators.html#mvtk.bias_variance.estimators.EstimatorWrapper" title="mvtk.bias_variance.estimators.EstimatorWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">estimators.EstimatorWrapper</span></code></a> class, which provides fit and predict methods
+that not all estimator implementations conform to. The following estimator wrappers are
+provided.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="bias_variance.estimators.html#mvtk.bias_variance.estimators.PyTorchEstimatorWrapper" title="mvtk.bias_variance.estimators.PyTorchEstimatorWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">estimators.PyTorchEstimatorWrapper</span></code></a> for <a class="reference external" href="https://pytorch.org/">PyTorch</a></p></li>
+<li><p><a class="reference internal" href="bias_variance.estimators.html#mvtk.bias_variance.estimators.SciKitLearnEstimatorWrapper" title="mvtk.bias_variance.estimators.SciKitLearnEstimatorWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">estimators.SciKitLearnEstimatorWrapper</span></code></a> for <a class="reference external" href="https://scikit-learn.org/stable/">Scikit-Learn</a></p></li>
+<li><p><a class="reference internal" href="bias_variance.estimators.html#mvtk.bias_variance.estimators.TensorFlowEstimatorWrapper" title="mvtk.bias_variance.estimators.TensorFlowEstimatorWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">estimators.TensorFlowEstimatorWrapper</span></code></a> for <a class="reference external" href="https://www.tensorflow.org/">TensorFlow</a></p></li>
+</ul>
+<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">bias_variance_compute()</span></code> works well for smaller data sets and less complex models, but what
+happens when you have a very large set of data, a very complex model, or both?
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">bias_variance_compute_parallel()</span></code> does the same calculation, but leverages <a class="reference external" href="https://www.ray.io/">Ray</a> for parallelization of bootstrapping, training, and predicting.
+This allows for faster calculations using computations over a distributed architecture.</p>
+<aside class="topic">
+<p class="topic-title">Tutorials:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="notebooks/bias_variance/BiasVarianceVisualization.html"><span class="doc">Bias-Variance Visualization</span></a></p></li>
+<li><p><a class="reference internal" href="notebooks/bias_variance/BiasVarianceRegression.html"><span class="doc">Bias-Variance Regression</span></a></p></li>
+<li><p><a class="reference internal" href="notebooks/bias_variance/BiasVarianceClassification.html"><span class="doc">Bias-Variance Classification</span></a></p></li>
+</ul>
+</aside>
+<div class="docutils container" id="id9">
+<div role="list" class="citation-list">
+<div class="citation" id="id23" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>ALG19<span class="fn-bracket">]</span></span>
+<p>Cem Anil, James Lucas, and Roger Grosse. Sorting out lipschitz function approximation. In <em>International Conference on Machine Learning</em>, 291–301. PMLR, 2019.</p>
+</div>
+<div class="citation" id="id21" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>ACB17<span class="fn-bracket">]</span></span>
+<p>Martin Arjovsky, Soumith Chintala, and Léon Bottou. Wasserstein gan. <em>arXiv preprint arXiv:1701.07875</em>, 2017.</p>
+</div>
+<div class="citation" id="id19" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>BDD+17<span class="fn-bracket">]</span></span>
+<p>Marc G Bellemare, Ivo Danihelka, Will Dabney, Shakir Mohamed, Balaji Lakshminarayanan, Stephan Hoyer, and Rémi Munos. The cramer distance as a solution to biased wasserstein gradients. <em>arXiv preprint arXiv:1705.10743</em>, 2017.</p>
+</div>
+<div class="citation" id="id13" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>CsiszarS+04<span class="fn-bracket">]</span></span>
+<p>Imre Csiszár, Paul C Shields, and others. Information theory and statistics: a tutorial. <em>Foundations and Trends® in Communications and Information Theory</em>, 1(4):417–528, 2004.</p>
+</div>
+<div class="citation" id="id29" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Dom00<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>,<a role="doc-backlink" href="#id3">3</a>,<a role="doc-backlink" href="#id4">4</a>,<a role="doc-backlink" href="#id5">5</a>,<a role="doc-backlink" href="#id6">6</a>,<a role="doc-backlink" href="#id7">7</a>)</span>
+<p>Pedro Domingos. A unified bias-variance decomposition and its applications. Technical Report, University of Washington, Seattle, WA, January 2000. URL: <a class="reference external" href="https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf">https://homes.cs.washington.edu/~pedrod/papers/mlc00a.pdf</a>.</p>
+</div>
+<div class="citation" id="id16" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>GBR+12<span class="fn-bracket">]</span></span>
+<p>Arthur Gretton, Karsten M Borgwardt, Malte J Rasch, Bernhard Schölkopf, and Alexander Smola. A kernel two-sample test. <em>Journal of Machine Learning Research</em>, 13(Mar):723–773, 2012.</p>
+</div>
+<div class="citation" id="id20" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>GAA+17<span class="fn-bracket">]</span></span>
+<p>Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron C Courville. Improved training of wasserstein gans. In <em>Advances in neural information processing systems</em>, 5767–5777. 2017.</p>
+</div>
+<div class="citation" id="id18" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Her17<span class="fn-bracket">]</span></span>
+<p>Vincent Herrmann. Wasserstein gan and the kantorovich-rubinstein duality. February 2017. URL: <a class="reference external" href="https://vincentherrmann.github.io/blog/wasserstein/">https://vincentherrmann.github.io/blog/wasserstein/</a>.</p>
+</div>
+<div class="citation" id="id26" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>IM93<span class="fn-bracket">]</span></span>
+<p>Sobol’ IM. Sensitivity estimates for nonlinear mathematical models. <em>Math. Model. Comput. Exp</em>, 1(4):407–414, 1993.</p>
+</div>
+<div class="citation" id="id28" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Lin91<span class="fn-bracket">]</span></span>
+<p>Jianhua Lin. Divergence measures based on the shannon entropy. <em>IEEE Transactions on Information theory</em>, 37(1):145–151, 1991.</p>
+</div>
+<div class="citation" id="id14" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>NWJ10<span class="fn-bracket">]</span></span>
+<p>XuanLong Nguyen, Martin J Wainwright, and Michael I Jordan. Estimating divergence functionals and the likelihood ratio by convex risk minimization. <em>IEEE Transactions on Information Theory</em>, 56(11):5847–5861, 2010.</p>
+</div>
+<div class="citation" id="id11" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>NCT16<span class="fn-bracket">]</span></span>
+<p>Sebastian Nowozin, Botond Cseke, and Ryota Tomioka. F-gan: training generative neural samplers using variational divergence minimization. In <em>Advances in neural information processing systems</em>, 271–279. 2016.</p>
+</div>
+<div class="citation" id="id30" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">Ras23</a><span class="fn-bracket">]</span></span>
+<p>Sebastian Raschka. Bias_variance_decomp: bias-variance decomposition for classification and regression losses. 2014-2023. URL: <a class="reference external" href="https://rasbt.github.io/mlxtend/user_guide/evaluate/bias_variance_decomp/">https://rasbt.github.io/mlxtend/user_guide/evaluate/bias_variance_decomp/</a>.</p>
+</div>
+<div class="citation" id="id25" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SRA+08<span class="fn-bracket">]</span></span>
+<p>Andrea Saltelli, Marco Ratto, Terry Andres, Francesca Campolongo, Jessica Cariboni, Debora Gatelli, Michaela Saisana, and Stefano Tarantola. <em>Global sensitivity analysis: the primer</em>. John Wiley &amp; Sons, 2008.</p>
+</div>
+<div class="citation" id="id24" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Sob01<span class="fn-bracket">]</span></span>
+<p>Ilya M Sobol. Global sensitivity indices for nonlinear mathematical models and their monte carlo estimates. <em>Mathematics and computers in simulation</em>, 55(1-3):271–280, 2001.</p>
+</div>
+<div class="citation" id="id10" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SFG+09<span class="fn-bracket">]</span></span>
+<p>Bharath K Sriperumbudur, Kenji Fukumizu, Arthur Gretton, Bernhard Schölkopf, and Gert RG Lanckriet. On integral probability metrics,\phi-divergences and binary classification. <em>arXiv preprint arXiv:0901.2698</em>, 2009.</p>
+</div>
+<div class="citation" id="id22" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Tro04<span class="fn-bracket">]</span></span>
+<p>Joel Aaron Tropp. <em>Topics in sparse approximation</em>. PhD thesis, University of Texas at Austin, 2004.</p>
+</div>
+<div class="citation" id="id17" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>WHC+16<span class="fn-bracket">]</span></span>
+<p>Geoffrey I Webb, Roy Hyde, Hong Cao, Hai Long Nguyen, and Francois Petitjean. Characterizing concept drift. <em>Data Mining and Knowledge Discovery</em>, 30(4):964–994, 2016.</p>
+</div>
+<div class="citation" id="id12" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Wu16<span class="fn-bracket">]</span></span>
+<p>Yihong Wu. Variational representation, hcr and cr lower bounds. February 2016. URL: <a class="reference external" href="http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf">http://www.stat.yale.edu/~yw562/teaching/598/lec06.pdf</a>.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sobol_user_guide.html" class="btn btn-neutral float-left" title="Sobol User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="notebooks/divergence/Airlines.html" class="btn btn-neutral float-right" title="Airlines Dataset: Divergence Applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Model Validation Toolkit Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

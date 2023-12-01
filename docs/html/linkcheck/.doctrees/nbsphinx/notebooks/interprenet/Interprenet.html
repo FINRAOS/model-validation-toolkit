@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Introduction to Interprenet &mdash; Model Validation Toolkit 0.0.1 documentation</title>
-      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+  <title>Introduction to Interprenet &mdash; Model Validation Toolkit 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=c58e1459" />
+
+  
     <link rel="shortcut icon" href="../../../../../_static/logo.svg"/>
   <!--[if lt IE 9]>
     <script src="../../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
-        <script src="../../../../../_static/jquery.js"></script>
-        <script src="../../../../../_static/underscore.js"></script>
-        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=b1f64a84"></script>
+        <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -42,12 +45,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../../index.html" class="icon icon-home"> Model Validation Toolkit
-            <img src="../../../../../_static/logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            Model Validation Toolkit
+              <img src="../../../../../_static/logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -66,6 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../thresholding_user_guide.html">Thresholding User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../interprenet_user_guide.html">Interprenet User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../sobol_user_guide.html">Sobol User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../bias_variance_user_guide.html">Bias-Variance User Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
 <ul>
@@ -91,6 +99,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Bias-Variance Decomposition Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/bias_variance/BiasVarianceClassification.html">Bias-Variance Decomposition for Classification Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/bias_variance/BiasVarianceRegression.html">Bias-Variance Decomposition for Regression Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notebooks/bias_variance/BiasVarianceVisualization.html">Bias-Variance Visualizations</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../supervisor.html">supervisor</a></li>
@@ -99,6 +113,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../interprenet.html">interprenet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../sobol.html">sobol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../metrics.html">metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../bias_variance.html">bias_variance</a></li>
 </ul>
 
         </div>
@@ -114,8 +129,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Introduction to Interprenet</li>
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction to Interprenet</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../../_sources/linkcheck/.doctrees/nbsphinx/notebooks/interprenet/Interprenet.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -125,298 +140,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-.jp-RenderedHTMLCommon table,
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-.jp-RenderedHTMLCommon thead,
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-.jp-RenderedHTMLCommon tr,
-.jp-RenderedHTMLCommon th,
-.jp-RenderedHTMLCommon td,
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-.jp-RenderedHTMLCommon th,
-div.rendered_html th {
-  font-weight: bold;
-}
-.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.jp-RenderedHTMLCommon tbody tr:hover,
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="Introduction-to-Interprenet">
+  <section id="Introduction-to-Interprenet">
 <h1>Introduction to Interprenet<a class="headerlink" href="#Introduction-to-Interprenet" title="Permalink to this heading"></a></h1>
-<p>Interprenet builds constrained neural networks. We currently support monotonic and lipschitz constraints. In this tutorial, we will show how to apply intperpretable constraints to a model trained on the Boston house price dataset.</p>
+<p>Interprenet builds constrained neural networks. We currently support monotonic and lipschitz constraints. In this tutorial, we will show how to apply intperpretable constraints to a model trained on the California house price dataset.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas
-from sklearn.datasets import load_boston
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
 
-bunch = load_boston()
-X = pandas.DataFrame(bunch[&#39;data&#39;], columns=bunch[&#39;feature_names&#39;])
-y = bunch[&#39;target&#39;]
-X
+<span class="n">bunch</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bunch</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">bunch</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">bunch</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span> <span class="c1"># express target variable in units of $10,000 vs $100,000 to avoid values &lt; 1</span>
+<span class="n">X</span>
 </pre></div>
 </div>
 </div>
@@ -443,101 +180,71 @@ X
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>CRIM</th>
-      <th>ZN</th>
-      <th>INDUS</th>
-      <th>CHAS</th>
-      <th>NOX</th>
-      <th>RM</th>
-      <th>AGE</th>
-      <th>DIS</th>
-      <th>RAD</th>
-      <th>TAX</th>
-      <th>PTRATIO</th>
-      <th>B</th>
-      <th>LSTAT</th>
+      <th>MedInc</th>
+      <th>HouseAge</th>
+      <th>AveRooms</th>
+      <th>AveBedrms</th>
+      <th>Population</th>
+      <th>AveOccup</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.00632</td>
-      <td>18.0</td>
-      <td>2.31</td>
-      <td>0.0</td>
-      <td>0.538</td>
-      <td>6.575</td>
-      <td>65.2</td>
-      <td>4.0900</td>
-      <td>1.0</td>
-      <td>296.0</td>
-      <td>15.3</td>
-      <td>396.90</td>
-      <td>4.98</td>
+      <td>8.3252</td>
+      <td>41.0</td>
+      <td>6.984127</td>
+      <td>1.023810</td>
+      <td>322.0</td>
+      <td>2.555556</td>
+      <td>37.88</td>
+      <td>-122.23</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.02731</td>
-      <td>0.0</td>
-      <td>7.07</td>
-      <td>0.0</td>
-      <td>0.469</td>
-      <td>6.421</td>
-      <td>78.9</td>
-      <td>4.9671</td>
-      <td>2.0</td>
-      <td>242.0</td>
-      <td>17.8</td>
-      <td>396.90</td>
-      <td>9.14</td>
+      <td>8.3014</td>
+      <td>21.0</td>
+      <td>6.238137</td>
+      <td>0.971880</td>
+      <td>2401.0</td>
+      <td>2.109842</td>
+      <td>37.86</td>
+      <td>-122.22</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.02729</td>
-      <td>0.0</td>
-      <td>7.07</td>
-      <td>0.0</td>
-      <td>0.469</td>
-      <td>7.185</td>
-      <td>61.1</td>
-      <td>4.9671</td>
-      <td>2.0</td>
-      <td>242.0</td>
-      <td>17.8</td>
-      <td>392.83</td>
-      <td>4.03</td>
+      <td>7.2574</td>
+      <td>52.0</td>
+      <td>8.288136</td>
+      <td>1.073446</td>
+      <td>496.0</td>
+      <td>2.802260</td>
+      <td>37.85</td>
+      <td>-122.24</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.03237</td>
-      <td>0.0</td>
-      <td>2.18</td>
-      <td>0.0</td>
-      <td>0.458</td>
-      <td>6.998</td>
-      <td>45.8</td>
-      <td>6.0622</td>
-      <td>3.0</td>
-      <td>222.0</td>
-      <td>18.7</td>
-      <td>394.63</td>
-      <td>2.94</td>
+      <td>5.6431</td>
+      <td>52.0</td>
+      <td>5.817352</td>
+      <td>1.073059</td>
+      <td>558.0</td>
+      <td>2.547945</td>
+      <td>37.85</td>
+      <td>-122.25</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.06905</td>
-      <td>0.0</td>
-      <td>2.18</td>
-      <td>0.0</td>
-      <td>0.458</td>
-      <td>7.147</td>
-      <td>54.2</td>
-      <td>6.0622</td>
-      <td>3.0</td>
-      <td>222.0</td>
-      <td>18.7</td>
-      <td>396.90</td>
-      <td>5.33</td>
+      <td>3.8462</td>
+      <td>52.0</td>
+      <td>6.281853</td>
+      <td>1.081081</td>
+      <td>565.0</td>
+      <td>2.181467</td>
+      <td>37.85</td>
+      <td>-122.25</td>
     </tr>
     <tr>
       <th>...</th>
@@ -549,95 +256,65 @@ X
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th>501</th>
-      <td>0.06263</td>
-      <td>0.0</td>
-      <td>11.93</td>
-      <td>0.0</td>
-      <td>0.573</td>
-      <td>6.593</td>
-      <td>69.1</td>
-      <td>2.4786</td>
-      <td>1.0</td>
-      <td>273.0</td>
-      <td>21.0</td>
-      <td>391.99</td>
-      <td>9.67</td>
+      <th>20635</th>
+      <td>1.5603</td>
+      <td>25.0</td>
+      <td>5.045455</td>
+      <td>1.133333</td>
+      <td>845.0</td>
+      <td>2.560606</td>
+      <td>39.48</td>
+      <td>-121.09</td>
     </tr>
     <tr>
-      <th>502</th>
-      <td>0.04527</td>
-      <td>0.0</td>
-      <td>11.93</td>
-      <td>0.0</td>
-      <td>0.573</td>
-      <td>6.120</td>
-      <td>76.7</td>
-      <td>2.2875</td>
-      <td>1.0</td>
-      <td>273.0</td>
-      <td>21.0</td>
-      <td>396.90</td>
-      <td>9.08</td>
+      <th>20636</th>
+      <td>2.5568</td>
+      <td>18.0</td>
+      <td>6.114035</td>
+      <td>1.315789</td>
+      <td>356.0</td>
+      <td>3.122807</td>
+      <td>39.49</td>
+      <td>-121.21</td>
     </tr>
     <tr>
-      <th>503</th>
-      <td>0.06076</td>
-      <td>0.0</td>
-      <td>11.93</td>
-      <td>0.0</td>
-      <td>0.573</td>
-      <td>6.976</td>
-      <td>91.0</td>
-      <td>2.1675</td>
-      <td>1.0</td>
-      <td>273.0</td>
-      <td>21.0</td>
-      <td>396.90</td>
-      <td>5.64</td>
+      <th>20637</th>
+      <td>1.7000</td>
+      <td>17.0</td>
+      <td>5.205543</td>
+      <td>1.120092</td>
+      <td>1007.0</td>
+      <td>2.325635</td>
+      <td>39.43</td>
+      <td>-121.22</td>
     </tr>
     <tr>
-      <th>504</th>
-      <td>0.10959</td>
-      <td>0.0</td>
-      <td>11.93</td>
-      <td>0.0</td>
-      <td>0.573</td>
-      <td>6.794</td>
-      <td>89.3</td>
-      <td>2.3889</td>
-      <td>1.0</td>
-      <td>273.0</td>
-      <td>21.0</td>
-      <td>393.45</td>
-      <td>6.48</td>
+      <th>20638</th>
+      <td>1.8672</td>
+      <td>18.0</td>
+      <td>5.329513</td>
+      <td>1.171920</td>
+      <td>741.0</td>
+      <td>2.123209</td>
+      <td>39.43</td>
+      <td>-121.32</td>
     </tr>
     <tr>
-      <th>505</th>
-      <td>0.04741</td>
-      <td>0.0</td>
-      <td>11.93</td>
-      <td>0.0</td>
-      <td>0.573</td>
-      <td>6.030</td>
-      <td>80.8</td>
-      <td>2.5050</td>
-      <td>1.0</td>
-      <td>273.0</td>
-      <td>21.0</td>
-      <td>396.90</td>
-      <td>7.88</td>
+      <th>20639</th>
+      <td>2.3886</td>
+      <td>16.0</td>
+      <td>5.254717</td>
+      <td>1.162264</td>
+      <td>1387.0</td>
+      <td>2.616981</td>
+      <td>39.37</td>
+      <td>-121.24</td>
     </tr>
   </tbody>
 </table>
-<p>506 rows × 13 columns</p>
+<p>20640 rows × 8 columns</p>
 </div></div>
 </div>
 <p>We can get a quick ballpark of which variables exhibit monotonic relations with the target using correlation.</p>
@@ -645,12 +322,12 @@ X
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
 
-correlations = dict(map(reversed,
-         sorted(((numpy.corrcoef(X[column], y)[0, 1], column) for column in X.columns),
-                key=lambda x: -abs(x[0]))))
-correlations
+<span class="n">correlations</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">reversed</span><span class="p">,</span>
+         <span class="nb">sorted</span><span class="p">(((</span><span class="n">numpy</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">column</span><span class="p">],</span> <span class="n">y</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">column</span><span class="p">)</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span>
+                <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))))</span>
+<span class="n">correlations</span>
 </pre></div>
 </div>
 </div>
@@ -660,70 +337,58 @@ correlations
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;LSTAT&#39;: -0.7376627261740148,
- &#39;RM&#39;: 0.695359947071539,
- &#39;PTRATIO&#39;: -0.5077866855375615,
- &#39;INDUS&#39;: -0.4837251600283728,
- &#39;TAX&#39;: -0.46853593356776696,
- &#39;NOX&#39;: -0.4273207723732824,
- &#39;CRIM&#39;: -0.3883046085868114,
- &#39;RAD&#39;: -0.38162623063977746,
- &#39;AGE&#39;: -0.37695456500459606,
- &#39;ZN&#39;: 0.3604453424505433,
- &#39;B&#39;: 0.33346081965706637,
- &#39;DIS&#39;: 0.24992873408590388,
- &#39;CHAS&#39;: 0.17526017719029818}
+{&#39;MedInc&#39;: 0.6880752079585482,
+ &#39;AveRooms&#39;: 0.15194828974145785,
+ &#39;Latitude&#39;: -0.14416027687465913,
+ &#39;HouseAge&#39;: 0.10562341249320988,
+ &#39;AveBedrms&#39;: -0.046700512969486935,
+ &#39;Longitude&#39;: -0.045966615117978504,
+ &#39;Population&#39;: -0.024649678888894896,
+ &#39;AveOccup&#39;: -0.02373741295613434}
 </pre></div></div>
 </div>
-<p>See <a class="reference external" href="https://scikit-learn.org/stable/datasets/toy_dataset.html#boston-dataset">https://scikit-learn.org/stable/datasets/toy_dataset.html#boston-dataset</a> for details on the meaning of each column.</p>
+<p>See <a class="reference external" href="https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset">https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset</a> for details on the meaning of each column.</p>
 <p>Comparing correlation to common sense, it seems the following variables do and should exhibit monotonic relations with the target:</p>
 <ul class="simple">
-<li><p>LSTAT % lower status of the population</p></li>
-<li><p>RM average number of rooms per dwelling</p></li>
-<li><p>CRIM per capita crime rate by town</p></li>
-<li><p>CHAS Charles River dummy variable (= 1 if tract bounds river; 0 otherwise)</p></li>
+<li><p>MedInc median income in block group</p></li>
+<li><p>AveRooms average number of rooms per household</p></li>
 </ul>
-<p>Futhermore, let’s assume it would be unreasonable to expect the rate of change of price with respect to any of the above variables except CHAS and RM (which are not continuous) to be no greater than twice the correlation.</p>
+<p>Futhermore, let’s assume it would be unreasonable to expect the rate of change of price with respect to MedInc (as AveRooms is not continuous) to be no greater than twice the correlation.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import jax
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jax</span>
 
-from mvtk import interprenet
+<span class="kn">from</span> <span class="nn">mvtk</span> <span class="kn">import</span> <span class="n">interprenet</span>
 
-constraints = {
-    &#39;CRIM&#39;: frozenset([interprenet.monotonic_constraint, interprenet.lipschitz_constraint]),
-    &#39;ZN&#39;: frozenset(),
-    &#39;INDUS&#39;: frozenset(),
-    &#39;CHAS&#39;: frozenset([interprenet.monotonic_constraint]),
-    &#39;NOX&#39;: frozenset([interprenet.monotonic_constraint, interprenet.lipschitz_constraint]),
-    &#39;RM&#39;:frozenset([interprenet.monotonic_constraint]),
-    &#39;AGE&#39;: frozenset(),
-    &#39;DIS&#39;: frozenset(),
-    &#39;RAD&#39;: frozenset(),
-    &#39;TAX&#39;: frozenset(),
-    &#39;PTRATIO&#39;: frozenset(),
-    &#39;B&#39;: frozenset(),
-    &#39;LSTAT&#39;: frozenset([interprenet.monotonic_constraint, interprenet.lipschitz_constraint])}
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;MedInc&#39;</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">([</span><span class="n">interprenet</span><span class="o">.</span><span class="n">monotonic_constraint</span><span class="p">,</span> <span class="n">interprenet</span><span class="o">.</span><span class="n">lipschitz_constraint</span><span class="p">]),</span>
+    <span class="s1">&#39;AveRooms&#39;</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">([</span><span class="n">interprenet</span><span class="o">.</span><span class="n">monotonic_constraint</span><span class="p">]),</span>
+    <span class="s1">&#39;Latitude&#39;</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">([</span><span class="n">interprenet</span><span class="o">.</span><span class="n">monotonic_constraint</span><span class="p">]),</span>
+    <span class="s1">&#39;HouseAge&#39;</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">([</span><span class="n">interprenet</span><span class="o">.</span><span class="n">lipschitz_constraint</span><span class="p">]),</span>
+    <span class="s1">&#39;AveBedrms&#39;</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">([</span><span class="n">interprenet</span><span class="o">.</span><span class="n">monotonic_constraint</span><span class="p">]),</span>
+    <span class="s1">&#39;Longitude&#39;</span><span class="p">:</span><span class="nb">frozenset</span><span class="p">(),</span>
+    <span class="s1">&#39;Population&#39;</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">([</span><span class="n">interprenet</span><span class="o">.</span><span class="n">lipschitz_constraint</span><span class="p">]),</span>
+    <span class="s1">&#39;AveOccup&#39;</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">([</span><span class="n">interprenet</span><span class="o">.</span><span class="n">lipschitz_constraint</span><span class="p">])}</span>
 
-def get_scale(column):
-    scale = 1
-    if interprenet.monotonic_constraint in constraints[column]:
-        # monotonic decreasing features need their sign flipped
-        # before entering the neural network
-        scale *= numpy.sign(correlations[column])
-    if interprenet.lipschitz_constraint in constraints[column]:
-        # rescale before applying lipschitz constraint
-        # to match assumptions mentioned in the previous block
-        scale *= 2 * abs(correlations[column])
-    return scale
+<span class="k">def</span> <span class="nf">get_scale</span><span class="p">(</span><span class="n">column</span><span class="p">):</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">interprenet</span><span class="o">.</span><span class="n">monotonic_constraint</span> <span class="ow">in</span> <span class="n">constraints</span><span class="p">[</span><span class="n">column</span><span class="p">]:</span>
+        <span class="c1"># monotonic decreasing features need their sign flipped</span>
+        <span class="c1"># before entering the neural network</span>
+        <span class="n">scale</span> <span class="o">*=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">correlations</span><span class="p">[</span><span class="n">column</span><span class="p">])</span>
+    <span class="c1"># if interprenet.lipschitz_constraint in constraints[column]:</span>
+        <span class="c1"># rescale before applying lipschitz constraint</span>
+        <span class="c1"># to match assumptions mentioned in the previous block</span>
+        <span class="n">scale</span> <span class="o">*=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">correlations</span><span class="p">[</span><span class="n">column</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">scale</span>
 
-rescale = lambda x: x * numpy.asarray(list(map(get_scale, X.columns)))
-init_params, model = interprenet.constrained_model(
-    tuple(constraints[column] for column in X.columns),
-    preprocess=rescale,
-    postprocess=jax.nn.relu) # monotonicity and lipschitz preserving way of eliminating negative prices
+<span class="n">rescale</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">get_scale</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
+<span class="n">init_params</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">interprenet</span><span class="o">.</span><span class="n">constrained_model</span><span class="p">(</span>
+    <span class="nb">tuple</span><span class="p">(</span><span class="n">constraints</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span>
+    <span class="n">preprocess</span><span class="o">=</span><span class="n">rescale</span><span class="p">,</span>
+    <span class="n">postprocess</span><span class="o">=</span><span class="n">jax</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">)</span> <span class="c1"># monotonicity and lipschitz preserving way of eliminating negative prices</span>
 </pre></div>
 </div>
 </div>
@@ -732,20 +397,21 @@ init_params, model = interprenet.constrained_model(
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1701442376.697070       1 tfrt_cpu_pjrt_client.cc:349] TfrtCpuClient created.
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import jax
-from sklearn.model_selection import train_test_split
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
-X_train, X_test, y_train, y_test = train_test_split(jax.numpy.asarray(X.values),
-                                                    jax.numpy.asarray(y.astype(&#39;float&#39;)),
-                                                    test_size=0.2,
-                                                    random_state=0)
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">),</span>
+                                                    <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)),</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -753,15 +419,16 @@ X_train, X_test, y_train, y_test = train_test_split(jax.numpy.asarray(X.values),
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def mean_absolute_percentage_error(y, y_pred):
-    return (abs(y - y_pred) / y).mean()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
-trained_params = interprenet.train((X_train, y_train),
-                                   (X_test, y_test),
-                                   (init_params, model),
-                                   metric=lambda y, y_pred: -mean_absolute_percentage_error(y, y_pred),
-                                   loss_fn=mean_absolute_percentage_error,
-                                   num_epochs=32)
+<span class="n">trained_params</span> <span class="o">=</span> <span class="n">interprenet</span><span class="o">.</span><span class="n">train</span><span class="p">((</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span>
+                                   <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span>
+                                   <span class="p">(</span><span class="n">init_params</span><span class="p">,</span> <span class="n">model</span><span class="p">),</span>
+                                   <span class="n">metric</span><span class="o">=</span><span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">:</span> <span class="o">-</span><span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span>
+                                   <span class="n">loss_fn</span><span class="o">=</span><span class="n">mean_absolute_percentage_error</span><span class="p">,</span>
+                                   <span class="n">num_epochs</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+                                   <span class="n">step_size</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -769,8 +436,8 @@ trained_params = interprenet.train((X_train, y_train),
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>trained_model = lambda X: model(trained_params, X)
-mean_absolute_percentage_error(y_test, trained_model(X_test))
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trained_model</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">X</span><span class="p">:</span> <span class="n">model</span><span class="p">(</span><span class="n">trained_params</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">trained_model</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -780,18 +447,18 @@ mean_absolute_percentage_error(y_test, trained_model(X_test))
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DeviceArray(0.306767, dtype=float32)
+Array(0.45206466, dtype=float32)
 </pre></div></div>
 </div>
-<p>No matter what the values of the other features are (blue lines) increasing CRIM always decreases price, but at a maximum rate.</p>
+<p>No matter what the values of the other features are (blue lines) increasing MedInc always increases price, but at a maximum rate.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pylab as plt
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
 
-interprenet.plot(trained_model, X, &#39;CRIM&#39;)
-plt.show()
+<span class="n">interprenet</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trained_model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;MedInc&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -802,15 +469,15 @@ plt.show()
 <img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_interprenet_Interprenet_10_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_interprenet_Interprenet_10_0.png" />
 </div>
 </div>
-<p>No matter what the values of the other features are (blue lines) increasing LSTAT always decreases price, but at a maximum rate.</p>
+<p>No matter what the values of the other features are (blue lines) increasing Latitude always decreases price.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pylab as plt
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
 
-interprenet.plot(trained_model, X, &#39;LSTAT&#39;)
-plt.show()
+<span class="n">interprenet</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trained_model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;Latitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -821,15 +488,15 @@ plt.show()
 <img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_interprenet_Interprenet_12_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_interprenet_Interprenet_12_0.png" />
 </div>
 </div>
-<p>AGE can increase or decrease the price of the house at unbounded rates.</p>
+<p>HouseAge can increase or decrease the price of the house at unbounded rates.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pylab as plt
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
 
-interprenet.plot(trained_model, X, &#39;AGE&#39;)
-plt.show()
+<span class="n">interprenet</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trained_model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;HouseAge&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -840,15 +507,15 @@ plt.show()
 <img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_interprenet_Interprenet_14_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_interprenet_Interprenet_14_0.png" />
 </div>
 </div>
-<p>RM can only increase the price of the house.</p>
+<p>AveRooms can only increase the price of the house.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pylab as plt
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
 
-interprenet.plot(trained_model, X, &#39;RM&#39;)
-plt.show()
+<span class="n">interprenet</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trained_model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;AveRooms&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -857,6 +524,14 @@ plt.show()
 </div>
 <div class="output_area docutils container">
 <img alt="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_interprenet_Interprenet_16_0.png" src="../../../../../_images/linkcheck_.doctrees_nbsphinx_notebooks_interprenet_Interprenet_16_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 </div>
 </section>

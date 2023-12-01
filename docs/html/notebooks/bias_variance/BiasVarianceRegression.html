@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bias-Variance Decomposition for Regression Problems &mdash; Model Validation Toolkit 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=c58e1459" />
+
+  
+    <link rel="shortcut icon" href="../../_static/logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b1f64a84"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bias-Variance Visualizations" href="BiasVarianceVisualization.html" />
+    <link rel="prev" title="Bias-Variance Decomposition for Classification Problems" href="BiasVarianceClassification.html" />
+ 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BGSHYDJP8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BGSHYDJP8');
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Model Validation Toolkit
+              <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../supervisor_user_guide.html">Supervisor User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credibility_user_guide.html">Credibility User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thresholding_user_guide.html">Thresholding User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interprenet_user_guide.html">Interprenet User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sobol_user_guide.html">Sobol User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bias_variance_user_guide.html">Bias-Variance User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Divergence Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../divergence/Airlines.html">Airlines Dataset: Divergence Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../divergence/DivergenceFunctions.html">Notes on Using Divergence Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../divergence/CategoricalColumns.html">Handling Categorical Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../divergence/BugDetection.html">Dataset Bug Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../divergence/TrainingDatasetDrift.html">Training Dataset Drift Detection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Credibility Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../credibility/Credibility.html">Assessing Credibility From Sample Size</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Thresholding Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../thresholding/Thresholding.html">Introduction to Adaptive Thresholding</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interprenet Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interprenet/Interprenet.html">Introduction to Interprenet</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bias and Metrics Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../metrics/CounteringSampleBias.html">Countering Sample Bias</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bias-Variance Decomposition Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BiasVarianceClassification.html">Bias-Variance Decomposition for Classification Problems</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bias-Variance Decomposition for Regression Problems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Load-the-example-dataset">Load the example dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Scikit-Learn-Example">Scikit-Learn Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Need-to-instantiate-a-wrapper-class-for-usage-by-the-bias-variance-calculation">Need to instantiate a wrapper class for usage by the bias variance calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#PyTorch-Example">PyTorch Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Need to instantiate a wrapper class for usage by the bias variance calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#TensorFlow-example">TensorFlow example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#We-can-run-the-same-bias-variance-calculation-in-parallel-for-faster-execution-(in-general-for-larger-datasets-and-more-intensive-computations)">We can run the same bias variance calculation in parallel for faster execution (in general for larger datasets and more intensive computations)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="BiasVarianceVisualization.html">Bias-Variance Visualizations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../supervisor.html">supervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credibility.html">credibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thresholding.html">thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interprenet.html">interprenet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sobol.html">sobol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metrics.html">metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bias_variance.html">bias_variance</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Model Validation Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Bias-Variance Decomposition for Regression Problems</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/notebooks/bias_variance/BiasVarianceRegression.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Bias-Variance-Decomposition-for-Regression-Problems">
+<h1>Bias-Variance Decomposition for Regression Problems<a class="headerlink" href="#Bias-Variance-Decomposition-for-Regression-Problems" title="Permalink to this heading"></a></h1>
+<p>In this example, we will see how to calculate the bias-variance decomposition for regression problems.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="kn">from</span> <span class="nn">mvtk.bias_variance</span> <span class="kn">import</span> <span class="n">bias_variance_compute</span><span class="p">,</span> <span class="n">bias_variance_mse</span>
+<span class="kn">from</span> <span class="nn">mvtk.bias_variance.estimators</span> <span class="kn">import</span> <span class="n">EstimatorWrapper</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1701450845.494601       1 tfrt_cpu_pjrt_client.cc:349] TfrtCpuClient created.
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_state</span><span class="o">=</span><span class="mi">123</span>
+</pre></div>
+</div>
+</div>
+<section id="Load-the-example-dataset">
+<h2>Load the example dataset<a class="headerlink" href="#Load-the-example-dataset" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">housing</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">housing</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">housing</span><span class="o">.</span><span class="n">target</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Scikit-Learn-Example">
+<h2>Scikit-Learn Example<a class="headerlink" href="#Scikit-Learn-Example" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="kn">from</span> <span class="nn">mvtk.bias_variance.estimators</span> <span class="kn">import</span> <span class="n">SciKitLearnEstimatorWrapper</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_scikit</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Need-to-instantiate-a-wrapper-class-for-usage-by-the-bias-variance-calculation">
+<h2>Need to instantiate a wrapper class for usage by the bias variance calculation<a class="headerlink" href="#Need-to-instantiate-a-wrapper-class-for-usage-by-the-bias-variance-calculation" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_scikit_wrapped</span> <span class="o">=</span> <span class="n">SciKitLearnEstimatorWrapper</span><span class="p">(</span><span class="n">model_scikit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use wrapped estimator</span>
+<span class="n">avg_loss</span><span class="p">,</span> <span class="n">avg_bias</span><span class="p">,</span> <span class="n">avg_var</span><span class="p">,</span> <span class="n">net_var</span> <span class="o">=</span> <span class="n">bias_variance_compute</span><span class="p">(</span><span class="n">model_scikit_wrapped</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                                                             <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span> <span class="n">decomp_fn</span><span class="o">=</span><span class="n">bias_variance_mse</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average loss: </span><span class="si">{</span><span class="n">avg_loss</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average bias: </span><span class="si">{</span><span class="n">avg_bias</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average variance: </span><span class="si">{</span><span class="n">avg_var</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;net variance: </span><span class="si">{</span><span class="n">net_var</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+average loss: 0.59902430
+average bias: 0.52119134
+average variance: 0.07783295
+net variance: 0.07783295
+</pre></div></div>
+</div>
+</section>
+<section id="PyTorch-Example">
+<h2>PyTorch Example<a class="headerlink" href="#PyTorch-Example" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+
+<span class="kn">from</span> <span class="nn">mvtk.bias_variance.estimators</span> <span class="kn">import</span> <span class="n">PyTorchEstimatorWrapper</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_torch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">X_test_torch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">y_train_torch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y_test_torch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ModelPyTorch</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear4</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear4</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_pytorch</span> <span class="o">=</span> <span class="n">ModelPyTorch</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model_pytorch</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>Need to instantiate a wrapper class for usage by the bias variance calculation<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">optimizer_generator</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_pytorch_wrapped</span> <span class="o">=</span> <span class="n">PyTorchEstimatorWrapper</span><span class="p">(</span><span class="n">model_pytorch</span><span class="p">,</span> <span class="n">optimizer_generator</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use wrapped estimator</span>
+<span class="n">avg_loss</span><span class="p">,</span> <span class="n">avg_bias</span><span class="p">,</span> <span class="n">avg_var</span><span class="p">,</span> <span class="n">net_var</span> <span class="o">=</span> <span class="n">bias_variance_compute</span><span class="p">(</span><span class="n">model_pytorch_wrapped</span><span class="p">,</span> <span class="n">X_train_torch</span><span class="p">,</span> <span class="n">y_train_torch</span><span class="p">,</span> <span class="n">X_test_torch</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span>
+                                                             <span class="n">iterations</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span> <span class="n">decomp_fn</span><span class="o">=</span><span class="n">bias_variance_mse</span><span class="p">,</span>
+                                                             <span class="n">fit_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average loss: </span><span class="si">{</span><span class="n">avg_loss</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average bias: </span><span class="si">{</span><span class="n">avg_bias</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average variance: </span><span class="si">{</span><span class="n">avg_var</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;net variance: </span><span class="si">{</span><span class="n">net_var</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+average loss: 153.52321480
+average bias: 5.05105724
+average variance: 148.47215756
+net variance: 148.47215756
+</pre></div></div>
+</div>
+</section>
+<section id="TensorFlow-example">
+<h2>TensorFlow example<a class="headerlink" href="#TensorFlow-example" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">initializers</span>
+
+<span class="kn">from</span> <span class="nn">mvtk.bias_variance.estimators</span> <span class="kn">import</span> <span class="n">TensorFlowEstimatorWrapper</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tensorflow</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="n">initializers</span><span class="o">.</span><span class="n">glorot_uniform</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="n">initializers</span><span class="o">.</span><span class="n">glorot_uniform</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="n">initializers</span><span class="o">.</span><span class="n">glorot_uniform</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tensorflow</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">legacy</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">),</span>
+             <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_absolute_error&#39;</span><span class="p">,</span>
+             <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean_squared_error&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tensorflow_wrapped</span> <span class="o">=</span> <span class="n">TensorFlowEstimatorWrapper</span><span class="p">(</span><span class="n">model_tensorflow</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use wrapped estimator</span>
+<span class="n">avg_loss</span><span class="p">,</span> <span class="n">avg_bias</span><span class="p">,</span> <span class="n">avg_var</span><span class="p">,</span> <span class="n">net_var</span> <span class="o">=</span> <span class="n">bias_variance_compute</span><span class="p">(</span><span class="n">model_tensorflow_wrapped</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                                                             <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span> <span class="n">decomp_fn</span><span class="o">=</span><span class="n">bias_variance_mse</span><span class="p">,</span>
+                                                             <span class="n">fit_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+                                                             <span class="n">predict_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average loss: </span><span class="si">{</span><span class="n">avg_loss</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average bias: </span><span class="si">{</span><span class="n">avg_bias</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average variance: </span><span class="si">{</span><span class="n">avg_var</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;net variance: </span><span class="si">{</span><span class="n">net_var</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+average loss: 12.15213883
+average bias: 3.08502204
+average variance: 9.06711679
+net variance: 9.06711679
+</pre></div></div>
+</div>
+</section>
+<section id="We-can-run-the-same-bias-variance-calculation-in-parallel-for-faster-execution-(in-general-for-larger-datasets-and-more-intensive-computations)">
+<h2>We can run the same bias variance calculation in parallel for faster execution (in general for larger datasets and more intensive computations)<a class="headerlink" href="#We-can-run-the-same-bias-variance-calculation-in-parallel-for-faster-execution-(in-general-for-larger-datasets-and-more-intensive-computations)" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mvtk.bias_variance</span> <span class="kn">import</span> <span class="n">bias_variance_compute_parallel</span>
+
+<span class="n">avg_loss</span><span class="p">,</span> <span class="n">avg_bias</span><span class="p">,</span> <span class="n">avg_var</span><span class="p">,</span> <span class="n">net_var</span> <span class="o">=</span> <span class="n">bias_variance_compute_parallel</span><span class="p">(</span><span class="n">model_tensorflow_wrapped</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span>
+                                                                      <span class="n">iterations</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
+                                                                      <span class="n">decomp_fn</span><span class="o">=</span><span class="n">bias_variance_mse</span><span class="p">,</span>
+                                                                      <span class="n">fit_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+                                                                      <span class="n">predict_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average loss: </span><span class="si">{</span><span class="n">avg_loss</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average bias: </span><span class="si">{</span><span class="n">avg_bias</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average variance: </span><span class="si">{</span><span class="n">avg_var</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;net variance: </span><span class="si">{</span><span class="n">net_var</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2023-12-01 12:15:52,912 INFO worker.py:1673 -- Started a local Ray instance.
+<span class="ansi-cyan-fg">(pid=73435)</span> WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+<span class="ansi-cyan-fg">(pid=73435)</span> I0000 00:00:1701450956.584361       1 tfrt_cpu_pjrt_client.cc:349] TfrtCpuClient created.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+average loss: 7.90420163
+average bias: 4.06288774
+average variance: 3.84131389
+net variance: 3.84131389
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="BiasVarianceClassification.html" class="btn btn-neutral float-left" title="Bias-Variance Decomposition for Classification Problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="BiasVarianceVisualization.html" class="btn btn-neutral float-right" title="Bias-Variance Visualizations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Model Validation Toolkit Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
