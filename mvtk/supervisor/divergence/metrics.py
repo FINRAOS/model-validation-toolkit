@@ -474,7 +474,8 @@ def calc_kl_density(density_p, density_q):
 
 @public.add
 def calc_kl_mle(sample_distribution_p, sample_distribution_q):
-    r"""Kullback–Leibler (KL) divergence calculated via histogram based density estimators.
+    r"""Kullback–Leibler (KL) divergence calculated via histogram based density
+    estimators.
 
     For two distributions, :math:`p` and :math:`q` defined over the same
     probability space, `\mathcal{X}`, the KL divergence is defined as

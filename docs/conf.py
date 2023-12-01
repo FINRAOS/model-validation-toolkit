@@ -23,7 +23,7 @@ copyright = "2021, Model Validation Toolkit Team"
 author = "Model Validation Toolkit Team"
 
 # The full version, including alpha/beta/rc tags
-release = "0.0.1"
+release = "0.2.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -73,8 +73,8 @@ html_favicon = html_logo
 # A fix for Sphinx error contents.rst not found
 master_doc = "index"
 
-# increase the timeout for long running notebooks
-nbsphinx_timeout = 180
+# increase the timeout for long-running notebooks
+nbsphinx_timeout = 900
 
 # Don't show full paths
 add_module_names = False

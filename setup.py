@@ -13,7 +13,12 @@ extras_require = {
         "sphinxcontrib-bibtex",
         "imageio",
         "myst-parser",
-    ]
+        "ipykernel",
+        "torch",
+        "tensorflow",
+    ],
+    "pytorch": ["torch"],
+    "tensorflow": ["tensorflow"],
 }
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -35,10 +40,10 @@ setup(
         "Operating System :: POSIX :: Linux",
     ],
     install_requires=[
-        "jax>=0.2.8",
+        "jax>=0.2.8,<=0.4.16",
         "public>=2020.12.3",
         "fastcore>=1.3.25",
-        "jaxlib>=0.1.23",
+        "jaxlib>=0.1.23,<=0.4.16",
         "scikit-learn",
         "numpy",
         "matplotlib",
@@ -46,6 +51,7 @@ setup(
         "seaborn",
         "pandas>=0.23.4",
         "tqdm",
+        "ray",
     ],
     extras_require=extras_require,
     url="https://finraos.github.io/model-validation-toolkit/",

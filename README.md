@@ -32,6 +32,7 @@ You can import:
 - `mvtk.sobol` for Sobol sensitivity analysis
 - `mvtk.supervisor` for divergence analysis
 - `mvtk.metrics` for specialised metrics
+- `mvtk.bias_variance` for bias-variance decomposition
 
 # Documentation
 You can run `make -C docs html` on a Mac or `make.bat -C docs html` on a PC to just rebuild the docs. In this case, point your browser to ```docs/_build/html/index.html``` to view the homepage. If your browser was already pointing to documentation that you changed, you can refresh the page to see the changes.

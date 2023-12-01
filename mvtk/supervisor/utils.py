@@ -12,7 +12,6 @@ from typing import List
 from itertools import combinations
 from fastcore.imports import in_notebook
 
-
 if in_notebook():
     from tqdm import tqdm_notebook as tqdm
 else:
@@ -20,9 +19,7 @@ else:
 
 
 @public.add
-def parallel(
-    func, arr: Collection, max_workers: int = None, show_progress: bool = False
-):
+def parallel(func, arr: Collection, max_workers=None, show_progress: bool = False):
     """
     NOTE: This code was adapted from the ``parallel`` function
         within Fastai's Fastcore library. Key differences include

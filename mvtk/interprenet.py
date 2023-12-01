@@ -138,7 +138,7 @@ def constrained_model(
 ):
     """Create a neural network with groups of constraints assigned to each
     feature. Separate constrained neural networks are generated for each group
-    of contraints. Each feature is fed into exactly one of these neural
+    of constraints. Each feature is fed into exactly one of these neural
     networks (the one that matches its assigned group of constraints). The
     output of these constrained neural networks are concatenated and fed into
     one final neural network that obeys the union of all constraints applied.
@@ -228,8 +228,8 @@ def batch_generator(X, y, balance=False):
     if balance:
         weights = jax.numpy.empty(len(y))
         p = jax.numpy.mean(y)
-        weights = jax.ops.index_update(weights, y == 1, 1 / p)
-        weights = jax.ops.index_update(weights, y == 0, 1 / (1 - p))
+        weights = weights[y == 1].set(1 / p)
+        weights = weights[y == 0].set(1 / (1 - p))
         weights /= weights.sum()
         weights = jax.numpy.clip(weights, 0, 1)
     else:
@@ -367,10 +367,9 @@ def plot(
         [i for i, column in enumerate(data.columns) if column != feature], dtype="int32"
     )
     all_scores = []
+    data_values = jax.numpy.asarray(data.values[feature_idx])
     for replacement in all_values[:, rest]:
-        fixed_values = jax.ops.index_update(
-            data.values[feature_idx], jax.ops.index[:, rest], replacement
-        )
+        fixed_values = data_values.at[jax.numpy.index_exp[:, rest]].set(replacement)
         scores = model(fixed_values)
         all_scores.append(scores)
         plt.plot(feature_values, scores, "b", alpha=0.125)
